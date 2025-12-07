@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pich Chanthorn Portfolio</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <div class="logo-text">
+                <p class="logo-name">Pich Chanthorn</p>
+                <p class="role">Full-Stack Developer</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <a href="index.html" class="nav-link active">
+                <i data-lucide="home"></i>
+                <span>Home</span>
+            </a>
+            <a href="about.html" class="nav-link">
+                <i data-lucide="user"></i>
+                <span>About</span>
+            </a>
+            <a href="skills.html" class="nav-link">
+                <i data-lucide="code-2"></i>
+                <span>Skills</span>
+            </a>
+            <a href="projects.html" class="nav-link">
+                <i data-lucide="folder-kanban"></i>
+                <span>Projects</span>
+            </a>
+            <a href="certificates.html" class="nav-link">
+                <i data-lucide="award"></i>
+                <span>Certificates</span>
+            </a>
+            <a href="education.html" class="nav-link">
+                <i data-lucide="graduation-cap"></i>
+                <span>Education</span>
+            </a>
+            <a href="experience.html" class="nav-link">
+                <i data-lucide="briefcase"></i>
+                <span>Experience</span>
+            </a>
+            <a href="contact.html" class="nav-link">
+                <i data-lucide="mail"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            © 2025 Pich Chanthorn
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+        <div class="page-container">
+
+            <!-- HERO (2 columns) -->
+            <section class="hero">
+
+                <!-- LEFT SIDE -->
+                <div class="hero-left reveal">
+                    <p class="hero-subtitle">Welcome to my portfolio</p>
+
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="highlight">Pich<br>Chanthorn</span>
+                    </h1>
+
+                    <h2 class="hero-role">
+                        IT Student &amp; Future Full-Stack Developer
+                    </h2>
+
+                    <p class="hero-text">
+                        I'm passionate about building modern, responsive, and user-friendly web
+                        applications. Currently studying Information Technology at Build Bright
+                        University, I am developing strong skills in web development, UI/UX design,
+                        and database systems. My goal is to become a professional full-stack
+                        developer who can design and build complete digital solutions.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="projects.html" class="btn primary">View Projects</a>
+                        <a href="#" class="btn outline">Download CV</a>
+                    </div>
+
+                    <!-- STATS -->
+                    <section class="stats reveal">
+                        <!-- Card 1 -->
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i data-lucide="briefcase"></i>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-number" data-target="5">0</p>
+                                <span class="stat-plus">+</span>
+                                <p class="stat-label">
+                                    Projects<br>
+                                    Completed
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i data-lucide="calendar-days"></i>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-number" data-target="12">0</p>
+                                <span class="stat-plus">+</span>
+                                <p class="stat-label">
+                                    Months<br>
+                                    Experience
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- RIGHT SIDE – PROFILE RING -->
+                <div class="hero-right reveal">
+                    <div class="avatar-ring">
+                        <div class="avatar-inner">
+                            <img
+                                src="assets/img/profile.png"
+                                alt="Profile photo of Pich Chanthorn"
+                                class="avatar-img"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <p>© 2025 Pich Chanthorn. All rights reserved.</p>
+                <p>Built with HTML, CSS &amp; JavaScript</p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
