@@ -2,7 +2,7 @@
 
 ---
 
-## 📌 README.md (Version Professional – Recommended)
+## 📌Pich Chanthorn – Personal Portfolio Website
 
 ```md
 # Pich Chanthorn – Personal Portfolio Website
