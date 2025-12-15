@@ -103,4 +103,3 @@ This website and its content are personal and proprietary.
 Viewing is permitted for evaluation and reference purposes only.
 Reproduction, distribution, or reuse of any part of this project
 without explicit permission is not allowed.
-
