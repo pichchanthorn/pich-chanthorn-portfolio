@@ -13,48 +13,52 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo Section -->
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
-                <i data-lucide="home"></i>
-                <span>Home</span>
+                <i data-lucide="home"></i><span>Home</span>
             </a>
             <a href="about.html" class="nav-link">
-                <i data-lucide="user"></i>
-                <span>About</span>
+                <i data-lucide="user"></i><span>About</span>
             </a>
             <a href="skills.html" class="nav-link">
-                <i data-lucide="code-2"></i>
-                <span>Skills</span>
+                <i data-lucide="code-2"></i><span>Skills</span>
             </a>
             <a href="projects.html" class="nav-link active">
-                <i data-lucide="layout-panel-left"></i>
-                <span>Projects</span>
+                <i data-lucide="layout-panel-left"></i><span>Projects</span>
             </a>
             <a href="certificates.html" class="nav-link">
-                <i data-lucide="award"></i>
-                <span>Certificates</span>
+                <i data-lucide="award"></i><span>Certificates</span>
             </a>
             <a href="education.html" class="nav-link">
-                <i data-lucide="graduation-cap"></i>
-                <span>Education</span>
+                <i data-lucide="graduation-cap"></i><span>Education</span>
             </a>
             <a href="experience.html" class="nav-link">
-                <i data-lucide="briefcase"></i>
-                <span>Experience</span>
+                <i data-lucide="briefcase"></i><span>Experience</span>
             </a>
             <a href="contact.html" class="nav-link">
-                <i data-lucide="mail"></i>
-                <span>Contact</span>
+                <i data-lucide="mail"></i><span>Contact</span>
             </a>
         </nav>
 
@@ -64,12 +68,14 @@
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container">
 
-            <!-- HEADER -->
-            <section class="page-header">
-                <h1 class="title">My <span class="highlight">Projects</span></h1>
+            <!-- PAGE HEADER -->
+            <section class="page-header reveal">
+                <h1 class="title">
+                    My <span class="highlight">Projects</span>
+                </h1>
                 <p class="subtitle">
                     Here are some of the projects I've worked on. Each one represents
                     a learning experience and a step forward in my development journey.
@@ -77,210 +83,213 @@
             </section>
 
             <!-- PROJECTS GRID -->
-            <section class="projects-grid">
-            <!-- CARD 1 -->
-            <article class="project-card">
-                <div class="project-thumb">
-                    <img src="assets/img/modern-e-commerce-platform-dark-theme.jpg" 
-                        alt="E-Commerce Platform" />
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">E-Commerce Platform</h3>
-                    <p class="project-description">
-                        A full-featured online store with product catalog, shopping cart, 
-                        and checkout flow for a smooth shopping experience.
-                    </p>
+            <section class="projects-grid reveal" aria-label="Project list">
 
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
+                <!-- PROJECT CARD -->
+                <article class="project-card">
+                    <div class="project-thumb">
+                        <img src="assets/img/modern-e-commerce-platform-dark-theme.jpg"
+                             alt="E-Commerce Platform project preview" />
                     </div>
+                    <div class="project-body">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            A full-featured online store with product catalog, shopping cart,
+                            and checkout flow for a smooth shopping experience.
+                        </p>
 
-                    <div class="project-actions">
-                        <a href="project-ecommerce.html" class="btn ghost small">
-                            <i data-lucide="code-2"></i><span>Code</span>
-                        </a>
-                        <a href="project-ecommerce.html" class="btn primary small">
-                            <i data-lucide="external-link"></i><span>Demo</span>
-                        </a>
-                        <a href="project-ecommerce.html#about-project" class="project-go">
-                            <i data-lucide="arrow-right"></i>
-                        </a>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a href="project-ecommerce.html" class="btn ghost small">
+                                <i data-lucide="code-2"></i><span>Code</span>
+                            </a>
+                            <a href="project-ecommerce.html" class="btn primary small">
+                                <i data-lucide="external-link"></i><span>Demo</span>
+                            </a>
+                            <a href="project-ecommerce.html#about-project" class="project-go">
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <!-- CARD 2 -->
-            <article class="project-card">
-                <div class="project-thumb">
-                    <img src="assets/img/dark-modern-portfolio-website.jpg" 
-                        alt="Portfolio Website" />
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">Portfolio Website</h3>
-                    <p class="project-description">
-                        A personal portfolio showcasing my skills, projects, and certificates.
-                    </p>
-
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
+                <!-- PROJECT CARD -->
+                <article class="project-card">
+                    <div class="project-thumb">
+                        <img src="assets/img/dark-modern-portfolio-website.jpg"
+                             alt="Portfolio Website project preview" />
                     </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-description">
+                            A personal portfolio showcasing my skills, projects, and certificates.
+                        </p>
 
-                    <div class="project-actions">
-                        <a href="project-portfolio.html" class="btn ghost small">
-                            <i data-lucide="code-2"></i><span>Code</span>
-                        </a>
-                        <a href="project-portfolio.html" class="btn primary small">
-                            <i data-lucide="external-link"></i><span>Demo</span>
-                        </a>
-                        <a href="project-portfolio.html#about-project" class="project-go">
-                            <i data-lucide="arrow-right"></i>
-                        </a>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a href="project-portfolio.html" class="btn ghost small">
+                                <i data-lucide="code-2"></i><span>Code</span>
+                            </a>
+                            <a href="project-portfolio.html" class="btn primary small">
+                                <i data-lucide="external-link"></i><span>Demo</span>
+                            </a>
+                            <a href="project-portfolio.html#about-project" class="project-go">
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <!-- CARD 3 -->
-            <article class="project-card">
-                <div class="project-thumb">
-                    <img src="assets/img/student-management-dashboard-dark-theme.jpg" 
-                        alt="Student Management System" />
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">Student Management System</h3>
-                    <p class="project-description">
-                        A basic CRUD system for managing students, classes, and grades.
-                    </p>
-
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
+                <!-- PROJECT CARD -->
+                <article class="project-card">
+                    <div class="project-thumb">
+                        <img src="assets/img/student-management-dashboard-dark-theme.jpg"
+                             alt="Student Management System project preview" />
                     </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Student Management System</h3>
+                        <p class="project-description">
+                            A basic CRUD system for managing students, classes, and grades.
+                        </p>
 
-                    <div class="project-actions">
-                        <a href="project-student-system.html" class="btn ghost small">
-                            <i data-lucide="code-2"></i><span>Code</span>
-                        </a>
-                        <a href="project-student-system.html" class="btn primary small">
-                            <i data-lucide="external-link"></i><span>Demo</span>
-                        </a>
-                        <a href="project-student-system.html#about-project" class="project-go">
-                            <i data-lucide="arrow-right"></i>
-                        </a>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a href="project-student-system.html" class="btn ghost small">
+                                <i data-lucide="code-2"></i><span>Code</span>
+                            </a>
+                            <a href="project-student-system.html" class="btn primary small">
+                                <i data-lucide="external-link"></i><span>Demo</span>
+                            </a>
+                            <a href="project-student-system.html#about-project" class="project-go">
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <!-- CARD 4 -->
-            <article class="project-card">
-                <div class="project-thumb">
-                    <img src="assets/img/task-management-app-interface-dark-mode.jpg"
-                        alt="Task Management App" />
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">Task Management App</h3>
-                    <p class="project-description">
-                        A Trello-style task management app with drag-and-drop UI.
-                    </p>
-
-                    <div class="project-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">LocalStorage</span>
+                <!-- PROJECT CARD -->
+                <article class="project-card">
+                    <div class="project-thumb">
+                        <img src="assets/img/task-management-app-interface-dark-mode.jpg"
+                             alt="Task Management App project preview" />
                     </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">
+                            A Trello-style task management app with drag-and-drop UI.
+                        </p>
 
-                    <div class="project-actions">
-                        <a href="project-task-management.html" class="btn ghost small">
-                            <i data-lucide="code-2"></i><span>Code</span>
-                        </a>
-                        <a href="project-task-management.html" class="btn primary small">
-                            <i data-lucide="external-link"></i><span>Demo</span>
-                        </a>
-                        <a href="project-task-management.html#about-project" class="project-go">
-                            <i data-lucide="arrow-right"></i>
-                        </a>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">LocalStorage</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a href="project-task-management.html" class="btn ghost small">
+                                <i data-lucide="code-2"></i><span>Code</span>
+                            </a>
+                            <a href="project-task-management.html" class="btn primary small">
+                                <i data-lucide="external-link"></i><span>Demo</span>
+                            </a>
+                            <a href="project-task-management.html#about-project" class="project-go">
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <!-- CARD 5 -->
-            <article class="project-card">
-                <div class="project-thumb">
-                    <img src="assets/img/blog-cms-dashboard-dark-theme.jpg"
-                        alt="Blog & CMS Platform" />
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">Blog & CMS Platform</h3>
-                    <p class="project-description">
-                        A blog platform with dashboard for posts and categories.
-                    </p>
-
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
+                <!-- PROJECT CARD -->
+                <article class="project-card">
+                    <div class="project-thumb">
+                        <img src="assets/img/blog-cms-dashboard-dark-theme.jpg"
+                             alt="Blog and CMS Platform project preview" />
                     </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Blog & CMS Platform</h3>
+                        <p class="project-description">
+                            A blog platform with dashboard for posts and categories.
+                        </p>
 
-                    <div class="project-actions">
-                        <a href="project-blog-cms.html" class="btn ghost small">
-                            <i data-lucide="code-2"></i><span>Code</span>
-                        </a>
-                        <a href="project-blog-cms.html" class="btn primary small">
-                            <i data-lucide="external-link"></i><span>Demo</span>
-                        </a>
-                        <a href="project-blog-cms.html#about-project" class="project-go">
-                            <i data-lucide="arrow-right"></i>
-                        </a>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a href="project-blog-cms.html" class="btn ghost small">
+                                <i data-lucide="code-2"></i><span>Code</span>
+                            </a>
+                            <a href="project-blog-cms.html" class="btn primary small">
+                                <i data-lucide="external-link"></i><span>Demo</span>
+                            </a>
+                            <a href="project-blog-cms.html#about-project" class="project-go">
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <!-- CARD 6 -->
-            <article class="project-card">
-                <div class="project-thumb">
-                    <img src="assets/img/modern-landing-page-collection-dark.jpg"
-                        alt="Landing Page UI Collection" />
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">Landing Page UI Collection</h3>
-                    <p class="project-description">
-                        A collection of modern landing page UIs for frontend practice.
-                    </p>
-
-                    <div class="project-tags">
-                        <span class="tag">Figma</span>
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
+                <!-- PROJECT CARD -->
+                <article class="project-card">
+                    <div class="project-thumb">
+                        <img src="assets/img/modern-landing-page-collection-dark.jpg"
+                             alt="Landing Page UI Collection project preview" />
                     </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Landing Page UI Collection</h3>
+                        <p class="project-description">
+                            A collection of modern landing page UIs for frontend practice.
+                        </p>
 
-                    <div class="project-actions">
-                        <a href="project-landing-ui.html" class="btn ghost small">
-                            <i data-lucide="code-2"></i><span>Code</span>
-                        </a>
-                        <a href="project-landing-ui.html" class="btn primary small">
-                            <i data-lucide="external-link"></i><span>Demo</span>
-                        </a>
-                        <a href="project-landing-ui.html#about-project" class="project-go">
-                            <i data-lucide="arrow-right"></i>
-                        </a>
+                        <div class="project-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a href="project-landing-ui.html" class="btn ghost small">
+                                <i data-lucide="code-2"></i><span>Code</span>
+                            </a>
+                            <a href="project-landing-ui.html" class="btn primary small">
+                                <i data-lucide="external-link"></i><span>Demo</span>
+                            </a>
+                            <a href="project-landing-ui.html#about-project" class="project-go">
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-        </section>
-
+            </section>
 
             <!-- FOOTER -->
             <footer class="site-footer">
                 <p>© 2025 Pich Chanthorn. All rights reserved.</p>
                 <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>
+
         </div>
     </main>
 
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
     <script>
         lucide.createIcons();
     </script>

@@ -13,48 +13,50 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
-                <i data-lucide="home"></i>
-                <span>Home</span>
+                <i data-lucide="home"></i><span>Home</span>
             </a>
             <a href="about.html" class="nav-link">
-                <i data-lucide="user"></i>
-                <span>About</span>
+                <i data-lucide="user"></i><span>About</span>
             </a>
             <a href="skills.html" class="nav-link">
-                <i data-lucide="code-2"></i>
-                <span>Skills</span>
+                <i data-lucide="code-2"></i><span>Skills</span>
             </a>
             <a href="projects.html" class="nav-link active">
-                <i data-lucide="layout-panel-left"></i>
-                <span>Projects</span>
+                <i data-lucide="layout-panel-left"></i><span>Projects</span>
             </a>
             <a href="certificates.html" class="nav-link">
-                <i data-lucide="award"></i>
-                <span>Certificates</span>
+                <i data-lucide="award"></i><span>Certificates</span>
             </a>
             <a href="education.html" class="nav-link">
-                <i data-lucide="graduation-cap"></i>
-                <span>Education</span>
+                <i data-lucide="graduation-cap"></i><span>Education</span>
             </a>
             <a href="experience.html" class="nav-link">
-                <i data-lucide="briefcase"></i>
-                <span>Experience</span>
+                <i data-lucide="briefcase"></i><span>Experience</span>
             </a>
             <a href="contact.html" class="nav-link">
-                <i data-lucide="mail"></i>
-                <span>Contact</span>
+                <i data-lucide="mail"></i><span>Contact</span>
             </a>
         </nav>
 
@@ -64,7 +66,7 @@
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container project-detail-page">
 
             <!-- Back link -->
@@ -98,7 +100,6 @@
             <!-- HERO IMAGE -->
             <section class="project-hero">
                 <div class="project-hero-image">
-                    <!-- ប្រើរូបដូច card ក្នុង projects.html -->
                     <img
                         src="assets/img/kanban-task-board-dark-mode.jpg"
                         alt="Task Management App UI"
@@ -106,16 +107,16 @@
                 </div>
             </section>
 
-            <!-- LAYOUT: MAIN + SIDEBAR -->
+            <!-- PROJECT LAYOUT -->
             <section class="project-detail-layout" id="about-project">
 
-                <!-- LEFT SIDE -->
+                <!-- LEFT -->
                 <div class="project-detail-main">
 
-                    <!-- About this project -->
+                    <!-- ABOUT -->
                     <section class="project-section">
                         <h2 class="section-title">
-                            <i data-lucide="info" class="section-title-icon"></i>
+                            <i data-lucide="info"></i>
                             About this <span class="highlight">Project</span>
                         </h2>
 
@@ -138,92 +139,51 @@
                         </p>
                     </section>
 
-                    <!-- Key Features -->
+                    <!-- FEATURES -->
                     <section class="project-section">
                         <h3 class="section-title">
-                            <i data-lucide="layers" class="section-title-icon"></i>
+                            <i data-lucide="layers"></i>
                             Key <span class="highlight">Features</span>
                         </h3>
 
                         <div class="feature-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="columns-3"></i>
-                                </div>
-                                <span>Board layout with columns for different task statuses.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="square-plus"></i>
-                                </div>
-                                <span>Add new tasks with title and optional description.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="move-3d"></i>
-                                </div>
-                                <span>Move tasks between columns (e.g., To Do → In Progress → Done).</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="trash-2"></i>
-                                </div>
-                                <span>Delete completed tasks that are no longer needed.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="save"></i>
-                                </div>
-                                <span>
-                                    Save task data locally using JavaScript (and optionally LocalStorage).
-                                </span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="monitor-smartphone"></i>
-                                </div>
-                                <span>Responsive layout for both desktop and mobile screens.</span>
-                            </div>
+                            <div class="feature-item"><i data-lucide="columns-3"></i><span>Board layout with task columns</span></div>
+                            <div class="feature-item"><i data-lucide="square-plus"></i><span>Add tasks with title & description</span></div>
+                            <div class="feature-item"><i data-lucide="move-3d"></i><span>Move tasks between statuses</span></div>
+                            <div class="feature-item"><i data-lucide="trash-2"></i><span>Delete completed tasks</span></div>
+                            <div class="feature-item"><i data-lucide="save"></i><span>Save data with LocalStorage</span></div>
+                            <div class="feature-item"><i data-lucide="monitor-smartphone"></i><span>Responsive layout</span></div>
                         </div>
                     </section>
 
-                    <!-- Key Achievements -->
+                    <!-- ACHIEVEMENTS -->
                     <section class="project-section">
                         <h3 class="section-title-sm">
-                            <i data-lucide="award" class="section-title-icon"></i>
+                            <i data-lucide="award"></i>
                             Key <span class="highlight">Achievements</span>
                         </h3>
 
                         <div class="achievements-list">
                             <div class="achievement-item">
-                                <div class="achievement-badge">1</div>
-                                <p>
-                                    Practiced building interactive drag-and-drop style interfaces
-                                    using JavaScript logic.
-                                </p>
+                                <span class="achievement-badge">1</span>
+                                <p>Built interactive task logic using JavaScript.</p>
                             </div>
                             <div class="achievement-item">
-                                <div class="achievement-badge">2</div>
-                                <p>
-                                    Improved understanding of how to structure components for boards,
-                                    columns, and tasks.
-                                </p>
+                                <span class="achievement-badge">2</span>
+                                <p>Improved component structure for boards & tasks.</p>
                             </div>
                             <div class="achievement-item">
-                                <div class="achievement-badge">3</div>
-                                <p>
-                                    Created a reusable layout that can be adapted for other productivity
-                                    tools in the future.
-                                </p>
+                                <span class="achievement-badge">3</span>
+                                <p>Created a reusable productivity layout.</p>
                             </div>
                         </div>
                     </section>
+
                 </div>
 
-                <!-- RIGHT SIDEBAR -->
+                <!-- RIGHT -->
                 <aside class="project-detail-sidebar">
 
-                    <!-- Tech Stack -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Tech Stack</h3>
                         <div class="sidebar-tags">
@@ -234,37 +194,24 @@
                         </div>
                     </div>
 
-                    <!-- Project Links -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Project Links</h3>
-                        <div class="sidebar-actions">
-                            <a href="#" class="btn ghost full">
-                                <i data-lucide="github"></i>
-                                <span>View Source Code</span>
-                            </a>
-                            <a href="#" class="btn primary full">
-                                <i data-lucide="external-link"></i>
-                                <span>Live Demo</span>
-                            </a>
-                        </div>
+                        <a href="#" class="btn ghost full">
+                            <i data-lucide="github"></i>
+                            <span>View Source Code</span>
+                        </a>
+                        <a href="#" class="btn primary full">
+                            <i data-lucide="external-link"></i>
+                            <span>Live Demo</span>
+                        </a>
                     </div>
 
-                    <!-- Other projects -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Other Projects</h3>
                         <ul class="other-projects">
-                            <li>
-                                <span class="dot"></span>
-                                <span>E-Commerce Platform</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Portfolio Website</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Student Management System</span>
-                            </li>
+                            <li>E-Commerce Platform</li>
+                            <li>Portfolio Website</li>
+                            <li>Student Management System</li>
                         </ul>
                     </div>
 
@@ -276,6 +223,7 @@
                 <p>© 2025 Pich Chanthorn. All rights reserved.</p>
                 <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>
+
         </div>
     </main>
 

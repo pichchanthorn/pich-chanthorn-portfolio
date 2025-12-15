@@ -13,48 +13,52 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo -->
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
-                <i data-lucide="home"></i>
-                <span>Home</span>
+                <i data-lucide="home"></i><span>Home</span>
             </a>
             <a href="about.html" class="nav-link">
-                <i data-lucide="user"></i>
-                <span>About</span>
+                <i data-lucide="user"></i><span>About</span>
             </a>
             <a href="skills.html" class="nav-link">
-                <i data-lucide="code-2"></i>
-                <span>Skills</span>
+                <i data-lucide="code-2"></i><span>Skills</span>
             </a>
             <a href="projects.html" class="nav-link active">
-                <i data-lucide="layout-panel-left"></i>
-                <span>Projects</span>
+                <i data-lucide="layout-panel-left"></i><span>Projects</span>
             </a>
             <a href="certificates.html" class="nav-link">
-                <i data-lucide="award"></i>
-                <span>Certificates</span>
+                <i data-lucide="award"></i><span>Certificates</span>
             </a>
             <a href="education.html" class="nav-link">
-                <i data-lucide="graduation-cap"></i>
-                <span>Education</span>
+                <i data-lucide="graduation-cap"></i><span>Education</span>
             </a>
             <a href="experience.html" class="nav-link">
-                <i data-lucide="briefcase"></i>
-                <span>Experience</span>
+                <i data-lucide="briefcase"></i><span>Experience</span>
             </a>
             <a href="contact.html" class="nav-link">
-                <i data-lucide="mail"></i>
-                <span>Contact</span>
+                <i data-lucide="mail"></i><span>Contact</span>
             </a>
         </nav>
 
@@ -64,7 +68,7 @@
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container project-detail-page">
 
             <!-- Back link -->
@@ -98,21 +102,20 @@
             <!-- HERO IMAGE -->
             <section class="project-hero">
                 <div class="project-hero-image">
-                    <!-- ប្រើរូប portfolio របស់អ្នកក្នុង assets/img -->
                     <img
                         src="assets/img/dark-portfolio-website-green-accents.jpg"
-                        alt="Portfolio Website UI"
+                        alt="Portfolio website UI design"
                     />
                 </div>
             </section>
 
-            <!-- LAYOUT: MAIN + SIDEBAR -->
+            <!-- PROJECT LAYOUT -->
             <section class="project-detail-layout" id="about-project">
 
-                <!-- LEFT SIDE -->
+                <!-- LEFT -->
                 <div class="project-detail-main">
 
-                    <!-- About this project -->
+                    <!-- ABOUT -->
                     <section class="project-section">
                         <h2 class="section-title">
                             <i data-lucide="info" class="section-title-icon"></i>
@@ -127,20 +130,19 @@
                         </p>
 
                         <p class="project-text">
-                            The site includes dedicated sections for my skills, projects,
-                            education, certificates, and work experience. Each section is
-                            structured to be easy to navigate and optimized for both desktop
-                            and mobile screens.
+                            The site includes dedicated sections for skills, projects, education,
+                            certificates, and work experience. Each section is structured for
+                            clarity and smooth navigation on both desktop and mobile devices.
                         </p>
 
                         <p class="project-text">
-                            The goal of this project is to have a central place where I can
-                            showcase real-world work, track my growth over time, and share
-                            my contact information with future employers or collaborators.
+                            The goal of this project is to provide a single professional platform
+                            where I can showcase real-world work, track my growth, and connect
+                            with future employers or collaborators.
                         </p>
                     </section>
 
-                    <!-- Key Features -->
+                    <!-- FEATURES -->
                     <section class="project-section">
                         <h3 class="section-title">
                             <i data-lucide="layers" class="section-title-icon"></i>
@@ -148,93 +150,43 @@
                         </h3>
 
                         <div class="feature-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="monitor"></i>
-                                </div>
-                                <span>Responsive design for desktop, tablet, and mobile.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="layout-dashboard"></i>
-                                </div>
-                                <span>
-                                    Sidebar navigation with smooth active state and hover effects.
-                                </span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="sparkles"></i>
-                                </div>
-                                <span>
-                                    Modern dark UI with green accent colors and soft shadows.
-                                </span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="file-text"></i>
-                                </div>
-                                <span>
-                                    Separate pages for Skills, Projects, Certificates, Education,
-                                    and Experience.
-                                </span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="mouse-pointer-click"></i>
-                                </div>
-                                <span>
-                                    Clickable project cards that open detailed case-study pages.
-                                </span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="brain"></i>
-                                </div>
-                                <span>
-                                    Content focused on web development, UI/UX, database, and AI tools.
-                                </span>
-                            </div>
+                            <div class="feature-item"><i data-lucide="monitor"></i><span>Responsive layout for all devices</span></div>
+                            <div class="feature-item"><i data-lucide="layout-dashboard"></i><span>Sidebar navigation with active states</span></div>
+                            <div class="feature-item"><i data-lucide="sparkles"></i><span>Modern dark UI with green accents</span></div>
+                            <div class="feature-item"><i data-lucide="file-text"></i><span>Multi-page structure for clear content</span></div>
+                            <div class="feature-item"><i data-lucide="mouse-pointer-click"></i><span>Project cards linking to case studies</span></div>
+                            <div class="feature-item"><i data-lucide="brain"></i><span>Focus on web, UI/UX, database & AI tools</span></div>
                         </div>
                     </section>
 
-                    <!-- Key Achievements -->
+                    <!-- ACHIEVEMENTS -->
                     <section class="project-section">
                         <h3 class="section-title-sm">
-                            <i data-lucide="award" class="section-title-icon"></i>
+                            <i data-lucide="award"></i>
                             Key <span class="highlight">Achievements</span>
                         </h3>
 
                         <div class="achievements-list">
                             <div class="achievement-item">
-                                <div class="achievement-badge">1</div>
-                                <p>
-                                    Designed a consistent design system (colors, typography, spacing)
-                                    that can be reused across future projects.
-                                </p>
+                                <span class="achievement-badge">1</span>
+                                <p>Created a reusable design system for future projects.</p>
                             </div>
                             <div class="achievement-item">
-                                <div class="achievement-badge">2</div>
-                                <p>
-                                    Practiced semantic HTML structure and clean reusable CSS
-                                    for multi-page layouts.
-                                </p>
+                                <span class="achievement-badge">2</span>
+                                <p>Practiced semantic HTML and clean, reusable CSS.</p>
                             </div>
                             <div class="achievement-item">
-                                <div class="achievement-badge">3</div>
-                                <p>
-                                    Improved portfolio presentation by clearly organizing skills,
-                                    projects, and achievements in one place.
-                                </p>
+                                <span class="achievement-badge">3</span>
+                                <p>Improved professional presentation of skills and experience.</p>
                             </div>
                         </div>
                     </section>
+
                 </div>
 
-                <!-- RIGHT SIDEBAR -->
+                <!-- RIGHT -->
                 <aside class="project-detail-sidebar">
 
-                    <!-- Tech Stack -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Tech Stack</h3>
                         <div class="sidebar-tags">
@@ -245,37 +197,24 @@
                         </div>
                     </div>
 
-                    <!-- Project Links -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Project Links</h3>
-                        <div class="sidebar-actions">
-                            <a href="#" class="btn ghost full">
-                                <i data-lucide="github"></i>
-                                <span>View Source Code</span>
-                            </a>
-                            <a href="#" class="btn primary full">
-                                <i data-lucide="external-link"></i>
-                                <span>Live Demo</span>
-                            </a>
-                        </div>
+                        <a href="#" class="btn ghost full">
+                            <i data-lucide="github"></i>
+                            <span>View Source Code</span>
+                        </a>
+                        <a href="#" class="btn primary full">
+                            <i data-lucide="external-link"></i>
+                            <span>Live Demo</span>
+                        </a>
                     </div>
 
-                    <!-- Other projects -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Other Projects</h3>
                         <ul class="other-projects">
-                            <li>
-                                <span class="dot"></span>
-                                <span>E-Commerce Platform</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Student Management System</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Task Management App</span>
-                            </li>
+                            <li>E-Commerce Platform</li>
+                            <li>Student Management System</li>
+                            <li>Task Management App</li>
                         </ul>
                     </div>
 
@@ -287,6 +226,7 @@
                 <p>© 2025 Pich Chanthorn. All rights reserved.</p>
                 <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>
+
         </div>
     </main>
 

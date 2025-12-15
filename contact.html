@@ -13,17 +13,27 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
                 <i data-lucide="home"></i><span>Home</span>
             </a>
@@ -50,11 +60,13 @@
             </a>
         </nav>
 
-        <p class="sidebar-footer">© 2025 Pich Chanthorn</p>
+        <div class="sidebar-footer">
+            © 2025 Pich Chanthorn
+        </div>
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container contact-page">
 
             <!-- HEADER -->
@@ -67,69 +79,46 @@
 
             <!-- CONTACT LAYOUT -->
             <section class="contact-layout reveal">
-                
+
                 <!-- LEFT: INFO -->
                 <div class="contact-info">
 
-                    <div class="contact-card">
+                    <article class="contact-card">
                         <i data-lucide="mail"></i>
                         <div>
                             <p class="contact-label">Email</p>
                             <p class="contact-value">pich_chanthorn@pp.bbu.edu.kh</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="contact-card">
+                    <article class="contact-card">
                         <i data-lucide="phone"></i>
                         <div>
                             <p class="contact-label">Phone</p>
                             <p class="contact-value">097 310 0485</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="contact-card">
+                    <article class="contact-card">
                         <i data-lucide="map-pin"></i>
                         <div>
                             <p class="contact-label">Location</p>
                             <p class="contact-value">Phnom Penh, Cambodia</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Social Links -->
+                    <!-- SOCIAL LINKS -->
                     <div class="social-links">
-                        <!-- YouTube -->
-                        <a href="https://www.youtube.com/@chanthornpich" 
-                           class="social-btn" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="YouTube">
+                        <a href="https://www.youtube.com/@chanthornpich" class="social-btn" target="_blank" aria-label="YouTube">
                             <i data-lucide="youtube"></i>
                         </a>
-
-                        <!-- GitHub -->
-                        <a href="https://github.com/pichchanthorn" 
-                           class="social-btn" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="GitHub">
+                        <a href="https://github.com/pichchanthorn" class="social-btn" target="_blank" aria-label="GitHub">
                             <i data-lucide="github"></i>
                         </a>
-
-                        <!-- LinkedIn -->
-                        <a href="https://www.linkedin.com/in/pichchanthorn/" 
-                           class="social-btn" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/pichchanthorn/" class="social-btn" target="_blank" aria-label="LinkedIn">
                             <i data-lucide="linkedin"></i>
                         </a>
-
-                        <!-- Facebook -->
-                        <a href="https://www.facebook.com/chanthornpich.kh1" 
-                           class="social-btn" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Facebook">
+                        <a href="https://www.facebook.com/chanthornpich.kh1" class="social-btn" target="_blank" aria-label="Facebook">
                             <i data-lucide="facebook"></i>
                         </a>
                     </div>
@@ -137,10 +126,10 @@
                 </div>
 
                 <!-- RIGHT: FORM -->
-                <div class="contact-form-card">
+                <article class="contact-form-card">
                     <h3 class="form-title">Send Me a Message</h3>
 
-                    <form action="#" class="contact-form">
+                    <form class="contact-form">
                         <div class="form-group">
                             <label>Your Name</label>
                             <input type="text" placeholder="Enter your name" required />
@@ -161,12 +150,12 @@
                             <span>Send Message</span>
                         </button>
                     </form>
-                </div>
+                </article>
 
             </section>
 
             <!-- FOOTER -->
-            <footer class="site-footer reveal">
+            <footer class="site-footer">
                 <p>© 2025 Pich Chanthorn. All rights reserved.</p>
                 <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>

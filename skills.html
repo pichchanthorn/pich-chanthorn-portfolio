@@ -13,10 +13,21 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo Section -->
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
@@ -24,188 +35,227 @@
         </div>
 
         <!-- Navigation -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
                 <i data-lucide="home"></i><span>Home</span>
             </a>
+
             <a href="about.html" class="nav-link">
                 <i data-lucide="user"></i><span>About</span>
             </a>
+
             <a href="skills.html" class="nav-link active">
                 <i data-lucide="code-2"></i><span>Skills</span>
             </a>
+
             <a href="projects.html" class="nav-link">
                 <i data-lucide="folder-kanban"></i><span>Projects</span>
             </a>
+
             <a href="certificates.html" class="nav-link">
                 <i data-lucide="award"></i><span>Certificates</span>
             </a>
+
             <a href="education.html" class="nav-link">
                 <i data-lucide="graduation-cap"></i><span>Education</span>
             </a>
+
             <a href="experience.html" class="nav-link">
                 <i data-lucide="briefcase"></i><span>Experience</span>
             </a>
+
             <a href="contact.html" class="nav-link">
                 <i data-lucide="mail"></i><span>Contact</span>
             </a>
         </nav>
 
-        <p class="sidebar-footer">© 2025 Pich Chanthorn</p>
+        <div class="sidebar-footer">
+            © 2025 Pich Chanthorn
+        </div>
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container skills-page">
 
             <!-- PAGE HEADER -->
             <section class="page-header reveal">
-                <h1 class="title">My <span class="highlight">Skills</span></h1>
+                <h1 class="title">
+                    My <span class="highlight">Skills</span>
+                </h1>
                 <p class="subtitle">
                     Here are the technologies, tools, and AI skills I use to build modern web applications.
                 </p>
             </section>
 
             <!-- TECHNICAL SKILLS -->
-            <section class="reveal">
-                <h2 class="section-heading">Technical <span class="highlight">Skills</span></h2>
+            <section class="reveal" aria-labelledby="technical-skills-title">
+                <h2 id="technical-skills-title" class="section-heading">
+                    Technical <span class="highlight">Skills</span>
+                </h2>
 
                 <div class="skills-grid">
 
-                    <!-- HTML -->
-                    <div class="skill-card">
+                    <!-- Skill Card -->
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">HTML</p>
+                            <span class="skill-name">HTML</span>
                             <span class="skill-percent">80%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill html"></div>
                         </div>
-                        <p class="skill-desc">Strong understanding of semantic HTML structure.</p>
-                    </div>
+                        <p class="skill-desc">
+                            Strong understanding of semantic HTML structure.
+                        </p>
+                    </article>
 
-                    <!-- CSS -->
-                    <div class="skill-card">
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">CSS</p>
+                            <span class="skill-name">CSS</span>
                             <span class="skill-percent">75%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill css"></div>
                         </div>
-                        <p class="skill-desc">Building modern UI using Flexbox, Grid, and animations.</p>
-                    </div>
+                        <p class="skill-desc">
+                            Building modern UI using Flexbox, Grid, and animations.
+                        </p>
+                    </article>
 
-                    <!-- JavaScript -->
-                    <div class="skill-card">
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">JavaScript</p>
+                            <span class="skill-name">JavaScript</span>
                             <span class="skill-percent">65%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill js"></div>
                         </div>
-                        <p class="skill-desc">DOM manipulation, events, logic, and interactive UI.</p>
-                    </div>
+                        <p class="skill-desc">
+                            DOM manipulation, events, logic, and interactive UI.
+                        </p>
+                    </article>
 
-                    <!-- Bootstrap -->
-                    <div class="skill-card">
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">Bootstrap</p>
+                            <span class="skill-name">Bootstrap</span>
                             <span class="skill-percent">70%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill bootstrap"></div>
                         </div>
-                        <p class="skill-desc">Fast UI building with components & responsive grids.</p>
-                    </div>
+                        <p class="skill-desc">
+                            Fast UI building with components and responsive grids.
+                        </p>
+                    </article>
 
-                    <!-- TailwindCSS -->
-                    <div class="skill-card">
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">TailwindCSS</p>
+                            <span class="skill-name">TailwindCSS</span>
                             <span class="skill-percent">70%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill tailwind"></div>
                         </div>
-                        <p class="skill-desc">Utility-first design for rapid modern development.</p>
-                    </div>
+                        <p class="skill-desc">
+                            Utility-first design for rapid modern development.
+                        </p>
+                    </article>
 
-                    <!-- MySQL -->
-                    <div class="skill-card">
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">MySQL</p>
+                            <span class="skill-name">MySQL</span>
                             <span class="skill-percent">60%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill mysql"></div>
                         </div>
-                        <p class="skill-desc">Database design, queries, and data management.</p>
-                    </div>
+                        <p class="skill-desc">
+                            Database design, queries, and data management.
+                        </p>
+                    </article>
 
-                    <!-- Git -->
-                    <div class="skill-card">
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">Git & GitHub</p>
+                            <span class="skill-name">Git &amp; GitHub</span>
                             <span class="skill-percent">70%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill git"></div>
                         </div>
-                        <p class="skill-desc">Version control, branches, and collaboration.</p>
-                    </div>
+                        <p class="skill-desc">
+                            Version control, branches, and collaboration.
+                        </p>
+                    </article>
 
-                    <!-- Figma -->
-                    <div class="skill-card">
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">Figma (UI/UX)</p>
+                            <span class="skill-name">Figma (UI/UX)</span>
                             <span class="skill-percent">65%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill figma"></div>
                         </div>
-                        <p class="skill-desc">Wireframes, mockups, and interactive prototypes.</p>
-                    </div>
+                        <p class="skill-desc">
+                            Wireframes, mockups, and interactive prototypes.
+                        </p>
+                    </article>
 
-                    <!-- AI -->
-                    <div class="skill-card">
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">AI Tools & Prompting</p>
+                            <span class="skill-name">AI Tools & Prompting</span>
                             <span class="skill-percent">75%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill ai"></div>
                         </div>
                         <p class="skill-desc">
-                            Using AI (ChatGPT, Copilot, Gemini) for coding, debugging, research & creative tasks.
+                            Using AI tools for coding, debugging, research, and creativity.
                         </p>
-                    </div>
+                    </article>
 
-                    <!-- Canva -->
-                    <div class="skill-card">
+                    <article class="skill-card">
                         <div class="skill-header">
-                            <p class="skill-name">Canva</p>
+                            <span class="skill-name">Canva</span>
                             <span class="skill-percent">70%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-fill canva"></div>
                         </div>
-                        <p class="skill-desc">Posters, presentations, social media content, and graphic design.</p>
-                    </div>
+                        <p class="skill-desc">
+                            Posters, presentations, social media content, and graphic design.
+                        </p>
+                    </article>
 
                 </div>
             </section>
 
             <!-- SOFT SKILLS -->
-            <section class="soft-skills reveal">
-                <h2 class="section-heading">Soft <span class="highlight">Skills</span></h2>
+            <section class="soft-skills reveal" aria-labelledby="soft-skills-title">
+                <h2 id="soft-skills-title" class="section-heading">
+                    Soft <span class="highlight">Skills</span>
+                </h2>
 
                 <div class="soft-grid">
-                    <div class="soft-card"><h3>English Communication</h3><p>Clear communication for teamwork & documentation.</p></div>
-                    <div class="soft-card"><h3>Problem Solving</h3><p>Breaking issues into steps and solving with logic or AI tools.</p></div>
-                    <div class="soft-card"><h3>Team Collaboration</h3><p>Working with classmates, sharing tasks, and GitHub teamwork.</p></div>
-                    <div class="soft-card"><h3>Time Management</h3><p>Balancing classes, self-study, and projects with planning.</p></div>
+                    <article class="soft-card">
+                        <h3>English Communication</h3>
+                        <p>Clear communication for teamwork and documentation.</p>
+                    </article>
+
+                    <article class="soft-card">
+                        <h3>Problem Solving</h3>
+                        <p>Breaking issues into steps and solving with logic or AI tools.</p>
+                    </article>
+
+                    <article class="soft-card">
+                        <h3>Team Collaboration</h3>
+                        <p>Working with classmates, sharing tasks, and GitHub teamwork.</p>
+                    </article>
+
+                    <article class="soft-card">
+                        <h3>Time Management</h3>
+                        <p>Balancing classes, self-study, and projects with planning.</p>
+                    </article>
                 </div>
             </section>
 

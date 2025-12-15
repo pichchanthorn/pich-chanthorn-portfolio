@@ -1,14 +1,106 @@
-នេះគឺជាគេហទំព័រផលប័ត្រផ្ទាល់ខ្លួនរបស់ខ្ញុំ ដែលត្រូវបានរចនា និងអភិវឌ្ឍដោយប្រើ HTML, CSS និង JavaScript។
+​
 
-វាបង្ហាញពីប្រវត្តិរបស់ខ្ញុំជានិស្សិតបច្ចេកវិទ្យាព័ត៌មាននៅសាកលវិទ្យាល័យ Build Bright ដែលមានលក្ខណៈពិសេសៗដូចជា៖
+---
 
-• ទំព័រដើម — ការណែនាំផ្ទាល់ខ្លួន និងតំណភ្ជាប់សង្គម
-• អំពី — សេចក្តីសង្ខេបវិជ្ជាជីវៈ និងតម្លៃផ្ទាល់ខ្លួន
-• ជំនាញ — ជំនាញបច្ចេកទេស និងជំនាញទន់ជាមួយរបារវឌ្ឍនភាពដែលមានចលនា
-• គម្រោង — គម្រោងពិភពពិត និងការរចនា UI/UX
-• វិញ្ញាបនបត្រ — វិញ្ញាបនបត្រដែលបានផ្ទៀងផ្ទាត់ពី Google, Cisco, Coursera និងច្រើនទៀត
-• ការអប់រំ — លទ្ធផល BBU, GPA និងវឌ្ឍនភាពសិក្សា
-• បទពិសោធន៍ — បទពិសោធន៍ជាក់ស្តែង និងសមិទ្ធផល
-• ទំនាក់ទំនង — តំណភ្ជាប់ប្រព័ន្ធផ្សព្វផ្សាយសង្គម និងព័ត៌មានទំនាក់ទំនង
+## 📌 README.md (Version Professional – Recommended)
 
-UI ទំនើប ឆ្លើយតបយ៉ាងពេញលេញ ការរចនាស្បែកងងឹត និងធ្វើឱ្យប្រសើរឡើងសម្រាប់ការបង្ហោះ GitHub Pages។
+```md
+# Pich Chanthorn – Personal Portfolio Website
+
+This is my personal portfolio website, created to showcase my profile, skills, projects, and experience as an Information Technology student and aspiring Full-Stack Developer.
+
+The website is designed with a clean, modern, and professional UI, focusing on desktop users for the best viewing experience.
+
+---
+
+## 🖥️ Best Viewing Experience
+
+⚠️ **Important Notice**
+
+This portfolio website is currently optimized for **desktop and laptop screens**.
+
+- ✅ Best experience on desktop / laptop
+- ⚠️ Mobile and small-screen devices are **not fully optimized yet**
+- Some layouts may appear limited or less spacious on mobile devices
+
+Mobile responsiveness and improved cross-device support are planned for future updates.
+
+---
+
+## 🚀 Current Features
+
+- Professional sidebar navigation
+- Clean hero section with personal introduction
+- Skills, projects, certificates, education, and experience pages
+- Consistent dark theme UI
+- Desktop-first layout design
+- Organized project structure
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3 (Custom CSS)
+- JavaScript (Vanilla JS)
+- Lucide Icons
+- Git & GitHub
+
+---
+
+## 📂 Project Structure
+
+​
+
+assets/
+├── css/
+│   └── style.css
+├── img/
+├── js/
+│   └── main.js
+index.html
+about.html
+skills.html
+projects.html
+certificates.html
+education.html
+experience.html
+contact.html
+README.md
+
+​
+
+---
+
+## 🔄 Future Improvements (Planned)
+
+- ✅ Improve mobile responsiveness
+- ✅ Optimize layout for tablets and smartphones
+- ✅ Add animations and micro-interactions
+- ✅ Performance optimization
+- ✅ Additional projects and content updates
+
+This project will continue to evolve and improve over time.
+
+---
+
+## 👤 Author
+
+**Pich Chanthorn**  
+IT Student – Build Bright University  
+Aspiring Full-Stack Developer  
+
+- GitHub: https://github.com/pichchanthorn
+- LinkedIn: https://www.linkedin.com/in/pichchanthorn/
+
+---
+
+## 📄 License
+
+© 2025 Pich Chanthorn. All rights reserved.
+
+This website and its content are personal and proprietary.
+Viewing is permitted for evaluation and reference purposes only.
+Reproduction, distribution, or reuse of any part of this project
+without explicit permission is not allowed.
+

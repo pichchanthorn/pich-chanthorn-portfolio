@@ -13,46 +13,62 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <!-- Navigation -->
-        <nav class="nav">
+        <!-- NAVIGATION -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link active">
                 <i data-lucide="home"></i>
                 <span>Home</span>
             </a>
+
             <a href="about.html" class="nav-link">
                 <i data-lucide="user"></i>
                 <span>About</span>
             </a>
+
             <a href="skills.html" class="nav-link">
                 <i data-lucide="code-2"></i>
                 <span>Skills</span>
             </a>
+
             <a href="projects.html" class="nav-link">
                 <i data-lucide="folder-kanban"></i>
                 <span>Projects</span>
             </a>
+
             <a href="certificates.html" class="nav-link">
                 <i data-lucide="award"></i>
                 <span>Certificates</span>
             </a>
+
             <a href="education.html" class="nav-link">
                 <i data-lucide="graduation-cap"></i>
                 <span>Education</span>
             </a>
+
             <a href="experience.html" class="nav-link">
                 <i data-lucide="briefcase"></i>
                 <span>Experience</span>
             </a>
+
             <a href="contact.html" class="nav-link">
                 <i data-lucide="mail"></i>
                 <span>Contact</span>
@@ -65,18 +81,21 @@
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container">
 
-            <!-- HERO (2 columns) -->
+            <!-- HERO SECTION -->
             <section class="hero">
 
-                <!-- LEFT SIDE -->
+                <!-- HERO LEFT -->
                 <div class="hero-left reveal">
                     <p class="hero-subtitle">Welcome to my portfolio</p>
 
                     <h1 class="hero-title">
-                        Hi, I'm <span class="highlight">Pich<br>Chanthorn</span>
+                        Hi, I'm
+                        <span class="highlight">
+                            Pich<br />Chanthorn
+                        </span>
                     </h1>
 
                     <h2 class="hero-role">
@@ -92,51 +111,55 @@
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="projects.html" class="btn primary">View Projects</a>
-                        <a href="#" class="btn outline">Download CV</a>
+                        <a href="projects.html" class="btn primary">
+                            View Projects
+                        </a>
+                        <a href="#" class="btn outline">
+                            Download CV
+                        </a>
                     </div>
 
                     <!-- STATS -->
-                    <section class="stats reveal">
-                        <!-- Card 1 -->
+                    <section class="stats reveal" aria-label="Statistics">
+
                         <div class="stat-card">
                             <div class="stat-icon">
                                 <i data-lucide="briefcase"></i>
                             </div>
                             <div class="stat-info">
-                                <p class="stat-number" data-target="5">0</p>
+                                <span class="stat-number" data-target="5">0</span>
                                 <span class="stat-plus">+</span>
                                 <p class="stat-label">
-                                    Projects<br>
+                                    Projects<br />
                                     Completed
                                 </p>
                             </div>
                         </div>
 
-                        <!-- Card 2 -->
                         <div class="stat-card">
                             <div class="stat-icon">
                                 <i data-lucide="calendar-days"></i>
                             </div>
                             <div class="stat-info">
-                                <p class="stat-number" data-target="12">0</p>
+                                <span class="stat-number" data-target="12">0</span>
                                 <span class="stat-plus">+</span>
                                 <p class="stat-label">
-                                    Months<br>
+                                    Months<br />
                                     Experience
                                 </p>
                             </div>
                         </div>
+
                     </section>
                 </div>
 
-                <!-- RIGHT SIDE – PROFILE RING -->
+                <!-- HERO RIGHT -->
                 <div class="hero-right reveal">
                     <div class="avatar-ring">
                         <div class="avatar-inner">
                             <img
                                 src="assets/img/profile.png"
-                                alt="Profile photo of Pich Chanthorn"
+                                alt="Portrait of Pich Chanthorn"
                                 class="avatar-img"
                             />
                         </div>

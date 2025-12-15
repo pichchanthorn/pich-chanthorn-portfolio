@@ -13,48 +13,52 @@
 </head>
 <body>
 
-    <!-- SIDEBAR (ដូចទំព័រ​ផ្សេងៗ) -->
-    <aside class="sidebar">
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo -->
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
-                <i data-lucide="home"></i>
-                <span>Home</span>
+                <i data-lucide="home"></i><span>Home</span>
             </a>
             <a href="about.html" class="nav-link">
-                <i data-lucide="user"></i>
-                <span>About</span>
+                <i data-lucide="user"></i><span>About</span>
             </a>
             <a href="skills.html" class="nav-link">
-                <i data-lucide="code-2"></i>
-                <span>Skills</span>
+                <i data-lucide="code-2"></i><span>Skills</span>
             </a>
             <a href="projects.html" class="nav-link active">
-                <i data-lucide="layout-panel-left"></i>
-                <span>Projects</span>
+                <i data-lucide="layout-panel-left"></i><span>Projects</span>
             </a>
             <a href="certificates.html" class="nav-link">
-                <i data-lucide="award"></i>
-                <span>Certificates</span>
+                <i data-lucide="award"></i><span>Certificates</span>
             </a>
             <a href="education.html" class="nav-link">
-                <i data-lucide="graduation-cap"></i>
-                <span>Education</span>
+                <i data-lucide="graduation-cap"></i><span>Education</span>
             </a>
             <a href="experience.html" class="nav-link">
-                <i data-lucide="briefcase"></i>
-                <span>Experience</span>
+                <i data-lucide="briefcase"></i><span>Experience</span>
             </a>
             <a href="contact.html" class="nav-link">
-                <i data-lucide="mail"></i>
-                <span>Contact</span>
+                <i data-lucide="mail"></i><span>Contact</span>
             </a>
         </nav>
 
@@ -64,23 +68,23 @@
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container project-detail-page">
 
-            <!-- Breadcrumb -->
+            <!-- BACK LINK -->
             <a href="projects.html" class="breadcrumb-link">
                 <i data-lucide="arrow-left"></i>
                 <span>Back to Projects</span>
             </a>
 
-            <!-- TITLE + META -->
+            <!-- PROJECT HEADER -->
             <header class="project-detail-header">
                 <h1 class="project-detail-title">
                     E-Commerce <span class="highlight">Platform</span>
                 </h1>
                 <p class="project-detail-subtitle">
-                    A full-featured online store with product catalog, shopping cart, and checkout
-                    flow for a smooth shopping experience.
+                    A full-featured online store with product catalog, shopping cart,
+                    and checkout flow for a smooth shopping experience.
                 </p>
 
                 <div class="project-detail-meta">
@@ -89,7 +93,7 @@
                         <span>2024</span>
                     </div>
                     <div class="meta-item">
-                        <i data-lucide="user-2"></i>
+                        <i data-lucide="user-check"></i>
                         <span>Full-Stack Developer</span>
                     </div>
                 </div>
@@ -100,35 +104,37 @@
                 <div class="project-hero-image">
                     <img
                         src="assets/img/modern-e-commerce-platform-dark-theme-shopping.jpg"
-                        alt="E-Commerce Platform UI"
+                        alt="E-Commerce platform user interface"
                     />
                 </div>
             </section>
 
-            <!-- MAIN LAYOUT: LEFT content + RIGHT sidebar -->
-            <section class="project-detail-layout">
+            <!-- PROJECT LAYOUT -->
+            <section class="project-detail-layout" id="about-project">
 
-                <!-- LEFT COLUMN -->
+                <!-- LEFT: MAIN CONTENT -->
                 <div class="project-detail-main">
 
-                    <!-- ABOUT (anchor) -->
-                    <section id="about-project" class="project-section">
+                    <!-- ABOUT -->
+                    <section class="project-section">
                         <h2 class="section-title">
                             About this <span class="highlight">Project</span>
                         </h2>
+
                         <p class="project-text">
-                            A responsive e-commerce website that includes product listing, search/filter,
-                            product details, cart system, and checkout process. This project focuses on
-                            UI/UX design, database structure, and performance optimization.
+                            This E-Commerce Platform is a responsive web application that simulates
+                            a complete online shopping experience. It includes product browsing,
+                            detailed product pages, cart management, and a checkout flow.
                         </p>
+
                         <p class="project-text">
-                            The platform provides a complete shopping experience from browsing products
-                            to completing purchases. Special attention was given to creating an intuitive
-                            user interface and efficient database queries for fast loading times.
+                            The project focuses on UI/UX design, data structure planning, and
+                            performance optimization to ensure fast loading and smooth interaction
+                            for users.
                         </p>
                     </section>
 
-                    <!-- KEY FEATURES -->
+                    <!-- FEATURES -->
                     <section class="project-section">
                         <h3 class="section-title">
                             <i data-lucide="layers" class="section-title-icon"></i>
@@ -136,76 +142,43 @@
                         </h3>
 
                         <div class="feature-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="check-circle-2"></i>
-                                </div>
-                                <span>Product catalog with categories</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="check-circle-2"></i>
-                                </div>
-                                <span>Search and filter functionality</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="check-circle-2"></i>
-                                </div>
-                                <span>Product details page</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="check-circle-2"></i>
-                                </div>
-                                <span>Shopping cart system</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="check-circle-2"></i>
-                                </div>
-                                <span>Checkout flow</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="check-circle-2"></i>
-                                </div>
-                                <span>Admin CRUD operations</span>
-                            </div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Product catalog with categories</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Search and filter system</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Product detail pages</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Shopping cart functionality</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Checkout process</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Admin CRUD operations</span></div>
                         </div>
                     </section>
 
-                    <!-- KEY ACHIEVEMENTS -->
+                    <!-- ACHIEVEMENTS -->
                     <section class="project-section">
                         <h3 class="section-title-sm">
-                            <i data-lucide="award" class="section-icon"></i>
+                            <i data-lucide="award"></i>
                             Key <span class="highlight">Achievements</span>
                         </h3>
 
                         <div class="achievements-list">
                             <div class="achievement-item">
-                                <div class="achievement-badge">1</div>
-                                <p>Built complete shopping flow from browsing to checkout.</p>
+                                <span class="achievement-badge">1</span>
+                                <p>Built a complete shopping flow from browsing to checkout.</p>
                             </div>
-
                             <div class="achievement-item">
-                                <div class="achievement-badge">2</div>
-                                <p>Designed efficient database schema for products and orders.</p>
+                                <span class="achievement-badge">2</span>
+                                <p>Designed an efficient database structure for products and orders.</p>
                             </div>
-
                             <div class="achievement-item">
-                                <div class="achievement-badge">3</div>
-                                <p>Optimized UI/UX for better user experience and faster loading.</p>
+                                <span class="achievement-badge">3</span>
+                                <p>Optimized UI/UX for better performance and user experience.</p>
                             </div>
                         </div>
                     </section>
 
                 </div>
 
-                <!-- RIGHT COLUMN (SIDEBAR) -->
+                <!-- RIGHT: SIDEBAR -->
                 <aside class="project-detail-sidebar">
 
-                    <!-- Tech Stack -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Tech Stack</h3>
                         <div class="sidebar-tags">
@@ -217,43 +190,28 @@
                         </div>
                     </div>
 
-                    <!-- Project Links -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Project Links</h3>
-                        <div class="sidebar-actions">
-                            <a href="#" class="btn ghost full">
-                                <i data-lucide="github"></i>
-                                <span>View Source Code</span>
-                            </a>
-                            <a href="#" class="btn primary full">
-                                <i data-lucide="monitor-play"></i>
-                                <span>Live Demo</span>
-                            </a>
-                        </div>
+                        <a href="#" class="btn ghost full">
+                            <i data-lucide="github"></i>
+                            <span>View Source Code</span>
+                        </a>
+                        <a href="#" class="btn primary full">
+                            <i data-lucide="monitor-play"></i>
+                            <span>Live Demo</span>
+                        </a>
                     </div>
 
-                    <!-- Other Projects (optional demo text) -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Other Projects</h3>
                         <ul class="other-projects">
-                            <li>
-                                <span class="dot"></span>
-                                <span>E-Commerce Platform</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Portfolio Website</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Student Management System</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Task Management App</span>
-                            </li>
+                            <li>Portfolio Website</li>
+                            <li>Student Management System</li>
+                            <li>Task Management App</li>
+                            <li>Blog & CMS Platform</li>
                         </ul>
                     </div>
+
                 </aside>
             </section>
 
@@ -262,6 +220,7 @@
                 <p>© 2025 Pich Chanthorn. All rights reserved.</p>
                 <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>
+
         </div>
     </main>
 

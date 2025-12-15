@@ -13,17 +13,29 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo Section -->
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
                 <i data-lucide="home"></i><span>Home</span>
             </a>
@@ -50,37 +62,47 @@
             </a>
         </nav>
 
-        <p class="sidebar-footer">© 2025 Pich Chanthorn</p>
+        <div class="sidebar-footer">
+            © 2025 Pich Chanthorn
+        </div>
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container experience-page">
 
-            <!-- HEADER -->
+            <!-- PAGE HEADER -->
             <section class="page-header reveal">
-                <h1 class="title">My <span class="highlight">Experience</span></h1>
+                <h1 class="title">
+                    My <span class="highlight">Experience</span>
+                </h1>
                 <p class="subtitle">
-                    Practical experience from university projects, self-learning, and real-world activities 
-                    that help me grow as a future full-stack developer.
+                    Practical experience from university projects, self-learning, and real-world
+                    activities that help me grow as a future full-stack developer.
                 </p>
             </section>
 
-            <!-- LAYOUT: LEFT TIMELINE + RIGHT SIDEBAR -->
+            <!-- EXPERIENCE LAYOUT -->
             <section class="exp-layout">
 
-                <!-- LEFT: TIMELINE -->
+                <!-- LEFT: EXPERIENCE TIMELINE -->
                 <div class="exp-main">
 
-                    <!-- Item 1: IT Student -->
+                    <!-- EXPERIENCE ITEM -->
                     <article class="exp-card reveal">
-                        <div class="exp-header">
+                        <header class="exp-header">
                             <div>
-                                <p class="exp-role">IT Student (BSc in Information Technology)</p>
-                                <p class="exp-company">Build Bright University</p>
+                                <p class="exp-role">
+                                    IT Student (Information Technology)
+                                </p>
+                                <p class="exp-company">
+                                    Build Bright University
+                                </p>
                             </div>
-                            <span class="exp-period">2024 — Present</span>
-                        </div>
+                            <span class="exp-period">
+                                2024 — Present
+                            </span>
+                        </header>
 
                         <p class="exp-meta">
                             <span><i data-lucide="map-pin"></i> Phnom Penh, Cambodia</span>
@@ -88,15 +110,15 @@
                         </p>
 
                         <p class="exp-desc">
-                            Learning core computer science and IT subjects including programming, 
-                            networking, database systems, operating systems, and IT infrastructure.  
-                            Applying this knowledge to build small web applications and academic projects.
+                            Learning core IT subjects including programming, networking, database
+                            systems, operating systems, and IT infrastructure. Applying this
+                            knowledge to academic projects and small web applications.
                         </p>
 
                         <ul class="exp-bullets">
-                            <li>Completed projects using <strong>HTML, CSS, JavaScript</strong> and responsive UI design.</li>
-                            <li>Worked in small teams on assignments, practicing collaboration and Git/GitHub workflow.</li>
-                            <li>Improved problem-solving skills through algorithms, linked lists, and data structures.</li>
+                            <li>Built projects using <strong>HTML, CSS, and JavaScript</strong>.</li>
+                            <li>Worked in teams and practiced <strong>Git & GitHub</strong> workflow.</li>
+                            <li>Improved problem-solving through algorithms and data structures.</li>
                         </ul>
 
                         <div class="exp-tags">
@@ -106,49 +128,62 @@
                         </div>
                     </article>
 
-                    <!-- Item 2: Personal Web Projects -->
+                    <!-- EXPERIENCE ITEM -->
                     <article class="exp-card reveal">
-                        <div class="exp-header">
+                        <header class="exp-header">
                             <div>
-                                <p class="exp-role">Personal Web Projects & Practice</p>
-                                <p class="exp-company">Self-Learning</p>
+                                <p class="exp-role">
+                                    Personal Web Projects & Self-Learning
+                                </p>
+                                <p class="exp-company">
+                                    Independent Practice
+                                </p>
                             </div>
-                            <span class="exp-period">2024 — Present</span>
-                        </div>
+                            <span class="exp-period">
+                                2024 — Present
+                            </span>
+                        </header>
 
                         <p class="exp-meta">
-                            <span><i data-lucide="laptop"></i> Remote / At home</span>
+                            <span><i data-lucide="laptop"></i> Remote</span>
                             <span><i data-lucide="clock-3"></i> Part-time</span>
                         </p>
 
                         <p class="exp-desc">
-                            Building portfolio projects to strengthen front-end and UI/UX skills, including 
-                            e-commerce layouts, dashboards, and landing pages.
+                            Designing and building portfolio projects to strengthen frontend and
+                            UI/UX skills, including dashboards, landing pages, and interactive
+                            layouts.
                         </p>
 
                         <ul class="exp-bullets">
-                            <li>Designed and built this <strong>portfolio website</strong> from scratch.</li>
-                            <li>Practiced responsive design with <strong>Flexbox, CSS Grid, and Tailwind-like utilities</strong>.</li>
-                            <li>Used <strong>Figma</strong> to plan layouts before coding and improve design thinking.</li>
+                            <li>Designed and built this <strong>portfolio website</strong>.</li>
+                            <li>Practiced responsive design with <strong>Flexbox & CSS Grid</strong>.</li>
+                            <li>Used <strong>Figma</strong> to plan UI before coding.</li>
                         </ul>
 
                         <div class="exp-tags">
                             <span class="tag">HTML &amp; CSS</span>
-                            <span class="tag">UI/UX Practice</span>
-                            <span class="tag">Figma</span>
+                            <span class="tag">UI / UX</span>
                             <span class="tag">JavaScript</span>
+                            <span class="tag">Figma</span>
                         </div>
                     </article>
 
-                    <!-- Item 3: Online Learning & Certifications -->
+                    <!-- EXPERIENCE ITEM -->
                     <article class="exp-card reveal">
-                        <div class="exp-header">
+                        <header class="exp-header">
                             <div>
-                                <p class="exp-role">Online Courses & Certifications</p>
-                                <p class="exp-company">Google • Cisco • Coursera</p>
+                                <p class="exp-role">
+                                    Online Courses & Certifications
+                                </p>
+                                <p class="exp-company">
+                                    Google • Cisco • Coursera
+                                </p>
                             </div>
-                            <span class="exp-period">2025</span>
-                        </div>
+                            <span class="exp-period">
+                                2025
+                            </span>
+                        </header>
 
                         <p class="exp-meta">
                             <span><i data-lucide="globe-2"></i> Online</span>
@@ -156,14 +191,14 @@
                         </p>
 
                         <p class="exp-desc">
-                            Completed professional courses related to cybersecurity, technical support, and 
-                            risk management to understand how IT is used in real organizations.
+                            Completed professional courses related to cybersecurity, technical
+                            support, and IT fundamentals to understand real-world systems.
                         </p>
 
                         <ul class="exp-bullets">
-                            <li>Learned fundamentals of <strong>technical support</strong> and troubleshooting.</li>
-                            <li>Studied <strong>cybersecurity basics</strong>, security risks, and incident response.</li>
-                            <li>Practiced using online labs, quizzes, and hands-on exercises.</li>
+                            <li>Learned fundamentals of <strong>IT support</strong>.</li>
+                            <li>Studied <strong>cybersecurity basics</strong> and risk management.</li>
+                            <li>Completed hands-on labs and quizzes.</li>
                         </ul>
 
                         <div class="exp-tags">
@@ -173,30 +208,36 @@
                         </div>
                     </article>
 
-                    <!-- Item 4: Campus & Community Activities (optional) -->
+                    <!-- EXPERIENCE ITEM -->
                     <article class="exp-card reveal">
-                        <div class="exp-header">
+                        <header class="exp-header">
                             <div>
-                                <p class="exp-role">Campus & Community Activities</p>
-                                <p class="exp-company">Student & Volunteer</p>
+                                <p class="exp-role">
+                                    Campus & Community Activities
+                                </p>
+                                <p class="exp-company">
+                                    Student & Volunteer
+                                </p>
                             </div>
-                            <span class="exp-period">Ongoing</span>
-                        </div>
+                            <span class="exp-period">
+                                Ongoing
+                            </span>
+                        </header>
 
                         <p class="exp-meta">
-                            <span><i data-lucide="users-2"></i> Group work & events</span>
+                            <span><i data-lucide="users-2"></i> Group activities</span>
                             <span><i data-lucide="sparkles"></i> Soft skills</span>
                         </p>
 
                         <p class="exp-desc">
-                            Joining group projects, presentations, and tech communities to improve communication, 
-                            teamwork, and leadership skills.
+                            Participating in group projects, presentations, and learning communities
+                            to improve communication, teamwork, and leadership skills.
                         </p>
 
                         <ul class="exp-bullets">
-                            <li>Presented assignments and projects in front of classmates and instructors.</li>
-                            <li>Worked with friends to solve coding tasks and debug issues together.</li>
-                            <li>Practiced English communication through online materials and courses.</li>
+                            <li>Presented academic projects to classmates and instructors.</li>
+                            <li>Collaborated with peers to debug and solve coding tasks.</li>
+                            <li>Practiced English communication through courses and teamwork.</li>
                         </ul>
 
                         <div class="exp-tags">
@@ -208,7 +249,7 @@
 
                 </div>
 
-                <!-- RIGHT: SIDEBAR INFO -->
+                <!-- RIGHT: EXPERIENCE SIDEBAR -->
                 <aside class="exp-sidebar">
 
                     <div class="exp-side-card reveal">
@@ -217,13 +258,13 @@
                             Current Focus
                         </h3>
                         <p class="exp-side-text">
-                            I am focusing on front-end web development (HTML, CSS, JavaScript) and learning
-                            how to connect it with databases and backend in the future.
+                            Focusing on frontend web development (HTML, CSS, JavaScript) and
+                            preparing to learn backend and database integration.
                         </p>
                         <ul class="exp-side-list">
-                            <li>Building clean, responsive UI</li>
-                            <li>Improving JavaScript fundamentals</li>
-                            <li>Practicing Git &amp; GitHub workflow</li>
+                            <li>Clean & responsive UI</li>
+                            <li>JavaScript fundamentals</li>
+                            <li>Git & GitHub workflow</li>
                         </ul>
                     </div>
 
@@ -247,8 +288,8 @@
                             What I'm Looking For
                         </h3>
                         <p class="exp-side-text">
-                            I’m open to internships, junior web development opportunities, and real projects 
-                            where I can learn from mentors and contribute to modern digital products.
+                            Open to internships, junior web developer roles, and real projects where
+                            I can learn from mentors and contribute to modern digital products.
                         </p>
                     </div>
 

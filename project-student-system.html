@@ -13,48 +13,52 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo -->
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
-                <i data-lucide="home"></i>
-                <span>Home</span>
+                <i data-lucide="home"></i><span>Home</span>
             </a>
             <a href="about.html" class="nav-link">
-                <i data-lucide="user"></i>
-                <span>About</span>
+                <i data-lucide="user"></i><span>About</span>
             </a>
             <a href="skills.html" class="nav-link">
-                <i data-lucide="code-2"></i>
-                <span>Skills</span>
+                <i data-lucide="code-2"></i><span>Skills</span>
             </a>
             <a href="projects.html" class="nav-link active">
-                <i data-lucide="layout-panel-left"></i>
-                <span>Projects</span>
+                <i data-lucide="layout-panel-left"></i><span>Projects</span>
             </a>
             <a href="certificates.html" class="nav-link">
-                <i data-lucide="award"></i>
-                <span>Certificates</span>
+                <i data-lucide="award"></i><span>Certificates</span>
             </a>
             <a href="education.html" class="nav-link">
-                <i data-lucide="graduation-cap"></i>
-                <span>Education</span>
+                <i data-lucide="graduation-cap"></i><span>Education</span>
             </a>
             <a href="experience.html" class="nav-link">
-                <i data-lucide="briefcase"></i>
-                <span>Experience</span>
+                <i data-lucide="briefcase"></i><span>Experience</span>
             </a>
             <a href="contact.html" class="nav-link">
-                <i data-lucide="mail"></i>
-                <span>Contact</span>
+                <i data-lucide="mail"></i><span>Contact</span>
             </a>
         </nav>
 
@@ -64,7 +68,7 @@
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container project-detail-page">
 
             <!-- Back link -->
@@ -98,7 +102,6 @@
             <!-- HERO IMAGE -->
             <section class="project-hero">
                 <div class="project-hero-image">
-                    <!-- ប្រើរូបដូចក្នុង projects.html -->
                     <img
                         src="assets/img/student-management-dashboard-dark-theme-admin.jpg"
                         alt="Student Management System UI"
@@ -106,13 +109,13 @@
                 </div>
             </section>
 
-            <!-- LAYOUT: MAIN + SIDEBAR -->
+            <!-- PROJECT LAYOUT -->
             <section class="project-detail-layout" id="about-project">
 
-                <!-- LEFT SIDE -->
+                <!-- LEFT -->
                 <div class="project-detail-main">
 
-                    <!-- About this project -->
+                    <!-- ABOUT -->
                     <section class="project-section">
                         <h2 class="section-title">
                             <i data-lucide="info" class="section-title-icon"></i>
@@ -134,12 +137,13 @@
                         </p>
 
                         <p class="project-text">
-                            Although this is a practice project, it can be extended with authentication,
-                            database integration, and more advanced features in the future.
+                            Although this is a practice project, it can be extended with
+                            authentication, database integration, and more advanced features
+                            in the future.
                         </p>
                     </section>
 
-                    <!-- Key Features -->
+                    <!-- FEATURES -->
                     <section class="project-section">
                         <h3 class="section-title">
                             <i data-lucide="layers" class="section-title-icon"></i>
@@ -147,80 +151,43 @@
                         </h3>
 
                         <div class="feature-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="user-plus"></i>
-                                </div>
-                                <span>Add new students with basic details (name, ID, class, grade).</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="pencil-line"></i>
-                                </div>
-                                <span>Edit and update student information directly in the list.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="trash-2"></i>
-                                </div>
-                                <span>Delete students that are no longer active.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="list-filter"></i>
-                                </div>
-                                <span>Filter or search students by name or ID (basic search).</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="layout-list"></i>
-                                </div>
-                                <span>Simple table layout for viewing all student records.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="database"></i>
-                                </div>
-                                <span>Store data temporarily using JavaScript (and optionally LocalStorage).</span>
-                            </div>
+                            <div class="feature-item"><i data-lucide="user-plus"></i><span>Add new students with basic details</span></div>
+                            <div class="feature-item"><i data-lucide="pencil-line"></i><span>Edit and update student information</span></div>
+                            <div class="feature-item"><i data-lucide="trash-2"></i><span>Delete inactive student records</span></div>
+                            <div class="feature-item"><i data-lucide="list-filter"></i><span>Search or filter students</span></div>
+                            <div class="feature-item"><i data-lucide="layout-list"></i><span>Simple table-based layout</span></div>
+                            <div class="feature-item"><i data-lucide="database"></i><span>LocalStorage-based data handling</span></div>
                         </div>
                     </section>
 
-                    <!-- Key Achievements -->
+                    <!-- ACHIEVEMENTS -->
                     <section class="project-section">
                         <h3 class="section-title-sm">
-                            <i data-lucide="award" class="section-title-icon"></i>
+                            <i data-lucide="award"></i>
                             Key <span class="highlight">Achievements</span>
                         </h3>
 
                         <div class="achievements-list">
                             <div class="achievement-item">
-                                <div class="achievement-badge">1</div>
-                                <p>
-                                    Practiced implementing CRUD logic with clean and readable JavaScript.
-                                </p>
+                                <span class="achievement-badge">1</span>
+                                <p>Implemented full CRUD logic using clean JavaScript.</p>
                             </div>
                             <div class="achievement-item">
-                                <div class="achievement-badge">2</div>
-                                <p>
-                                    Improved understanding of data flow and state management in a small app.
-                                </p>
+                                <span class="achievement-badge">2</span>
+                                <p>Improved understanding of state and data flow.</p>
                             </div>
                             <div class="achievement-item">
-                                <div class="achievement-badge">3</div>
-                                <p>
-                                    Built a useful template that can be extended into a real student system
-                                    with a backend later.
-                                </p>
+                                <span class="achievement-badge">3</span>
+                                <p>Created a strong foundation for a real student system.</p>
                             </div>
                         </div>
                     </section>
+
                 </div>
 
-                <!-- RIGHT SIDEBAR -->
+                <!-- RIGHT -->
                 <aside class="project-detail-sidebar">
 
-                    <!-- Tech Stack -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Tech Stack</h3>
                         <div class="sidebar-tags">
@@ -231,37 +198,24 @@
                         </div>
                     </div>
 
-                    <!-- Project Links -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Project Links</h3>
-                        <div class="sidebar-actions">
-                            <a href="#" class="btn ghost full">
-                                <i data-lucide="github"></i>
-                                <span>View Source Code</span>
-                            </a>
-                            <a href="#" class="btn primary full">
-                                <i data-lucide="external-link"></i>
-                                <span>Live Demo</span>
-                            </a>
-                        </div>
+                        <a href="#" class="btn ghost full">
+                            <i data-lucide="github"></i>
+                            <span>View Source Code</span>
+                        </a>
+                        <a href="#" class="btn primary full">
+                            <i data-lucide="external-link"></i>
+                            <span>Live Demo</span>
+                        </a>
                     </div>
 
-                    <!-- Other projects -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Other Projects</h3>
                         <ul class="other-projects">
-                            <li>
-                                <span class="dot"></span>
-                                <span>E-Commerce Platform</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Portfolio Website</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Task Management App</span>
-                            </li>
+                            <li>E-Commerce Platform</li>
+                            <li>Portfolio Website</li>
+                            <li>Task Management App</li>
                         </ul>
                     </div>
 
@@ -273,6 +227,7 @@
                 <p>© 2025 Pich Chanthorn. All rights reserved.</p>
                 <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>
+
         </div>
     </main>
 

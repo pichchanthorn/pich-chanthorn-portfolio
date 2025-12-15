@@ -13,17 +13,29 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo Section -->
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
                 <i data-lucide="home"></i><span>Home</span>
             </a>
@@ -50,31 +62,40 @@
             </a>
         </nav>
 
-        <p class="sidebar-footer">© 2025 Pich Chanthorn</p>
+        <div class="sidebar-footer">
+            © 2025 Pich Chanthorn
+        </div>
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container cert-page">
 
-            <!-- HEADER -->
+            <!-- PAGE HEADER -->
             <section class="page-header reveal">
-                <h1 class="title">My <span class="highlight">Certificates</span></h1>
+                <h1 class="title">
+                    My <span class="highlight">Certificates</span>
+                </h1>
                 <p class="subtitle">
                     Verified certificates from Google, Cisco, and other learning platforms.
                 </p>
             </section>
 
             <!-- FEATURED CERTIFICATES -->
-            <section class="reveal">
-                <h2 class="section-heading">Featured <span class="highlight">Certifications</span></h2>
+            <section class="reveal" aria-labelledby="featured-certs-title">
+                <h2 id="featured-certs-title" class="section-heading">
+                    Featured <span class="highlight">Certifications</span>
+                </h2>
 
                 <div class="cert-grid">
 
-                    <!-- Play It Safe -->
+                    <!-- CERT CARD -->
                     <article class="cert-card">
                         <div class="cert-thumb">
-                            <img src="assets/img/my_certificates/Play It Safe Manage Security Risks.jpg" alt="Play It Safe" />
+                            <img
+                                src="assets/img/my_certificates/Play It Safe Manage Security Risks.jpg"
+                                alt="Play It Safe: Manage Security Risks certificate"
+                            />
                         </div>
                         <div class="cert-body">
                             <div class="cert-header-line">
@@ -82,8 +103,12 @@
                                 <span class="cert-date">July 23, 2025</span>
                             </div>
 
-                            <h3 class="cert-title">Play It Safe: Manage Security Risks</h3>
-                            <p class="cert-meta">Grade Achieved: <strong>95.25%</strong></p>
+                            <h3 class="cert-title">
+                                Play It Safe: Manage Security Risks
+                            </h3>
+                            <p class="cert-meta">
+                                Grade Achieved: <strong>95.25%</strong>
+                            </p>
 
                             <div class="cert-tags">
                                 <span class="tag">Risk Management</span>
@@ -92,19 +117,26 @@
                             </div>
 
                             <div class="cert-actions">
-                                <a class="btn small primary"
-                                   href="https://coursera.org/share/cc3d66a438645553b8a226fb58c59758"
-                                   target="_blank">
-                                   <i data-lucide="external-link"></i><span>View Certificate</span>
+                                <a
+                                    class="btn small primary"
+                                    href="https://coursera.org/share/cc3d66a438645553b8a226fb58c59758"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <i data-lucide="external-link"></i>
+                                    <span>View Certificate</span>
                                 </a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Foundations of Cybersecurity -->
+                    <!-- CERT CARD -->
                     <article class="cert-card">
                         <div class="cert-thumb">
-                            <img src="assets/img/my_certificates/Foundations of Cybersecurity.jpg" alt="Foundations" />
+                            <img
+                                src="assets/img/my_certificates/Foundations of Cybersecurity.jpg"
+                                alt="Foundations of Cybersecurity certificate"
+                            />
                         </div>
                         <div class="cert-body">
                             <div class="cert-header-line">
@@ -112,8 +144,12 @@
                                 <span class="cert-date">July 19, 2025</span>
                             </div>
 
-                            <h3 class="cert-title">Foundations of Cybersecurity</h3>
-                            <p class="cert-meta">Grade Achieved: <strong>91.95%</strong></p>
+                            <h3 class="cert-title">
+                                Foundations of Cybersecurity
+                            </h3>
+                            <p class="cert-meta">
+                                Grade Achieved: <strong>91.95%</strong>
+                            </p>
 
                             <div class="cert-tags">
                                 <span class="tag">Cybersecurity</span>
@@ -122,19 +158,26 @@
                             </div>
 
                             <div class="cert-actions">
-                                <a class="btn small primary"
-                                   href="https://coursera.org/share/51b358df8dec7530305ae2004bbbc57f"
-                                   target="_blank">
-                                   <i data-lucide="external-link"></i><span>View Certificate</span>
+                                <a
+                                    class="btn small primary"
+                                    href="https://coursera.org/share/51b358df8dec7530305ae2004bbbc57f"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <i data-lucide="external-link"></i>
+                                    <span>View Certificate</span>
                                 </a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Technical Support -->
+                    <!-- CERT CARD -->
                     <article class="cert-card">
                         <div class="cert-thumb">
-                            <img src="assets/img/my_certificates/Coursera.jpg" alt="Technical Support" />
+                            <img
+                                src="assets/img/my_certificates/Coursera.jpg"
+                                alt="Technical Support Fundamentals certificate"
+                            />
                         </div>
                         <div class="cert-body">
                             <div class="cert-header-line">
@@ -142,8 +185,12 @@
                                 <span class="cert-date">July 13, 2025</span>
                             </div>
 
-                            <h3 class="cert-title">Technical Support Fundamentals</h3>
-                            <p class="cert-meta">Grade Achieved: <strong>96.70%</strong></p>
+                            <h3 class="cert-title">
+                                Technical Support Fundamentals
+                            </h3>
+                            <p class="cert-meta">
+                                Grade Achieved: <strong>96.70%</strong>
+                            </p>
 
                             <div class="cert-tags">
                                 <span class="tag">IT Support</span>
@@ -152,19 +199,26 @@
                             </div>
 
                             <div class="cert-actions">
-                                <a class="btn small primary"
-                                   href="https://coursera.org/share/b08ee27111e1686b17aca35aa1750cd8"
-                                   target="_blank">
-                                   <i data-lucide="external-link"></i><span>View Certificate</span>
+                                <a
+                                    class="btn small primary"
+                                    href="https://coursera.org/share/b08ee27111e1686b17aca35aa1750cd8"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <i data-lucide="external-link"></i>
+                                    <span>View Certificate</span>
                                 </a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Cisco Badge -->
+                    <!-- CERT CARD -->
                     <article class="cert-card">
                         <div class="cert-thumb">
-                            <img src="assets/img/my_certificates/junior-cybersecurity-analyst-career-path.1.png" alt="Cisco Badge" />
+                            <img
+                                src="assets/img/my_certificates/junior-cybersecurity-analyst-career-path.1.png"
+                                alt="Junior Cybersecurity Analyst Career Path badge"
+                            />
                         </div>
                         <div class="cert-body">
                             <div class="cert-header-line">
@@ -172,8 +226,12 @@
                                 <span class="cert-date">Oct 23, 2025</span>
                             </div>
 
-                            <h3 class="cert-title">Junior Cybersecurity Analyst Career Path</h3>
-                            <p class="cert-meta">Verified badge confirming completion of the Cisco Cybersecurity Path.</p>
+                            <h3 class="cert-title">
+                                Junior Cybersecurity Analyst Career Path
+                            </h3>
+                            <p class="cert-meta">
+                                Verified badge confirming completion of the Cisco Cybersecurity Path.
+                            </p>
 
                             <div class="cert-tags">
                                 <span class="tag">Network Security</span>
@@ -186,21 +244,25 @@
                 </div>
             </section>
 
-            <!-- OTHER CERTS -->
-            <section class="page-block">
-                <h2 class="section-heading">
+            <!-- OTHER ACHIEVEMENTS -->
+            <section class="page-block reveal" aria-labelledby="other-certs-title">
+                <h2 id="other-certs-title" class="section-heading">
                     Other <span class="highlight">Achievements</span>
                 </h2>
 
                 <div class="cert-grid cert-grid-small">
 
-                    <!-- Cisco Exam -->
-                    <a href="assets/img/my_certificates/JuniorCybersecurityAnalystUpdate.jpg"
-                    target="_blank"
-                    class="cert-card cert-card-link">
+                    <a
+                        href="assets/img/my_certificates/JuniorCybersecurityAnalystUpdate.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="cert-card cert-card-link"
+                    >
                         <div class="cert-thumb">
-                            <img src="assets/img/my_certificates/JuniorCybersecurityAnalystUpdate.jpg"
-                                alt="Cisco Cybersecurity Analyst Career Path Exam" />
+                            <img
+                                src="assets/img/my_certificates/JuniorCybersecurityAnalystUpdate.jpg"
+                                alt="Cybersecurity Analyst Career Path Exam certificate"
+                            />
                         </div>
                         <div class="cert-body">
                             <div class="cert-header-line">
@@ -217,13 +279,17 @@
                         </div>
                     </a>
 
-                    <!-- UTS Certificate -->
-                    <a href="assets/img/my_certificates/UTS.jpg"
-                    target="_blank"
-                    class="cert-card cert-card-link">
+                    <a
+                        href="assets/img/my_certificates/UTS.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="cert-card cert-card-link"
+                    >
                         <div class="cert-thumb">
-                            <img src="assets/img/my_certificates/UTS.jpg"
-                                alt="UTS Academy Certificate of Achievement" />
+                            <img
+                                src="assets/img/my_certificates/UTS.jpg"
+                                alt="UTS Academy Certificate of Achievement"
+                            />
                         </div>
                         <div class="cert-body">
                             <div class="cert-header-line">
@@ -240,13 +306,17 @@
                         </div>
                     </a>
 
-                    <!-- IQ Test -->
-                    <a href="assets/img/my_certificates/iq-certificate.jpg"
-                    target="_blank"
-                    class="cert-card cert-card-link">
+                    <a
+                        href="assets/img/my_certificates/iq-certificate.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="cert-card cert-card-link"
+                    >
                         <div class="cert-thumb">
-                            <img src="assets/img/my_certificates/iq-certificate.jpg"
-                                alt="IQ Test Certificate" />
+                            <img
+                                src="assets/img/my_certificates/iq-certificate.jpg"
+                                alt="IQ Test Certificate"
+                            />
                         </div>
                         <div class="cert-body">
                             <div class="cert-header-line">
@@ -266,15 +336,19 @@
                 </div>
             </section>
 
-
+            <!-- FOOTER -->
             <footer class="site-footer">
                 <p>© 2025 Pich Chanthorn. All rights reserved.</p>
+                <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>
 
         </div>
     </main>
 
+    <!-- JS -->
     <script src="assets/js/main.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>

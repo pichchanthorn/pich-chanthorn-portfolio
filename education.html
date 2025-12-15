@@ -13,17 +13,29 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo Section -->
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
                 <i data-lucide="home"></i><span>Home</span>
             </a>
@@ -50,34 +62,46 @@
             </a>
         </nav>
 
-        <p class="sidebar-footer">© 2025 Pich Chanthorn</p>
+        <div class="sidebar-footer">
+            © 2025 Pich Chanthorn
+        </div>
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container edu-page">
 
-            <!-- HEADER -->
+            <!-- PAGE HEADER -->
             <section class="page-header reveal">
-                <h1 class="title">My <span class="highlight">Education</span></h1>
+                <h1 class="title">
+                    My <span class="highlight">Education</span>
+                </h1>
                 <p class="subtitle">
-                    A quick overview of my academic journey, GPA, and subjects I’ve completed at Build Bright University and other schools.
+                    A quick overview of my academic journey, GPA, and completed subjects
+                    at Build Bright University and other institutions.
                 </p>
             </section>
 
-            <!-- CURRENT DEGREE + SUMMARY -->
+            <!-- EDUCATION SUMMARY -->
             <section class="edu-summary-grid reveal">
-                <!-- Degree card -->
+
+                <!-- CURRENT PROGRAM -->
                 <article class="edu-summary-card">
                     <div class="edu-summary-header">
                         <span class="edu-pill">Current Program</span>
                         <span class="edu-year">2024 – 2028</span>
                     </div>
-                    <h2 class="edu-main-title">Information Technology • Associate's Degree</h2>
-                    <p class="edu-school">Build Bright University – Phnom Penh Campus</p>
+
+                    <h2 class="edu-main-title">
+                        Information Technology • Associate’s Degree
+                    </h2>
+                    <p class="edu-school">
+                        Build Bright University – Phnom Penh Campus
+                    </p>
+
                     <p class="edu-text">
-                        Focusing on web development, database systems, networking, and UI/UX design. Building real projects using
-                        HTML, CSS, JavaScript, Figma, and MySQL.:contentReference[oaicite:0]{index=0}
+                        Focusing on web development, database systems, networking, and UI/UX design.
+                        Building real-world projects using HTML, CSS, JavaScript, Figma, and MySQL.
                     </p>
 
                     <div class="edu-stats-row">
@@ -86,7 +110,7 @@
                             <p class="edu-stat-value">3.40</p>
                         </div>
                         <div class="edu-stat">
-                            <p class="edu-stat-label">Year</p>
+                            <p class="edu-stat-label">Current Year</p>
                             <p class="edu-stat-value">Year 1</p>
                         </div>
                         <div class="edu-stat">
@@ -96,60 +120,85 @@
                     </div>
 
                     <div class="edu-actions">
-                        <a href="https://web.bbu.edu.kh/bburesults" target="_blank" class="btn outline small">
+                        <a
+                            href="https://web.bbu.edu.kh/bburesults"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn outline small"
+                        >
                             <i data-lucide="external-link"></i>
                             <span>View Official Results</span>
                         </a>
                     </div>
                 </article>
 
-                <!-- Education timeline -->
+                <!-- EDUCATION TIMELINE -->
                 <article class="edu-timeline">
-                    <h3 class="section-title-sm">Education <span class="highlight">Timeline</span></h3>
+                    <h3 class="section-title-sm">
+                        Education <span class="highlight">Timeline</span>
+                    </h3>
 
                     <ul class="timeline-list">
                         <li class="timeline-item">
-                            <div class="timeline-dot"></div>
+                            <span class="timeline-dot"></span>
                             <div class="timeline-content">
                                 <p class="timeline-title">Build Bright University</p>
-                                <p class="timeline-meta">Associate’s Degree • Information Technology • 2024 – 2028</p>
+                                <p class="timeline-meta">
+                                    Associate’s Degree • Information Technology • 2024 – 2028
+                                </p>
                             </div>
                         </li>
+
                         <li class="timeline-item">
-                            <div class="timeline-dot"></div>
+                            <span class="timeline-dot"></span>
                             <div class="timeline-content">
-                                <p class="timeline-title">CAMBODIA-ASEAN International Institute</p>
-                                <p class="timeline-meta">Foundation English Program • 2024:contentReference[oaicite:1]{index=1}</p>
+                                <p class="timeline-title">
+                                    Cambodia–ASEAN International Institute
+                                </p>
+                                <p class="timeline-meta">
+                                    Foundation English Program • 2024
+                                </p>
                             </div>
                         </li>
+
                         <li class="timeline-item">
-                            <div class="timeline-dot"></div>
+                            <span class="timeline-dot"></span>
                             <div class="timeline-content">
                                 <p class="timeline-title">Svay Rieng High School</p>
-                                <p class="timeline-meta">General Education • Completed 2024:contentReference[oaicite:2]{index=2}</p>
+                                <p class="timeline-meta">
+                                    General Education • Completed 2024
+                                </p>
                             </div>
                         </li>
+
                         <li class="timeline-item">
-                            <div class="timeline-dot"></div>
+                            <span class="timeline-dot"></span>
                             <div class="timeline-content">
-                                <p class="timeline-title">Johnson International School</p>
-                                <p class="timeline-meta">High School Diploma • Chinese & General Education:contentReference[oaicite:3]{index=3}</p>
+                                <p class="timeline-title">
+                                    Johnson International School
+                                </p>
+                                <p class="timeline-meta">
+                                    High School Diploma • Chinese & General Education
+                                </p>
                             </div>
                         </li>
                     </ul>
                 </article>
             </section>
 
-            <!-- YEAR 1 RESULTS (BBU STYLE) -->
+            <!-- YEAR 1 RESULTS -->
             <section class="edu-year-section reveal" id="year1">
-                <div class="edu-year-header">
-                    <h2 class="section-heading">
-                        Year 1 <span class="highlight">(Term 1 &amp; 2)</span>
-                    </h2>
-                    <p class="edu-year-gpa">Overall GPA: <span>3.40</span></p>
-                </div>
 
-                <!-- Semester 1 -->
+                <header class="edu-year-header">
+                    <h2 class="section-heading">
+                        Year 1 <span class="highlight">(Term 1 &amp; Term 2)</span>
+                    </h2>
+                    <p class="edu-year-gpa">
+                        Overall GPA: <span>3.40</span>
+                    </p>
+                </header>
+
+                <!-- SEMESTER 1 -->
                 <article class="semester-card">
                     <header class="semester-header">
                         <h3>Semester 1 (Term 1)</h3>
@@ -169,57 +218,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Core English I</td>
-                                    <td>47</td>
-                                    <td>32</td>
-                                    <td>3</td>
-                                    <td>79</td>
-                                    <td>B</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Critical Thinking and Growth Mindset</td>
-                                    <td>41</td>
-                                    <td>30</td>
-                                    <td>3</td>
-                                    <td>71</td>
-                                    <td>B</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Digital Literacy</td>
-                                    <td>52</td>
-                                    <td>38</td>
-                                    <td>3</td>
-                                    <td>90</td>
-                                    <td>A</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>IT Infrastructure</td>
-                                    <td>50</td>
-                                    <td>28</td>
-                                    <td>3</td>
-                                    <td>78</td>
-                                    <td>B</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Programming in C</td>
-                                    <td>50</td>
-                                    <td>35</td>
-                                    <td>3</td>
-                                    <td>85</td>
-                                    <td>A</td>
-                                </tr>
+                                <tr><td>1</td><td>Core English I</td><td>47</td><td>32</td><td>3</td><td>79</td><td>B</td></tr>
+                                <tr><td>2</td><td>Critical Thinking & Growth Mindset</td><td>41</td><td>30</td><td>3</td><td>71</td><td>B</td></tr>
+                                <tr><td>3</td><td>Digital Literacy</td><td>52</td><td>38</td><td>3</td><td>90</td><td>A</td></tr>
+                                <tr><td>4</td><td>IT Infrastructure</td><td>50</td><td>28</td><td>3</td><td>78</td><td>B</td></tr>
+                                <tr><td>5</td><td>Programming in C</td><td>50</td><td>35</td><td>3</td><td>85</td><td>A</td></tr>
                             </tbody>
                         </table>
                     </div>
                 </article>
 
-                <!-- Semester 2 -->
+                <!-- SEMESTER 2 -->
                 <article class="semester-card">
                     <header class="semester-header">
                         <h3>Semester 2 (Term 2)</h3>
@@ -239,51 +248,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Computer Repair and Maintenance</td>
-                                    <td>53</td>
-                                    <td>26</td>
-                                    <td>3</td>
-                                    <td>79</td>
-                                    <td>B</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Graphic Design</td>
-                                    <td>57</td>
-                                    <td>38</td>
-                                    <td>3</td>
-                                    <td>95</td>
-                                    <td>A</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Mathematics for Computing</td>
-                                    <td>44</td>
-                                    <td>29</td>
-                                    <td>3</td>
-                                    <td>73</td>
-                                    <td>B</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Presentation Skills</td>
-                                    <td>50</td>
-                                    <td>35</td>
-                                    <td>3</td>
-                                    <td>85</td>
-                                    <td>A</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Programming in C++</td>
-                                    <td>43</td>
-                                    <td>32</td>
-                                    <td>3</td>
-                                    <td>75</td>
-                                    <td>B</td>
-                                </tr>
+                                <tr><td>1</td><td>Computer Repair & Maintenance</td><td>53</td><td>26</td><td>3</td><td>79</td><td>B</td></tr>
+                                <tr><td>2</td><td>Graphic Design</td><td>57</td><td>38</td><td>3</td><td>95</td><td>A</td></tr>
+                                <tr><td>3</td><td>Mathematics for Computing</td><td>44</td><td>29</td><td>3</td><td>73</td><td>B</td></tr>
+                                <tr><td>4</td><td>Presentation Skills</td><td>50</td><td>35</td><td>3</td><td>85</td><td>A</td></tr>
+                                <tr><td>5</td><td>Programming in C++</td><td>43</td><td>32</td><td>3</td><td>75</td><td>B</td></tr>
                             </tbody>
                         </table>
                     </div>

@@ -13,48 +13,52 @@
 </head>
 <body>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo -->
         <div class="logo-section">
-            <img src="assets/img/profile.png" class="logo-img" alt="Profile" />
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
             <div class="logo-text">
                 <p class="logo-name">Pich Chanthorn</p>
                 <p class="role">Full-Stack Developer</p>
             </div>
         </div>
 
-        <nav class="nav">
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">
-                <i data-lucide="home"></i>
-                <span>Home</span>
+                <i data-lucide="home"></i><span>Home</span>
             </a>
             <a href="about.html" class="nav-link">
-                <i data-lucide="user"></i>
-                <span>About</span>
+                <i data-lucide="user"></i><span>About</span>
             </a>
             <a href="skills.html" class="nav-link">
-                <i data-lucide="code-2"></i>
-                <span>Skills</span>
+                <i data-lucide="code-2"></i><span>Skills</span>
             </a>
             <a href="projects.html" class="nav-link active">
-                <i data-lucide="layout-panel-left"></i>
-                <span>Projects</span>
+                <i data-lucide="layout-panel-left"></i><span>Projects</span>
             </a>
             <a href="certificates.html" class="nav-link">
-                <i data-lucide="award"></i>
-                <span>Certificates</span>
+                <i data-lucide="award"></i><span>Certificates</span>
             </a>
             <a href="education.html" class="nav-link">
-                <i data-lucide="graduation-cap"></i>
-                <span>Education</span>
+                <i data-lucide="graduation-cap"></i><span>Education</span>
             </a>
             <a href="experience.html" class="nav-link">
-                <i data-lucide="briefcase"></i>
-                <span>Experience</span>
+                <i data-lucide="briefcase"></i><span>Experience</span>
             </a>
             <a href="contact.html" class="nav-link">
-                <i data-lucide="mail"></i>
-                <span>Contact</span>
+                <i data-lucide="mail"></i><span>Contact</span>
             </a>
         </nav>
 
@@ -64,16 +68,16 @@
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="main">
+    <main class="main" id="mainContent">
         <div class="page-container project-detail-page">
 
-            <!-- Back link -->
+            <!-- BACK LINK -->
             <a href="projects.html" class="breadcrumb-link">
                 <i data-lucide="arrow-left"></i>
                 <span>Back to Projects</span>
             </a>
 
-            <!-- HEADER -->
+            <!-- PROJECT HEADER -->
             <header class="project-detail-header">
                 <h1 class="project-detail-title">
                     Blog &amp; <span class="highlight">CMS Platform</span>
@@ -98,21 +102,20 @@
             <!-- HERO IMAGE -->
             <section class="project-hero">
                 <div class="project-hero-image">
-                    <!-- ប្រើរូបដូច card ក្នុង projects.html -->
                     <img
                         src="assets/img/project-blog.jpg"
-                        alt="Blog & CMS Platform UI"
+                        alt="Blog and CMS Platform user interface"
                     />
                 </div>
             </section>
 
-            <!-- LAYOUT: MAIN + SIDEBAR -->
+            <!-- PROJECT LAYOUT -->
             <section class="project-detail-layout" id="about-project">
 
-                <!-- LEFT SIDE -->
+                <!-- LEFT: MAIN CONTENT -->
                 <div class="project-detail-main">
 
-                    <!-- About this project -->
+                    <!-- ABOUT PROJECT -->
                     <section class="project-section">
                         <h2 class="section-title">
                             <i data-lucide="info" class="section-title-icon"></i>
@@ -121,25 +124,23 @@
 
                         <p class="project-text">
                             This Blog &amp; CMS Platform is a practice project that simulates the core
-                            features of a simple content management system. It provides a layout where
-                            admins can manage posts and visitors can read articles comfortably.
+                            features of a simple content management system. It allows administrators
+                            to manage blog posts while visitors can read articles comfortably.
                         </p>
 
                         <p class="project-text">
-                            The interface separates the public blog listing from the “admin style”
-                            controls used to create and edit posts. This helps me understand how
-                            dashboards and front-facing pages can share a design system but have
-                            different purposes.
+                            The design separates public-facing blog pages from admin-style controls,
+                            helping me understand how dashboards and content pages can share the same
+                            design system with different purposes.
                         </p>
 
                         <p class="project-text">
-                            Even though this version is front-end focused, it can later be extended
-                            with a real backend API, authentication, and a database to handle
-                            real content at scale.
+                            Although this version is front-end focused, it can be extended later with
+                            backend APIs, authentication, and a database for real-world usage.
                         </p>
                     </section>
 
-                    <!-- Key Features -->
+                    <!-- FEATURES -->
                     <section class="project-section">
                         <h3 class="section-title">
                             <i data-lucide="layers" class="section-title-icon"></i>
@@ -147,82 +148,43 @@
                         </h3>
 
                         <div class="feature-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="file-pen-line"></i>
-                                </div>
-                                <span>Create and edit blog posts with title, date, and content.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="list-plus"></i>
-                                </div>
-                                <span>Display a list of recent posts on the main blog page.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="bookmark"></i>
-                                </div>
-                                <span>Highlight featured articles or important updates.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="tags"></i>
-                                </div>
-                                <span>Use simple categories or tags to group related posts.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="layout-template"></i>
-                                </div>
-                                <span>Clean article layout for comfortable reading on any device.</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i data-lucide="monitor-smartphone"></i>
-                                </div>
-                                <span>Responsive UI that adapts to desktop, tablet, and mobile.</span>
-                            </div>
+                            <div class="feature-item"><i data-lucide="file-pen-line"></i><span>Create and edit blog posts.</span></div>
+                            <div class="feature-item"><i data-lucide="list-plus"></i><span>List recent articles.</span></div>
+                            <div class="feature-item"><i data-lucide="bookmark"></i><span>Highlight featured posts.</span></div>
+                            <div class="feature-item"><i data-lucide="tags"></i><span>Use categories or tags.</span></div>
+                            <div class="feature-item"><i data-lucide="layout-template"></i><span>Clean reading layout.</span></div>
+                            <div class="feature-item"><i data-lucide="monitor-smartphone"></i><span>Responsive design.</span></div>
                         </div>
                     </section>
 
-                    <!-- Key Achievements -->
+                    <!-- ACHIEVEMENTS -->
                     <section class="project-section">
                         <h3 class="section-title-sm">
-                            <i data-lucide="award" class="section-title-icon"></i>
+                            <i data-lucide="award"></i>
                             Key <span class="highlight">Achievements</span>
                         </h3>
 
                         <div class="achievements-list">
                             <div class="achievement-item">
-                                <div class="achievement-badge">1</div>
-                                <p>
-                                    Practiced structuring a project with both “public site” and
-                                    “admin-style” layout using the same design system.
-                                </p>
+                                <span class="achievement-badge">1</span>
+                                <p>Structured a project with public and admin-style layouts.</p>
                             </div>
                             <div class="achievement-item">
-                                <div class="achievement-badge">2</div>
-                                <p>
-                                    Improved skills in building reusable components such as cards,
-                                    buttons, and tags that can be used across multiple pages.
-                                </p>
+                                <span class="achievement-badge">2</span>
+                                <p>Built reusable UI components across multiple pages.</p>
                             </div>
                             <div class="achievement-item">
-                                <div class="achievement-badge">3</div>
-                                <p>
-                                    Gained experience designing a blog UI that is easy to extend with
-                                    backend functionality later (API, database, auth).
-                                </p>
+                                <span class="achievement-badge">3</span>
+                                <p>Prepared the UI for future backend integration.</p>
                             </div>
                         </div>
                     </section>
+
                 </div>
 
-                <!-- RIGHT SIDEBAR -->
+                <!-- RIGHT: SIDEBAR -->
                 <aside class="project-detail-sidebar">
 
-                    <!-- Tech Stack -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Tech Stack</h3>
                         <div class="sidebar-tags">
@@ -232,41 +194,23 @@
                         </div>
                     </div>
 
-                    <!-- Project Links -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Project Links</h3>
-                        <div class="sidebar-actions">
-                            <a href="#" class="btn ghost full">
-                                <i data-lucide="github"></i>
-                                <span>View Source Code</span>
-                            </a>
-                            <a href="#" class="btn primary full">
-                                <i data-lucide="external-link"></i>
-                                <span>Live Demo</span>
-                            </a>
-                        </div>
+                        <a href="#" class="btn ghost full">
+                            <i data-lucide="github"></i><span>View Source Code</span>
+                        </a>
+                        <a href="#" class="btn primary full">
+                            <i data-lucide="external-link"></i><span>Live Demo</span>
+                        </a>
                     </div>
 
-                    <!-- Other projects -->
                     <div class="sidebar-card">
                         <h3 class="sidebar-title">Other Projects</h3>
                         <ul class="other-projects">
-                            <li>
-                                <span class="dot"></span>
-                                <span>E-Commerce Platform</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Portfolio Website</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Student Management System</span>
-                            </li>
-                            <li>
-                                <span class="dot"></span>
-                                <span>Task Management App</span>
-                            </li>
+                            <li>E-Commerce Platform</li>
+                            <li>Portfolio Website</li>
+                            <li>Student Management System</li>
+                            <li>Task Management App</li>
                         </ul>
                     </div>
 
@@ -278,6 +222,7 @@
                 <p>© 2025 Pich Chanthorn. All rights reserved.</p>
                 <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>
+
         </div>
     </main>
 
