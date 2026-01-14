@@ -263,3 +263,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     semesters.forEach((el) => highlightObserver.observe(el));
 });
+
+
+// ===================================
+// Auto Update Year (Sidebar + Footer)
+// ===================================
+document.addEventListener("DOMContentLoaded", () => {
+    const year = new Date().getFullYear(); // example: 2026
+
+    // Main footer
+    const footerYear = document.getElementById("currentYear");
+    if (footerYear) {
+        footerYear.textContent = year;
+    }
+
+    // Sidebar footer
+    const sidebarYear = document.getElementById("sidebarYear");
+    if (sidebarYear) {
+        sidebarYear.textContent = year;
+    }
+});

@@ -2448,5 +2448,15 @@ body {
     margin-right: 6px;
 }
 
+.pending-msg{
+    background:#fff3cd;
+    color:#856404;
+    padding:10px 14px;
+    border-radius:6px;
+    margin:10px 0 15px;
+    font-size:14px;
+}
+
+
 
 
