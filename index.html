@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pich Chanthorn Portfolio</title>
+    <title>Pich Chanthorn • Portfolio</title>
     <link rel="icon" type="image/x-icon" href="assets/img/profile.png">
-
-    
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -16,176 +14,134 @@
 </head>
 <body>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-        <i data-lucide="menu"></i>
-    </button>
+<!-- MOBILE MENU BUTTON -->
+<button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+    <i data-lucide="menu"></i>
+</button>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar">
-        <div class="logo-section">
-            <img
-                src="assets/img/profile.png"
-                class="logo-img"
-                alt="Profile picture of Pich Chanthorn"
-            />
-            <div class="logo-text">
-                <p class="logo-name">Pich Chanthorn</p>
-                <p class="role">Full-Stack Developer</p>
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="logo-section">
+        <img src="assets/img/profile.png" class="logo-img" alt="Pich Chanthorn" />
+        <div class="logo-text">
+            <p class="logo-name">Pich Chanthorn</p>
+            <p class="role">IT Student & Aspiring Full-Stack Developer</p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active"><i data-lucide="home"></i><span>Home</span></a>
+        <a href="about.html" class="nav-link"><i data-lucide="user"></i><span>About</span></a>
+        <a href="skills.html" class="nav-link"><i data-lucide="code-2"></i><span>Skills</span></a>
+        <a href="projects.html" class="nav-link"><i data-lucide="folder-kanban"></i><span>Projects</span></a>
+        <a href="certificates.html" class="nav-link"><i data-lucide="award"></i><span>Certificates</span></a>
+        <a href="education.html" class="nav-link"><i data-lucide="graduation-cap"></i><span>Education</span></a>
+        <a href="experience.html" class="nav-link"><i data-lucide="briefcase"></i><span>Experience</span></a>
+        <a href="contact.html" class="nav-link"><i data-lucide="mail"></i><span>Contact</span></a>
+    </nav>
+
+    <div class="sidebar-footer">
+        © <span id="currentYear"></span> Pich Chanthorn
+    </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main" id="mainContent">
+<div class="page-container">
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+    <!-- HERO LEFT -->
+    <div class="hero-left reveal">
+        <p class="hero-subtitle">Welcome to my portfolio</p>
+
+        <h1 class="hero-title">
+            Hi, I'm
+            <span class="highlight">
+                Pich<br />Chanthorn
+            </span>
+        </h1>
+
+        <h2 class="hero-role">
+            IT Student • Aspiring Full-Stack Developer
+        </h2>
+
+        <p class="hero-text">
+            I am an Information Technology student at Build Bright University with a strong
+            interest in web development, UI/UX design, and database systems. I focus on
+            building clean, responsive, and user-friendly web interfaces through academic
+            projects and hands-on practice.
+        </p>
+
+        <p class="hero-text">
+            Currently, I am strengthening my skills in HTML, CSS, JavaScript, Git, and Figma,
+            while gaining real-world experience through internships and personal projects.
+            My goal is to grow step by step into a professional full-stack developer who can
+            design, build, and maintain reliable digital solutions.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="projects.html" class="btn primary">View Projects</a>
+            <a href="cv.html" class="btn outline">Download CV</a>
+        </div>
+
+        <!-- STATS -->
+        <section class="stats reveal" aria-label="Statistics">
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i data-lucide="folder-kanban"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-plus">+</span>
+                    <p class="stat-label">Projects<br />Completed</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i data-lucide="calendar-days"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" data-target="12">0</span>
+                    <span class="stat-plus">+</span>
+                    <p class="stat-label">Months<br />Learning & Practice</p>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- HERO RIGHT -->
+    <div class="hero-right reveal">
+        <div class="avatar-ring">
+            <div class="avatar-inner">
+                <img src="assets/img/profile.png" alt="Pich Chanthorn" class="avatar-img" />
             </div>
         </div>
+    </div>
 
-        <!-- NAVIGATION -->
-        <nav class="nav" aria-label="Main navigation">
-            <a href="index.html" class="nav-link active">
-                <i data-lucide="home"></i>
-                <span>Home</span>
-            </a>
+</section>
 
-            <a href="about.html" class="nav-link">
-                <i data-lucide="user"></i>
-                <span>About</span>
-            </a>
+<!-- FOOTER -->
+<footer class="site-footer">
+    © <span id="currentYearFooter"></span> Pich Chanthorn. All rights reserved.
+    <p>Built with HTML, CSS & JavaScript</p>
+</footer>
 
-            <a href="skills.html" class="nav-link">
-                <i data-lucide="code-2"></i>
-                <span>Skills</span>
-            </a>
+</div>
+</main>
 
-            <a href="projects.html" class="nav-link">
-                <i data-lucide="folder-kanban"></i>
-                <span>Projects</span>
-            </a>
+<!-- JS -->
+<script src="assets/js/main.js"></script>
+<script>
+    lucide.createIcons();
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    document.getElementById("currentYearFooter").textContent = new Date().getFullYear();
+</script>
 
-            <a href="certificates.html" class="nav-link">
-                <i data-lucide="award"></i>
-                <span>Certificates</span>
-            </a>
-
-            <a href="education.html" class="nav-link">
-                <i data-lucide="graduation-cap"></i>
-                <span>Education</span>
-            </a>
-
-            <a href="experience.html" class="nav-link">
-                <i data-lucide="briefcase"></i>
-                <span>Experience</span>
-            </a>
-
-            <a href="contact.html" class="nav-link">
-                <i data-lucide="mail"></i>
-                <span>Contact</span>
-            </a>
-        </nav>
-
-        <div class="sidebar-footer">
-            © 2025 Pich Chanthorn
-        </div>
-    </aside>
-
-    <!-- MAIN CONTENT -->
-    <main class="main" id="mainContent">
-        <div class="page-container">
-
-            <!-- HERO SECTION -->
-            <section class="hero">
-
-                <!-- HERO LEFT -->
-                <div class="hero-left reveal">
-                    <p class="hero-subtitle">Welcome to my portfolio</p>
-
-                    <h1 class="hero-title">
-                        Hi, I'm
-                        <span class="highlight">
-                            Pich<br />Chanthorn
-                        </span>
-                    </h1>
-
-                    <h2 class="hero-role">
-                        IT Student &amp; Future Full-Stack Developer
-                    </h2>
-
-                    <p class="hero-text">
-                        I'm passionate about building modern, responsive, and user-friendly web
-                        applications. Currently studying Information Technology at Build Bright
-                        University, I am developing strong skills in web development, UI/UX design,
-                        and database systems. My goal is to become a professional full-stack
-                        developer who can design and build complete digital solutions.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="projects.html" class="btn primary">
-                            View Projects
-                        </a>
-                        <a href="cv.html" class="btn outline">
-                            Download CV
-                        </a>
-                    </div>
-
-                    <!-- STATS -->
-                    <section class="stats reveal" aria-label="Statistics">
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i data-lucide="briefcase"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-number" data-target="5">0</span>
-                                <span class="stat-plus">+</span>
-                                <p class="stat-label">
-                                    Projects<br />
-                                    Completed
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i data-lucide="calendar-days"></i>
-                            </div>
-                            <div class="stat-info">
-                                <span class="stat-number" data-target="12">0</span>
-                                <span class="stat-plus">+</span>
-                                <p class="stat-label">
-                                    Months<br />
-                                    Experience
-                                </p>
-                            </div>
-                        </div>
-
-                    </section>
-                </div>
-
-                <!-- HERO RIGHT -->
-                <div class="hero-right reveal">
-                    <div class="avatar-ring">
-                        <div class="avatar-inner">
-                            <img
-                                src="assets/img/profile.png"
-                                alt="Portrait of Pich Chanthorn"
-                                class="avatar-img"
-                            />
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-
-            <!-- FOOTER -->
-             <footer class="site-footer">
-                © <span id="currentYear"></span> Pich Chanthorn. All rights reserved.
-                <p>Built with HTML, CSS &amp; JavaScript</p>
-            </footer>
-
-
-
-        </div>
-    </main>
-
-    <!-- JS -->
-    <script src="assets/js/main.js"></script>
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 </html>
