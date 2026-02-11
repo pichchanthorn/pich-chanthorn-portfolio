@@ -202,3 +202,85 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* =========================
+     LUCIDE ICONS
+  ========================= */
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  /* =========================
+     MOBILE MENU
+  ========================= */
+  const menuBtn = document.getElementById("menuBtn");
+  const sidebar = document.getElementById("sidebar");
+
+  if (menuBtn && sidebar) {
+    menuBtn.addEventListener("click", function () {
+      sidebar.classList.toggle("active");
+      console.log("MENU CLICKED");
+    });
+  }
+
+  /* =========================
+     SCROLL REVEAL
+  ========================= */
+  const reveals = document.querySelectorAll(".reveal");
+
+  const revealOnScroll = () => {
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(el => {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - 80) {
+        el.classList.add("active");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+
+  /* =========================
+     CONTACT FORM (EMAILJS)
+  ========================= */
+  const contactForm = document.getElementById("contactForm");
+  const statusText = document.getElementById("formStatus");
+
+  if (contactForm) {
+
+    // 🔴 IMPORTANT: init EmailJS
+    emailjs.init("YOUR_PUBLIC_KEY"); // 🔁 replace this
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      statusText.textContent = "Sending message...";
+      statusText.style.color = "#facc15";
+
+      emailjs.sendForm(
+        "YOUR_SERVICE_ID",   // 🔁 replace
+        "YOUR_TEMPLATE_ID",  // 🔁 replace
+        this
+      ).then(() => {
+        statusText.textContent = "✅ Message sent successfully!";
+        statusText.style.color = "#22c55e";
+        contactForm.reset();
+      }).catch((error) => {
+        console.error(error);
+        statusText.textContent = "❌ Failed to send message.";
+        statusText.style.color = "#ef4444";
+      });
+    });
+  }
+
+});
