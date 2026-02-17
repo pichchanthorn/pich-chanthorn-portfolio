@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHP Mini Contact Website • Pich Chanthorn</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo-section">
+            <img
+                src="assets/img/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
+            <div class="logo-text">
+                <p class="logo-name">Pich Chanthorn</p>
+                <p class="role">Full-Stack Developer</p>
+            </div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+            <a href="index.html" class="nav-link">
+                <i data-lucide="home"></i><span>Home</span>
+            </a>
+            <a href="about.html" class="nav-link">
+                <i data-lucide="user"></i><span>About</span>
+            </a>
+            <a href="skills.html" class="nav-link">
+                <i data-lucide="code-2"></i><span>Skills</span>
+            </a>
+            <a href="projects.html" class="nav-link active">
+                <i data-lucide="layout-panel-left"></i><span>Projects</span>
+            </a>
+            <a href="certificates.html" class="nav-link">
+                <i data-lucide="award"></i><span>Certificates</span>
+            </a>
+            <a href="education.html" class="nav-link">
+                <i data-lucide="graduation-cap"></i><span>Education</span>
+            </a>
+            <a href="experience.html" class="nav-link">
+                <i data-lucide="briefcase"></i><span>Experience</span>
+            </a>
+            <a href="contact.html" class="nav-link">
+                <i data-lucide="mail"></i><span>Contact</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            © 2025 Pich Chanthorn
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main" id="mainContent">
+        <div class="page-container project-detail-page">
+
+            <!-- BACK LINK -->
+            <a href="projects.html" class="breadcrumb-link">
+                <i data-lucide="arrow-left"></i>
+                <span>Back to Projects</span>
+            </a>
+
+            <!-- HEADER -->
+            <header class="project-detail-header">
+                <h1 class="project-detail-title">
+                    PHP <span class="highlight">Mini Contact Website</span>
+                </h1>
+
+                <p class="project-detail-subtitle">
+                    A secure contact website built with PHP and MySQL,
+                    featuring an admin panel, authentication system,
+                    and message management.
+                </p>
+
+                <div class="project-detail-meta">
+                    <div class="meta-item">
+                        <i data-lucide="calendar"></i>
+                        <span>2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="shield-check"></i>
+                        <span>Full-Stack Developer</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- HERO IMAGE -->
+            <section class="project-hero">
+                <div class="project-hero-image">
+                    <img
+                        src="assets/img/php-mini-contact-dashboard-dark.png"
+                        alt="PHP Mini Contact Website dashboard preview"
+                    />
+                </div>
+            </section>
+
+            <!-- PROJECT LAYOUT -->
+            <section class="project-detail-layout" id="about-project">
+
+                <!-- LEFT CONTENT -->
+                <div class="project-detail-main">
+
+                    <!-- ABOUT PROJECT -->
+                    <section class="project-section">
+                        <h2 class="section-title">
+                            <i data-lucide="info"></i>
+                            About this <span class="highlight">Project</span>
+                        </h2>
+
+                        <p class="project-text">
+                            This PHP Mini Contact Website was created as a real-world
+                            backend practice project. It allows users to submit
+                            messages through a contact form while administrators
+                            manage those messages via a secure admin dashboard.
+                        </p>
+
+                        <p class="project-text">
+                            The project focuses on backend fundamentals such as
+                            authentication, password hashing, database integration,
+                            and secure data handling using PHP and MySQL.
+                        </p>
+
+                        <p class="project-text">
+                            It also demonstrates a complete deployment workflow,
+                            including local development, database migration,
+                            and production hosting.
+                        </p>
+                    </section>
+
+                    <!-- FEATURES -->
+                    <section class="project-section">
+                        <h3 class="section-title">
+                            <i data-lucide="layers"></i>
+                            Key <span class="highlight">Features</span>
+                        </h3>
+
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <i data-lucide="mail"></i>
+                                <span>Contact form with input validation</span>
+                            </div>
+                            <div class="feature-item">
+                                <i data-lucide="lock"></i>
+                                <span>Secure admin login system</span>
+                            </div>
+                            <div class="feature-item">
+                                <i data-lucide="database"></i>
+                                <span>MySQL database integration</span>
+                            </div>
+                            <div class="feature-item">
+                                <i data-lucide="shield"></i>
+                                <span>Password hashing using password_hash()</span>
+                            </div>
+                            <div class="feature-item">
+                                <i data-lucide="eye"></i>
+                                <span>View submitted contact messages</span>
+                            </div>
+                            <div class="feature-item">
+                                <i data-lucide="trash-2"></i>
+                                <span>Delete messages from admin panel</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ACHIEVEMENTS -->
+                    <section class="project-section">
+                        <h3 class="section-title-sm">
+                            <i data-lucide="award"></i>
+                            Key <span class="highlight">Achievements</span>
+                        </h3>
+
+                        <div class="achievements-list">
+                            <div class="achievement-item">
+                                <span class="achievement-badge">1</span>
+                                <p>Implemented secure authentication using PHP best practices.</p>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-badge">2</span>
+                                <p>Built a functional admin dashboard with CRUD operations.</p>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-badge">3</span>
+                                <p>Handled real-world deployment and database migration.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- RIGHT SIDEBAR -->
+                <aside class="project-detail-sidebar">
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Tech Stack</h3>
+                        <div class="sidebar-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Project Links</h3>
+
+                        <a href="https://github.com/pichchanthorn/php-mini-contact-website"
+                           target="_blank"
+                           class="btn ghost full">
+                            <i data-lucide="github"></i>
+                            <span>View Source Code</span>
+                        </a>
+
+                        <a href="https://minicontact.rf.gd"
+                           target="_blank"
+                           class="btn primary full">
+                            <i data-lucide="external-link"></i>
+                            <span>Live Demo</span>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Other Projects</h3>
+                        <ul class="other-projects">
+                            <li>Task Management App</li>
+                            <li>Student Management System</li>
+                            <li>Blog & CMS Platform</li>
+                        </ul>
+                    </div>
+
+                </aside>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                © <span id="currentYear"></span> Pich Chanthorn. All rights reserved.
+                <p>Built with HTML, CSS &amp; JavaScript</p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
