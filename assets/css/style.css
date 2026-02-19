@@ -79,6 +79,12 @@
     --sidebar-width: 260px;
     --max-content: 1100px;
     --max-wide: 1120px;
+
+    /* Motion / elevation */
+    --motion-standard: 0.3s ease;
+    --shadow-soft: 0 10px 26px rgba(2, 6, 23, 0.42);
+    --shadow-card: 0 14px 28px rgba(2, 6, 23, 0.48);
+    --shadow-card-hover: 0 20px 36px rgba(2, 6, 23, 0.56);
 }
 
 /* =========================================================
@@ -95,6 +101,8 @@ body {
     color: var(--clr-text);
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     display: flex;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
 }
 
 html[lang="en"] body {
@@ -123,6 +131,27 @@ html[lang="km"] .contact-value,
 html[lang="km"] .exp-desc,
 html[lang="km"] .edu-text {
     line-height: 1.85;
+}
+
+body,
+.sidebar,
+.main,
+.page-container,
+.nav-link,
+.btn,
+.lang-btn,
+.stat-card,
+.specialty-card,
+.skill-card,
+.soft-card,
+.project-card,
+.cert-card,
+.edu-summary-card,
+.semester-card,
+.exp-card,
+.contact-card,
+.contact-form-card {
+    transition: background-color var(--motion-standard), color var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard), transform var(--motion-standard);
 }
 
 .logo-img {
@@ -217,24 +246,26 @@ html[lang="km"] .edu-text {
     display: flex;
     align-items: center;
     gap: var(--space-6);
-    padding: var(--space-4) var(--space-7);
+    padding: 12px 16px;
     border-radius: var(--radius-md);
     color: var(--clr-text-muted);
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
-    transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
+    transition: background var(--motion-standard), color var(--motion-standard), transform var(--motion-standard), box-shadow var(--motion-standard);
 }
 
 .nav-link i {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     stroke: var(--clr-text-subtle);
+    flex-shrink: 0;
 }
 
 .nav-link:hover {
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.72);
     color: var(--clr-text-strong);
+    transform: translateX(2px);
 }
 
 .nav-link:hover i {
@@ -242,9 +273,9 @@ html[lang="km"] .edu-text {
 }
 
 .nav-link.active {
-    background: #065f46;
+    background: rgba(34, 197, 94, 0.16);
     color: var(--clr-text-strong);
-    box-shadow: 0 0 0 1px var(--alpha-accent-40);
+    box-shadow: inset 0 0 0 1px var(--alpha-accent-45), inset 3px 0 0 0 var(--clr-accent);
 }
 
 .nav-link.active i {
@@ -264,6 +295,10 @@ html[lang="km"] .edu-text {
     flex-direction: column;
     gap: var(--space-3);
     margin-bottom: var(--space-4);
+    padding: 8px;
+    border: 1px solid var(--alpha-white-08);
+    border-radius: var(--radius-md);
+    background: rgba(15, 23, 42, 0.45);
 }
 
 .lang-switcher-label {
@@ -288,12 +323,13 @@ html[lang="km"] .edu-text {
     font-weight: 600;
     letter-spacing: 0.01em;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    transition: background var(--motion-standard), border-color var(--motion-standard), color var(--motion-standard), transform var(--motion-standard);
 }
 
 .lang-btn:hover {
     border-color: var(--alpha-accent-60);
     color: var(--clr-text-strong);
+    transform: translateY(-1px);
 }
 
 .lang-btn.active {
@@ -329,16 +365,18 @@ html[lang="km"] .edu-text {
 }
 
 .btn {
-    padding: 0.55rem 1rem;
+    padding: 12px 16px;
     border: 1px solid transparent;
     border-radius: var(--radius-sm);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.9rem;
+    font-size: 14px;
     font-weight: 600;
-    transition: 0.25s ease;
+    line-height: 1.2;
+    box-shadow: 0 2px 10px rgba(2, 6, 23, 0.25);
+    transition: background var(--motion-standard), border-color var(--motion-standard), color var(--motion-standard), transform var(--motion-standard), box-shadow var(--motion-standard);
 }
 
 .btn i {
@@ -353,6 +391,8 @@ html[lang="km"] .edu-text {
 
 .btn.primary:hover {
     background: var(--clr-accent-alt-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
 }
 
 .btn.outline {
@@ -363,6 +403,8 @@ html[lang="km"] .edu-text {
 
 .btn.outline:hover {
     background: var(--alpha-accent-12);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
 }
 
 .btn.ghost {
@@ -374,6 +416,7 @@ html[lang="km"] .edu-text {
 .btn.ghost:hover {
     border-color: var(--clr-accent-alt);
     color: var(--clr-accent-alt);
+    transform: translateY(-1px);
 }
 
 .btn.small {
@@ -398,7 +441,7 @@ html[lang="km"] .edu-text {
     opacity: 0;
     transform: translateY(24px);
     pointer-events: none;
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity var(--motion-standard), transform var(--motion-standard);
 }
 
 .reveal.active {
@@ -414,14 +457,14 @@ html[lang="km"] .edu-text {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
-    padding-top: 80px;
-    padding-bottom: var(--space-14);
+    gap: 64px;
+    padding-top: 88px;
+    padding-bottom: 56px;
 }
 
 .hero-left {
     flex: 1;
-    max-width: 540px;
+    max-width: 620px;
 }
 
 .hero-right {
@@ -431,16 +474,20 @@ html[lang="km"] .edu-text {
 }
 
 .hero-subtitle {
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--clr-accent);
-    margin-bottom: var(--space-5);
+    margin-bottom: 16px;
 }
 
 .hero-title {
-    font-size: 54px;
-    line-height: 1.1;
+    font-size: 56px;
+    line-height: 1.05;
     font-weight: 800;
-    margin-bottom: var(--space-8);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
 }
 
 .highlight {
@@ -448,39 +495,79 @@ html[lang="km"] .edu-text {
 }
 
 .hero-role {
-    font-size: 20px;
-    color: var(--clr-text-subtle);
-    margin-bottom: var(--space-8);
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--alpha-white-10);
+    background: rgba(15, 23, 42, 0.5);
+    font-size: 16px;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 24px;
 }
 
 .hero-text {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--clr-text-muted);
-    line-height: 1.7;
-    margin-bottom: var(--space-11);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 620px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: var(--space-7);
-    margin-bottom: var(--space-13);
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.hero-buttons .btn {
+    min-height: 44px;
+    padding: 12px 20px;
+}
+
+.hero-buttons .btn.primary {
+    background: var(--clr-accent);
+    color: #052e16;
+    border-color: transparent;
+}
+
+.hero-buttons .btn.primary:hover {
+    background: var(--clr-accent-strong);
+    transform: translateY(-1px);
+}
+
+.hero-buttons .btn.outline {
+    border-color: var(--alpha-white-10);
+    color: #e2e8f0;
+    background: transparent;
+}
+
+.hero-buttons .btn.outline:hover {
+    background: rgba(15, 23, 42, 0.72);
+    border-color: var(--alpha-accent-50);
+    color: var(--clr-text-strong);
+    transform: translateY(-1px);
 }
 
 .avatar-ring {
     width: 320px;
     height: 320px;
     border-radius: var(--radius-pill);
-    background: radial-gradient(circle at 30% 0%, #15803d 0, #022c22 40%, #020617 75%);
+    background: #0b1220;
+    border: 1px solid rgba(148, 163, 184, 0.28);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 18px 30px rgba(2, 6, 23, 0.4);
 }
 
 .avatar-inner {
     width: 260px;
     height: 260px;
     border-radius: var(--radius-pill);
-    border: 8px solid var(--clr-accent-line);
+    border: 3px solid rgba(148, 163, 184, 0.38);
     overflow: hidden;
     background: var(--clr-bg);
 }
@@ -493,40 +580,40 @@ html[lang="km"] .edu-text {
 
 .stats {
     display: flex;
-    gap: 28px;
-    margin-top: 26px;
+    gap: 16px;
+    margin-top: 32px;
 }
 
 .stat-card {
-    flex: 0 0 220px;
-    padding: 18px 22px;
-    border-radius: var(--radius-3xl);
+    flex: 0 0 244px;
+    padding: 16px;
+    border-radius: var(--radius-xl);
     background: var(--clr-bg);
-    border: 1px solid #0b1220;
+    border: 1px solid rgba(148, 163, 184, 0.2);
     display: flex;
     align-items: center;
-    gap: var(--space-7);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    gap: 16px;
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.38);
+    transition: transform var(--motion-standard), box-shadow var(--motion-standard), border-color var(--motion-standard), background var(--motion-standard);
 }
 
 .stat-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--clr-accent);
-    background: var(--clr-bg-soft);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    transform: translateY(-1px);
+    border-color: rgba(148, 163, 184, 0.4);
+    background: #0b1322;
+    box-shadow: 0 14px 28px rgba(2, 6, 23, 0.44);
 }
 
 .stat-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: var(--radius-xl);
-    background: var(--clr-accent-deep);
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.22);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 0 0 1px var(--alpha-accent-45);
 }
 
 .stat-icon i {
@@ -543,15 +630,25 @@ html[lang="km"] .edu-text {
 }
 
 .stat-number {
-    font-size: 30px;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--clr-text-strong);
+}
+
+.stat-plus {
+    margin-left: 2px;
+    font-size: 22px;
     font-weight: 700;
-    color: var(--clr-accent);
+    color: #94a3b8;
 }
 
 .stat-label {
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--clr-text-subtle);
+    font-size: 12px;
+    line-height: 1.45;
+    letter-spacing: 0.02em;
+    color: #94a3b8;
 }
 
 .site-footer {
@@ -629,18 +726,18 @@ html[lang="km"] .edu-text {
     display: flex;
     align-items: center;
     gap: var(--space-8);
-    padding: 20px 22px;
+    padding: 16px 24px;
     border-radius: var(--radius-xl);
     background: #050f08;
     border: 1px solid #14532d;
-    transition: 0.25s ease;
+    transition: transform var(--motion-standard), box-shadow var(--motion-standard), border-color var(--motion-standard), background var(--motion-standard);
 }
 
 .specialty-card:hover {
-    border-color: var(--clr-accent);
+    border-color: var(--alpha-accent-60);
     background: #06150d;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-1px);
 }
 
 .specialty-icon {
@@ -700,13 +797,13 @@ html[lang="km"] .edu-text {
     background: var(--clr-bg);
     border-radius: var(--radius-xl);
     border: 1px solid var(--clr-bg);
-    padding: 22px 24px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: var(--space-5);
     cursor: pointer;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.75);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    box-shadow: var(--shadow-card);
+    transition: opacity var(--motion-standard), transform var(--motion-standard), box-shadow var(--motion-standard), border-color var(--motion-standard), background var(--motion-standard);
 }
 
 .reveal.active .skill-card {
@@ -726,9 +823,9 @@ html[lang="km"] .edu-text {
 .skills-grid .skill-card:nth-child(10) { transition-delay: 0.50s; }
 
 .skill-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
-    border-color: var(--alpha-accent-70);
-    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--alpha-accent-60);
+    transform: translateY(-2px);
     background: radial-gradient(circle at top left, var(--alpha-accent-22), #020617 55%);
 }
 
@@ -800,16 +897,17 @@ html[lang="km"] .edu-text {
     background: var(--clr-bg);
     border-radius: var(--radius-xl);
     border: 1px solid var(--alpha-white-05);
-    padding: 20px 22px;
+    padding: 16px 24px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.25s ease, border-color 0.3s ease, box-shadow 0.4s ease;
+    box-shadow: var(--shadow-card);
+    transition: background var(--motion-standard), transform var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard);
 }
 
 .soft-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     background: var(--clr-bg-card-soft);
     border-color: var(--alpha-accent-35);
-    box-shadow: 0 12px 30px rgba(0, 255, 95, 0.1);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .soft-card h3 {
@@ -840,12 +938,14 @@ html[lang="km"] .edu-text {
     border: 1px solid var(--clr-border-card);
     border-radius: var(--radius-xl);
     overflow: hidden;
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard);
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--clr-accent-alt);
+    transform: translateY(-3px);
+    border-color: var(--alpha-accent-60);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .project-thumb {
@@ -867,7 +967,7 @@ html[lang="km"] .edu-text {
 }
 
 .project-body {
-    padding: 1.4rem 1.4rem 1.2rem;
+    padding: 24px;
 }
 
 .project-title {
@@ -904,7 +1004,7 @@ html[lang="km"] .edu-text {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.25s ease, transform 0.25s ease;
+    transition: background var(--motion-standard), transform var(--motion-standard), box-shadow var(--motion-standard);
 }
 
 .project-go i {
@@ -915,7 +1015,8 @@ html[lang="km"] .edu-text {
 
 .project-go:hover {
     background: var(--clr-accent-alt-hover);
-    transform: translateX(3px);
+    transform: translateX(2px);
+    box-shadow: var(--shadow-soft);
 }
 
 /* =========================================================
@@ -1209,18 +1310,18 @@ html[lang="km"] .edu-text {
 .cert-card {
     display: flex;
     gap: var(--space-8);
-    padding: 18px;
+    padding: 16px;
     background: var(--clr-bg);
     border-radius: var(--radius-2xl);
     border: 1px solid rgba(17, 24, 39, 0.7);
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--motion-standard), box-shadow var(--motion-standard), border-color var(--motion-standard);
 }
 
 .cert-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--clr-accent);
-    box-shadow: 0 20px 45px rgba(22, 163, 74, 0.35);
+    transform: translateY(-2px);
+    border-color: var(--alpha-accent-60);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .cert-thumb {
@@ -1357,8 +1458,8 @@ html[lang="km"] .edu-text {
     background: radial-gradient(circle at top left, #022c22 0, #020617 40%, #020617 100%);
     border-radius: var(--radius-3xl);
     border: 1px solid var(--clr-accent-line);
-    padding: 18px 20px 20px;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75);
+    padding: 16px 24px 24px;
+    box-shadow: var(--shadow-card);
 }
 
 .edu-summary-header {
@@ -1440,7 +1541,7 @@ html[lang="km"] .edu-text {
     border-radius: var(--radius-3xl);
     border: 1px solid var(--clr-border);
     padding: 16px 18px 18px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    box-shadow: var(--shadow-card);
 }
 
 .timeline-list {
@@ -1518,11 +1619,11 @@ html[lang="km"] .edu-text {
     border-radius: var(--radius-3xl);
     border: 1px solid var(--clr-border);
     background: var(--clr-bg);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+    box-shadow: var(--shadow-card);
     overflow: hidden;
     opacity: 0;
     transform: translateY(25px);
-    transition: 0.65s ease;
+    transition: opacity var(--motion-standard), transform var(--motion-standard), box-shadow var(--motion-standard), border-color var(--motion-standard);
 }
 
 .semester-card.fade-in {
@@ -1639,11 +1740,11 @@ html[lang="km"] .edu-text {
     background: var(--clr-bg);
     border-radius: var(--radius-xl);
     border: 1px solid var(--clr-border);
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65);
+    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    transition: transform var(--motion-standard), box-shadow var(--motion-standard), border-color var(--motion-standard), background var(--motion-standard);
 }
 
 .exp-card::before {
@@ -1674,10 +1775,10 @@ html[lang="km"] .edu-text {
 }
 
 .exp-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--clr-accent);
+    transform: translateY(-2px);
+    border-color: var(--alpha-accent-60);
     background: radial-gradient(circle at top left, var(--alpha-accent-12), #020617);
-    box-shadow: 0 18px 40px rgba(22, 163, 74, 0.35);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .exp-card:hover::after {
@@ -1855,19 +1956,19 @@ html[lang="km"] .edu-text {
     display: flex;
     align-items: center;
     gap: var(--space-6);
-    padding: 14px 18px;
+    padding: 16px 24px;
     background: rgba(2, 6, 23, 0.7);
     border: 1px solid var(--clr-border);
     border-radius: var(--radius-xl);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+    box-shadow: var(--shadow-card);
     backdrop-filter: blur(4px);
-    transition: 0.25s ease;
+    transition: transform var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard), background var(--motion-standard);
 }
 
 .contact-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--clr-accent);
-    box-shadow: 0 18px 40px var(--alpha-accent-25);
+    transform: translateY(-2px);
+    border-color: var(--alpha-accent-60);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .contact-card i {
@@ -1924,14 +2025,15 @@ html[lang="km"] .edu-text {
     background: rgba(2, 6, 23, 0.75);
     border: 1px solid var(--clr-border);
     border-radius: var(--radius-4xl);
-    padding: 26px 28px;
-    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.6);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
     backdrop-filter: blur(6px);
-    transition: 0.25s ease;
+    transition: border-color var(--motion-standard), box-shadow var(--motion-standard), background var(--motion-standard);
 }
 
 .contact-form-card:hover {
-    border-color: var(--clr-accent);
+    border-color: var(--alpha-accent-60);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .form-title {

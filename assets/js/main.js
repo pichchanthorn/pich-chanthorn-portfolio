@@ -83,6 +83,10 @@
     }
   };
 
+  function prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
   function getCurrentLanguage() {
     const saved = localStorage.getItem(I18N_STORAGE_KEY);
     if (saved && TRANSLATIONS[saved]) return saved;
@@ -271,6 +275,11 @@
     const revealSections = document.querySelectorAll(".reveal");
     if (!revealSections.length) return;
 
+    if (prefersReducedMotion()) {
+      revealSections.forEach(el => el.classList.add("active"));
+      return;
+    }
+
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -288,6 +297,21 @@
   function initializeSkillCounter() {
     const skillCards = document.querySelectorAll(".skills-page .skill-card");
     if (!skillCards.length) return;
+
+    if (prefersReducedMotion()) {
+      skillCards.forEach(card => {
+        const percentEl = card.querySelector(".skill-percent");
+        const barEl = card.querySelector(".skill-fill");
+        if (!percentEl || !barEl) return;
+
+        const target = parseInt(percentEl.textContent, 10);
+        if (!Number.isFinite(target)) return;
+
+        percentEl.textContent = target + "%";
+        barEl.style.width = target + "%";
+      });
+      return;
+    }
 
     const skillObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -331,6 +355,15 @@
     const statNumbers = document.querySelectorAll(".stat-number[data-target]");
     if (!statNumbers.length) return;
 
+    if (prefersReducedMotion()) {
+      statNumbers.forEach(element => {
+        const target = parseInt(element.dataset.target, 10);
+        if (!Number.isFinite(target)) return;
+        element.textContent = target + "+";
+      });
+      return;
+    }
+
     const statsObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -372,7 +405,7 @@
         event.preventDefault();
         window.scrollTo({
           top: target.offsetTop - 20,
-          behavior: "smooth"
+          behavior: prefersReducedMotion() ? "auto" : "smooth"
         });
       });
     });
