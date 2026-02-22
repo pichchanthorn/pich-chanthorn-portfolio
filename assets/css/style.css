@@ -105,6 +105,32 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+/* =========================================================
+   Links & Interactive Text
+   ========================================================= */
+a {
+    transition: color var(--motion-standard), text-decoration-color var(--motion-standard), opacity var(--motion-standard);
+}
+
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+    text-decoration-color: transparent;
+}
+
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--alpha-accent-70);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+}
+
 html[lang="en"] body {
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -1775,7 +1801,7 @@ body,
 }
 
 .exp-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     border-color: var(--alpha-accent-60);
     background: radial-gradient(circle at top left, var(--alpha-accent-12), #020617);
     box-shadow: var(--shadow-card-hover);
@@ -1796,12 +1822,15 @@ body,
 .exp-role {
     font-size: 16px;
     font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
     color: var(--clr-text-strong);
 }
 
 .exp-company {
     font-size: 13px;
-    color: var(--clr-text-subtle);
+    line-height: 1.5;
+    color: var(--clr-text-muted);
 }
 
 .exp-period {
@@ -1818,6 +1847,7 @@ body,
     flex-wrap: wrap;
     gap: var(--space-4);
     font-size: 12px;
+    line-height: 1.45;
     color: var(--clr-text-subtle);
 }
 
@@ -1835,17 +1865,18 @@ body,
 .exp-desc {
     font-size: 14px;
     color: var(--clr-text-muted);
-    line-height: 1.6;
+    line-height: 1.72;
 }
 
 .exp-bullets {
-    margin: var(--space-2) 0 2px;
+    margin: var(--space-2) 0 var(--space-1);
     padding-left: var(--space-8);
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--space-2);
     font-size: 13px;
-    color: #e5e7eb;
+    line-height: 1.65;
+    color: var(--clr-text-muted);
 }
 
 .exp-bullets li::marker,
@@ -1908,11 +1939,12 @@ body,
 
 .exp-side-list {
     font-size: 13px;
-    color: #e5e7eb;
+    line-height: 1.65;
+    color: var(--clr-text-muted);
     padding-left: var(--space-8);
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--space-2);
 }
 
 .exp-chip-row {
@@ -2448,14 +2480,22 @@ body,
         z-index: 6100;
     }
 }
-.company-link {
-    color: #22c55e;
-    text-decoration: none;
+/* =========================================================
+   Experience Company Link
+   ========================================================= */
+.company-link,
+.company-link:link,
+.company-link:visited {
+    color: var(--clr-accent);
     font-weight: 600;
-    transition: 0.3s ease;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    text-decoration-color: var(--alpha-accent-45);
 }
 
-.company-link:hover {
-    color: #16a34a;
-    text-decoration: underline;
+.company-link:hover,
+.company-link:active {
+    color: var(--clr-accent-alt);
+    text-decoration-color: var(--alpha-accent-80);
 }
