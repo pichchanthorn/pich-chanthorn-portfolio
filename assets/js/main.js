@@ -6,7 +6,14 @@
 (() => {
   "use strict";
 
+  const EMAIL_JS_PUBLIC_KEY = "tjw1lER8-6wZCb5Wg";
+  const EMAIL_JS_SERVICE_ID = "service_1f3kxsk";
+  const EMAIL_JS_TEMPLATE_ID = "template_5tfub9f";
+
   const I18N_STORAGE_KEY = "portfolio_language";
+  const FORM_SUBMIT_RATE_LIMIT_MS = 3000;
+
+  let lastFormSubmissionAt = 0;
 
   const TRANSLATIONS = {
     en: {
@@ -83,6 +90,32 @@
     }
   };
 
+  const NAV_KEY_MAP = {
+    "index.html": "nav.home",
+    "about.html": "nav.about",
+    "skills.html": "nav.skills",
+    "projects.html": "nav.projects",
+    "certificates.html": "nav.certificates",
+    "education.html": "nav.education",
+    "experience.html": "nav.experience",
+    "contact.html": "nav.contact"
+  };
+
+  /**
+   * Cached common DOM references used across initializers.
+   */
+  function cacheDom() {
+    return {
+      menuButton: document.getElementById("menuBtn"),
+      sidebar: document.getElementById("sidebar"),
+      mainNav: document.querySelector(".nav"),
+      sidebarFooter: document.querySelector(".sidebar-footer"),
+      form: document.getElementById("contactForm"),
+      formStatus: document.getElementById("formStatus"),
+      sendButton: document.getElementById("sendBtn")
+    };
+  }
+
   function prefersReducedMotion() {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
@@ -112,25 +145,95 @@
     element.setAttribute("data-i18n-aria-label", key);
   }
 
-  function attachI18nAttributes() {
-    const menuButton = document.getElementById("menuBtn");
-    setI18nAriaLabelAttribute(menuButton, "menu.toggle");
+  function setTextContent(element, value) {
+    if (!element || element.textContent === value) return;
+    element.textContent = value;
+  }
 
-    const mainNav = document.querySelector(".nav");
-    setI18nAriaLabelAttribute(mainNav, "nav.main");
+  function setWidthStyle(element, value) {
+    if (!element || element.style.width === value) return;
+    element.style.width = value;
+  }
 
-    const navKeyMap = {
-      "index.html": "nav.home",
-      "about.html": "nav.about",
-      "skills.html": "nav.skills",
-      "projects.html": "nav.projects",
-      "certificates.html": "nav.certificates",
-      "education.html": "nav.education",
-      "experience.html": "nav.experience",
-      "contact.html": "nav.contact"
-    };
+  function parseInteger(value) {
+    const parsed = parseInt(value, 10);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
 
-    Object.entries(navKeyMap).forEach(([href, key]) => {
+  function sanitizeInput(value) {
+    return String(value ?? "")
+      .replace(/[<>]/g, "")
+      .replace(/[\u0000-\u001F\u007F]/g, "")
+      .trim();
+  }
+
+  function updateStatusMessage(statusElement, message, color) {
+    if (!statusElement) return;
+    setTextContent(statusElement, message);
+    statusElement.style.color = color;
+  }
+
+  function ensureHoneypotField(form) {
+    if (!form) return null;
+
+    let honeypot = form.querySelector('input[name="website"]');
+    if (honeypot) return honeypot;
+
+    honeypot = document.createElement("input");
+    honeypot.type = "text";
+    honeypot.name = "website";
+    honeypot.autocomplete = "off";
+    honeypot.tabIndex = -1;
+    honeypot.setAttribute("aria-hidden", "true");
+    honeypot.style.position = "absolute";
+    honeypot.style.left = "-9999px";
+    honeypot.style.opacity = "0";
+    honeypot.style.pointerEvents = "none";
+    form.appendChild(honeypot);
+
+    return honeypot;
+  }
+
+  function setSendButtonLoadingState(sendButton, loading, language) {
+    if (!sendButton) return;
+
+    sendButton.disabled = loading;
+    sendButton.setAttribute("aria-busy", String(loading));
+
+    const label = sendButton.querySelector("span") || sendButton;
+    const translationKey = loading ? "contact.form.sending" : "contact.form.submit";
+    setTextContent(label, t(translationKey, language));
+  }
+
+  function animateValue(duration, targetValue, onUpdate) {
+    const startTime = performance.now();
+    let previousValue = -1;
+
+    function step(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const currentValue = Math.floor(targetValue * progress);
+
+      if (currentValue !== previousValue) {
+        onUpdate(currentValue);
+        previousValue = currentValue;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  /**
+   * Applies i18n binding attributes for all translatable elements.
+   */
+  function attachI18nAttributes(dom) {
+    setI18nAriaLabelAttribute(dom.menuButton, "menu.toggle");
+    setI18nAriaLabelAttribute(dom.mainNav, "nav.main");
+
+    Object.entries(NAV_KEY_MAP).forEach(([href, key]) => {
       document.querySelectorAll(`.nav a[href="${href}"] span`).forEach(el => setI18nAttribute(el, key));
     });
 
@@ -184,14 +287,15 @@
     setI18nPlaceholderAttribute(document.getElementById("email"), "contact.form.placeholder.email");
     setI18nPlaceholderAttribute(document.getElementById("message"), "contact.form.placeholder.message");
 
-    const sendButtonText = document.querySelector("#sendBtn span");
+    const sendButtonText = dom.sendButton?.querySelector("span");
     if (sendButtonText) setI18nAttribute(sendButtonText, "contact.form.submit");
   }
 
-  function injectLanguageSwitcher() {
-    const sidebarFooter = document.querySelector(".sidebar-footer");
-    if (!sidebarFooter) return;
-    if (sidebarFooter.querySelector(".lang-switcher")) return;
+  /**
+   * Injects language switcher inside sidebar footer if not already present.
+   */
+  function injectLanguageSwitcher(sidebarFooter) {
+    if (!sidebarFooter || sidebarFooter.querySelector(".lang-switcher")) return;
 
     const year = new Date().getFullYear();
 
@@ -207,6 +311,9 @@
     `;
   }
 
+  /**
+   * Applies all translations for text, placeholders and aria-labels.
+   */
   function applyTranslations(language) {
     const activeLanguage = TRANSLATIONS[language] ? language : "en";
     const dictionary = TRANSLATIONS[activeLanguage];
@@ -236,11 +343,20 @@
       button.classList.toggle("active", isActive);
       button.setAttribute("aria-pressed", String(isActive));
     });
+
+    const sendButton = document.getElementById("sendBtn");
+    if (sendButton && !sendButton.disabled) {
+      const label = sendButton.querySelector("span") || sendButton;
+      setTextContent(label, dictionary["contact.form.submit"]);
+    }
   }
 
-  function initializeLanguageSwitcher() {
-    injectLanguageSwitcher();
-    attachI18nAttributes();
+  /**
+   * Initializes language switcher interactions and keyboard navigation.
+   */
+  function initializeLanguageSwitcher(dom) {
+    injectLanguageSwitcher(dom.sidebarFooter);
+    attachI18nAttributes(dom);
 
     const language = getCurrentLanguage();
     applyTranslations(language);
@@ -258,19 +374,61 @@
       localStorage.setItem(I18N_STORAGE_KEY, languageCode);
       applyTranslations(languageCode);
     });
-  }
 
-  function initializeMobileMenu() {
-    const menuBtn = document.getElementById("menuBtn");
-    const sidebar = document.getElementById("sidebar");
+    switcher.addEventListener("keydown", event => {
+      const currentButton = event.target.closest(".lang-btn");
+      if (!currentButton) return;
 
-    if (!menuBtn || !sidebar) return;
+      const buttons = [...switcher.querySelectorAll(".lang-btn")];
+      const index = buttons.indexOf(currentButton);
+      if (index < 0) return;
 
-    menuBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        buttons[(index + 1) % buttons.length].focus();
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        buttons[(index - 1 + buttons.length) % buttons.length].focus();
+      }
     });
   }
 
+  /**
+   * Initializes mobile menu toggle and keyboard close behavior.
+   */
+  function initializeMobileMenu(dom) {
+    const { menuButton, sidebar } = dom;
+    if (!menuButton || !sidebar) return;
+
+    menuButton.setAttribute("aria-controls", "sidebar");
+    menuButton.setAttribute("aria-expanded", "false");
+
+    const toggleMenu = forceState => {
+      const nextState = typeof forceState === "boolean" ? forceState : !sidebar.classList.contains("active");
+      sidebar.classList.toggle("active", nextState);
+      menuButton.setAttribute("aria-expanded", String(nextState));
+    };
+
+    menuButton.addEventListener("click", () => toggleMenu());
+
+    sidebar.addEventListener("click", event => {
+      if (!event.target.closest("a")) return;
+      toggleMenu(false);
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key !== "Escape") return;
+      if (!sidebar.classList.contains("active")) return;
+      toggleMenu(false);
+      menuButton.focus();
+    });
+  }
+
+  /**
+   * Reveals generic sections on viewport entry.
+   */
   function initializeScrollReveal() {
     const revealSections = document.querySelectorAll(".reveal");
     if (!revealSections.length) return;
@@ -294,22 +452,44 @@
     revealSections.forEach(el => revealObserver.observe(el));
   }
 
+  function setSkillCardToTarget(card) {
+    const percentEl = card.querySelector(".skill-percent");
+    const barEl = card.querySelector(".skill-fill");
+    if (!percentEl || !barEl) return;
+
+    const target = parseInteger(percentEl.textContent);
+    if (target === null) return;
+
+    setTextContent(percentEl, `${target}%`);
+    setWidthStyle(barEl, `${target}%`);
+  }
+
+  function animateSkillCard(card) {
+    const percentEl = card.querySelector(".skill-percent");
+    const barEl = card.querySelector(".skill-fill");
+    if (!percentEl || !barEl) return;
+
+    const target = parseInteger(percentEl.textContent);
+    if (target === null) return;
+
+    setTextContent(percentEl, "0%");
+    setWidthStyle(barEl, "0%");
+
+    animateValue(900, target, value => {
+      setTextContent(percentEl, `${value}%`);
+      setWidthStyle(barEl, `${value}%`);
+    });
+  }
+
+  /**
+   * Initializes animated skill counters and progress bars.
+   */
   function initializeSkillCounter() {
     const skillCards = document.querySelectorAll(".skills-page .skill-card");
     if (!skillCards.length) return;
 
     if (prefersReducedMotion()) {
-      skillCards.forEach(card => {
-        const percentEl = card.querySelector(".skill-percent");
-        const barEl = card.querySelector(".skill-fill");
-        if (!percentEl || !barEl) return;
-
-        const target = parseInt(percentEl.textContent, 10);
-        if (!Number.isFinite(target)) return;
-
-        percentEl.textContent = target + "%";
-        barEl.style.width = target + "%";
-      });
+      skillCards.forEach(setSkillCardToTarget);
       return;
     }
 
@@ -320,29 +500,7 @@
 
           const card = entry.target;
           observer.unobserve(card);
-
-          const percentEl = card.querySelector(".skill-percent");
-          const barEl = card.querySelector(".skill-fill");
-          if (!percentEl || !barEl) return;
-
-          const target = parseInt(percentEl.textContent, 10);
-          const duration = 900;
-          const start = performance.now();
-
-          percentEl.textContent = "0%";
-          barEl.style.width = "0%";
-
-          function animate(now) {
-            const progress = Math.min((now - start) / duration, 1);
-            const value = Math.floor(target * progress);
-
-            percentEl.textContent = value + "%";
-            barEl.style.width = value + "%";
-
-            if (progress < 1) requestAnimationFrame(animate);
-          }
-
-          requestAnimationFrame(animate);
+          animateSkillCard(card);
         });
       },
       { threshold: 0.55 }
@@ -351,16 +509,32 @@
     skillCards.forEach(card => skillObserver.observe(card));
   }
 
+  function setStatToTarget(element) {
+    const target = parseInteger(element.dataset.target);
+    if (target === null) return;
+    setTextContent(element, `${target}+`);
+  }
+
+  function animateStat(element) {
+    const target = parseInteger(element.dataset.target);
+    if (target === null) return;
+
+    setTextContent(element, "0");
+
+    animateValue(1200, target, value => {
+      setTextContent(element, `${value}+`);
+    });
+  }
+
+  /**
+   * Initializes homepage stats counting animation.
+   */
   function initializeHomeStatsCounter() {
     const statNumbers = document.querySelectorAll(".stat-number[data-target]");
     if (!statNumbers.length) return;
 
     if (prefersReducedMotion()) {
-      statNumbers.forEach(element => {
-        const target = parseInt(element.dataset.target, 10);
-        if (!Number.isFinite(target)) return;
-        element.textContent = target + "+";
-      });
+      statNumbers.forEach(setStatToTarget);
       return;
     }
 
@@ -371,22 +545,7 @@
 
           const element = entry.target;
           observer.unobserve(element);
-
-          const target = parseInt(element.dataset.target, 10);
-          const duration = 1200;
-          const start = performance.now();
-
-          element.textContent = "0";
-
-          function animate(now) {
-            const progress = Math.min((now - start) / duration, 1);
-            const value = Math.floor(target * progress);
-            element.textContent = value + "+";
-
-            if (progress < 1) requestAnimationFrame(animate);
-          }
-
-          requestAnimationFrame(animate);
+          animateStat(element);
         });
       },
       { threshold: 0.6 }
@@ -395,10 +554,18 @@
     statNumbers.forEach(el => statsObserver.observe(el));
   }
 
+  /**
+   * Enables smooth-scrolling for same-page anchor links.
+   */
   function initializeSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener("click", event => {
-        const id = link.getAttribute("href").substring(1);
+        const href = link.getAttribute("href");
+        if (!href || href === "#") return;
+
+        const id = href.substring(1);
+        if (!id) return;
+
         const target = document.getElementById(id);
         if (!target) return;
 
@@ -411,15 +578,18 @@
     });
   }
 
+  /**
+   * Initializes education section reveal and semester card animations.
+   */
   function initializeEducationAnimations() {
     const eduReveal = document.querySelectorAll(".edu-reveal");
     if (eduReveal.length) {
       const eduObserver = new IntersectionObserver(
-        entries => {
+        (entries, observer) => {
           entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("show");
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
           });
         },
         { threshold: 0.15 }
@@ -431,11 +601,11 @@
     const semesterCards = document.querySelectorAll(".semester-card");
     if (semesterCards.length) {
       const semesterObserver = new IntersectionObserver(
-        entries => {
+        (entries, observer) => {
           entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("fade-in");
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("fade-in");
+            observer.unobserve(entry.target);
           });
         },
         { threshold: 0.25 }
@@ -445,73 +615,104 @@
     }
   }
 
+  /**
+   * Injects current year values in all supported placeholders.
+   */
   function initializeYears() {
     const year = new Date().getFullYear();
 
     ["currentYear", "currentYearFooter", "sidebarYear"].forEach(id => {
       const element = document.getElementById(id);
-      if (element) element.textContent = year;
+      if (!element) return;
+      setTextContent(element, String(year));
     });
   }
 
-  function initializeEmailJs() {
-    if (window.emailjs) {
-      emailjs.init("tjw1lER8-6wZCb5Wg");
+  function getSanitizedFormPayload(form) {
+    return {
+      name: sanitizeInput(form?.name?.value),
+      email: sanitizeInput(form?.email?.value),
+      message: sanitizeInput(form?.message?.value)
+    };
+  }
+
+  function isRateLimited() {
+    const now = Date.now();
+    if (now - lastFormSubmissionAt < FORM_SUBMIT_RATE_LIMIT_MS) {
+      return true;
     }
 
-    const form = document.getElementById("contactForm");
-    const statusText = document.getElementById("formStatus");
-    const sendBtn = document.getElementById("sendBtn");
+    lastFormSubmissionAt = now;
+    return false;
+  }
 
-    if (!form || !sendBtn || !statusText) return;
+  /**
+   * Initializes EmailJS contact form behavior with sanitization,
+   * anti-spam protection, and submission throttling.
+   */
+  function initializeEmailJs(dom) {
+    if (window.emailjs?.init) {
+      emailjs.init(EMAIL_JS_PUBLIC_KEY);
+    }
 
-    form.addEventListener("submit", event => {
+    const { form, formStatus, sendButton } = dom;
+    if (!form || !sendButton || !formStatus) return;
+
+    formStatus.setAttribute("role", "status");
+    formStatus.setAttribute("aria-live", "polite");
+
+    const honeypot = ensureHoneypotField(form);
+
+    if (!window.emailjs?.send) {
+      updateStatusMessage(formStatus, t("contact.form.error"), "#ef4444");
+      return;
+    }
+
+    form.addEventListener("submit", async event => {
       event.preventDefault();
 
       const language = getCurrentLanguage();
 
-      sendBtn.disabled = true;
-      sendBtn.textContent = t("contact.form.sending", language);
+      if (honeypot?.value.trim()) return;
+      if (isRateLimited()) {
+        updateStatusMessage(formStatus, t("contact.form.error", language), "#ef4444");
+        return;
+      }
 
-      const params = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        message: form.message.value.trim()
-      };
+      const params = getSanitizedFormPayload(form);
+      setSendButtonLoadingState(sendButton, true, language);
 
-      emailjs
-        .send("service_1f3kxsk", "template_5tfub9f", params)
-        .then(() => {
-          statusText.textContent = t("contact.form.success", language);
-          statusText.style.color = "#22c55e";
-          form.reset();
-        })
-        .catch(error => {
-          console.error("EmailJS Error:", error);
-          statusText.textContent = t("contact.form.error", language);
-          statusText.style.color = "#ef4444";
-        })
-        .finally(() => {
-          sendBtn.disabled = false;
-          sendBtn.innerHTML = `<i data-lucide="send"></i><span data-i18n="contact.form.submit">${t("contact.form.submit", language)}</span>`;
-          if (window.lucide) lucide.createIcons();
-        });
+      try {
+        await emailjs.send(EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATE_ID, params);
+        updateStatusMessage(formStatus, t("contact.form.success", language), "#22c55e");
+        form.reset();
+      } catch (error) {
+        console.error("EmailJS Error:", error);
+        updateStatusMessage(formStatus, t("contact.form.error", language), "#ef4444");
+      } finally {
+        setSendButtonLoadingState(sendButton, false, language);
+      }
     });
   }
 
+  /**
+   * Initializes all UI modules once DOM is ready.
+   */
   document.addEventListener("DOMContentLoaded", () => {
-    if (window.lucide) {
+    const dom = cacheDom();
+
+    if (window.lucide?.createIcons) {
       lucide.createIcons();
     }
 
-    initializeMobileMenu();
-    initializeLanguageSwitcher();
+    initializeMobileMenu(dom);
+    initializeLanguageSwitcher(dom);
     initializeScrollReveal();
     initializeSkillCounter();
     initializeHomeStatsCounter();
     initializeSmoothScroll();
     initializeEducationAnimations();
     initializeYears();
-    initializeEmailJs();
+    initializeEmailJs(dom);
   });
 })();
