@@ -2448,3 +2448,14 @@ body,
         z-index: 6100;
     }
 }
+.company-link {
+    color: #22c55e;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.company-link:hover {
+    color: #16a34a;
+    text-decoration: underline;
+}
