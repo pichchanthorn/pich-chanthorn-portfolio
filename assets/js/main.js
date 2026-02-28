@@ -707,6 +707,64 @@
     statNumbers.forEach(element => observer.observe(element));
   }
 
+  function initializeVisitorCounter() {
+    const counterElement = document.getElementById("visitorCount");
+    if (!counterElement) return;
+
+    const API_URL = "https://api.countapi.xyz/hit/pichchanthorn.me/visits";
+
+    const setCounter = value => {
+      const safeValue = Math.max(0, Math.floor(Number(value) || 0));
+      counterElement.textContent = safeValue.toLocaleString("en-US");
+    };
+
+    const animateCounter = target => {
+      const safeTarget = Math.max(0, Math.floor(Number(target) || 0));
+
+      if (prefersReducedMotion()) {
+        setCounter(safeTarget);
+        return;
+      }
+
+      animateValue(1300, safeTarget, value => {
+        setCounter(value);
+      });
+    };
+
+    const fetchVisitorCount = async () => {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 7000);
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "GET",
+          cache: "no-store",
+          signal: controller.signal
+        });
+
+        if (!response.ok) {
+          throw new Error(`CountAPI request failed: ${response.status} ${response.statusText}`);
+        }
+
+        const payload = await response.json();
+        const visitorCount = Number(payload?.value);
+
+        if (!Number.isFinite(visitorCount) || visitorCount < 0) {
+          throw new Error("CountAPI returned an invalid visitor count.");
+        }
+
+        animateCounter(visitorCount);
+      } catch (error) {
+        console.error("Visitor counter error:", error);
+        setCounter(0);
+      } finally {
+        clearTimeout(timeoutId);
+      }
+    };
+
+    fetchVisitorCount();
+  }
+
   function initializeSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener("click", event => {
@@ -860,6 +918,7 @@
     initializeScrollReveal();
     initializeSkillCounter();
     initializeHomeStatsCounter();
+    initializeVisitorCounter();
     initializeSmoothScroll();
     initializeEducationAnimations();
     initializeYears();
