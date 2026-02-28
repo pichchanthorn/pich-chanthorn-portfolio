@@ -179,6 +179,16 @@
                 </div>
             </div>
 
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i data-lucide="users"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="visitorCount" aria-live="polite">0</span>
+                    <p class="stat-label">Total<br />Visitors</p>
+                </div>
+            </div>
+
         </section>
     </div>
 
@@ -208,6 +218,92 @@
     lucide.createIcons();
     document.getElementById("currentYear").textContent = new Date().getFullYear();
     document.getElementById("currentYearFooter").textContent = new Date().getFullYear();
+
+    (function initializeVisitorCounter() {
+        const counterElement = document.getElementById("visitorCount");
+        if (!counterElement) return;
+
+        const API_URL = "https://api.countapi.xyz/hit/pichchanthorn-portfolio/visits";
+        const numberFormatter = new Intl.NumberFormat("en-US");
+        const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const formatValue = value => numberFormatter.format(Math.max(0, Math.floor(value)));
+        const setCounter = value => {
+            counterElement.textContent = formatValue(value);
+        };
+
+        const animateCounter = target => {
+            if (!Number.isFinite(target) || target < 0) {
+                setCounter(0);
+                return;
+            }
+
+            if (reducedMotion) {
+                setCounter(target);
+                return;
+            }
+
+            const duration = 1300;
+            const startTime = performance.now();
+
+            const step = now => {
+                const progress = Math.min((now - startTime) / duration, 1);
+                setCounter(Math.floor(target * progress));
+                if (progress < 1) requestAnimationFrame(step);
+            };
+
+            requestAnimationFrame(step);
+        };
+
+        const fetchVisitorCount = async () => {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 7000);
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "GET",
+                    cache: "no-store",
+                    signal: controller.signal
+                });
+
+                if (!response.ok) {
+                    throw new Error(`CountAPI request failed with status ${response.status}`);
+                }
+
+                const payload = await response.json();
+                const count = Number(payload?.value);
+
+                if (!Number.isFinite(count) || count < 0) {
+                    throw new Error("Invalid visitor count returned by CountAPI");
+                }
+
+                animateCounter(count);
+            } catch (error) {
+                console.error("Visitor counter error:", error);
+                setCounter(0);
+            } finally {
+                clearTimeout(timeoutId);
+            }
+        };
+
+        if (!("IntersectionObserver" in window) || reducedMotion) {
+            fetchVisitorCount();
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    observer.disconnect();
+                    fetchVisitorCount();
+                });
+            },
+            { threshold: 0.45 }
+        );
+
+        observer.observe(counterElement);
+    })();
 </script>
 
 </body>

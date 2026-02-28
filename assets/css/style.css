@@ -606,12 +606,14 @@ body,
 
 .stats {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     margin-top: 32px;
 }
 
 .stat-card {
-    flex: 0 0 244px;
+    flex: 1 1 220px;
+    max-width: 244px;
     padding: 16px;
     border-radius: var(--radius-xl);
     background: var(--clr-bg);
