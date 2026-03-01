@@ -112,290 +112,300 @@
     <main class="main" id="mainContent">
         <div class="page-container edu-page">
 
-            <!-- PAGE HEADER -->
-            <section class="page-header reveal">
-                <h1 class="title">
-                    My <span class="highlight">Education</span>
-                </h1>
-                <p class="subtitle">
-                    A quick overview of my academic journey, GPA, and completed subjects
-                    at Build Bright University and other institutions.
+            <!-- EducationHeroSection -->
+            <section class="page-header reveal education-hero-section edu-reveal">
+                <h1 class="title">My <span class="highlight">Education</span></h1>
+                <p class="subtitle edu-hero-subtitle">
+                    Academic overview, coursework progression, and semester performance across my Information Technology journey.
                 </p>
+                <div class="edu-hero-metrics">
+                    <span class="edu-hero-chip"><i data-lucide="book-open"></i> 4-Year Program</span>
+                    <span class="edu-hero-chip"><i data-lucide="graduation-cap"></i> IT Major</span>
+                    <span class="edu-hero-chip"><i data-lucide="calendar-range"></i> 2024 – 2028</span>
+                </div>
             </section>
 
-            <!-- EDUCATION SUMMARY -->
-            <section class="edu-summary-grid reveal">
+            <div class="edu-section-divider reveal"></div>
 
-                 <!-- CURRENT PROGRAM -->
-                <article class="edu-summary-card">
+            <!-- DegreeCardComponent + GPAStatsCard -->
+            <section class="edu-summary-grid reveal edu-reveal">
+                <article class="edu-summary-card degree-card-component">
                     <div class="edu-summary-header">
                         <span class="edu-pill">Current Program</span>
                         <span class="edu-year">2024 – 2028</span>
                     </div>
-
-                    <h2 class="edu-main-title">
-                        Associate’s Degree in Information Technology
-                    </h2>
-
-                    <p class="edu-school">
-                        Build Bright University (BBU) – Phnom Penh Campus
-                    </p>
-
+                    <h2 class="edu-main-title">Associate’s Degree in Information Technology</h2>
+                    <p class="edu-school">Build Bright University (BBU) – Phnom Penh Campus</p>
                     <p class="edu-text">
-                        A four-year Information Technology program with a strong focus on
-                        web development, database systems, computer networking, algorithms,
-                        and UI/UX design. The curriculum emphasizes hands-on learning through
-                        real-world projects and practical applications using modern technologies.
+                        A practice-oriented curriculum focused on web application development, database systems, computer networking,
+                        algorithms, and UI/UX fundamentals with continuous project-based learning.
                     </p>
-
-                    <div class="edu-stats-row">
-                        <div class="edu-stat">
-                            <p class="edu-stat-label">Overall GPA</p>
-                            <p class="edu-stat-value">3.57</p>
-                        </div>
-                        <div class="edu-stat">
-                            <p class="edu-stat-label">Current Academic Year</p>
-                            <p class="edu-stat-value">Year 2</p>
-                        </div>
-                        <div class="edu-stat">
-                            <p class="edu-stat-label">Credits Completed</p>
-                            <p class="edu-stat-value">45+</p>
-                        </div>
-                    </div>
-
                     <div class="edu-actions">
-                        <a
-                            href="https://web.bbu.edu.kh/bburesults"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn outline small"
-                        >
+                        <a href="https://web.bbu.edu.kh/bburesults" target="_blank" rel="noopener" class="btn outline small">
                             <i data-lucide="external-link"></i>
                             <span>View Official Academic Results</span>
                         </a>
                     </div>
                 </article>
 
-                <!-- EDUCATION TIMELINE -->
-                <article class="edu-timeline">
-                    <h3 class="section-title-sm">
-                        Education <span class="highlight">Timeline</span>
-                    </h3>
-
-                    <ul class="timeline-list">
-                        <li class="timeline-item">
-                            <span class="timeline-dot"></span>
-                            <div class="timeline-content">
-                                <p class="timeline-title">Build Bright University</p>
-                                <p class="timeline-meta">
-                                    Associate’s Degree • Information Technology • 2024 – 2028
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="timeline-item">
-                            <span class="timeline-dot"></span>
-                            <div class="timeline-content">
-                                <p class="timeline-title">
-                                    Cambodia–ASEAN International Institute
-                                </p>
-                                <p class="timeline-meta">
-                                    Foundation English Program • 2024
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="timeline-item">
-                            <span class="timeline-dot"></span>
-                            <div class="timeline-content">
-                                <p class="timeline-title">Svay Rieng High School</p>
-                                <p class="timeline-meta">
-                                    General Education • Completed 2024
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="timeline-item">
-                            <span class="timeline-dot"></span>
-                            <div class="timeline-content">
-                                <p class="timeline-title">
-                                    Johnson International School
-                                </p>
-                                <p class="timeline-meta">
-                                    High School Diploma • Chinese & General Education
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
+                <article class="edu-summary-card gpa-stats-card">
+                    <h3 class="section-title-sm">Academic <span class="highlight">Stats</span></h3>
+                    <div class="edu-stats-row">
+                        <div class="edu-stat">
+                            <p class="edu-stat-label">Overall GPA</p>
+                            <p class="edu-stat-value">3.57</p>
+                        </div>
+                        <div class="edu-stat">
+                            <p class="edu-stat-label">Current Year</p>
+                            <p class="edu-stat-value">Year 2</p>
+                        </div>
+                        <div class="edu-stat">
+                            <p class="edu-stat-label">Credits Completed</p>
+                            <p class="edu-stat-value">45+</p>
+                        </div>
+                        <div class="edu-stat">
+                            <p class="edu-stat-label">Semesters Done</p>
+                            <p class="edu-stat-value">3 / 8</p>
+                        </div>
+                    </div>
                 </article>
             </section>
 
-             <!-- ================= EDUCATION RESULTS (4 YEARS) ================= -->
+            <div class="edu-section-divider reveal"></div>
 
-            <!-- ================= YEAR 1 ================= -->
-            <section class="edu-year-section reveal" id="year1">
-
-                <header class="edu-year-header">
-                    <h2 class="section-heading">
-                        Year 1 <span class="highlight">(Foundation Year)</span>
-                    </h2>
-                    <p class="edu-year-gpa">
-                        Current GPA: <span>3.57</span>
-                    </p>
+            <!-- EducationTimelineComponent -->
+            <section class="edu-timeline reveal edu-reveal education-timeline-component" aria-label="Education timeline">
+                <header class="edu-timeline-header">
+                    <h2 class="section-heading">Education <span class="highlight">Timeline</span></h2>
                 </header>
 
-                <!-- Semester 1 -->
-                <article class="semester-card">
-                    <header class="semester-header">
-                        <h3>Semester 1 (Year 1)</h3>
-                    </header>
+                <ul class="timeline-list">
+                    <li class="timeline-item">
+                        <div class="timeline-marker">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <p class="timeline-title">Build Bright University</p>
+                            <p class="timeline-meta">Associate’s Degree • Information Technology</p>
+                        </div>
+                        <span class="timeline-badge">2024 – 2028</span>
+                    </li>
 
-                    <div class="table-wrapper">
-                        <table class="edu-table">
-                            <thead>
-                                <tr>
-                                    <th>No</th><th>Subject</th><th>Midterm</th><th>Final</th>
-                                    <th>Credit</th><th>Total</th><th>Grade</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>1</td><td>Core English I</td><td>47</td><td>32</td><td>3</td><td>79</td><td>B</td></tr>
-                                <tr><td>2</td><td>Critical Thinking & Growth Mindset</td><td>41</td><td>30</td><td>3</td><td>71</td><td>B</td></tr>
-                                <tr><td>3</td><td>Digital Literacy</td><td>52</td><td>38</td><td>3</td><td>90</td><td>A</td></tr>
-                                <tr><td>4</td><td>IT Infrastructure</td><td>50</td><td>28</td><td>3</td><td>78</td><td>B</td></tr>
-                                <tr><td>5</td><td>Programming in C</td><td>50</td><td>35</td><td>3</td><td>85</td><td>A</td></tr>
-                            </tbody>
-                        </table>
+                    <li class="timeline-item">
+                        <div class="timeline-marker">
+                            <i data-lucide="languages"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <p class="timeline-title">Cambodia–ASEAN International Institute</p>
+                            <p class="timeline-meta">Foundation English Program</p>
+                        </div>
+                        <span class="timeline-badge">2024</span>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-marker">
+                            <i data-lucide="school"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <p class="timeline-title">Svay Rieng High School</p>
+                            <p class="timeline-meta">General Education</p>
+                        </div>
+                        <span class="timeline-badge">Completed 2024</span>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-marker">
+                            <i data-lucide="book-marked"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <p class="timeline-title">Johnson International School</p>
+                            <p class="timeline-meta">High School Diploma • Chinese & General Education</p>
+                        </div>
+                        <span class="timeline-badge">Earlier Stage</span>
+                    </li>
+                </ul>
+            </section>
+
+            <div class="edu-section-divider reveal"></div>
+
+            <!-- SemesterAccordionComponent -->
+            <section class="semester-accordion-component reveal edu-reveal" id="year1" aria-label="Year 1 semester results">
+                <header class="edu-year-header">
+                    <h2 class="section-heading">Year 1 <span class="highlight">(Foundation Year)</span></h2>
+                    <p class="edu-year-gpa">Year GPA: <span>3.46</span></p>
+                </header>
+
+                <article class="semester-card accordion-item" data-open="true">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="true">
+                        <span class="semester-title-wrap">
+                            <span class="semester-title">Semester 1 (Year 1)</span>
+                            <span class="semester-summary">GPA: 3.40 • Credits: 15</span>
+                        </span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="table-wrapper subject-table-component">
+                            <table class="edu-table" aria-label="Semester 1 subjects">
+                                <thead>
+                                    <tr>
+                                        <th>No</th><th>Subject</th><th>Midterm</th><th>Final</th><th>Credit</th><th>Total</th><th>Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Core English I</td><td>47</td><td>32</td><td>3</td><td>79</td><td>B</td></tr>
+                                    <tr><td>2</td><td>Critical Thinking & Growth Mindset</td><td>41</td><td>30</td><td>3</td><td>71</td><td>B</td></tr>
+                                    <tr><td>3</td><td>Digital Literacy</td><td>52</td><td>38</td><td>3</td><td>90</td><td>A</td></tr>
+                                    <tr><td>4</td><td>IT Infrastructure</td><td>50</td><td>28</td><td>3</td><td>78</td><td>B</td></tr>
+                                    <tr><td>5</td><td>Programming in C</td><td>50</td><td>35</td><td>3</td><td>85</td><td>A</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Semester 2 -->
-                <article class="semester-card">
-                    <header class="semester-header">
-                        <h3>Semester 2 (Year 1)</h3>
-                    </header>
+                <article class="semester-card accordion-item">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                        <span class="semester-title-wrap">
+                            <span class="semester-title">Semester 2 (Year 1)</span>
+                            <span class="semester-summary">GPA: 3.52 • Credits: 15</span>
+                        </span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="table-wrapper subject-table-component">
+                            <table class="edu-table" aria-label="Semester 2 subjects">
+                                <thead>
+                                    <tr>
+                                        <th>No</th><th>Subject</th><th>Midterm</th><th>Final</th><th>Credit</th><th>Total</th><th>Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Computer Repair & Maintenance</td><td>53</td><td>26</td><td>3</td><td>79</td><td>B</td></tr>
+                                    <tr><td>2</td><td>Graphic Design</td><td>57</td><td>38</td><td>3</td><td>95</td><td>A</td></tr>
+                                    <tr><td>3</td><td>Mathematics for Computing</td><td>44</td><td>29</td><td>3</td><td>73</td><td>B</td></tr>
+                                    <tr><td>4</td><td>Presentation Skills</td><td>50</td><td>35</td><td>3</td><td>85</td><td>A</td></tr>
+                                    <tr><td>5</td><td>Programming in C++</td><td>43</td><td>32</td><td>3</td><td>75</td><td>B</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </section>
 
-                    <div class="table-wrapper">
-                        <table class="edu-table">
-                            <thead>
-                                <tr>
-                                    <th>No</th><th>Subject</th><th>Midterm</th><th>Final</th>
-                                    <th>Credit</th><th>Total</th><th>Grade</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>1</td><td>Computer Repair & Maintenance</td><td>53</td><td>26</td><td>3</td><td>79</td><td>B</td></tr>
-                                <tr><td>2</td><td>Graphic Design</td><td>57</td><td>38</td><td>3</td><td>95</td><td>A</td></tr>
-                                <tr><td>3</td><td>Mathematics for Computing</td><td>44</td><td>29</td><td>3</td><td>73</td><td>B</td></tr>
-                                <tr><td>4</td><td>Presentation Skills</td><td>50</td><td>35</td><td>3</td><td>85</td><td>A</td></tr>
-                                <tr><td>5</td><td>Programming in C++</td><td>43</td><td>32</td><td>3</td><td>75</td><td>B</td></tr>
-                            </tbody>
-                        </table>
+            <section class="semester-accordion-component reveal edu-reveal" id="year2" aria-label="Year 2 semester results">
+                <header class="edu-year-header">
+                    <h2 class="section-heading">Year 2 <span class="highlight">(Core IT Studies)</span></h2>
+                    <p class="edu-year-gpa">Year GPA: <span>3.80</span></p>
+                </header>
+
+                <article class="semester-card accordion-item">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                        <span class="semester-title-wrap">
+                            <span class="semester-title">Semester 3 (Year 2)</span>
+                            <span class="semester-summary">GPA: 3.80 • Credits: 15</span>
+                        </span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="table-wrapper subject-table-component">
+                            <table class="edu-table" aria-label="Semester 3 subjects">
+                                <thead>
+                                    <tr>
+                                        <th>No</th><th>Subject</th><th>Midterm</th><th>Final</th><th>Credit</th><th>Total</th><th>Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Computer Network</td><td>55</td><td>37</td><td>3</td><td>92</td><td>A</td></tr>
+                                    <tr><td>2</td><td>Data Modeling and Relational Database</td><td>46</td><td>34</td><td>3</td><td>80</td><td>B+</td></tr>
+                                    <tr><td>3</td><td>Data Structures & Algorithms Using Python</td><td>52</td><td>39</td><td>3</td><td>91</td><td>A</td></tr>
+                                    <tr><td>4</td><td>Internet Programming I</td><td>60</td><td>40</td><td>3</td><td>100</td><td>A</td></tr>
+                                    <tr><td>5</td><td>UX / UI Design</td><td>51</td><td>38</td><td>3</td><td>89</td><td>A</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </article>
 
+                <article class="semester-card accordion-item">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                        <span class="semester-title-wrap">
+                            <span class="semester-title">Semester 4 (Year 2)</span>
+                            <span class="semester-summary">GPA: Pending • Credits: 0</span>
+                        </span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <p class="pending-msg">Courses in progress / upcoming.</p>
+                    </div>
+                </article>
             </section>
 
-            <!-- ================= YEAR 2 ================= -->
-            <section class="edu-year-section reveal" id="year2">
-
+            <section class="semester-accordion-component reveal edu-reveal" id="year3" aria-label="Year 3 semester plan">
                 <header class="edu-year-header">
-                    <h2 class="section-heading">
-                        Year 2 <span class="highlight">(Core IT Studies)</span>
-                    </h2>
-                    <!-- <p class="edu-year-gpa">
-                        Current GPA: <span>3.57</span>
-                    </p> -->
+                    <h2 class="section-heading">Year 3 <span class="highlight">(Advanced & Specialization)</span></h2>
                 </header>
 
-                <!-- Semester 3 -->
-                <article class="semester-card">
-                    <header class="semester-header">
-                        <h3>Semester 3 (Year 2)</h3>
-                    </header>
-
-                    <div class="table-wrapper">
-                        <table class="edu-table">
-                            <thead>
-                                <tr>
-                                    <th>No</th><th>Subject</th><th>Midterm</th><th>Final</th>
-                                    <th>Credit</th><th>Total</th><th>Grade</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>1</td><td>Computer Network</td><td>55</td><td>37</td><td>3</td><td>92</td><td>A</td></tr>
-                                <tr><td>2</td><td>Data Modeling and Relational Database</td><td>46</td><td>34</td><td>3</td><td>80</td><td>B+</td></tr>
-                                <tr><td>3</td><td>Data Structures & Algorithms Using Python</td><td>52</td><td>39</td><td>3</td><td>91</td><td>A</td></tr>
-                                <tr><td>4</td><td>Internet Programming I</td><td>60</td><td>40</td><td>3</td><td>100</td><td>A</td></tr>
-                                <tr><td>5</td><td>UX / UI Design</td><td>51</td><td>38</td><td>3</td><td>89</td><td>A</td></tr>
-                            </tbody>
-                        </table>
+                <article class="semester-card accordion-item">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                        <span class="semester-title-wrap">
+                            <span class="semester-title">Semester 5 (Year 3)</span>
+                            <span class="semester-summary">GPA: Pending • Credits: Pending</span>
+                        </span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <p class="pending-msg">Upcoming courses.</p>
                     </div>
                 </article>
 
-                <!-- Semester 4 -->
-                <article class="semester-card">
-                    <header class="semester-header">
-                        <h3>Semester 4 (Year 2)</h3>
-                        <p class="pending-msg">📌 Courses in progress / upcoming</p>
-                    </header>
+                <article class="semester-card accordion-item">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                        <span class="semester-title-wrap">
+                            <span class="semester-title">Semester 6 (Year 3)</span>
+                            <span class="semester-summary">GPA: Pending • Credits: Pending</span>
+                        </span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <p class="pending-msg">Upcoming courses.</p>
+                    </div>
                 </article>
-
             </section>
 
-            <!-- ================= YEAR 3 ================= -->
-            <section class="edu-year-section reveal" id="year3">
-
+            <section class="semester-accordion-component reveal edu-reveal" id="year4" aria-label="Year 4 semester plan">
                 <header class="edu-year-header">
-                    <h2 class="section-heading">
-                        Year 3 <span class="highlight">(Advanced & Specialization)</span>
-                    </h2>
+                    <h2 class="section-heading">Year 4 <span class="highlight">(Final Year & Capstone)</span></h2>
                 </header>
 
-                <article class="semester-card">
-                    <header class="semester-header">
-                        <h3>Semester 5 (Year 3)</h3>
-                        <p class="pending-msg">📌 Upcoming courses</p>
-                    </header>
+                <article class="semester-card accordion-item">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                        <span class="semester-title-wrap">
+                            <span class="semester-title">Semester 7 (Year 4)</span>
+                            <span class="semester-summary">GPA: Pending • Credits: Pending</span>
+                        </span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <p class="pending-msg">Internship / research / capstone period.</p>
+                    </div>
                 </article>
 
-                <article class="semester-card">
-                    <header class="semester-header">
-                        <h3>Semester 6 (Year 3)</h3>
-                        <p class="pending-msg">📌 Upcoming courses</p>
-                    </header>
+                <article class="semester-card accordion-item">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                        <span class="semester-title-wrap">
+                            <span class="semester-title">Semester 8 (Year 4)</span>
+                            <span class="semester-summary">GPA: Pending • Credits: Pending</span>
+                        </span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <p class="pending-msg">Graduation semester.</p>
+                    </div>
                 </article>
-
             </section>
-
-            <!-- ================= YEAR 4 ================= -->
-            <section class="edu-year-section reveal" id="year4">
-
-                <header class="edu-year-header">
-                    <h2 class="section-heading">
-                        Year 4 <span class="highlight">(Final Year & Capstone)</span>
-                    </h2>
-                </header>
-
-                <article class="semester-card">
-                    <header class="semester-header">
-                        <h3>Semester 7 (Year 4)</h3>
-                        <p class="pending-msg">📌 Internship / Research / Capstone</p>
-                    </header>
-                </article>
-
-                <article class="semester-card">
-                    <header class="semester-header">
-                        <h3>Semester 8 (Year 4)</h3>
-                        <p class="pending-msg">📌 Graduation Semester</p>
-                    </header>
-                </article>
-
-            </section>
-
 
             <!-- FOOTER -->
-             <footer class="site-footer">
+            <footer class="site-footer">
                 © <span id="currentYear"></span> Pich Chanthorn. All rights reserved.
                 <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>
