@@ -108,293 +108,216 @@
     <main class="main" id="mainContent">
         <div class="page-container experience-page">
 
-            <!-- PAGE HEADER -->
-            <section class="page-header reveal">
-                <h1 class="title">
-                    My <span class="highlight">Experience</span>
-                </h1>
-                <p class="subtitle">
-                    Practical experience from university projects, self-learning, and real-world
-                    activities that help me grow as a future full-stack developer.
+            <section class="experience-hero reveal">
+                <p class="experience-hero__eyebrow">Professional Profile</p>
+                <h1 class="experience-hero__title">My <span class="highlight">Experience</span></h1>
+                <p class="experience-hero__subtitle">
+                    Full-stack growth through internships, product-driven projects, and continuous delivery practice.
+                    I focus on building reliable web applications with clear UX, clean architecture, and measurable outcomes.
                 </p>
             </section>
 
-            <!-- EXPERIENCE LAYOUT -->
-            <section class="exp-layout">
+            <div class="experience-divider" aria-hidden="true"></div>
 
-                <!-- LEFT: EXPERIENCE TIMELINE -->
-                <div class="exp-main">
+            <section class="experience-layout" aria-label="Experience timeline and career focus">
+                <div class="experience-timeline reveal">
+                    <header class="experience-section-header">
+                        <h2 class="experience-section-title">Experience Timeline</h2>
+                        <p class="experience-section-text">Recent work and development milestones, ordered by relevance and recency.</p>
+                    </header>
 
-                    <!-- EXPERIENCE: DATA ENTRY INTERN -->
-                    <article class="exp-card reveal">
-                        <header class="exp-header">
-                            <div>
-                                <p class="exp-role">Data Entry Specialist (Intern)</p>
-                                 <p class="exp-company">
-                                    <a href="https://haystack-solutions.com/" 
-                                    target="_blank" 
-                                    class="company-link">
-                                    Haystack
-                                    </a>
-                                </p>
+                    <div class="experience-timeline__track" role="list">
+                        <article class="experience-card reveal" role="listitem">
+                            <header class="experience-card__header">
+                                <div>
+                                    <p class="experience-card__icon-label"><i data-lucide="briefcase-business"></i> Professional Experience</p>
+                                    <h3 class="experience-card__role">Data Entry Specialist (Intern)</h3>
+                                    <p class="experience-card__company">
+                                        <a href="https://haystack-solutions.com/" target="_blank" rel="noopener noreferrer" class="company-link">Haystack</a>
+                                    </p>
+                                </div>
+                                <span class="experience-card__date">Jan 2026 — Present</span>
+                            </header>
+
+                            <p class="experience-card__meta">
+                                <span><i data-lucide="map-pin"></i> Phnom Penh, Cambodia</span>
+                                <span><i data-lucide="building-2"></i> Internship • On-site</span>
+                            </p>
+
+                            <p class="experience-card__summary">
+                                Supporting production-grade data pipelines by executing high-accuracy entry, annotation, and validation workflows under strict quality standards.
+                            </p>
+
+                            <details class="experience-card__details">
+                                <summary>Impact Highlights</summary>
+                                <ul class="experience-card__bullets">
+                                    <li>Improved delivery reliability by maintaining consistent quality checks before data handoff.</li>
+                                    <li>Reduced rework through structured validation routines and issue flagging for edge cases.</li>
+                                    <li>Helped keep sprint timelines on track by completing assigned datasets on schedule.</li>
+                                </ul>
+                            </details>
+
+                            <div class="experience-card__tech">
+                                <p class="experience-card__tech-title">Key Technologies</p>
+                                <div class="experience-card__tags">
+                                    <span class="experience-tag">Data Annotation</span>
+                                    <span class="experience-tag">Quality Assurance</span>
+                                    <span class="experience-tag">Data Validation</span>
+                                </div>
                             </div>
-                            <span class="exp-period">Jan 2026 — Present</span>
-                        </header>
+                        </article>
 
-                        <p class="exp-meta">
-                            <span><i data-lucide="map-pin"></i> Phnom Penh, Cambodia</span>
-                            <span><i data-lucide="briefcase"></i> Internship • On-site</span>
-                        </p>
+                        <article class="experience-card reveal" role="listitem">
+                            <header class="experience-card__header">
+                                <div>
+                                    <p class="experience-card__icon-label"><i data-lucide="code-2"></i> Product Building</p>
+                                    <h3 class="experience-card__role">Independent Web Developer</h3>
+                                    <p class="experience-card__company">Personal Products & Freelance-Style Practice</p>
+                                </div>
+                                <span class="experience-card__date">2024 — Present</span>
+                            </header>
 
-                        <p class="exp-desc">
-                            Currently working as a Data Entry Specialist Intern, supporting
-                            data entry, annotation, validation, and quality assurance tasks
-                            on real-world datasets while following strict project guidelines.
-                        </p>
+                            <p class="experience-card__meta">
+                                <span><i data-lucide="laptop"></i> Remote</span>
+                                <span><i data-lucide="clock-3"></i> Part-time • Ongoing</span>
+                            </p>
 
-                        <ul class="exp-bullets">
-                            <li>Performed accurate data entry and data validation tasks.</li>
-                            <li>Worked with annotation and data processing platforms.</li>
-                            <li>Ensured data consistency, accuracy, and quality control.</li>
-                            <li>Collaborated with team members to meet deadlines.</li>
-                        </ul>
+                            <p class="experience-card__summary">
+                                Designing and shipping portfolio-grade web apps end-to-end, from UI planning and responsive implementation to client-side interaction and deployment readiness.
+                            </p>
 
-                        <div class="exp-tags">
-                            <span class="tag">Data Entry</span>
-                            <span class="tag">Data Annotation</span>
-                            <span class="tag">Quality Control</span>
-                        </div>
-                    </article>
+                            <details class="experience-card__details">
+                                <summary>Impact Highlights</summary>
+                                <ul class="experience-card__bullets">
+                                    <li>Built and maintained multiple real-use portfolio projects with modular, reusable front-end architecture.</li>
+                                    <li>Improved usability by prototyping flows in Figma before implementation, reducing UI rework during coding.</li>
+                                    <li>Increased maintainability through consistent file structure, naming conventions, and version control workflows.</li>
+                                </ul>
+                            </details>
 
-                    <!-- EXPERIENCE ITEM -->
-                    <article class="exp-card reveal">
-                        <header class="exp-header">
-                            <div>
-                                <p class="exp-role">
-                                    IT Student (Information Technology)
-                                </p>
-                                <p class="exp-company">
-                                    <a href="https://web.bbu.edu.kh/" 
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="company-link">
-                                    Build Bright University
-                                    </a>
-                                </p>
+                            <div class="experience-card__tech">
+                                <p class="experience-card__tech-title">Key Technologies</p>
+                                <div class="experience-card__tags">
+                                    <span class="experience-tag">HTML5</span>
+                                    <span class="experience-tag">CSS Grid</span>
+                                    <span class="experience-tag">JavaScript</span>
+                                    <span class="experience-tag">Figma</span>
+                                </div>
                             </div>
-                            <span class="exp-period">
-                                2024 — Present
-                            </span>
-                        </header>
+                        </article>
 
-                        <p class="exp-meta">
-                            <span><i data-lucide="map-pin"></i> Phnom Penh, Cambodia</span>
-                            <span><i data-lucide="book-open"></i> Full-time</span>
-                        </p>
+                        <article class="experience-card reveal" role="listitem">
+                            <header class="experience-card__header">
+                                <div>
+                                    <p class="experience-card__icon-label"><i data-lucide="graduation-cap"></i> Academic Development</p>
+                                    <h3 class="experience-card__role">BSc Information Technology Student</h3>
+                                    <p class="experience-card__company">
+                                        <a href="https://web.bbu.edu.kh/" target="_blank" rel="noopener noreferrer" class="company-link">Build Bright University</a>
+                                    </p>
+                                </div>
+                                <span class="experience-card__date">2024 — Present</span>
+                            </header>
 
-                        <p class="exp-desc">
-                            Pursuing a Bachelor's degree in Information Technology with a strong
-                            focus on software development, database systems, and secure web
-                            architecture. Actively applying academic knowledge to real-world
-                            web applications and structured development projects.
-                        </p>
+                            <p class="experience-card__meta">
+                                <span><i data-lucide="map-pin"></i> Phnom Penh, Cambodia</span>
+                                <span><i data-lucide="book-open"></i> Full-time</span>
+                            </p>
 
-                        <ul class="exp-bullets">
-                            <li>Designed and developed responsive web applications using <strong>HTML, CSS, JavaScript, and PHP</strong>.</li>
-                            <li>Implemented relational database systems with <strong>MySQL</strong> and practiced normalization techniques.</li>
-                            <li>Applied <strong>Git & GitHub workflow</strong> for version control and collaborative development.</li>
-                            <li>Strengthened algorithmic thinking through data structures and problem-solving exercises.</li>
-                        </ul>
+                            <p class="experience-card__summary">
+                                Translating academic foundations into production-minded development skills across full-stack fundamentals, relational databases, and secure web practices.
+                            </p>
 
-                        <div class="exp-tags">
-                            <span class="tag">Full-Stack Fundamentals</span>
-                            <span class="tag">Database Design</span>
-                            <span class="tag">Version Control</span>
-                            <span class="tag">Problem Solving</span>
-                        </div>
-                    </article>
+                            <details class="experience-card__details">
+                                <summary>Impact Highlights</summary>
+                                <ul class="experience-card__bullets">
+                                    <li>Delivered coursework projects with responsive interfaces and structured back-end-ready data models.</li>
+                                    <li>Applied relational design and normalization principles to improve query clarity and data integrity.</li>
+                                    <li>Used Git and GitHub workflows to track progress, document decisions, and manage iterative improvements.</li>
+                                </ul>
+                            </details>
 
-                    <!-- EXPERIENCE ITEM -->
-                    <article class="exp-card reveal">
-                        <header class="exp-header">
-                            <div>
-                                <p class="exp-role">
-                                    Independent Web Developer & Continuous Learning
-                                </p>
-                                <p class="exp-company">
-                                    Personal Projects & Self-Directed Practice
-                                </p>
+                            <div class="experience-card__tech">
+                                <p class="experience-card__tech-title">Key Technologies</p>
+                                <div class="experience-card__tags">
+                                    <span class="experience-tag">PHP</span>
+                                    <span class="experience-tag">MySQL</span>
+                                    <span class="experience-tag">Git &amp; GitHub</span>
+                                    <span class="experience-tag">Problem Solving</span>
+                                </div>
                             </div>
-                            <span class="exp-period">
-                                2024 — Present
-                            </span>
-                        </header>
+                        </article>
 
-                        <p class="exp-meta">
-                            <span><i data-lucide="laptop"></i> Remote</span>
-                            <span><i data-lucide="clock-3"></i> Ongoing Development</span>
-                        </p>
+                        <article class="experience-card reveal" role="listitem">
+                            <header class="experience-card__header">
+                                <div>
+                                    <p class="experience-card__icon-label"><i data-lucide="award"></i> Professional Certifications</p>
+                                    <h3 class="experience-card__role">IT Support & Cybersecurity Certifications</h3>
+                                    <p class="experience-card__company">Google • Cisco • Coursera</p>
+                                </div>
+                                <span class="experience-card__date">2025</span>
+                            </header>
 
-                        <p class="exp-desc">
-                            Actively designing and developing full-stack and frontend-focused web
-                            applications to strengthen technical foundations in UI/UX design,
-                            responsive architecture, and structured coding practices.
-                            Continuously exploring modern development standards and performance optimization.
-                        </p>
+                            <p class="experience-card__meta">
+                                <span><i data-lucide="globe-2"></i> Online Learning</span>
+                                <span><i data-lucide="check-circle-2"></i> Completed</span>
+                            </p>
 
-                        <ul class="exp-bullets">
-                            <li>Architected and built this <strong>portfolio website</strong> with responsive and modular design principles.</li>
-                            <li>Developed structured layouts using <strong>Flexbox, CSS Grid, and modern CSS techniques</strong>.</li>
-                            <li>Integrated interactive features using <strong>JavaScript</strong> for enhanced user experience.</li>
-                            <li>Designed UI prototypes in <strong>Figma</strong> before implementation to improve usability and layout planning.</li>
-                        </ul>
+                            <p class="experience-card__summary">
+                                Completed industry-aligned programs to strengthen troubleshooting, security awareness, and practical infrastructure fundamentals.
+                            </p>
 
-                        <div class="exp-tags">
-                            <span class="tag">Frontend Architecture</span>
-                            <span class="tag">Responsive Design</span>
-                            <span class="tag">JavaScript Interactivity</span>
-                            <span class="tag">UI Prototyping</span>
-                        </div>
-                    </article>
+                            <details class="experience-card__details">
+                                <summary>Impact Highlights</summary>
+                                <ul class="experience-card__bullets">
+                                    <li>Improved incident response thinking through scenario-based troubleshooting and guided lab exercises.</li>
+                                    <li>Built stronger security-first habits by applying risk assessment and defensive best practices.</li>
+                                    <li>Expanded system-level understanding across operating systems, networking basics, and support workflows.</li>
+                                </ul>
+                            </details>
 
-                    <!-- EXPERIENCE ITEM -->
-                    <article class="exp-card reveal">
-                        <header class="exp-header">
-                            <div>
-                                <p class="exp-role">
-                                    Professional Online Certifications
-                                </p>
-                                <p class="exp-company">
-                                    Google • Cisco • Coursera
-                                </p>
+                            <div class="experience-card__tech">
+                                <p class="experience-card__tech-title">Key Technologies</p>
+                                <div class="experience-card__tags">
+                                    <span class="experience-tag">Cybersecurity</span>
+                                    <span class="experience-tag">Networking</span>
+                                    <span class="experience-tag">System Support</span>
+                                    <span class="experience-tag">Risk Awareness</span>
+                                </div>
                             </div>
-                            <span class="exp-period">
-                                2025
-                            </span>
-                        </header>
-
-                        <p class="exp-meta">
-                            <span><i data-lucide="globe-2"></i> Online Learning</span>
-                            <span><i data-lucide="check-circle-2"></i> Successfully Completed</span>
-                        </p>
-
-                        <p class="exp-desc">
-                            Completed structured certification programs focused on IT support,
-                            cybersecurity fundamentals, and secure system practices. Strengthened
-                            understanding of real-world IT infrastructure, threat awareness, and
-                            troubleshooting methodologies through practical labs and scenario-based training.
-                        </p>
-
-                        <ul class="exp-bullets">
-                            <li>Developed knowledge in <strong>IT support operations, system diagnostics, and troubleshooting workflows</strong>.</li>
-                            <li>Studied <strong>cybersecurity principles</strong> including risk assessment, basic threat modeling, and security best practices.</li>
-                            <li>Completed hands-on labs covering <strong>operating systems, networking concepts, and security fundamentals</strong>.</li>
-                            <li>Improved structured problem-solving through guided simulations and real-case exercises.</li>
-                        </ul>
-
-                        <div class="exp-tags">
-                            <span class="tag">Cybersecurity Fundamentals</span>
-                            <span class="tag">IT Support Operations</span>
-                            <span class="tag">Networking Basics</span>
-                            <span class="tag">Security Awareness</span>
-                        </div>
-                    </article>
-
-                    <!-- EXPERIENCE ITEM -->
-                    <article class="exp-card reveal">
-                        <header class="exp-header">
-                            <div>
-                                <p class="exp-role">
-                                    Professional Online Certifications
-                                </p>
-                                <p class="exp-company">
-                                    Google • Cisco • Coursera
-                                </p>
-                            </div>
-                            <span class="exp-period">
-                                2025
-                            </span>
-                        </header>
-
-                        <p class="exp-meta">
-                            <span><i data-lucide="globe-2"></i> Online Learning</span>
-                            <span><i data-lucide="check-circle-2"></i> Successfully Completed</span>
-                        </p>
-
-                        <p class="exp-desc">
-                            Completed structured industry-recognized certification programs focused on
-                            IT support, cybersecurity fundamentals, and system security principles.
-                            Gained hands-on experience through practical labs, troubleshooting simulations,
-                            and real-world scenario-based assessments.
-                        </p>
-
-                        <ul class="exp-bullets">
-                            <li>Developed foundational knowledge in <strong>IT support operations and system troubleshooting</strong>.</li>
-                            <li>Studied <strong>cybersecurity principles</strong>, including risk management, threat analysis, and basic network security.</li>
-                            <li>Completed hands-on labs covering <strong>operating systems, networking concepts, and incident response basics</strong>.</li>
-                            <li>Strengthened analytical thinking through structured problem-solving exercises and assessments.</li>
-                        </ul>
-
-                        <div class="exp-tags">
-                            <span class="tag">Cybersecurity Fundamentals</span>
-                            <span class="tag">IT Support</span>
-                            <span class="tag">Networking Basics</span>
-                            <span class="tag">Risk Management</span>
-                        </div>
-                    </article>
-
+                        </article>
+                    </div>
                 </div>
 
-                <!-- RIGHT: EXPERIENCE SIDEBAR -->
-                <aside class="exp-sidebar">
-
-                    <div class="exp-side-card reveal">
-                        <h3 class="exp-side-title">
-                            <i data-lucide="target"></i>
-                            Current Focus
-                        </h3>
-                        <p class="exp-side-text">
-                            Focusing on frontend web development (HTML, CSS, JavaScript) and
-                            preparing to learn backend and database integration.
+                <aside class="experience-side" aria-label="Career focus summary">
+                    <section class="experience-panel reveal">
+                        <h2 class="experience-panel__title"><i data-lucide="target"></i> Career Focus</h2>
+                        <p class="experience-panel__text">
+                            Building toward a junior full-stack role where I can contribute to production features, collaborate in agile teams, and improve code quality through mentorship and feedback.
                         </p>
-                        <ul class="exp-side-list">
-                            <li>Clean & responsive UI</li>
-                            <li>JavaScript fundamentals</li>
-                            <li>Git & GitHub workflow</li>
-                        </ul>
-                    </div>
+                    </section>
 
-                    <div class="exp-side-card reveal">
-                        <h3 class="exp-side-title">
-                            <i data-lucide="wrench"></i>
-                            Tools I Use
-                        </h3>
-                        <div class="exp-chip-row">
-                            <span class="chip">VS Code</span>
-                            <span class="chip">Git &amp; GitHub</span>
-                            <span class="chip">Figma</span>
-                            <span class="chip">Chrome DevTools</span>
-                            <span class="chip">Canva</span>
+                    <section class="experience-panel reveal">
+                        <h2 class="experience-panel__title"><i data-lucide="sparkles"></i> Core Strengths</h2>
+                        <div class="experience-panel__chips">
+                            <span class="experience-chip">Responsive UI Development</span>
+                            <span class="experience-chip">Clean Code Structure</span>
+                            <span class="experience-chip">Component Thinking</span>
+                            <span class="experience-chip">Git Workflow</span>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="exp-side-card reveal">
-                        <h3 class="exp-side-title">
-                            <i data-lucide="rocket"></i>
-                            What I'm Looking For
-                        </h3>
-                        <p class="exp-side-text">
-                            Open to internships, junior web developer roles, and real projects where
-                            I can learn from mentors and contribute to modern digital products.
-                        </p>
-                    </div>
-
+                    <section class="experience-panel reveal">
+                        <h2 class="experience-panel__title"><i data-lucide="rocket"></i> Open To</h2>
+                        <ul class="experience-panel__list">
+                            <li>Internship and junior full-stack opportunities</li>
+                            <li>Frontend-heavy product teams with mentorship culture</li>
+                            <li>Real client projects with measurable delivery goals</li>
+                        </ul>
+                    </section>
                 </aside>
-
             </section>
 
-            <!-- FOOTER -->
-             <footer class="site-footer">
+            <footer class="site-footer">
                 © <span id="currentYear"></span> Pich Chanthorn. All rights reserved.
                 <p>Built with HTML, CSS &amp; JavaScript</p>
             </footer>
