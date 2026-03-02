@@ -886,9 +886,86 @@
     if (!button) return;
     button.disabled = isLoading;
     button.setAttribute("aria-busy", String(isLoading));
+    button.classList.toggle("is-loading", isLoading);
     const label = button.querySelector("span") || button;
     const key = isLoading ? "contact.form.sending" : "contact.form.submit";
     label.textContent = TRANSLATIONS[language]?.[key] || TRANSLATIONS.en[key];
+  }
+
+  function setFormStatus(formStatus, message, type) {
+    if (!formStatus) return;
+    formStatus.textContent = message || "";
+    formStatus.classList.remove("is-success", "is-error");
+    if (type === "success") formStatus.classList.add("is-success");
+    if (type === "error") formStatus.classList.add("is-error");
+  }
+
+  function showFormToast(message, type = "success") {
+    const toast = document.getElementById("formToast");
+    if (!toast) return;
+
+    toast.textContent = message;
+    toast.classList.remove("is-success", "is-error");
+    toast.classList.add("is-visible", type === "error" ? "is-error" : "is-success");
+
+    window.clearTimeout(showFormToast.timeoutId);
+    showFormToast.timeoutId = window.setTimeout(() => {
+      toast.classList.remove("is-visible", "is-success", "is-error");
+    }, 3000);
+  }
+
+  function validateField(field) {
+    if (!field) return { valid: true, message: "" };
+
+    const value = String(field.value || "").trim();
+    if (!value) {
+      return { valid: false, message: "This field is required." };
+    }
+
+    if (field.type === "email") {
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(value);
+      if (!isValidEmail) {
+        return { valid: false, message: "Please enter a valid email address." };
+      }
+    }
+
+    return { valid: true, message: "" };
+  }
+
+  function updateFieldValidationUI(field) {
+    const group = field?.closest(".form-input-group");
+    if (!group || !field) return true;
+
+    const errorElementId = field.getAttribute("aria-describedby");
+    const errorElement = errorElementId ? document.getElementById(errorElementId) : null;
+    const { valid, message } = validateField(field);
+
+    group.classList.remove("is-valid", "is-invalid");
+    group.classList.add(valid ? "is-valid" : "is-invalid");
+    field.setAttribute("aria-invalid", String(!valid));
+
+    if (errorElement) {
+      errorElement.textContent = valid ? "" : message;
+    }
+
+    return valid;
+  }
+
+  function initializeFormFieldValidation(form) {
+    if (!form) return [];
+
+    const fields = [...form.querySelectorAll("input[name='name'], input[name='email'], textarea[name='message']")];
+    fields.forEach(field => {
+      field.addEventListener("blur", () => updateFieldValidationUI(field));
+      field.addEventListener("input", () => {
+        const group = field.closest(".form-input-group");
+        if (group?.classList.contains("is-invalid")) {
+          updateFieldValidationUI(field);
+        }
+      });
+    });
+
+    return fields;
   }
 
   function initializeEmailJs(dom) {
@@ -903,25 +980,35 @@
     formStatus.setAttribute("aria-live", "polite");
 
     const honeypot = ensureHoneypotField(form);
+    const fields = initializeFormFieldValidation(form);
 
     form.addEventListener("submit", async event => {
       event.preventDefault();
 
       const language = getCurrentLanguage();
+      setFormStatus(formStatus, "", null);
 
       if (honeypot?.value.trim()) return;
 
+      const isFormValid = fields.every(field => updateFieldValidationUI(field));
+      if (!isFormValid) {
+        setFormStatus(formStatus, "Please correct the highlighted fields and try again.", "error");
+        return;
+      }
+
       const now = Date.now();
       if (now - lastFormSubmissionAt < FORM_SUBMIT_RATE_LIMIT_MS) {
-        formStatus.textContent = TRANSLATIONS[language]["contact.form.rateLimit"] || TRANSLATIONS.en["contact.form.rateLimit"];
-        formStatus.style.color = "#ef4444";
+        const rateLimitMessage = TRANSLATIONS[language]["contact.form.rateLimit"] || TRANSLATIONS.en["contact.form.rateLimit"];
+        setFormStatus(formStatus, rateLimitMessage, "error");
+        showFormToast(rateLimitMessage, "error");
         return;
       }
       lastFormSubmissionAt = now;
 
       if (!window.emailjs?.send) {
-        formStatus.textContent = TRANSLATIONS[language]["contact.form.error"] || TRANSLATIONS.en["contact.form.error"];
-        formStatus.style.color = "#ef4444";
+        const errorMessage = TRANSLATIONS[language]["contact.form.error"] || TRANSLATIONS.en["contact.form.error"];
+        setFormStatus(formStatus, errorMessage, "error");
+        showFormToast(errorMessage, "error");
         return;
       }
 
@@ -935,13 +1022,24 @@
 
       try {
         await emailjs.send(EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATE_ID, params);
-        formStatus.textContent = TRANSLATIONS[language]["contact.form.success"] || TRANSLATIONS.en["contact.form.success"];
-        formStatus.style.color = "#22c55e";
+        const successMessage = TRANSLATIONS[language]["contact.form.success"] || TRANSLATIONS.en["contact.form.success"];
+        setFormStatus(formStatus, successMessage, "success");
+        showFormToast(successMessage, "success");
         form.reset();
+        fields.forEach(field => {
+          const group = field.closest(".form-input-group");
+          if (!group) return;
+          group.classList.remove("is-valid", "is-invalid");
+          field.setAttribute("aria-invalid", "false");
+          const errorElementId = field.getAttribute("aria-describedby");
+          const errorElement = errorElementId ? document.getElementById(errorElementId) : null;
+          if (errorElement) errorElement.textContent = "";
+        });
       } catch (error) {
         console.error("EmailJS Error:", error);
-        formStatus.textContent = TRANSLATIONS[language]["contact.form.error"] || TRANSLATIONS.en["contact.form.error"];
-        formStatus.style.color = "#ef4444";
+        const errorMessage = TRANSLATIONS[language]["contact.form.error"] || TRANSLATIONS.en["contact.form.error"];
+        setFormStatus(formStatus, errorMessage, "error");
+        showFormToast(errorMessage, "error");
       } finally {
         setSendButtonState(sendButton, false, language);
       }
