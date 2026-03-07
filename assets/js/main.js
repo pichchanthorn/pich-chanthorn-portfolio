@@ -13,6 +13,27 @@
   const I18N_STORAGE_KEY = "portfolio_language";
   const FORM_SUBMIT_RATE_LIMIT_MS = 3000;
 
+  const MUSIC_STORAGE_KEY = "portfolio_music_widget_state_v1";
+  const MUSIC_UI_STORAGE_KEY = "portfolio_music_widget_ui_v1";
+  const MUSIC_USER_INTERACTED_KEY = "portfolio_music_user_interacted_v1";
+
+  const MUSIC_PLAYLIST = [
+    {
+      title: "Coding Chillstep",
+      artist: "Romansenyk",
+      src: "assets/audio/romansenykmusic-coding-chillstep-153836.mp3",
+      cover: "assets/img/music-cover-1.jpg"
+    },
+    {
+      title: "Shuangmian",
+      artist: "Trangiahung159",
+      src: "assets/audio/trangiahung159-shuangmian-443317.mp3",
+      cover: "assets/img/music-cover-2.jpg"
+    }
+  ];
+
+  const MUSIC_FALLBACK_COVER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230f172a'/%3E%3Cstop offset='100%25' stop-color='%2306472d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='120' height='120' rx='22' fill='url(%23g)'/%3E%3Ccircle cx='60' cy='60' r='27' fill='none' stroke='%2386efac' stroke-width='4' opacity='0.85'/%3E%3Ccircle cx='60' cy='60' r='6' fill='%2386efac'/%3E%3C/svg%3E";
+
   const AUTO_TEXT_SELECTOR = [
     "main h1",
     "main h2",
@@ -725,6 +746,330 @@
     });
   }
 
+  function initializeMusicPlayer() {
+    if (!MUSIC_PLAYLIST.length) return;
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const getTrack = index => MUSIC_PLAYLIST[index] || MUSIC_PLAYLIST[0];
+
+    const normalizeMusicState = candidate => {
+      const fallback = {
+        trackIndex: 0,
+        currentTime: 0,
+        isPlaying: false,
+        volume: 0.7,
+        updatedAt: Date.now()
+      };
+
+      if (!candidate || typeof candidate !== "object") return fallback;
+
+      const boundedIndex = Number.isFinite(candidate.trackIndex)
+        ? clamp(candidate.trackIndex, 0, MUSIC_PLAYLIST.length - 1)
+        : fallback.trackIndex;
+
+      const boundedTime = Number.isFinite(candidate.currentTime) && candidate.currentTime >= 0
+        ? candidate.currentTime
+        : fallback.currentTime;
+
+      const boundedVolume = Number.isFinite(candidate.volume)
+        ? clamp(candidate.volume, 0, 1)
+        : fallback.volume;
+
+      return {
+        trackIndex: boundedIndex,
+        currentTime: boundedTime,
+        isPlaying: Boolean(candidate.isPlaying),
+        volume: boundedVolume,
+        updatedAt: Number.isFinite(candidate.updatedAt) ? candidate.updatedAt : Date.now()
+      };
+    };
+
+    const readStoredMusicState = () => {
+      try {
+        const raw = localStorage.getItem(MUSIC_STORAGE_KEY);
+        if (!raw) return normalizeMusicState(null);
+        return normalizeMusicState(JSON.parse(raw));
+      } catch {
+        return normalizeMusicState(null);
+      }
+    };
+
+    const persistMusicState = nextState => {
+      const normalized = normalizeMusicState(nextState);
+      try {
+        localStorage.setItem(MUSIC_STORAGE_KEY, JSON.stringify(normalized));
+      } catch {
+        // Ignore storage quota/privacy mode failures.
+      }
+      return normalized;
+    };
+
+    const readUiState = () => {
+      try {
+        const raw = localStorage.getItem(MUSIC_UI_STORAGE_KEY);
+        if (!raw) return { expanded: false };
+        const parsed = JSON.parse(raw);
+        return { expanded: Boolean(parsed?.expanded) };
+      } catch {
+        return { expanded: false };
+      }
+    };
+
+    const writeUiState = uiState => {
+      const normalized = { expanded: Boolean(uiState?.expanded) };
+      try {
+        localStorage.setItem(MUSIC_UI_STORAGE_KEY, JSON.stringify(normalized));
+      } catch {
+        // Ignore storage failures.
+      }
+      return normalized;
+    };
+
+    const legacyButton = document.getElementById("musicToggleBtn");
+    const legacyAudio = document.getElementById("portfolioMusic");
+    if (legacyButton?.parentElement) legacyButton.remove();
+    if (legacyAudio?.parentElement) legacyAudio.remove();
+
+    let widget = document.getElementById("musicWidget");
+    if (!widget) {
+      widget = document.createElement("aside");
+      widget.className = "music-widget collapsed";
+      widget.id = "musicWidget";
+      widget.setAttribute("aria-label", "Music player");
+      widget.innerHTML = `
+        <img id="musicWidgetCover" class="music-widget__cover" src="${MUSIC_FALLBACK_COVER}" alt="Current track cover" loading="lazy" />
+        <div class="music-widget__meta">
+          <p id="musicWidgetTitle" class="music-widget__title">${MUSIC_PLAYLIST[0].title}</p>
+          <p id="musicWidgetArtist" class="music-widget__artist">${MUSIC_PLAYLIST[0].artist}</p>
+          <div class="music-widget__volume-wrap">
+            <span class="music-widget__volume-label" aria-hidden="true">VOL</span>
+            <input id="musicWidgetVolume" class="music-widget__volume" type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Music volume" />
+          </div>
+        </div>
+        <div class="music-widget__actions">
+          <button id="musicWidgetPlayPause" class="music-widget__btn" type="button" aria-label="Play music" title="Play">
+            <i data-lucide="play" class="music-widget__icon-play"></i>
+            <i data-lucide="pause" class="music-widget__icon-pause"></i>
+          </button>
+          <button id="musicWidgetNext" class="music-widget__btn" type="button" aria-label="Next song" title="Next">
+            <i data-lucide="skip-forward"></i>
+          </button>
+        </div>
+      `;
+      document.body.appendChild(widget);
+    }
+
+    let audio = document.getElementById("musicWidgetAudio");
+    if (!audio) {
+      audio = document.createElement("audio");
+      audio.id = "musicWidgetAudio";
+      audio.preload = "metadata";
+      audio.setAttribute("aria-hidden", "true");
+      audio.style.display = "none";
+      document.body.appendChild(audio);
+    }
+
+    if (window.lucide?.createIcons) {
+      lucide.createIcons();
+    }
+
+    const coverElement = document.getElementById("musicWidgetCover");
+    const titleElement = document.getElementById("musicWidgetTitle");
+    const artistElement = document.getElementById("musicWidgetArtist");
+    const playPauseButton = document.getElementById("musicWidgetPlayPause");
+    const nextButton = document.getElementById("musicWidgetNext");
+    const volumeInput = document.getElementById("musicWidgetVolume");
+
+    if (!coverElement || !titleElement || !artistElement || !playPauseButton || !nextButton || !volumeInput) return;
+
+    let currentState = readStoredMusicState();
+    let uiState = readUiState();
+
+    const hasUserInteracted = () => localStorage.getItem(MUSIC_USER_INTERACTED_KEY) === "1";
+    const markUserInteracted = () => {
+      try {
+        localStorage.setItem(MUSIC_USER_INTERACTED_KEY, "1");
+      } catch {
+        // Ignore storage failures.
+      }
+    };
+
+    const applyTrack = (trackIndex, preserveTime = 0) => {
+      const boundedIndex = clamp(trackIndex, 0, MUSIC_PLAYLIST.length - 1);
+      const track = getTrack(boundedIndex);
+
+      if (audio.dataset.trackSrc !== track.src) {
+        audio.src = track.src;
+        audio.dataset.trackSrc = track.src;
+      }
+
+      const seek = () => {
+        try {
+          audio.currentTime = Math.max(0, preserveTime);
+        } catch {
+          // Ignore seek failures during metadata transitions.
+        }
+      };
+
+      if (audio.readyState >= 1) {
+        seek();
+      } else {
+        audio.addEventListener("loadedmetadata", seek, { once: true });
+      }
+
+      return boundedIndex;
+    };
+
+    const snapshotState = () => ({
+      trackIndex: currentState.trackIndex,
+      currentTime: Number.isFinite(audio.currentTime) ? audio.currentTime : 0,
+      isPlaying: !audio.paused,
+      volume: Number.isFinite(audio.volume) ? audio.volume : currentState.volume,
+      updatedAt: Date.now()
+    });
+
+    const setExpanded = (expanded, shouldPersist = true) => {
+      widget.classList.toggle("collapsed", !expanded);
+      widget.classList.toggle("expanded", expanded);
+      widget.classList.remove("is-collapsed");
+      if (shouldPersist) {
+        uiState = writeUiState({ expanded });
+      } else {
+        uiState = { expanded };
+      }
+    };
+
+    const renderState = state => {
+      currentState = persistMusicState(state);
+      const activeTrack = getTrack(currentState.trackIndex);
+
+      titleElement.textContent = activeTrack.title;
+      artistElement.textContent = activeTrack.artist;
+      coverElement.src = activeTrack.cover || MUSIC_FALLBACK_COVER;
+      coverElement.alt = `${activeTrack.title} cover`;
+      volumeInput.value = String(currentState.volume);
+
+      widget.classList.toggle("is-playing", currentState.isPlaying);
+      const label = currentState.isPlaying ? "Pause music" : "Play music";
+      playPauseButton.setAttribute("aria-label", label);
+      playPauseButton.setAttribute("title", currentState.isPlaying ? "Pause" : "Play");
+    };
+
+    coverElement.addEventListener("error", () => {
+      coverElement.src = MUSIC_FALLBACK_COVER;
+    });
+
+    const playCurrent = async () => {
+      try {
+        await audio.play();
+      } catch (error) {
+        console.warn("Music playback was blocked by the browser.", error);
+      }
+      renderState({ ...snapshotState(), isPlaying: !audio.paused });
+    };
+
+    const pauseCurrent = () => {
+      audio.pause();
+      renderState({ ...snapshotState(), isPlaying: false });
+    };
+
+    const goToNext = async shouldAutoplay => {
+      const nextIndex = (currentState.trackIndex + 1) % MUSIC_PLAYLIST.length;
+      currentState = { ...currentState, trackIndex: applyTrack(nextIndex, 0), currentTime: 0, updatedAt: Date.now() };
+      renderState(currentState);
+
+      if (shouldAutoplay) {
+        await playCurrent();
+      }
+    };
+
+    playPauseButton.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+      markUserInteracted();
+
+      if (widget.classList.contains("collapsed")) {
+        setExpanded(true);
+      }
+
+      if (audio.paused) {
+        playCurrent();
+      } else {
+        pauseCurrent();
+        setExpanded(false);
+      }
+    });
+
+    nextButton.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+      markUserInteracted();
+      const shouldAutoplay = !audio.paused;
+      goToNext(shouldAutoplay);
+    });
+
+    volumeInput.addEventListener("input", event => {
+      event.preventDefault();
+      markUserInteracted();
+      const volume = Number.parseFloat(volumeInput.value);
+      if (!Number.isFinite(volume)) return;
+
+      const nextState = {
+        ...currentState,
+        volume: clamp(volume, 0, 1),
+        updatedAt: Date.now()
+      };
+
+      audio.volume = nextState.volume;
+      renderState(nextState);
+    });
+
+    audio.addEventListener("play", () => {
+      renderState({ ...snapshotState(), isPlaying: true });
+    });
+
+    audio.addEventListener("pause", () => {
+      renderState({ ...snapshotState(), isPlaying: false });
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      if (!audio.paused) {
+        persistMusicState(snapshotState());
+      }
+    });
+
+    audio.addEventListener("ended", () => {
+      goToNext(true);
+    });
+
+    const persistBeforeExit = () => {
+      persistMusicState(snapshotState());
+    };
+
+    window.addEventListener("beforeunload", persistBeforeExit);
+    window.addEventListener("pagehide", persistBeforeExit);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") {
+        persistBeforeExit();
+      }
+    });
+
+    currentState = {
+      ...currentState,
+      trackIndex: applyTrack(currentState.trackIndex, currentState.currentTime),
+      volume: clamp(currentState.volume, 0, 1)
+    };
+    audio.volume = currentState.volume;
+
+    setExpanded(uiState.expanded || currentState.isPlaying, false);
+    renderState(currentState);
+
+    if (currentState.isPlaying && hasUserInteracted()) {
+      playCurrent();
+    }
+  }
+
   function initializeEducationAnimations() {
     const bindObserver = (selector, className, threshold) => {
       const elements = document.querySelectorAll(selector);
@@ -1062,6 +1407,7 @@
     initializeSkillCounter();
     initializeHomeStatsCounter();
     initializeSmoothScroll();
+    initializeMusicPlayer();
     initializeEducationAnimations();
     initializeEducationAccordion();
     initializeYears();

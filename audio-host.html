@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Music Host</title>
+</head>
+<body>
+  <audio id="hostAudio" preload="auto"></audio>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const MUSIC_STORAGE_KEY = "portfolio_music_widget_state_v1";
+      const MUSIC_CHANNEL_NAME = "portfolio_music_channel_v1";
+
+      const MUSIC_PLAYLIST = [
+        {
+          title: "Coding Chillstep",
+          artist: "Romansenyk",
+          src: "assets/audio/romansenykmusic-coding-chillstep-153836.mp3",
+          cover: "assets/img/music-cover-1.jpg"
+        },
+        {
+          title: "Shuangmian",
+          artist: "Trangiahung159",
+          src: "assets/audio/trangiahung159-shuangmian-443317.mp3",
+          cover: "assets/img/music-cover-2.jpg"
+        }
+      ];
+
+      const audio = document.getElementById("hostAudio");
+      const channel = new BroadcastChannel(MUSIC_CHANNEL_NAME);
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function normalizeState(candidate) {
+        const base = {
+          trackIndex: 0,
+          currentTime: 0,
+          isPlaying: false,
+          volume: 0.7,
+          updatedAt: Date.now()
+        };
+
+        if (!candidate || typeof candidate !== "object") return base;
+
+        return {
+          trackIndex: Number.isFinite(candidate.trackIndex)
+            ? clamp(candidate.trackIndex, 0, MUSIC_PLAYLIST.length - 1)
+            : base.trackIndex,
+          currentTime: Number.isFinite(candidate.currentTime) && candidate.currentTime >= 0
+            ? candidate.currentTime
+            : base.currentTime,
+          isPlaying: Boolean(candidate.isPlaying),
+          volume: Number.isFinite(candidate.volume) ? clamp(candidate.volume, 0, 1) : base.volume,
+          updatedAt: Number.isFinite(candidate.updatedAt) ? candidate.updatedAt : Date.now()
+        };
+      }
+
+      function readState() {
+        try {
+          const raw = localStorage.getItem(MUSIC_STORAGE_KEY);
+          if (!raw) return normalizeState(null);
+          return normalizeState(JSON.parse(raw));
+        } catch {
+          return normalizeState(null);
+        }
+      }
+
+      function writeState(nextState) {
+        const normalized = normalizeState(nextState);
+        try {
+          localStorage.setItem(MUSIC_STORAGE_KEY, JSON.stringify(normalized));
+        } catch {
+          // Ignore storage failures.
+        }
+        return normalized;
+      }
+
+      let state = readState();
+      let currentTrackIndex = state.trackIndex;
+
+      function getTrack(index) {
+        return MUSIC_PLAYLIST[index] || MUSIC_PLAYLIST[0];
+      }
+
+      function loadTrack(index, preserveTime) {
+        const safeIndex = clamp(index, 0, MUSIC_PLAYLIST.length - 1);
+        currentTrackIndex = safeIndex;
+
+        const track = getTrack(safeIndex);
+        if (audio.dataset.trackSrc !== track.src) {
+          audio.src = track.src;
+          audio.dataset.trackSrc = track.src;
+        }
+
+        if (Number.isFinite(preserveTime) && preserveTime >= 0) {
+          const applyTime = () => {
+            try {
+              audio.currentTime = preserveTime;
+            } catch {
+              // Ignore invalid seek attempt.
+            }
+          };
+
+          if (audio.readyState >= 1) {
+            applyTime();
+          } else {
+            audio.addEventListener("loadedmetadata", applyTime, { once: true });
+          }
+        }
+      }
+
+      function snapshotState() {
+        return {
+          trackIndex: currentTrackIndex,
+          currentTime: Number.isFinite(audio.currentTime) ? audio.currentTime : 0,
+          isPlaying: !audio.paused,
+          volume: Number.isFinite(audio.volume) ? audio.volume : 0.7,
+          updatedAt: Date.now()
+        };
+      }
+
+      function broadcastState() {
+        state = writeState(snapshotState());
+        channel.postMessage({ type: "STATE_UPDATE", state });
+      }
+
+      async function togglePlay() {
+        if (audio.paused) {
+          try {
+            await audio.play();
+          } catch (error) {
+            console.warn("Host playback blocked:", error);
+          }
+        } else {
+          audio.pause();
+        }
+      }
+
+      async function nextTrack() {
+        const shouldResume = !audio.paused;
+        const nextIndex = (currentTrackIndex + 1) % MUSIC_PLAYLIST.length;
+        loadTrack(nextIndex, 0);
+        broadcastState();
+
+        if (shouldResume) {
+          try {
+            await audio.play();
+          } catch (error) {
+            console.warn("Host playback blocked on next track:", error);
+          }
+        }
+      }
+
+      function initializeFromState() {
+        loadTrack(state.trackIndex, state.currentTime);
+        audio.volume = clamp(state.volume, 0, 1);
+
+        if (state.isPlaying) {
+          audio.play().catch(error => {
+            console.warn("Host resume blocked:", error);
+          });
+        }
+
+        broadcastState();
+      }
+
+      channel.onmessage = event => {
+        const message = event.data;
+        if (!message || typeof message !== "object") return;
+
+        switch (message.type) {
+          case "GET_STATE": {
+            channel.postMessage({ type: "HOST_READY", state: writeState(snapshotState()) });
+            break;
+          }
+          case "TOGGLE_PLAY": {
+            togglePlay();
+            break;
+          }
+          case "NEXT_TRACK": {
+            nextTrack();
+            break;
+          }
+          case "SET_VOLUME": {
+            const nextVolume = Number.parseFloat(message.volume);
+            if (Number.isFinite(nextVolume)) {
+              audio.volume = clamp(nextVolume, 0, 1);
+              broadcastState();
+            }
+            break;
+          }
+          default:
+            break;
+        }
+      };
+
+      audio.addEventListener("play", broadcastState);
+      audio.addEventListener("pause", broadcastState);
+      audio.addEventListener("volumechange", broadcastState);
+      audio.addEventListener("timeupdate", () => {
+        if (!audio.paused) {
+          state = writeState(snapshotState());
+        }
+      });
+      audio.addEventListener("ended", () => {
+        nextTrack();
+      });
+
+      window.addEventListener("beforeunload", () => {
+        writeState(snapshotState());
+      });
+
+      window.setInterval(() => {
+        state = writeState(snapshotState());
+      }, 1000);
+
+      initializeFromState();
+    })();
+  </script>
+</body>
+</html>
