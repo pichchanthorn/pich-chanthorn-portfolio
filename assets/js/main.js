@@ -16,6 +16,9 @@
   const MUSIC_STORAGE_KEY = "portfolio_music_widget_state_v1";
   const MUSIC_UI_STORAGE_KEY = "portfolio_music_widget_ui_v1";
   const MUSIC_USER_INTERACTED_KEY = "portfolio_music_user_interacted_v1";
+  const MUSIC_HOST_IFRAME_ID = "musicHostFrame";
+  const MUSIC_HOST_URL = "audio-host.html";
+  const MUSIC_HOST_CHANNEL = "portfolio_music_iframe_host_v1";
 
   const MUSIC_PLAYLIST = [
     {
@@ -750,7 +753,6 @@
     if (!MUSIC_PLAYLIST.length) return;
 
     const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-
     const getTrack = index => MUSIC_PLAYLIST[index] || MUSIC_PLAYLIST[0];
 
     const normalizeMusicState = candidate => {
@@ -764,23 +766,15 @@
 
       if (!candidate || typeof candidate !== "object") return fallback;
 
-      const boundedIndex = Number.isFinite(candidate.trackIndex)
-        ? clamp(candidate.trackIndex, 0, MUSIC_PLAYLIST.length - 1)
-        : fallback.trackIndex;
-
-      const boundedTime = Number.isFinite(candidate.currentTime) && candidate.currentTime >= 0
-        ? candidate.currentTime
-        : fallback.currentTime;
-
-      const boundedVolume = Number.isFinite(candidate.volume)
-        ? clamp(candidate.volume, 0, 1)
-        : fallback.volume;
-
       return {
-        trackIndex: boundedIndex,
-        currentTime: boundedTime,
+        trackIndex: Number.isFinite(candidate.trackIndex)
+          ? clamp(candidate.trackIndex, 0, MUSIC_PLAYLIST.length - 1)
+          : fallback.trackIndex,
+        currentTime: Number.isFinite(candidate.currentTime) && candidate.currentTime >= 0
+          ? candidate.currentTime
+          : fallback.currentTime,
         isPlaying: Boolean(candidate.isPlaying),
-        volume: boundedVolume,
+        volume: Number.isFinite(candidate.volume) ? clamp(candidate.volume, 0, 1) : fallback.volume,
         updatedAt: Number.isFinite(candidate.updatedAt) ? candidate.updatedAt : Date.now()
       };
     };
@@ -788,8 +782,7 @@
     const readStoredMusicState = () => {
       try {
         const raw = localStorage.getItem(MUSIC_STORAGE_KEY);
-        if (!raw) return normalizeMusicState(null);
-        return normalizeMusicState(JSON.parse(raw));
+        return raw ? normalizeMusicState(JSON.parse(raw)) : normalizeMusicState(null);
       } catch {
         return normalizeMusicState(null);
       }
@@ -800,7 +793,7 @@
       try {
         localStorage.setItem(MUSIC_STORAGE_KEY, JSON.stringify(normalized));
       } catch {
-        // Ignore storage quota/privacy mode failures.
+        // Ignore storage failures.
       }
       return normalized;
     };
@@ -808,9 +801,7 @@
     const readUiState = () => {
       try {
         const raw = localStorage.getItem(MUSIC_UI_STORAGE_KEY);
-        if (!raw) return { expanded: false };
-        const parsed = JSON.parse(raw);
-        return { expanded: Boolean(parsed?.expanded) };
+        return raw ? { expanded: Boolean(JSON.parse(raw)?.expanded) } : { expanded: false };
       } catch {
         return { expanded: false };
       }
@@ -860,14 +851,24 @@
       document.body.appendChild(widget);
     }
 
-    let audio = document.getElementById("musicWidgetAudio");
-    if (!audio) {
-      audio = document.createElement("audio");
-      audio.id = "musicWidgetAudio";
-      audio.preload = "metadata";
-      audio.setAttribute("aria-hidden", "true");
-      audio.style.display = "none";
-      document.body.appendChild(audio);
+    let hostFrame = document.getElementById(MUSIC_HOST_IFRAME_ID);
+    if (!hostFrame) {
+      hostFrame = document.createElement("iframe");
+      hostFrame.id = MUSIC_HOST_IFRAME_ID;
+      hostFrame.src = MUSIC_HOST_URL;
+      hostFrame.title = "Shared Audio Host";
+      hostFrame.setAttribute("aria-hidden", "true");
+      hostFrame.setAttribute("tabindex", "-1");
+      hostFrame.setAttribute("allow", "autoplay");
+      hostFrame.style.position = "fixed";
+      hostFrame.style.width = "0";
+      hostFrame.style.height = "0";
+      hostFrame.style.border = "0";
+      hostFrame.style.opacity = "0";
+      hostFrame.style.pointerEvents = "none";
+      hostFrame.style.left = "-9999px";
+      hostFrame.style.bottom = "-9999px";
+      document.body.appendChild(hostFrame);
     }
 
     if (window.lucide?.createIcons) {
@@ -880,13 +881,13 @@
     const playPauseButton = document.getElementById("musicWidgetPlayPause");
     const nextButton = document.getElementById("musicWidgetNext");
     const volumeInput = document.getElementById("musicWidgetVolume");
-
     if (!coverElement || !titleElement || !artistElement || !playPauseButton || !nextButton || !volumeInput) return;
 
     let currentState = readStoredMusicState();
     let uiState = readUiState();
+    let hostReady = false;
+    const pendingCommands = [];
 
-    const hasUserInteracted = () => localStorage.getItem(MUSIC_USER_INTERACTED_KEY) === "1";
     const markUserInteracted = () => {
       try {
         localStorage.setItem(MUSIC_USER_INTERACTED_KEY, "1");
@@ -895,44 +896,9 @@
       }
     };
 
-    const applyTrack = (trackIndex, preserveTime = 0) => {
-      const boundedIndex = clamp(trackIndex, 0, MUSIC_PLAYLIST.length - 1);
-      const track = getTrack(boundedIndex);
-
-      if (audio.dataset.trackSrc !== track.src) {
-        audio.src = track.src;
-        audio.dataset.trackSrc = track.src;
-      }
-
-      const seek = () => {
-        try {
-          audio.currentTime = Math.max(0, preserveTime);
-        } catch {
-          // Ignore seek failures during metadata transitions.
-        }
-      };
-
-      if (audio.readyState >= 1) {
-        seek();
-      } else {
-        audio.addEventListener("loadedmetadata", seek, { once: true });
-      }
-
-      return boundedIndex;
-    };
-
-    const snapshotState = () => ({
-      trackIndex: currentState.trackIndex,
-      currentTime: Number.isFinite(audio.currentTime) ? audio.currentTime : 0,
-      isPlaying: !audio.paused,
-      volume: Number.isFinite(audio.volume) ? audio.volume : currentState.volume,
-      updatedAt: Date.now()
-    });
-
     const setExpanded = (expanded, shouldPersist = true) => {
       widget.classList.toggle("collapsed", !expanded);
       widget.classList.toggle("expanded", expanded);
-      widget.classList.remove("is-collapsed");
       if (shouldPersist) {
         uiState = writeUiState({ expanded });
       } else {
@@ -943,14 +909,13 @@
     const renderState = state => {
       currentState = persistMusicState(state);
       const activeTrack = getTrack(currentState.trackIndex);
-
       titleElement.textContent = activeTrack.title;
       artistElement.textContent = activeTrack.artist;
       coverElement.src = activeTrack.cover || MUSIC_FALLBACK_COVER;
       coverElement.alt = `${activeTrack.title} cover`;
       volumeInput.value = String(currentState.volume);
-
       widget.classList.toggle("is-playing", currentState.isPlaying);
+
       const label = currentState.isPlaying ? "Pause music" : "Play music";
       playPauseButton.setAttribute("aria-label", label);
       playPauseButton.setAttribute("title", currentState.isPlaying ? "Pause" : "Play");
@@ -960,29 +925,56 @@
       coverElement.src = MUSIC_FALLBACK_COVER;
     });
 
-    const playCurrent = async () => {
-      try {
-        await audio.play();
-      } catch (error) {
-        console.warn("Music playback was blocked by the browser.", error);
+    const postToHost = message => {
+      if (!hostFrame?.contentWindow) return;
+      hostFrame.contentWindow.postMessage({ channel: MUSIC_HOST_CHANNEL, ...message }, window.location.origin);
+    };
+
+    const sendCommand = message => {
+      if (!hostReady) {
+        pendingCommands.push(message);
+        return;
       }
-      renderState({ ...snapshotState(), isPlaying: !audio.paused });
+      postToHost(message);
     };
 
-    const pauseCurrent = () => {
-      audio.pause();
-      renderState({ ...snapshotState(), isPlaying: false });
-    };
-
-    const goToNext = async shouldAutoplay => {
-      const nextIndex = (currentState.trackIndex + 1) % MUSIC_PLAYLIST.length;
-      currentState = { ...currentState, trackIndex: applyTrack(nextIndex, 0), currentTime: 0, updatedAt: Date.now() };
-      renderState(currentState);
-
-      if (shouldAutoplay) {
-        await playCurrent();
+    const flushPendingCommands = () => {
+      while (pendingCommands.length) {
+        const command = pendingCommands.shift();
+        postToHost(command);
       }
     };
+
+    const requestHostState = () => {
+      postToHost({ type: "GET_STATE" });
+    };
+
+    const onHostMessage = event => {
+      if (event.origin !== window.location.origin) return;
+      const payload = event.data;
+      if (!payload || payload.channel !== MUSIC_HOST_CHANNEL) return;
+
+      if (payload.type === "HOST_READY") {
+        hostReady = true;
+        if (payload.state) {
+          renderState(normalizeMusicState(payload.state));
+        }
+        flushPendingCommands();
+        return;
+      }
+
+      if (payload.type === "STATE_UPDATE" && payload.state) {
+        hostReady = true;
+        renderState(normalizeMusicState(payload.state));
+      }
+    };
+
+    window.addEventListener("message", onHostMessage);
+
+    hostFrame.addEventListener("load", () => {
+      hostReady = false;
+      requestHostState();
+    });
 
     playPauseButton.addEventListener("click", event => {
       event.preventDefault();
@@ -993,10 +985,9 @@
         setExpanded(true);
       }
 
-      if (audio.paused) {
-        playCurrent();
-      } else {
-        pauseCurrent();
+      sendCommand({ type: "TOGGLE_PLAY" });
+
+      if (currentState.isPlaying) {
         setExpanded(false);
       }
     });
@@ -1005,8 +996,7 @@
       event.preventDefault();
       event.stopPropagation();
       markUserInteracted();
-      const shouldAutoplay = !audio.paused;
-      goToNext(shouldAutoplay);
+      sendCommand({ type: "NEXT_TRACK" });
     });
 
     volumeInput.addEventListener("input", event => {
@@ -1020,53 +1010,16 @@
         volume: clamp(volume, 0, 1),
         updatedAt: Date.now()
       };
-
-      audio.volume = nextState.volume;
       renderState(nextState);
+      sendCommand({ type: "SET_VOLUME", volume: nextState.volume });
     });
-
-    audio.addEventListener("play", () => {
-      renderState({ ...snapshotState(), isPlaying: true });
-    });
-
-    audio.addEventListener("pause", () => {
-      renderState({ ...snapshotState(), isPlaying: false });
-    });
-
-    audio.addEventListener("timeupdate", () => {
-      if (!audio.paused) {
-        persistMusicState(snapshotState());
-      }
-    });
-
-    audio.addEventListener("ended", () => {
-      goToNext(true);
-    });
-
-    const persistBeforeExit = () => {
-      persistMusicState(snapshotState());
-    };
-
-    window.addEventListener("beforeunload", persistBeforeExit);
-    window.addEventListener("pagehide", persistBeforeExit);
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "hidden") {
-        persistBeforeExit();
-      }
-    });
-
-    currentState = {
-      ...currentState,
-      trackIndex: applyTrack(currentState.trackIndex, currentState.currentTime),
-      volume: clamp(currentState.volume, 0, 1)
-    };
-    audio.volume = currentState.volume;
 
     setExpanded(uiState.expanded || currentState.isPlaying, false);
     renderState(currentState);
+    requestHostState();
 
-    if (currentState.isPlaying && hasUserInteracted()) {
-      playCurrent();
+    if (currentState.isPlaying) {
+      sendCommand({ type: "SYNC_STATE", state: currentState, resumeIfPlaying: true });
     }
   }
 

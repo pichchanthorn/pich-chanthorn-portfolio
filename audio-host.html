@@ -13,7 +13,7 @@
       "use strict";
 
       const MUSIC_STORAGE_KEY = "portfolio_music_widget_state_v1";
-      const MUSIC_CHANNEL_NAME = "portfolio_music_channel_v1";
+      const MUSIC_HOST_CHANNEL = "portfolio_music_iframe_host_v1";
 
       const MUSIC_PLAYLIST = [
         {
@@ -31,7 +31,6 @@
       ];
 
       const audio = document.getElementById("hostAudio");
-      const channel = new BroadcastChannel(MUSIC_CHANNEL_NAME);
 
       function clamp(value, min, max) {
         return Math.min(Math.max(value, min), max);
@@ -125,9 +124,20 @@
         };
       }
 
+      function postToParent(type, payload = {}) {
+        window.parent.postMessage(
+          {
+            channel: MUSIC_HOST_CHANNEL,
+            type,
+            ...payload
+          },
+          window.location.origin
+        );
+      }
+
       function broadcastState() {
         state = writeState(snapshotState());
-        channel.postMessage({ type: "STATE_UPDATE", state });
+        postToParent("STATE_UPDATE", { state });
       }
 
       async function togglePlay() {
@@ -157,6 +167,23 @@
         }
       }
 
+      async function syncFromExternalState(externalState, resumeIfPlaying = false) {
+        const nextState = normalizeState(externalState);
+        loadTrack(nextState.trackIndex, nextState.currentTime);
+        audio.volume = clamp(nextState.volume, 0, 1);
+        writeState(nextState);
+
+        if (resumeIfPlaying && nextState.isPlaying) {
+          try {
+            await audio.play();
+          } catch (error) {
+            console.warn("Host resume blocked during sync:", error);
+          }
+        }
+
+        broadcastState();
+      }
+
       function initializeFromState() {
         loadTrack(state.trackIndex, state.currentTime);
         audio.volume = clamp(state.volume, 0, 1);
@@ -170,13 +197,15 @@
         broadcastState();
       }
 
-      channel.onmessage = event => {
+      window.addEventListener("message", event => {
+        if (event.origin !== window.location.origin) return;
+
         const message = event.data;
-        if (!message || typeof message !== "object") return;
+        if (!message || typeof message !== "object" || message.channel !== MUSIC_HOST_CHANNEL) return;
 
         switch (message.type) {
           case "GET_STATE": {
-            channel.postMessage({ type: "HOST_READY", state: writeState(snapshotState()) });
+            postToParent("HOST_READY", { state: writeState(snapshotState()) });
             break;
           }
           case "TOGGLE_PLAY": {
@@ -195,10 +224,14 @@
             }
             break;
           }
+          case "SYNC_STATE": {
+            syncFromExternalState(message.state, Boolean(message.resumeIfPlaying));
+            break;
+          }
           default:
             break;
         }
-      };
+      });
 
       audio.addEventListener("play", broadcastState);
       audio.addEventListener("pause", broadcastState);
@@ -221,6 +254,7 @@
       }, 1000);
 
       initializeFromState();
+      postToParent("HOST_READY", { state });
     })();
   </script>
 </body>
