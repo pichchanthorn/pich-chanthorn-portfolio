@@ -1,0 +1,463 @@
+/* =========================================================
+   RESPONSIVE.CSS — All Media Queries & Mobile/Tablet Rules
+   ========================================================= */
+
+@media (max-width: 980px) {
+    .project-detail-layout {
+        flex-direction: column;
+    }
+
+    .project-detail-sidebar {
+        width: 100%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 960px) {
+    .edu-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-badge {
+        justify-self: start;
+    }
+}
+
+@media (max-width: 950px) {
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 24px 16px 32px;
+    }
+
+    .page-container {
+        max-width: 100%;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .about-layout,
+    .skills-grid,
+    .soft-grid,
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-layout {
+        gap: var(--space-9);
+    }
+
+    .contact-form-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .music-widget {
+        right: 12px;
+        bottom: 12px;
+        width: min(94vw, 300px);
+        grid-template-columns: 50px 1fr auto;
+        min-height: 72px;
+        padding: 9px;
+    }
+
+    .music-widget.collapsed {
+        width: 52px;
+        min-height: 52px;
+        height: 52px;
+    }
+
+    .music-widget.collapsed #musicWidgetPlayPause {
+        width: 38px;
+        height: 38px;
+    }
+
+    .music-widget__cover {
+        width: 50px;
+        height: 50px;
+    }
+
+    .music-widget__btn {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        padding: 1.2rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .hero-role {
+        font-size: 1rem;
+    }
+
+    .hero-text {
+        font-size: 0.95rem;
+    }
+
+    .avatar-ring {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        width: 100%;
+    }
+
+    .menu-btn {
+        display: flex;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 6000;
+        background: #0f2e2a;
+        border-radius: var(--radius-sm);
+        padding: 0.6rem;
+        border: 1px solid var(--alpha-white-10);
+        cursor: pointer;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: var(--sidebar-width);
+        height: 100vh;
+        background: var(--clr-bg);
+        transition: left 0.3s ease;
+        z-index: 5000;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .contact-hero .subtitle {
+        font-size: 15px;
+    }
+
+    .contact-card {
+        padding: 18px;
+    }
+
+    .form-title {
+        font-size: 21px;
+    }
+
+    .contact-toast {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        max-width: unset;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-widget {
+        width: calc(100vw - 16px);
+        right: 8px;
+        bottom: 8px;
+    }
+
+    .music-widget__volume-wrap {
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .education-hero-section,
+    .edu-summary-card,
+    .education-timeline-component {
+        padding: var(--space-8);
+    }
+
+    .edu-stats-row {
+        grid-template-columns: 1fr;
+    }
+
+    .edu-year-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+
+    .accordion-trigger {
+        padding: 12px 14px;
+    }
+
+    .semester-title {
+        font-size: 14px;
+    }
+
+    .edu-table {
+        font-size: 12px;
+        min-width: 560px;
+    }
+}
+
+@media (max-width: 700px) {
+    .stats {
+        flex-direction: column;
+        gap: var(--space-7);
+    }
+
+    .stat-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .edu-page {
+        gap: var(--space-9);
+        padding-top: calc(56px + env(safe-area-inset-top));
+    }
+
+    .education-hero-section .title {
+        font-size: 32px;
+    }
+
+    .timeline-list {
+        padding-left: var(--space-10);
+    }
+
+    .timeline-marker {
+        left: -38px;
+    }
+
+    .experience-hero__title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 550px) {
+    .cert-thumb {
+        width: 150px;
+        padding: var(--space-3);
+    }
+
+    .cert-thumb img {
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   Experience Page — Mobile overlap fixes (<=768px only)
+   ========================================================= */
+@media (max-width: 768px) {
+    .experience-hero {
+        margin-top: calc(56px + env(safe-area-inset-top));
+    }
+
+    .experience-page,
+    .experience-layout,
+    .experience-timeline,
+    .experience-card {
+        min-width: 0;
+    }
+
+    .experience-card__role,
+    .experience-card__company,
+    .experience-card__meta,
+    .experience-card__summary,
+    .experience-card__bullets li {
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    .experience-layout {
+        gap: 22px;
+    }
+
+    .experience-timeline__track {
+        padding-left: 0;
+        gap: 18px;
+    }
+
+    .experience-timeline__track::before {
+        display: none;
+    }
+
+    .experience-card {
+        padding: 20px;
+    }
+
+    .experience-card::before {
+        left: -14px;
+        top: 20px;
+        width: 8px;
+        height: 8px;
+        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.16);
+    }
+
+    .experience-card__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .experience-card__role {
+        font-size: 20px;
+    }
+
+    .experience-card__meta {
+        gap: 8px;
+        line-height: 1.5;
+    }
+
+    .experience-panel {
+        padding: 18px;
+    }
+}
+
+/* =========================================================
+   Mobile Hardening Overrides (additive only)
+   ========================================================= */
+@media (max-width: 768px) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .main,
+    .page-container {
+        min-width: 0;
+    }
+
+    .page-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero-left {
+        max-width: 100%;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .hero-subtitle,
+    .hero-title,
+    .hero-role,
+    .hero-text {
+        margin-inline: auto;
+    }
+
+    .avatar-ring {
+        width: clamp(180px, 56vw, 220px);
+        height: clamp(180px, 56vw, 220px);
+    }
+
+    .avatar-inner {
+        width: clamp(145px, 43vw, 185px);
+        height: clamp(145px, 43vw, 185px);
+    }
+
+    .hero-buttons {
+        width: 100%;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .hero-buttons .btn {
+        min-height: 44px;
+        padding: 12px 18px;
+        justify-content: center;
+    }
+
+    .sidebar {
+        width: min(var(--sidebar-width), 82vw);
+        left: calc(-1 * min(var(--sidebar-width), 82vw));
+        height: 100dvh;
+        padding-top: calc(var(--space-12) + 56px + env(safe-area-inset-top));
+        padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom));
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .sidebar.active {
+        left: 0;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .menu-btn {
+        width: 44px;
+        height: 44px;
+        top: max(0.75rem, env(safe-area-inset-top));
+        left: 0.75rem;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 6100;
+    }
+}

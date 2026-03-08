@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pichchanthorn.github.io/pich-chanthorn-portfolio/sitemap.xml
+Sitemap: https://pichchanthorn.me/sitemap.xml

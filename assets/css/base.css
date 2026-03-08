@@ -1,0 +1,250 @@
+/* =========================================================
+   BASE.CSS — Reset, Root Variables, Typography, Global Styles
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kantumruy+Pro:wght@400;500;600;700&display=swap");
+
+/* =========================================================
+   Design Tokens
+   ========================================================= */
+:root {
+    /* Core colors */
+    --clr-bg: #020617;
+    --clr-bg-soft: #02091a;
+    --clr-bg-deep: #0f172a;
+    --clr-bg-card: #0f1115;
+    --clr-bg-card-soft: #06121f;
+    --clr-text: #e5e5e5;
+    --clr-text-strong: #f9fafb;
+    --clr-text-muted: #d1d5db;
+    --clr-text-subtle: #9ca3af;
+
+    /* Brand / accent */
+    --clr-accent: #22c55e;
+    --clr-accent-strong: #16a34a;
+    --clr-accent-alt: #2ecc71;
+    --clr-accent-alt-hover: #27b863;
+    --clr-accent-deep: #022c22;
+    --clr-accent-line: #064e3b;
+
+    /* Borders / surfaces */
+    --clr-border: #111827;
+    --clr-border-soft: #1f2937;
+    --clr-border-card: #1b1f24;
+    --clr-white: #ffffff;
+
+    /* Overlay / alpha */
+    --alpha-white-05: rgba(255, 255, 255, 0.05);
+    --alpha-white-08: rgba(255, 255, 255, 0.08);
+    --alpha-white-10: rgba(255, 255, 255, 0.1);
+    --alpha-accent-12: rgba(34, 197, 94, 0.12);
+    --alpha-accent-16: rgba(34, 197, 94, 0.16);
+    --alpha-accent-18: rgba(34, 197, 94, 0.18);
+    --alpha-accent-22: rgba(34, 197, 94, 0.22);
+    --alpha-accent-25: rgba(34, 197, 94, 0.25);
+    --alpha-accent-28: rgba(34, 197, 94, 0.28);
+    --alpha-accent-35: rgba(34, 197, 94, 0.35);
+    --alpha-accent-40: rgba(34, 197, 94, 0.4);
+    --alpha-accent-45: rgba(34, 197, 94, 0.45);
+    --alpha-accent-50: rgba(34, 197, 94, 0.5);
+    --alpha-accent-55: rgba(34, 197, 94, 0.55);
+    --alpha-accent-60: rgba(34, 197, 94, 0.6);
+    --alpha-accent-70: rgba(34, 197, 94, 0.7);
+    --alpha-accent-80: rgba(34, 197, 94, 0.8);
+
+    /* Spacing */
+    --space-1: 4px;
+    --space-2: 6px;
+    --space-3: 8px;
+    --space-4: 10px;
+    --space-5: 12px;
+    --space-6: 14px;
+    --space-7: 16px;
+    --space-8: 18px;
+    --space-9: 20px;
+    --space-10: 22px;
+    --space-11: 24px;
+    --space-12: 28px;
+    --space-13: 32px;
+    --space-14: 40px;
+
+    /* Radius */
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 12px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+    --radius-2xl: 20px;
+    --radius-3xl: 22px;
+    --radius-4xl: 24px;
+    --radius-pill: 999px;
+
+    /* Layout */
+    --sidebar-width: 260px;
+    --max-content: 1100px;
+    --max-wide: 1120px;
+
+    /* Motion / elevation */
+    --motion-standard: 0.3s ease;
+    --shadow-soft: 0 10px 26px rgba(2, 6, 23, 0.42);
+    --shadow-card: 0 14px 28px rgba(2, 6, 23, 0.48);
+    --shadow-card-hover: 0 20px 36px rgba(2, 6, 23, 0.56);
+}
+
+/* =========================================================
+   Reset
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    display: flex;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+}
+
+/* =========================================================
+   Links & Interactive Text
+   ========================================================= */
+a {
+    transition: color var(--motion-standard), text-decoration-color var(--motion-standard), opacity var(--motion-standard);
+}
+
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+    text-decoration-color: transparent;
+}
+
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--alpha-accent-70);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+}
+
+/* =========================================================
+   Typography — Language-specific
+   ========================================================= */
+html[lang="en"] body {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html[lang="km"] body {
+    font-family: "Kantumruy Pro", "Noto Sans Khmer", "Khmer OS System", sans-serif;
+    line-height: 1.72;
+    letter-spacing: 0.005em;
+    text-rendering: optimizeLegibility;
+}
+
+html[lang="km"] .hero-title,
+html[lang="km"] .title,
+html[lang="km"] .section-heading,
+html[lang="km"] .project-detail-title {
+    line-height: 1.3;
+    letter-spacing: 0;
+}
+
+html[lang="km"] .hero-text,
+html[lang="km"] .about-paragraph,
+html[lang="km"] .project-text,
+html[lang="km"] .contact-value,
+html[lang="km"] .exp-desc,
+html[lang="km"] .edu-text {
+    line-height: 1.85;
+}
+
+/* =========================================================
+   Global Transitions
+   ========================================================= */
+body,
+.sidebar,
+.main,
+.page-container,
+.nav-link,
+.btn,
+.lang-btn,
+.stat-card,
+.specialty-card,
+.skill-card,
+.soft-card,
+.project-card,
+.cert-card,
+.edu-summary-card,
+.semester-card,
+.exp-card,
+.contact-card,
+.contact-form-card {
+    transition: background-color var(--motion-standard), color var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard), transform var(--motion-standard);
+}
+
+/* =========================================================
+   Scroll Reveal Animation
+   ========================================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    pointer-events: none;
+    transition: opacity var(--motion-standard), transform var(--motion-standard);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* =========================================================
+   Shared Page Elements
+   ========================================================= */
+.highlight {
+    color: var(--clr-accent);
+}
+
+.page-header {
+    margin-bottom: 25px;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+.page-header .title::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 3px;
+    margin-top: var(--space-3);
+    border-radius: var(--radius-pill);
+    background: var(--clr-accent);
+}
+
+.section-heading {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 25px 0 18px;
+}
+
+.site-footer {
+    margin-top: 80px;
+    padding-top: var(--space-11);
+    border-top: 1px solid var(--clr-border);
+    text-align: center;
+    font-size: 13px;
+    color: var(--clr-text-subtle);
+    line-height: 1.6;
+}
