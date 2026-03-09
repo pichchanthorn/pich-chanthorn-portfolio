@@ -19,6 +19,27 @@
     --clr-text-muted: #cbd5e1;
     --clr-text-subtle: #94a3b8;
 
+    /* Semantic text — accent-tinted (used on dark surfaces) */
+    --clr-accent-text: #bbf7d0;
+    --clr-accent-text-strong: #dcfce7;
+    --clr-info-text: #dbeafe;
+    --clr-info-text-alt: #93c5fd;
+    --clr-secondary-text: #a5b4fc;
+    --clr-success-text: #4ade80;
+    --clr-error-text: #f87171;
+    --clr-error-text-soft: #fca5a5;
+    --clr-error-text-muted: #fda4af;
+    --clr-error-bg-text: #fecaca;
+
+    /* Semantic backgrounds — card surfaces */
+    --clr-card-bg: rgba(15, 23, 42, 0.4);
+    --clr-card-bg-soft: rgba(15, 23, 42, 0.35);
+    --clr-card-bg-strong: rgba(15, 23, 42, 0.55);
+    --clr-card-bg-heavy: rgba(15, 23, 42, 0.9);
+    --clr-input-bg: rgba(15, 23, 42, 0.5);
+    --clr-input-bg-focus: rgba(15, 23, 42, 0.7);
+    --clr-label-bg: linear-gradient(180deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.86));
+
     /* Brand / accent — emerald */
     --clr-accent: #22c55e;
     --clr-accent-strong: #16a34a;

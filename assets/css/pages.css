@@ -61,7 +61,7 @@
     padding: 8px 18px;
     border-radius: var(--radius-pill);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(15, 23, 42, 0.4);
+    background: var(--clr-card-bg);
     backdrop-filter: blur(8px);
     font-size: 15px;
     font-weight: 600;
@@ -105,8 +105,8 @@
 
 .hero-buttons .btn.outline {
     border-color: rgba(255, 255, 255, 0.1);
-    color: #e2e8f0;
-    background: rgba(15, 23, 42, 0.3);
+    color: var(--clr-text);
+    background: var(--clr-card-bg-soft);
     backdrop-filter: blur(6px);
 }
 
@@ -122,7 +122,7 @@
     width: 320px;
     height: 320px;
     border-radius: var(--radius-pill);
-    background: rgba(15, 23, 42, 0.4);
+    background: var(--clr-card-bg);
     border: 1px solid rgba(34, 197, 94, 0.2);
     display: flex;
     align-items: center;
@@ -393,10 +393,10 @@
     gap: var(--space-4);
     padding: 10px 14px;
     border-radius: var(--radius-pill);
-    background: rgba(15, 23, 42, 0.4);
+    background: var(--clr-card-bg);
     border: 1px solid rgba(34, 197, 94, 0.15);
     font-size: 13px;
-    color: #e5e7eb;
+    color: var(--clr-text);
     backdrop-filter: blur(6px);
     transition: all var(--motion-standard);
 }
@@ -441,7 +441,7 @@
     background: rgba(22, 163, 74, 0.12);
     border: 1px solid var(--alpha-accent-60);
     font-size: 13px;
-    color: #e5fbea;
+    color: var(--clr-accent-text);
 }
 
 .achievement-badge {
@@ -459,7 +459,7 @@
 }
 
 .sidebar-card {
-    background: rgba(15, 23, 42, 0.4);
+    background: var(--clr-card-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: var(--radius-xl);
@@ -491,7 +491,7 @@
     border-radius: var(--radius-pill);
     font-size: 12px;
     background: var(--alpha-accent-12);
-    color: #bbf7d0;
+    color: var(--clr-accent-text);
     border: 1px solid var(--alpha-accent-50);
 }
 
@@ -547,7 +547,7 @@
     padding: var(--space-11) var(--space-12);
     border-radius: var(--radius-4xl);
     border: 1px solid rgba(34, 197, 94, 0.15);
-    background: rgba(15, 23, 42, 0.35);
+    background: var(--clr-card-bg-soft);
     box-shadow: var(--shadow-card);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -576,15 +576,15 @@
     letter-spacing: 0.02em;
     padding: 6px 12px;
     border-radius: var(--radius-pill);
-    color: #dbeafe;
+    color: var(--clr-info-text);
     border: 1px solid rgba(59, 130, 246, 0.35);
-    background: rgba(15, 23, 42, 0.82);
+    background: var(--clr-card-bg-heavy);
 }
 
 .edu-hero-chip i {
     width: 14px;
     height: 14px;
-    color: #86efac;
+    color: var(--clr-success-text);
 }
 
 .edu-section-divider {
@@ -601,7 +601,7 @@
 }
 
 .edu-summary-card {
-    background: rgba(15, 23, 42, 0.35);
+    background: var(--clr-card-bg-soft);
     border-radius: var(--radius-3xl);
     border: 1px solid rgba(255, 255, 255, 0.07);
     padding: var(--space-10);
@@ -631,7 +631,7 @@
     border-radius: var(--radius-pill);
     background: rgba(34, 197, 94, 0.16);
     border: 1px solid var(--alpha-accent-60);
-    color: #bbf7d0;
+    color: var(--clr-accent-text);
     font-size: 12px;
     font-weight: 600;
 }
@@ -651,7 +651,7 @@
 
 .edu-school {
     font-size: 14px;
-    color: #93c5fd;
+    color: var(--clr-info-text-alt);
     margin-bottom: var(--space-4);
 }
 
@@ -699,7 +699,7 @@
 .education-timeline-component {
     border-radius: var(--radius-3xl);
     border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(15, 23, 42, 0.35);
+    background: var(--clr-card-bg-soft);
     box-shadow: var(--shadow-card);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -755,7 +755,7 @@
 .timeline-marker i {
     width: 13px;
     height: 13px;
-    color: #86efac;
+    color: var(--clr-success-text);
 }
 
 .timeline-content {
@@ -783,7 +783,7 @@
     padding: 4px 10px;
     border-radius: var(--radius-pill);
     border: 1px solid rgba(59, 130, 246, 0.45);
-    color: #dbeafe;
+    color: var(--clr-info-text);
     background: rgba(30, 41, 59, 0.74);
 }
 
@@ -806,14 +806,14 @@
 }
 
 .edu-year-gpa span {
-    color: #86efac;
+    color: var(--clr-success-text);
     font-weight: 700;
 }
 
 .semester-card {
     border-radius: var(--radius-3xl);
     border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(15, 23, 42, 0.35);
+    background: var(--clr-card-bg-soft);
     box-shadow: var(--shadow-card);
     overflow: hidden;
     opacity: 0;
@@ -921,12 +921,12 @@
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #cbd5e1;
+    color: var(--clr-text-muted);
     white-space: nowrap;
 }
 
 .edu-table td {
-    color: #e2e8f0;
+    color: var(--clr-text);
 }
 
 .edu-table tbody tr:last-child td {
@@ -957,7 +957,7 @@
 }
 
 .edu-table .grade-cell.is-a {
-    color: #bbf7d0;
+    color: var(--clr-accent-text);
     font-weight: 700;
     background: rgba(34, 197, 94, 0.12);
     border-radius: var(--radius-xs);
@@ -969,7 +969,7 @@
     border-radius: var(--radius-md);
     border: 1px solid rgba(59, 130, 246, 0.45);
     background: rgba(30, 41, 59, 0.65);
-    color: #e2e8f0;
+    color: var(--clr-text);
     font-size: 14px;
 }
 
@@ -985,7 +985,7 @@
 }
 
 .sem-link.active {
-    color: #4ade80 !important;
+    color: var(--clr-success-text) !important;
     font-weight: 700;
 }
 
@@ -1006,7 +1006,7 @@
     padding: 6px 12px;
     border-radius: var(--radius-pill);
     border: 1px solid var(--alpha-accent-55);
-    color: #bbf7d0;
+    color: var(--clr-accent-text);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.02em;
@@ -1087,7 +1087,7 @@
     padding: 26px;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(15, 23, 42, 0.4);
+    background: var(--clr-card-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: var(--shadow-card);
@@ -1156,7 +1156,7 @@
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.02em;
-    color: #dcfce7;
+    color: var(--clr-accent-text-strong);
     padding: 6px 12px;
     border-radius: var(--radius-pill);
     border: 1px solid var(--alpha-accent-60);
@@ -1199,7 +1199,7 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    color: #bbf7d0;
+    color: var(--clr-accent-text);
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
@@ -1261,7 +1261,7 @@
 }
 
 .experience-panel {
-    background: rgba(15, 23, 42, 0.4);
+    background: var(--clr-card-bg);
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: var(--radius-xl);
     padding: 22px;
