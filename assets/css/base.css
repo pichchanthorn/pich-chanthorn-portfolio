@@ -9,28 +9,33 @@
    ========================================================= */
 :root {
     /* Core colors */
-    --clr-bg: #020617;
-    --clr-bg-soft: #02091a;
+    --clr-bg: #030712;
+    --clr-bg-soft: #050d1a;
     --clr-bg-deep: #0f172a;
-    --clr-bg-card: #0f1115;
-    --clr-bg-card-soft: #06121f;
-    --clr-text: #e5e5e5;
-    --clr-text-strong: #f9fafb;
-    --clr-text-muted: #d1d5db;
-    --clr-text-subtle: #9ca3af;
+    --clr-bg-card: rgba(15, 23, 42, 0.55);
+    --clr-bg-card-soft: rgba(6, 18, 31, 0.7);
+    --clr-text: #e2e8f0;
+    --clr-text-strong: #f8fafc;
+    --clr-text-muted: #cbd5e1;
+    --clr-text-subtle: #94a3b8;
 
-    /* Brand / accent */
+    /* Brand / accent — emerald */
     --clr-accent: #22c55e;
     --clr-accent-strong: #16a34a;
-    --clr-accent-alt: #2ecc71;
-    --clr-accent-alt-hover: #27b863;
+    --clr-accent-alt: #34d399;
+    --clr-accent-alt-hover: #2ecc71;
     --clr-accent-deep: #022c22;
     --clr-accent-line: #064e3b;
 
+    /* Secondary accent — cyan */
+    --clr-cyan: #06b6d4;
+    --clr-cyan-soft: rgba(6, 182, 212, 0.12);
+    --clr-cyan-glow: rgba(6, 182, 212, 0.25);
+
     /* Borders / surfaces */
-    --clr-border: #111827;
-    --clr-border-soft: #1f2937;
-    --clr-border-card: #1b1f24;
+    --clr-border: rgba(255, 255, 255, 0.06);
+    --clr-border-soft: rgba(255, 255, 255, 0.08);
+    --clr-border-card: rgba(255, 255, 255, 0.07);
     --clr-white: #ffffff;
 
     /* Overlay / alpha */
@@ -51,6 +56,11 @@
     --alpha-accent-60: rgba(34, 197, 94, 0.6);
     --alpha-accent-70: rgba(34, 197, 94, 0.7);
     --alpha-accent-80: rgba(34, 197, 94, 0.8);
+
+    /* Glass */
+    --glass-bg: rgba(15, 23, 42, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(16px);
 
     /* Spacing */
     --space-1: 4px;
@@ -85,16 +95,23 @@
     --max-wide: 1120px;
 
     /* Motion / elevation */
-    --motion-standard: 0.3s ease;
-    --shadow-soft: 0 10px 26px rgba(2, 6, 23, 0.42);
-    --shadow-card: 0 14px 28px rgba(2, 6, 23, 0.48);
-    --shadow-card-hover: 0 20px 36px rgba(2, 6, 23, 0.56);
+    --motion-standard: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --motion-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --motion-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(34, 197, 94, 0.15);
+    --shadow-glow: 0 0 20px rgba(34, 197, 94, 0.15), 0 0 60px rgba(34, 197, 94, 0.05);
+    --shadow-glow-strong: 0 0 30px rgba(34, 197, 94, 0.25), 0 0 80px rgba(34, 197, 94, 0.08);
 }
 
 /* =========================================================
    Reset
    ========================================================= */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -107,6 +124,13 @@ body {
     display: flex;
     line-height: 1.65;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: rgba(34, 197, 94, 0.3);
+    color: var(--clr-text-strong);
 }
 
 /* =========================================================
@@ -133,6 +157,46 @@ a:focus-visible {
     outline: 2px solid var(--alpha-accent-70);
     outline-offset: 2px;
     border-radius: var(--radius-xs);
+}
+
+/* =========================================================
+   Highlighted text accent
+   ========================================================= */
+.highlight {
+    background: linear-gradient(135deg, var(--clr-accent), var(--clr-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* =========================================================
+   Section titles
+   ========================================================= */
+.title {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--clr-text-strong);
+}
+
+.page-header {
+    padding-top: 72px;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+/* =========================================================
+   Site footer
+   ========================================================= */
+.site-footer {
+    margin-top: auto;
+    padding: 40px 0 24px;
+    border-top: 1px solid var(--clr-border);
+    font-size: 13px;
+    color: var(--clr-text-subtle);
+    text-align: center;
+    line-height: 1.7;
 }
 
 /* =========================================================
@@ -195,9 +259,9 @@ body,
    ========================================================= */
 .reveal {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
     pointer-events: none;
-    transition: opacity var(--motion-standard), transform var(--motion-standard);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.active {
@@ -207,44 +271,22 @@ body,
 }
 
 /* =========================================================
-   Shared Page Elements
+   Shared Page Elements (overridden by new tokens above)
    ========================================================= */
-.highlight {
-    color: var(--clr-accent);
-}
-
-.page-header {
-    margin-bottom: 25px;
-}
-
-.title {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: var(--space-2);
-}
 
 .page-header .title::after {
     content: "";
     display: block;
-    width: 90px;
+    width: 72px;
     height: 3px;
     margin-top: var(--space-3);
     border-radius: var(--radius-pill);
-    background: var(--clr-accent);
+    background: linear-gradient(90deg, var(--clr-accent), var(--clr-cyan));
 }
 
 .section-heading {
     font-size: 22px;
     font-weight: 700;
     margin: 25px 0 18px;
-}
-
-.site-footer {
-    margin-top: 80px;
-    padding-top: var(--space-11);
-    border-top: 1px solid var(--clr-border);
-    text-align: center;
-    font-size: 13px;
-    color: var(--clr-text-subtle);
-    line-height: 1.6;
+    letter-spacing: -0.01em;
 }

@@ -59,7 +59,7 @@
           activeObserver.unobserve(entry.target);
         });
       },
-      { threshold: 0.18 }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
 
     revealSections.forEach(section => observer.observe(section));

@@ -1,0 +1,443 @@
+/* =========================================================
+   THEME-SWITCHER.CSS — Theme Toggle UI + Light Theme Vars
+   ========================================================= */
+
+/* =========================================================
+   Light Theme — Variable Overrides
+   Applied when user explicitly selects "Light"
+   ========================================================= */
+html[data-theme="light"] {
+    /* Core colors */
+    --clr-bg: #f8fafc;
+    --clr-bg-soft: #f1f5f9;
+    --clr-bg-deep: #e2e8f0;
+    --clr-bg-card: rgba(255, 255, 255, 0.75);
+    --clr-bg-card-soft: rgba(241, 245, 249, 0.8);
+    --clr-text: #334155;
+    --clr-text-strong: #0f172a;
+    --clr-text-muted: #475569;
+    --clr-text-subtle: #64748b;
+
+    /* Brand / accent — slightly deeper for contrast */
+    --clr-accent: #16a34a;
+    --clr-accent-strong: #15803d;
+    --clr-accent-alt: #22c55e;
+    --clr-accent-alt-hover: #16a34a;
+    --clr-accent-deep: #dcfce7;
+    --clr-accent-line: #86efac;
+
+    /* Secondary accent — cyan */
+    --clr-cyan: #0891b2;
+    --clr-cyan-soft: rgba(8, 145, 178, 0.1);
+    --clr-cyan-glow: rgba(8, 145, 178, 0.15);
+
+    /* Borders / surfaces */
+    --clr-border: rgba(0, 0, 0, 0.08);
+    --clr-border-soft: rgba(0, 0, 0, 0.06);
+    --clr-border-card: rgba(0, 0, 0, 0.07);
+
+    /* Overlay / alpha */
+    --alpha-white-05: rgba(0, 0, 0, 0.03);
+    --alpha-white-08: rgba(0, 0, 0, 0.04);
+    --alpha-white-10: rgba(0, 0, 0, 0.06);
+    --alpha-accent-12: rgba(22, 163, 74, 0.1);
+    --alpha-accent-16: rgba(22, 163, 74, 0.14);
+    --alpha-accent-18: rgba(22, 163, 74, 0.16);
+    --alpha-accent-22: rgba(22, 163, 74, 0.18);
+    --alpha-accent-25: rgba(22, 163, 74, 0.2);
+    --alpha-accent-28: rgba(22, 163, 74, 0.22);
+    --alpha-accent-35: rgba(22, 163, 74, 0.28);
+    --alpha-accent-40: rgba(22, 163, 74, 0.35);
+    --alpha-accent-45: rgba(22, 163, 74, 0.4);
+    --alpha-accent-50: rgba(22, 163, 74, 0.45);
+    --alpha-accent-55: rgba(22, 163, 74, 0.5);
+    --alpha-accent-60: rgba(22, 163, 74, 0.55);
+    --alpha-accent-70: rgba(22, 163, 74, 0.65);
+    --alpha-accent-80: rgba(22, 163, 74, 0.75);
+
+    /* Glass */
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-blur: blur(16px);
+
+    /* Shadows — softer, no glow */
+    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(22, 163, 74, 0.15);
+    --shadow-glow: 0 0 20px rgba(22, 163, 74, 0.08), 0 0 60px rgba(22, 163, 74, 0.03);
+    --shadow-glow-strong: 0 0 30px rgba(22, 163, 74, 0.12), 0 0 80px rgba(22, 163, 74, 0.04);
+}
+
+/* =========================================================
+   System theme — follow OS preference for light
+   ========================================================= */
+@media (prefers-color-scheme: light) {
+    html[data-theme="system"] {
+        --clr-bg: #f8fafc;
+        --clr-bg-soft: #f1f5f9;
+        --clr-bg-deep: #e2e8f0;
+        --clr-bg-card: rgba(255, 255, 255, 0.75);
+        --clr-bg-card-soft: rgba(241, 245, 249, 0.8);
+        --clr-text: #334155;
+        --clr-text-strong: #0f172a;
+        --clr-text-muted: #475569;
+        --clr-text-subtle: #64748b;
+
+        --clr-accent: #16a34a;
+        --clr-accent-strong: #15803d;
+        --clr-accent-alt: #22c55e;
+        --clr-accent-alt-hover: #16a34a;
+        --clr-accent-deep: #dcfce7;
+        --clr-accent-line: #86efac;
+
+        --clr-cyan: #0891b2;
+        --clr-cyan-soft: rgba(8, 145, 178, 0.1);
+        --clr-cyan-glow: rgba(8, 145, 178, 0.15);
+
+        --clr-border: rgba(0, 0, 0, 0.08);
+        --clr-border-soft: rgba(0, 0, 0, 0.06);
+        --clr-border-card: rgba(0, 0, 0, 0.07);
+
+        --alpha-white-05: rgba(0, 0, 0, 0.03);
+        --alpha-white-08: rgba(0, 0, 0, 0.04);
+        --alpha-white-10: rgba(0, 0, 0, 0.06);
+        --alpha-accent-12: rgba(22, 163, 74, 0.1);
+        --alpha-accent-16: rgba(22, 163, 74, 0.14);
+        --alpha-accent-18: rgba(22, 163, 74, 0.16);
+        --alpha-accent-22: rgba(22, 163, 74, 0.18);
+        --alpha-accent-25: rgba(22, 163, 74, 0.2);
+        --alpha-accent-28: rgba(22, 163, 74, 0.22);
+        --alpha-accent-35: rgba(22, 163, 74, 0.28);
+        --alpha-accent-40: rgba(22, 163, 74, 0.35);
+        --alpha-accent-45: rgba(22, 163, 74, 0.4);
+        --alpha-accent-50: rgba(22, 163, 74, 0.45);
+        --alpha-accent-55: rgba(22, 163, 74, 0.5);
+        --alpha-accent-60: rgba(22, 163, 74, 0.55);
+        --alpha-accent-70: rgba(22, 163, 74, 0.65);
+        --alpha-accent-80: rgba(22, 163, 74, 0.75);
+
+        --glass-bg: rgba(255, 255, 255, 0.6);
+        --glass-border: rgba(0, 0, 0, 0.08);
+        --glass-blur: blur(16px);
+
+        --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.08);
+        --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(22, 163, 74, 0.15);
+        --shadow-glow: 0 0 20px rgba(22, 163, 74, 0.08), 0 0 60px rgba(22, 163, 74, 0.03);
+        --shadow-glow-strong: 0 0 30px rgba(22, 163, 74, 0.12), 0 0 80px rgba(22, 163, 74, 0.04);
+    }
+}
+
+/* =========================================================
+   Light-mode overrides for specific elements that use
+   hard-coded colors (sidebar, menu button, etc.)
+   ========================================================= */
+html[data-theme="light"] .sidebar,
+html[data-theme="light"] .menu-btn {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .nav-link {
+    color: var(--clr-text-muted);
+}
+
+html[data-theme="light"] .nav-link:hover,
+html[data-theme="light"] .nav-link.active {
+    color: var(--clr-text-strong);
+    background: rgba(22, 163, 74, 0.08);
+}
+
+html[data-theme="light"] .nav-link.active::before {
+    background: var(--clr-accent);
+}
+
+html[data-theme="light"] .menu-btn svg {
+    color: var(--clr-text-strong);
+}
+
+html[data-theme="light"] .main {
+    background:
+        radial-gradient(ellipse 60% 50% at 70% 10%, rgba(22, 163, 74, 0.04), transparent),
+        radial-gradient(ellipse 50% 60% at 20% 80%, rgba(8, 145, 178, 0.03), transparent),
+        var(--clr-bg);
+    background-image:
+        radial-gradient(ellipse 60% 50% at 70% 10%, rgba(22, 163, 74, 0.04), transparent),
+        radial-gradient(ellipse 50% 60% at 20% 80%, rgba(8, 145, 178, 0.03), transparent),
+        radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 100%, 100%, 24px 24px;
+}
+
+html[data-theme="light"] .lang-btn.active {
+    background: var(--clr-accent);
+    color: #fff;
+}
+
+html[data-theme="light"] .highlight {
+    background: linear-gradient(135deg, #16a34a, #0891b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+html[data-theme="light"] ::selection {
+    background: rgba(22, 163, 74, 0.2);
+    color: var(--clr-text-strong);
+}
+
+/* System-light duplicates */
+@media (prefers-color-scheme: light) {
+    html[data-theme="system"] .sidebar,
+    html[data-theme="system"] .menu-btn {
+        background: rgba(255, 255, 255, 0.85);
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    html[data-theme="system"] .nav-link {
+        color: var(--clr-text-muted);
+    }
+
+    html[data-theme="system"] .nav-link:hover,
+    html[data-theme="system"] .nav-link.active {
+        color: var(--clr-text-strong);
+        background: rgba(22, 163, 74, 0.08);
+    }
+
+    html[data-theme="system"] .nav-link.active::before {
+        background: var(--clr-accent);
+    }
+
+    html[data-theme="system"] .menu-btn svg {
+        color: var(--clr-text-strong);
+    }
+
+    html[data-theme="system"] .main {
+        background:
+            radial-gradient(ellipse 60% 50% at 70% 10%, rgba(22, 163, 74, 0.04), transparent),
+            radial-gradient(ellipse 50% 60% at 20% 80%, rgba(8, 145, 178, 0.03), transparent),
+            var(--clr-bg);
+        background-image:
+            radial-gradient(ellipse 60% 50% at 70% 10%, rgba(22, 163, 74, 0.04), transparent),
+            radial-gradient(ellipse 50% 60% at 20% 80%, rgba(8, 145, 178, 0.03), transparent),
+            radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        background-size: 100%, 100%, 24px 24px;
+    }
+
+    html[data-theme="system"] .lang-btn.active {
+        background: var(--clr-accent);
+        color: #fff;
+    }
+
+    html[data-theme="system"] .highlight {
+        background: linear-gradient(135deg, #16a34a, #0891b2);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    html[data-theme="system"] ::selection {
+        background: rgba(22, 163, 74, 0.2);
+        color: var(--clr-text-strong);
+    }
+}
+
+/* =========================================================
+   Theme Transition — applied temporarily during switch
+   ========================================================= */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+    transition:
+        background-color 0.4s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        fill 0.3s ease,
+        stroke 0.3s ease !important;
+}
+
+/* =========================================================
+   Theme Switcher Button
+   ========================================================= */
+.theme-switcher {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 6100;
+}
+
+.theme-switcher__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    cursor: pointer;
+    color: var(--clr-text-muted);
+    box-shadow: var(--shadow-card);
+    transition:
+        background var(--motion-standard),
+        border-color var(--motion-standard),
+        color var(--motion-standard),
+        box-shadow var(--motion-standard),
+        transform var(--motion-spring);
+}
+
+.theme-switcher__btn:hover {
+    color: var(--clr-accent);
+    border-color: var(--alpha-accent-25);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-1px);
+}
+
+.theme-switcher__btn:active {
+    transform: translateY(0) scale(0.96);
+}
+
+.theme-switcher__btn svg {
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
+/* =========================================================
+   Theme Dropdown
+   ========================================================= */
+.theme-switcher__dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 172px;
+    padding: 6px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(1.3);
+    -webkit-backdrop-filter: blur(24px) saturate(1.3);
+    box-shadow: var(--shadow-soft);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.96);
+    transform-origin: top right;
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-switcher__dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.theme-switcher__label {
+    display: block;
+    padding: 4px 10px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clr-text-subtle);
+    user-select: none;
+}
+
+/* =========================================================
+   Theme Option Buttons
+   ========================================================= */
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 10px;
+    border: none;
+    border-radius: var(--radius-xs);
+    background: transparent;
+    color: var(--clr-text-muted);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background var(--motion-standard),
+        color var(--motion-standard);
+    position: relative;
+}
+
+.theme-option:hover {
+    background: var(--alpha-white-08);
+    color: var(--clr-text-strong);
+}
+
+.theme-option.active {
+    background: var(--alpha-accent-12);
+    color: var(--clr-accent);
+}
+
+.theme-option.active .theme-option__check {
+    opacity: 1;
+}
+
+.theme-option__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.theme-option__icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.theme-option__text {
+    flex: 1;
+    text-align: left;
+}
+
+.theme-option__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    color: var(--clr-accent);
+    transition: opacity var(--motion-standard);
+}
+
+.theme-option__check svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* =========================================================
+   Responsive — Mobile
+   ========================================================= */
+@media (max-width: 768px) {
+    .theme-switcher {
+        top: 12px;
+        right: 12px;
+    }
+
+    .theme-switcher__btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .theme-switcher__btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .theme-switcher__dropdown {
+        min-width: 156px;
+    }
+}
