@@ -113,11 +113,17 @@
     const statNumbers = document.querySelectorAll(".stat-number[data-target]");
     if (!statNumbers.length) return;
 
+    const formatValue = element => {
+      // Keep compatibility with both markup styles: with or without a separate .stat-plus element.
+      const hasSeparatePlus = Boolean(element.parentElement?.querySelector(".stat-plus"));
+      return value => (hasSeparatePlus ? `${value}` : `${value}+`);
+    };
+
     if (prefersReducedMotion()) {
       statNumbers.forEach(element => {
         const target = Number.parseInt(element.dataset.target, 10);
         if (!Number.isFinite(target)) return;
-        element.textContent = `${target}+`;
+        element.textContent = formatValue(element)(target);
       });
       return;
     }
@@ -132,8 +138,9 @@
           if (!Number.isFinite(target)) return;
 
           entry.target.textContent = "0";
+          const formatter = formatValue(entry.target);
           animateValue(1200, target, value => {
-            entry.target.textContent = `${value}+`;
+            entry.target.textContent = formatter(value);
           });
         });
       },
