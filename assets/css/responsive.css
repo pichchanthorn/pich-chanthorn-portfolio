@@ -302,6 +302,121 @@
     }
 }
 
+@media (max-width: 900px) {
+    .cert-page .cert-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .cert-page .cert-card {
+        grid-template-columns: 154px minmax(0, 1fr);
+        padding: 11px;
+        gap: 10px;
+    }
+
+    .cert-page .cert-thumb {
+        min-height: 110px;
+    }
+
+    .cert-page .cert-thumb img {
+        max-height: 96px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cert-page .page-header {
+        padding-top: calc(56px + env(safe-area-inset-top));
+        margin-bottom: 8px;
+    }
+
+    .cert-page .section-heading {
+        margin: 18px 0 12px;
+    }
+
+    .cert-page .cert-card,
+    .cert-page .cert-card.cert-card-link {
+        grid-template-columns: 118px minmax(0, 1fr);
+        align-items: start;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .cert-page .cert-thumb {
+        min-height: 88px;
+        margin: 0;
+        align-self: start;
+    }
+
+    .cert-page .cert-thumb img {
+        max-height: 78px;
+    }
+
+    .cert-page .cert-body {
+        width: 100%;
+        gap: 6px;
+    }
+
+    .cert-page .cert-header-line {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .cert-page .cert-title {
+        font-size: 16px;
+    }
+
+    .cert-page .cert-meta {
+        font-size: 12px;
+        line-height: 1.52;
+    }
+
+    .cert-page .cert-tags {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 5px;
+    }
+
+    .cert-page .cert-actions {
+        justify-content: flex-start;
+        width: 100%;
+        padding-top: 4px;
+    }
+
+    .cert-page .cert-actions .btn.small {
+        min-height: 32px;
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 550px) {
+    .cert-page .cert-thumb {
+        min-height: 82px;
+        padding: 6px;
+    }
+
+    .cert-page .cert-thumb img {
+        max-height: 72px;
+    }
+
+    .cert-page .cert-card {
+        border-radius: var(--radius-lg);
+        grid-template-columns: 102px minmax(0, 1fr);
+    }
+
+    .cert-page .cert-tags {
+        justify-content: flex-start;
+    }
+
+    .cert-page .cert-tags .tag {
+        font-size: 10px;
+        padding: 2px 7px;
+        max-width: 100%;
+        text-align: left;
+    }
+}
+
 @media (max-width: 640px) {
     .edu-page {
         gap: var(--space-9);
