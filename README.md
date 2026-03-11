@@ -1,4 +1,5 @@
-# Pich Chanthorn – Personal Portfolio Website
+​
+## Pich Chanthorn – Personal Portfolio Website
 
 This is my personal portfolio website, created to showcase my profile, skills, projects, and experience as an Information Technology student and aspiring Full-Stack Developer.
 
@@ -43,7 +44,7 @@ Mobile responsiveness and improved cross-device support are planned for future u
 
 ## 📂 Project Structure
 
-​```text
+```text
 pich-chanthorn-portfolio/
 ├── assets/
 ├── pages/
@@ -53,17 +54,17 @@ pich-chanthorn-portfolio/
 ├── CNAME
 ├── robots.txt
 └── sitemap.xml
-​
+````
 
 ---
 
 ## 🔄 Future Improvements (Planned)
 
-- ✅ Improve mobile responsiveness
-- ✅ Optimize layout for tablets and smartphones
-- ✅ Add animations and micro-interactions
-- ✅ Performance optimization
-- ✅ Additional projects and content updates
+* ✅ Improve mobile responsiveness
+* ✅ Optimize layout for tablets and smartphones
+* ✅ Add animations and micro-interactions
+* ✅ Performance optimization
+* ✅ Additional projects and content updates
 
 This project will continue to evolve and improve over time.
 
@@ -71,12 +72,12 @@ This project will continue to evolve and improve over time.
 
 ## 👤 Author
 
-**Pich Chanthorn**  
-IT Student – Build Bright University  
-Aspiring Full-Stack Developer  
+**Pich Chanthorn**
+IT Student – Build Bright University
+Aspiring Full-Stack Developer
 
-- GitHub: https://github.com/pichchanthorn
-- LinkedIn: https://www.linkedin.com/in/pichchanthorn/
+* GitHub: [https://github.com/pichchanthorn](https://github.com/pichchanthorn)
+* LinkedIn: [https://www.linkedin.com/in/pichchanthorn/](https://www.linkedin.com/in/pichchanthorn/)
 
 ---
 
@@ -90,3 +91,5 @@ redistribute, or reuse any part of this project without prior written permission
 from the author.
 
 See the [LICENSE](LICENSE) file for full terms.
+
+​
