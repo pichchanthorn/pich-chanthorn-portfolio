@@ -1,10 +1,3 @@
-​
-
----
-
-## 📌Pich Chanthorn – Personal Portfolio Website
-
-```md
 # Pich Chanthorn – Personal Portfolio Website
 
 This is my personal portfolio website, created to showcase my profile, skills, projects, and experience as an Information Technology student and aspiring Full-Stack Developer.
