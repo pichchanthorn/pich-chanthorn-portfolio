@@ -90,9 +90,11 @@ Aspiring Full-Stack Developer
 
 ## 📄 License
 
-© 2025 Pich Chanthorn. All rights reserved.
+Copyright (c) 2025 Pich Chanthorn. All rights reserved.
 
-This website and its content are personal and proprietary.
-Viewing is permitted for evaluation and reference purposes only.
-Reproduction, distribution, or reuse of any part of this project
-without explicit permission is not allowed.
+This repository is publicly available for portfolio, demonstration, evaluation,
+and reference purposes only. No permission is granted to copy, modify,
+redistribute, or reuse any part of this project without prior written permission
+from the author.
+
+See the [LICENSE](LICENSE) file for full terms.
