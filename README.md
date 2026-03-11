@@ -43,7 +43,7 @@ Mobile responsiveness and improved cross-device support are planned for future u
 
 ## 📂 Project Structure
 
-​```
+​```text
 pich-chanthorn-portfolio/
 ├── assets/
 ├── pages/
@@ -53,7 +53,6 @@ pich-chanthorn-portfolio/
 ├── CNAME
 ├── robots.txt
 └── sitemap.xml
-```
 ​
 
 ---
