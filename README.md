@@ -51,22 +51,15 @@ Mobile responsiveness and improved cross-device support are planned for future u
 ## 📂 Project Structure
 
 ​
-
-assets/
-├── css/
-│   └── style.css
-├── img/
-├── js/
-│   └── main.js
-index.html
-about.html
-skills.html
-projects.html
-certificates.html
-education.html
-experience.html
-contact.html
-README.md
+pich-chanthorn-portfolio/
+├── assets/
+├── pages/
+├── index.html
+├── README.md
+├── LICENSE
+├── CNAME
+├── robots.txt
+└── sitemap.xml
 
 ​
 
