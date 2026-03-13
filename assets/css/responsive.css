@@ -7,6 +7,19 @@
         flex-direction: column;
     }
 
+    .about-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-groups {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-cta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .project-detail-sidebar {
         width: 100%;
     }
@@ -76,6 +89,24 @@
         grid-template-columns: 1fr;
     }
 
+    .about-page {
+        gap: var(--space-9);
+    }
+
+    .about-hero,
+    .about-split-card,
+    .about-cta {
+        padding: var(--space-8);
+    }
+
+    .about-quick-info,
+    .about-services-grid,
+    .about-highlights-grid,
+    .tool-groups,
+    .values-list {
+        grid-template-columns: 1fr;
+    }
+
     .contact-layout {
         gap: var(--space-9);
     }
@@ -120,6 +151,29 @@
 @media (max-width: 768px) {
     .page-container {
         padding: 1.2rem;
+    }
+
+    .about-hero {
+        border-radius: var(--radius-3xl);
+    }
+
+    .about-quick-info li {
+        font-size: 12px;
+    }
+
+    .about-split-card p,
+    .about-service-card p,
+    .about-cta p {
+        font-size: 13px;
+    }
+
+    .about-cta-actions {
+        width: 100%;
+    }
+
+    .about-cta-actions .btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .hero {
