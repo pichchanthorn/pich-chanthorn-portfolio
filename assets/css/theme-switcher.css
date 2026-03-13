@@ -174,8 +174,7 @@ html[data-theme="light"] {
    Light-mode overrides for specific elements that use
    hard-coded colors (sidebar, menu button, etc.)
    ========================================================= */
-html[data-theme="light"] .sidebar,
-html[data-theme="light"] .menu-btn {
+html[data-theme="light"] .sidebar {
     background: rgba(255, 255, 255, 0.85);
     border-color: rgba(0, 0, 0, 0.08);
 }
@@ -194,8 +193,15 @@ html[data-theme="light"] .nav-link.active::before {
     background: var(--clr-accent);
 }
 
-html[data-theme="light"] .menu-btn svg {
-    color: var(--clr-text-strong);
+html[data-theme="light"] {
+    --menu-btn-bg: rgba(255, 255, 255, 0.95);
+    --menu-btn-border: rgba(15, 23, 42, 0.15);
+    --menu-btn-icon: #0f172a;
+    --menu-btn-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    --menu-btn-hover-bg: rgba(255, 255, 255, 1);
+    --menu-btn-hover-border: rgba(34, 197, 94, 0.35);
+    --menu-btn-hover-shadow: 0 8px 26px rgba(34, 197, 94, 0.2);
+    --menu-btn-active-bg: rgba(248, 250, 252, 0.95);
 }
 
 html[data-theme="light"] .main {
@@ -376,8 +382,7 @@ html[data-theme="light"] .experience-timeline__track::before {
 
 /* System-light duplicates for remaining elements */
 @media (prefers-color-scheme: light) {
-    html[data-theme="system"] .sidebar,
-    html[data-theme="system"] .menu-btn {
+    html[data-theme="system"] .sidebar {
         background: rgba(255, 255, 255, 0.85);
         border-color: rgba(0, 0, 0, 0.08);
     }
@@ -396,8 +401,15 @@ html[data-theme="light"] .experience-timeline__track::before {
         background: var(--clr-accent);
     }
 
-    html[data-theme="system"] .menu-btn svg {
-        color: var(--clr-text-strong);
+    html[data-theme="system"] {
+        --menu-btn-bg: rgba(255, 255, 255, 0.95);
+        --menu-btn-border: rgba(15, 23, 42, 0.15);
+        --menu-btn-icon: #0f172a;
+        --menu-btn-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+        --menu-btn-hover-bg: rgba(255, 255, 255, 1);
+        --menu-btn-hover-border: rgba(34, 197, 94, 0.35);
+        --menu-btn-hover-shadow: 0 8px 26px rgba(34, 197, 94, 0.2);
+        --menu-btn-active-bg: rgba(248, 250, 252, 0.95);
     }
 
     html[data-theme="system"] .main {

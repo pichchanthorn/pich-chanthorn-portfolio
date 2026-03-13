@@ -241,20 +241,32 @@
         top: 1rem;
         left: 1rem;
         z-index: 6000;
-        background: rgba(3, 7, 18, 0.8);
+        background: var(--menu-btn-bg);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-radius: var(--radius-sm);
         padding: 0.6rem;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--menu-btn-border);
         cursor: pointer;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        box-shadow: var(--menu-btn-shadow);
         transition: background var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard);
+        color: var(--menu-btn-icon);
     }
 
     .menu-btn:hover {
-        border-color: rgba(34, 197, 94, 0.3);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 8px rgba(34, 197, 94, 0.1);
+        border-color: var(--menu-btn-hover-border);
+        background: var(--menu-btn-hover-bg);
+        box-shadow: var(--menu-btn-hover-shadow);
+    }
+
+    .menu-btn:active {
+        background: var(--menu-btn-active-bg);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+        transform: translateY(1px);
+    }
+
+    .menu-btn svg {
+        color: currentColor;
     }
 
     .sidebar {
@@ -667,11 +679,12 @@
         align-items: center;
         justify-content: center;
         z-index: 6100;
-        background: rgba(3, 7, 18, 0.8);
+        background: var(--menu-btn-bg);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--menu-btn-border);
         border-radius: var(--radius-sm);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        box-shadow: var(--menu-btn-shadow);
+        color: var(--menu-btn-icon);
     }
 }
