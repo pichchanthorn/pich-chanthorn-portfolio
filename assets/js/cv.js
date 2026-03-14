@@ -1,5 +1,3 @@
-const revealNodes = Array.from(document.querySelectorAll("[data-reveal]"));
-
 const updateLastModifiedText = () => {
   const holder = document.getElementById("cv-last-updated");
   if (!holder) {
@@ -19,42 +17,16 @@ const updateLastModifiedText = () => {
   });
 };
 
-const activateRevealAnimations = () => {
-  if (!revealNodes.length) {
+const setupPrintButton = () => {
+  const printButton = document.getElementById("printCvButton");
+  if (!printButton) {
     return;
   }
 
-  if (!("IntersectionObserver" in window)) {
-    revealNodes.forEach((node) => {
-      node.classList.add("is-visible");
-    });
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        const index = revealNodes.indexOf(entry.target);
-        if (index >= 0) {
-          entry.target.style.animationDelay = `${index * 80}ms`;
-        }
-
-        entry.target.classList.add("is-visible");
-        obs.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "0px 0px -8% 0px"
-    }
-  );
-
-  revealNodes.forEach((node) => observer.observe(node));
+  printButton.addEventListener("click", () => {
+    window.print();
+  });
 };
 
 updateLastModifiedText();
-activateRevealAnimations();
+setupPrintButton();
