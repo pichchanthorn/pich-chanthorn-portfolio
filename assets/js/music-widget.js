@@ -308,13 +308,19 @@
       sendCommand({ type: "SET_VOLUME", volume: nextState.volume });
     });
 
-    setExpanded(uiState.expanded || currentState.isPlaying, false);
+    // Never autoplay on load; user must explicitly press play.
+    currentState = {
+      ...currentState,
+      isPlaying: false,
+      updatedAt: Date.now()
+    };
+
+    setExpanded(uiState.expanded, false);
     renderState(currentState);
     requestHostState();
 
-    if (currentState.isPlaying) {
-      sendCommand({ type: "SYNC_STATE", state: currentState, resumeIfPlaying: true });
-    }
+    // Ensure host is paused by default on page load.
+    sendCommand({ type: "SYNC_STATE", state: currentState, resumeIfPlaying: false });
   }
 
   // Expose initialization function

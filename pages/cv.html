@@ -29,6 +29,8 @@
 
   <link rel="stylesheet" href="../assets/css/cv-tailwind.css">
 
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -62,7 +64,8 @@
 
       <div class="cv-actions" aria-label="CV actions">
         <a class="btn btn-primary" href="../assets/files/Pich-Chanthorn-CV.pdf" download>
-          Download CV
+          <i data-lucide="download"></i>
+          <span>Download CV</span>
         </a>
         <button id="printCvButton" class="btn btn-secondary" type="button" aria-label="Print CV">
           Print CV
@@ -199,5 +202,10 @@
   </main>
 
   <script src="../assets/js/cv.js"></script>
+  <script>
+    if (window.lucide?.createIcons) {
+      lucide.createIcons();
+    }
+  </script>
 </body>
 </html>

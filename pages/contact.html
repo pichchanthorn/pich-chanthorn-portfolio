@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <script type="application/ld+json">
         {
@@ -76,16 +76,16 @@
 
         <nav class="nav" aria-label="Main navigation">
             <a href="../index.html" class="nav-link">
-                <i data-lucide="home"></i><span>Home</span>
+                <i data-lucide="house"></i><span>Home</span>
             </a>
             <a href="about.html" class="nav-link">
                 <i data-lucide="user"></i><span>About</span>
             </a>
             <a href="skills.html" class="nav-link">
-                <i data-lucide="code-2"></i><span>Skills</span>
+                <i data-lucide="code"></i><span>Skills</span>
             </a>
             <a href="projects.html" class="nav-link">
-                <i data-lucide="folder-kanban"></i><span>Projects</span>
+                <i data-lucide="folder"></i><span>Projects</span>
             </a>
             <a href="certificates.html" class="nav-link">
                 <i data-lucide="award"></i><span>Certificates</span>
@@ -109,16 +109,11 @@
     <!-- MAIN CONTENT -->
     <main class="main" id="mainContent">
         <div class="page-container contact-page">
-            <div class="contact-bg-decor" aria-hidden="true">
-                <span class="contact-bg-decor__orb contact-bg-decor__orb--one"></span>
-                <span class="contact-bg-decor__orb contact-bg-decor__orb--two"></span>
-            </div>
-
             <!-- HEADER -->
             <section class="page-header contact-hero reveal">
                 <h1 class="title">Get in <span class="highlight">Touch</span></h1>
                 <p class="subtitle">
-                    Let’s build reliable, user-focused products together. Share your project goals and I’ll get back with a clear next step.
+                    Open to internship and collaboration opportunities.
                 </p>
             </section>
 
@@ -127,48 +122,50 @@
 
                 <!-- LEFT: INFO -->
                 <section class="contact-info" aria-label="Contact information">
+                    <div class="contact-profile-mini" aria-hidden="true">
+                        <img src="../assets/img/profile/profile.png" alt="" class="contact-profile-mini__img" width="72" height="72" loading="lazy" decoding="async" />
+                    </div>
+                    <p class="contact-info-lead">Preferred channels</p>
 
-                    <article class="contact-card contact-card-component">
-                        <span class="contact-icon-wrap"><i data-lucide="mail"></i></span>
-                        <div class="contact-info-item">
-                            <p class="contact-label">Email</p>
-                            <p class="contact-value">
-                                <a href="mailto:pich_chanthorn@pp.bbu.edu.kh" class="contact-link">
-                                    pich_chanthorn@pp.bbu.edu.kh
-                                </a>
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="contact-card contact-card-component">
-                        <span class="contact-icon-wrap"><i data-lucide="phone"></i></span>
-                        <div class="contact-info-item">
-                            <p class="contact-label">Phone</p>
-                            <p class="contact-value">097 310 0485</p>
-                        </div>
-                    </article>
-
-                    <article class="contact-card contact-card-component">
-                        <span class="contact-icon-wrap"><i data-lucide="map-pin"></i></span>
-                        <div class="contact-info-item">
-                            <p class="contact-label">Location</p>
-                            <p class="contact-value">Phnom Penh, Cambodia</p>
-                        </div>
-                    </article>
-
-                    <!-- SOCIAL LINKS -->
-                    <div class="social-links" aria-label="Social profiles">
-                        <a href="https://www.youtube.com/@chanthornpich" class="social-btn social-icon" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                            <i data-lucide="youtube"></i>
+                    <div class="contact-list">
+                        <a href="mailto:pich_chanthorn@pp.bbu.edu.kh" class="contact-row" aria-label="Email pich_chanthorn@pp.bbu.edu.kh">
+                            <span class="contact-row-icon"><i data-lucide="mail"></i></span>
+                            <div class="contact-row-body">
+                                <p class="contact-row-label">Email</p>
+                                <p class="contact-row-value">pich_chanthorn@pp.bbu.edu.kh</p>
+                            </div>
                         </a>
-                        <a href="https://github.com/pichchanthorn" class="social-btn social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <i data-lucide="github"></i>
+
+                        <a href="https://github.com/pichchanthorn" class="contact-row" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub profile">
+                            <span class="contact-row-icon"><i data-lucide="github"></i></span>
+                            <div class="contact-row-body">
+                                <p class="contact-row-label">GitHub</p>
+                                <p class="contact-row-value">github.com/pichchanthorn</p>
+                            </div>
                         </a>
-                        <a href="https://www.linkedin.com/in/pichchanthorn/" class="social-btn social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <i data-lucide="linkedin"></i>
+
+                        <a href="https://linkedin.com/in/pichchanthorn" class="contact-row" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn profile">
+                            <span class="contact-row-icon"><i data-lucide="linkedin"></i></span>
+                            <div class="contact-row-body">
+                                <p class="contact-row-label">LinkedIn</p>
+                                <p class="contact-row-value">linkedin.com/in/pichchanthorn</p>
+                            </div>
                         </a>
-                        <a href="https://www.facebook.com/chanthornpich.kh1" class="social-btn social-icon" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <i data-lucide="facebook"></i>
+
+                        <a href="https://facebook.com/chanthornpich.kh1" class="contact-row" target="_blank" rel="noopener noreferrer" aria-label="Open Facebook profile">
+                            <span class="contact-row-icon"><i data-lucide="facebook"></i></span>
+                            <div class="contact-row-body">
+                                <p class="contact-row-label">Facebook</p>
+                                <p class="contact-row-value">facebook.com/chanthornpich.kh1</p>
+                            </div>
+                        </a>
+
+                        <a href="https://maps.google.com/?q=Phnom+Penh,+Cambodia" class="contact-row" target="_blank" rel="noopener noreferrer" aria-label="Open location on map">
+                            <span class="contact-row-icon"><i data-lucide="map-pin"></i></span>
+                            <div class="contact-row-body">
+                                <p class="contact-row-label">Location</p>
+                                <p class="contact-row-value">Phnom Penh, Cambodia</p>
+                            </div>
                         </a>
                     </div>
 
@@ -176,54 +173,55 @@
 
                 <!-- RIGHT: FORM -->
                 <article class="contact-form-card">
-                    <h3 class="form-title">Send Me a Message</h3>
+                    <h3 class="form-title">Send a Message</h3>
+                    <p class="contact-form-intro">Ready to collaborate? Share your project, role, or internship details.</p>
 
                     <form class="contact-form" id="contactForm" novalidate>
 
                         <div class="form-group form-input-group">
+                            <label class="form-label" for="name">Your Name</label>
                             <input
                                 class="form-input"
                                 type="text"
                                 id="name"
                                 name="name"
-                                placeholder="Enter your name"
+                                placeholder="Enter your full name"
                                 aria-label="Your Name"
                                 aria-describedby="nameError"
                                 autocomplete="name"
                                 required
                             />
-                            <label for="name">Your Name</label>
                             <small class="field-error" id="nameError" aria-live="polite"></small>
                         </div>
 
                         <div class="form-group form-input-group">
+                            <label class="form-label" for="email">Email Address</label>
                             <input
                                 class="form-input"
                                 type="email"
                                 id="email"
                                 name="email"
-                                placeholder="Enter your email"
+                                placeholder="name@example.com"
                                 aria-label="Email Address"
                                 aria-describedby="emailError"
                                 autocomplete="email"
                                 required
                             />
-                            <label for="email">Email Address</label>
                             <small class="field-error" id="emailError" aria-live="polite"></small>
                         </div>
 
                         <div class="form-group form-input-group">
+                            <label class="form-label" for="message">Your Message</label>
                             <textarea
                                 class="form-textarea"
                                 id="message"
                                 name="message"
-                                rows="5"
+                                rows="7"
                                 placeholder="Write your message..."
                                 aria-label="Your Message"
                                 aria-describedby="messageError"
                                 required
                             ></textarea>
-                            <label for="message">Your Message</label>
                             <small class="field-error" id="messageError" aria-live="polite"></small>
                         </div>
 

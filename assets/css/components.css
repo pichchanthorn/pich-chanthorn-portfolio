@@ -12,31 +12,46 @@
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 10px;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.2;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
     transition: background var(--motion-standard), border-color var(--motion-standard), color var(--motion-standard), transform var(--motion-standard), box-shadow var(--motion-standard);
 }
 
+.btn:focus-visible,
+.social-btn:focus-visible,
+.nav-link:focus-visible,
+.contact-link:focus-visible {
+    outline: 2px solid rgba(36, 200, 165, 0.7);
+    outline-offset: 2px;
+}
+
 .btn i {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.9;
+    transition: color var(--motion-standard), transform var(--motion-standard), filter var(--motion-standard);
+}
+
+.btn:hover i {
+    transform: scale(1.05);
+    color: var(--clr-accent-alt);
 }
 
 .btn.primary {
-    background: linear-gradient(135deg, var(--clr-accent), #16a34a);
-    color: #022c16;
+    background: linear-gradient(135deg, var(--clr-accent), #1aa98a);
+    color: #02251d;
     border-color: transparent;
     box-shadow: 0 4px 16px rgba(34, 197, 94, 0.25);
 }
 
 .btn.primary:hover {
-    background: linear-gradient(135deg, #34d399, var(--clr-accent));
+    background: linear-gradient(135deg, #5de5c5, var(--clr-accent));
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35), 0 0 0 1px rgba(34, 197, 94, 0.2);
 }
@@ -318,10 +333,20 @@
 }
 
 .skill-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-size: 16px;
     font-weight: 600;
 }
 
+
+.skill-name i {
+    width: 18px;
+    height: 18px;
+    color: var(--clr-accent);
+    stroke-width: 1.9;
+}
 .skill-percent {
     font-size: 14px;
     font-weight: 700;
@@ -429,10 +454,10 @@
    Project Cards
    ========================================================= */
 .project-card {
-    background: var(--clr-card-bg);
+    background: linear-gradient(160deg, rgba(10, 19, 36, 0.8), rgba(15, 23, 42, 0.58));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-card);
@@ -441,7 +466,7 @@
 
 .project-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(34, 197, 94, 0.3);
+    border-color: rgba(36, 200, 165, 0.4);
     box-shadow: var(--shadow-card-hover), var(--shadow-glow);
 }
 
@@ -449,7 +474,7 @@
     width: 100%;
     height: 210px;
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: relative;
 }
 
@@ -482,17 +507,30 @@
 }
 
 .project-title {
-    font-size: 1.2rem;
+    font-size: 1.08rem;
     font-weight: 700;
-    margin-bottom: 0.3rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
     color: var(--clr-text-strong);
 }
 
 .project-description {
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     color: var(--clr-text-muted);
     line-height: 1.5;
     margin-bottom: 1rem;
+}
+
+.project-stack {
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
+    color: var(--clr-text-subtle);
+    margin-bottom: 0.85rem;
+}
+
+.project-stack span {
+    color: var(--clr-text-muted);
+    font-weight: 700;
 }
 
 .project-tags {
@@ -502,10 +540,21 @@
     margin-bottom: 1.2rem;
 }
 
+.project-tags::before {
+    content: "Tech Stack";
+    width: 100%;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--clr-text-subtle);
+}
+
 .project-actions {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .project-go {
@@ -673,168 +722,173 @@
 /* =========================================================
    Contact Cards & Form
    ========================================================= */
-.contact-card {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-6);
-    padding: 20px 22px;
-    background: var(--clr-card-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-card);
-    transition: transform var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard), background var(--motion-standard);
+
+.contact-info-lead {
+    margin-top: 2px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clr-text-subtle);
 }
 
-.contact-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(34, 197, 94, 0.25);
-    box-shadow: var(--shadow-card-hover), 0 0 20px rgba(34, 197, 94, 0.06);
+.contact-profile-mini {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-pill);
+    padding: 3px;
+    border: 1px solid rgba(36, 200, 165, 0.34);
+    box-shadow: 0 0 0 1px rgba(36, 200, 165, 0.12), 0 10px 22px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, rgba(36, 200, 165, 0.16), rgba(36, 200, 165, 0.04));
 }
 
-.contact-icon-wrap {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-md);
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.25);
+.contact-profile-mini__img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-pill);
+    display: block;
+    object-fit: cover;
+}
+
+.contact-list {
+    display: grid;
+    gap: 2px;
+}
+
+.contact-row {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color var(--motion-standard), color var(--motion-standard), transform var(--motion-standard), background var(--motion-standard);
+}
+
+.contact-row:hover {
+    border-color: rgba(36, 200, 165, 0.4);
+    transform: translateX(2px);
+    background: rgba(36, 200, 165, 0.03);
+}
+
+.contact-row-icon {
+    width: 20px;
+    height: 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    color: var(--clr-accent);
     flex-shrink: 0;
-    transition: background var(--motion-standard), box-shadow var(--motion-standard);
 }
 
-.contact-card:hover .contact-icon-wrap {
-    background: rgba(34, 197, 94, 0.15);
-    box-shadow: 0 0 12px rgba(34, 197, 94, 0.12);
+.contact-row-icon i,
+.contact-row-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--clr-accent);
+    stroke: currentColor;
+    transition: stroke var(--motion-standard), opacity var(--motion-standard), transform var(--motion-standard);
 }
 
-.contact-icon-wrap i {
-    width: 19px;
-    height: 19px;
-    stroke: var(--clr-accent);
+.contact-row-body {
+    display: grid;
+    gap: 3px;
 }
 
-.contact-label {
-    font-size: 12px;
+.contact-row-label {
+    margin: 0;
+    font-size: 11px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
     color: var(--clr-text-subtle);
-    margin-bottom: 2px;
 }
 
-.contact-value {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--clr-text-strong);
-}
-
-.contact-link {
-    color: var(--clr-text-strong);
-    text-decoration: none;
+.contact-row-value {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--clr-text);
+    line-height: 1.5;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 2px;
     transition: color var(--motion-standard), text-decoration-color var(--motion-standard);
 }
 
-.contact-link:hover {
+.contact-row:hover .contact-row-value {
     color: var(--clr-accent-text);
-    text-decoration: underline;
-    text-decoration-color: var(--alpha-accent-70);
+    text-decoration-color: var(--alpha-accent-60);
 }
 
-.social-links {
-    display: flex;
-    gap: var(--space-4);
-    margin-top: 2px;
-    flex-wrap: wrap;
+.contact-row:hover .contact-row-icon i,
+.contact-row:hover .contact-row-icon svg {
+    color: var(--clr-accent-alt);
+    stroke: currentColor;
+    opacity: 0.95;
+    transform: scale(1.05);
 }
 
-.social-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-lg);
-    background: var(--clr-input-bg);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(8px);
-    transition: transform var(--motion-standard), border-color var(--motion-standard), background var(--motion-standard), box-shadow var(--motion-standard);
-}
-
-.social-btn i {
-    width: 20px;
-    height: 20px;
-    stroke: var(--clr-text-subtle);
-    transition: stroke var(--motion-standard);
-}
-
-.social-btn:hover {
-    transform: translateY(-3px);
-    border-color: rgba(34, 197, 94, 0.35);
-    background: rgba(34, 197, 94, 0.1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 12px rgba(34, 197, 94, 0.1);
-}
-
-.social-btn:hover i {
-    stroke: var(--clr-accent-text);
+.contact-form-intro {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--clr-text-muted);
+    line-height: 1.72;
 }
 
 .contact-form-card {
-    background: var(--clr-card-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: var(--clr-card-bg-soft);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-3xl);
-    padding: 32px;
-    box-shadow: var(--shadow-card);
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
     transition: border-color var(--motion-standard), box-shadow var(--motion-standard), transform var(--motion-standard);
     animation: contact-card-enter 0.55s ease both;
 }
 
 .contact-form-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(34, 197, 94, 0.2);
-    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-1px);
+    border-color: rgba(36, 200, 165, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .form-title {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: 600;
     color: var(--clr-text-strong);
-    margin-bottom: var(--space-8);
-    letter-spacing: 0.01em;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-7);
+    gap: 14px;
 }
 
 .form-input-group {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.form-input-group label {
-    position: absolute;
-    left: 14px;
-    top: 14px;
-    font-size: 14px;
+.form-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     color: var(--clr-text-subtle);
-    pointer-events: none;
-    transition: transform var(--motion-standard), color var(--motion-standard), font-size var(--motion-standard), background var(--motion-standard);
-    padding-inline: 4px;
 }
 
 .form-input,
 .form-textarea {
     width: 100%;
-    padding: 18px 14px 12px;
-    border-radius: var(--radius-lg);
+    padding: 12px 13px;
+    border-radius: 10px;
     background: var(--clr-input-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: var(--clr-text-strong);
     font-size: 14px;
     outline: none;
@@ -843,29 +897,21 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-    color: transparent;
+    color: var(--clr-text-subtle);
+    opacity: 0.65;
 }
 
 .form-input:focus,
 .form-textarea:focus {
-    border-color: rgba(34, 197, 94, 0.5);
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12), 0 0 16px rgba(34, 197, 94, 0.06);
+    border-color: rgba(36, 200, 165, 0.52);
+    box-shadow: 0 0 0 3px rgba(36, 200, 165, 0.14);
     background: var(--clr-input-bg-focus);
 }
 
 .form-textarea {
-    min-height: 140px;
+    min-height: 180px;
+    line-height: 1.65;
     resize: vertical;
-}
-
-.form-input:focus + label,
-.form-input:not(:placeholder-shown) + label,
-.form-textarea:focus + label,
-.form-textarea:not(:placeholder-shown) + label {
-    transform: translateY(-18px);
-    font-size: 12px;
-    color: var(--clr-accent-text);
-    background: var(--clr-label-bg);
 }
 
 .form-input-group.is-invalid .form-input,

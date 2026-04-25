@@ -2,16 +2,16 @@
    BASE.CSS — Reset, Root Variables, Typography, Global Styles
    ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kantumruy+Pro:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap");
 
 /* =========================================================
    Design Tokens
    ========================================================= */
 :root {
     /* Core colors */
-    --clr-bg: #030712;
-    --clr-bg-soft: #050d1a;
-    --clr-bg-deep: #0f172a;
+    --clr-bg: #050b18;
+    --clr-bg-soft: #0a1324;
+    --clr-bg-deep: #111e35;
     --clr-bg-card: rgba(15, 23, 42, 0.55);
     --clr-bg-card-soft: rgba(6, 18, 31, 0.7);
     --clr-text: #e2e8f0;
@@ -41,10 +41,10 @@
     --clr-label-bg: linear-gradient(180deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.86));
 
     /* Brand / accent — emerald */
-    --clr-accent: #22c55e;
-    --clr-accent-strong: #16a34a;
-    --clr-accent-alt: #34d399;
-    --clr-accent-alt-hover: #2ecc71;
+    --clr-accent: #24c8a5;
+    --clr-accent-strong: #149a7e;
+    --clr-accent-alt: #56dfbe;
+    --clr-accent-alt-hover: #47d8b4;
     --clr-accent-deep: #022c22;
     --clr-accent-line: #064e3b;
 
@@ -150,7 +150,7 @@
 body {
     background: var(--clr-bg);
     color: var(--clr-text);
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
     display: flex;
     line-height: 1.65;
     text-rendering: optimizeLegibility;
@@ -161,6 +161,16 @@ body {
 ::selection {
     background: rgba(34, 197, 94, 0.3);
     color: var(--clr-text-strong);
+}
+
+.lucide {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    color: currentColor;
+    stroke: currentColor;
+    vertical-align: middle;
+    flex-shrink: 0;
 }
 
 /* =========================================================
@@ -233,7 +243,7 @@ a:focus-visible {
    Typography — Language-specific
    ========================================================= */
 html[lang="en"] body {
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
 html[lang="km"] body {

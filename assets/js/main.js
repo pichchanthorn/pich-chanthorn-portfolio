@@ -119,6 +119,21 @@
       return value => (hasSeparatePlus ? `${value}` : `${value}+`);
     };
 
+    const getFallbackValue = element => {
+      const fallback = Number.parseInt(element.dataset.fallback || "", 10);
+      const target = Number.parseInt(element.dataset.target || "", 10);
+      if (Number.isFinite(fallback)) return fallback;
+      if (Number.isFinite(target)) return target;
+      const existing = Number.parseInt(element.textContent || "", 10);
+      return Number.isFinite(existing) ? existing : 0;
+    };
+
+    // Immediate fallback rendering so values are meaningful even if animation does not run.
+    statNumbers.forEach(element => {
+      const fallback = getFallbackValue(element);
+      element.textContent = formatValue(element)(fallback);
+    });
+
     if (prefersReducedMotion()) {
       statNumbers.forEach(element => {
         const target = Number.parseInt(element.dataset.target, 10);
@@ -137,11 +152,22 @@
           const target = Number.parseInt(entry.target.dataset.target, 10);
           if (!Number.isFinite(target)) return;
 
-          entry.target.textContent = "0";
+          const fallback = getFallbackValue(entry.target);
           const formatter = formatValue(entry.target);
-          animateValue(1200, target, value => {
-            entry.target.textContent = formatter(value);
+          if (fallback >= target) {
+            entry.target.textContent = formatter(target);
+            return;
+          }
+
+          animateValue(1200, target - fallback, value => {
+            const nextValue = fallback + value;
+            entry.target.textContent = formatter(nextValue);
           });
+
+          // Guarantee final target value after animation rounding.
+          setTimeout(() => {
+            entry.target.textContent = formatter(target);
+          }, 1250);
         });
       },
       { threshold: 0.6 }

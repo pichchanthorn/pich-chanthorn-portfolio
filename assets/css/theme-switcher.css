@@ -359,6 +359,66 @@ html[data-theme="light"] .music-widget.collapsed #musicWidgetPlayPause {
     color: var(--clr-accent);
 }
 
+/* -------------------------------------------------------
+   Contact page visual balance
+   ------------------------------------------------------- */
+html[data-theme="light"] .contact-bg-decor {
+    display: none;
+}
+
+html[data-theme="light"] .contact-hero .subtitle,
+html[data-theme="light"] .contact-form-intro {
+    color: #334155;
+}
+
+html[data-theme="light"] .contact-row {
+    border-bottom-color: rgba(15, 23, 42, 0.1);
+}
+
+html[data-theme="light"] .contact-row:hover {
+    border-bottom-color: rgba(22, 163, 74, 0.45);
+}
+
+html[data-theme="light"] .contact-row-label {
+    color: #64748b;
+}
+
+html[data-theme="light"] .contact-row-value {
+    color: #0f172a;
+}
+
+html[data-theme="light"] .contact-profile-mini {
+    border-color: rgba(22, 163, 74, 0.28);
+    box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.1), 0 8px 18px rgba(15, 23, 42, 0.08);
+    background: linear-gradient(145deg, rgba(22, 163, 74, 0.12), rgba(8, 145, 178, 0.04));
+}
+
+html[data-theme="light"] .contact-row:hover {
+    background: rgba(22, 163, 74, 0.04);
+}
+
+html[data-theme="light"] .contact-form-card {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(15, 23, 42, 0.1);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .form-input,
+html[data-theme="light"] .form-textarea {
+    background: #f8fafc;
+    border-color: rgba(15, 23, 42, 0.12);
+    color: #0f172a;
+}
+
+html[data-theme="light"] .form-label {
+    color: #475569;
+}
+
+html[data-theme="light"] .form-input::placeholder,
+html[data-theme="light"] .form-textarea::placeholder {
+    color: #64748b;
+}
+
 html[data-theme="light"] .music-widget.collapsed:hover #musicWidgetPlayPause {
     border-color: rgba(22, 163, 74, 0.25);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 10px rgba(22, 163, 74, 0.08);
@@ -374,6 +434,33 @@ html[data-theme="light"] .hero-buttons .btn.outline {
 
 html[data-theme="light"] .hero-buttons .btn.primary {
     color: #fff;
+}
+
+html[data-theme="light"] .home-contact {
+    border-color: rgba(22, 163, 74, 0.2);
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.96), rgba(236, 253, 245, 0.86));
+    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .home-contact::before {
+    background: radial-gradient(circle, rgba(22, 163, 74, 0.18) 0%, rgba(22, 163, 74, 0) 72%);
+}
+
+html[data-theme="light"] .home-contact__eyebrow,
+html[data-theme="light"] .home-contact__label {
+    color: #64748b;
+}
+
+html[data-theme="light"] .home-contact__value {
+    color: #0f172a;
+}
+
+html[data-theme="light"] .home-contact__item {
+    border-bottom-color: rgba(15, 23, 42, 0.1);
+}
+
+html[data-theme="light"] .home-contact__item:hover {
+    border-bottom-color: rgba(22, 163, 74, 0.45);
 }
 
 html[data-theme="light"] .experience-timeline__track::before {
