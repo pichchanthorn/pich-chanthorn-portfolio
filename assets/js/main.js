@@ -194,6 +194,33 @@
     });
   }
 
+  function initializeProjectFilters() {
+    const filterTabs = document.querySelectorAll(".project-filter-tab[data-filter]");
+    const projectCards = document.querySelectorAll(".projects-grid .project-card[data-category]");
+    if (!filterTabs.length || !projectCards.length) return;
+
+    const applyFilter = filter => {
+      projectCards.forEach(card => {
+        const category = (card.dataset.category || "").toLowerCase();
+        const shouldShow = filter === "all" || category.includes(filter);
+        card.classList.toggle("is-hidden", !shouldShow);
+      });
+    };
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        filterTabs.forEach(item => {
+          item.classList.remove("active");
+          item.setAttribute("aria-pressed", "false");
+        });
+
+        tab.classList.add("active");
+        tab.setAttribute("aria-pressed", "true");
+        applyFilter((tab.dataset.filter || "all").toLowerCase());
+      });
+    });
+  }
+
   function initializeYears() {
     const year = String(new Date().getFullYear());
     ["currentYear", "currentYearFooter", "sidebarYear"].forEach(id => {
@@ -223,6 +250,7 @@
     initializeSkillCounter();
     initializeHomeStatsCounter();
     initializeSmoothScroll();
+    initializeProjectFilters();
 
     // Music widget (music-widget.js)
     window.__musicWidget?.initializeMusicPlayer();
