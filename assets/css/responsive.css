@@ -424,21 +424,17 @@
 @media (max-width: 900px) {
     .cert-page .cert-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
     }
 
     .cert-page .cert-card {
-        grid-template-columns: 154px minmax(0, 1fr);
+        grid-template-columns: 112px minmax(0, 1fr);
         padding: 11px;
         gap: 10px;
     }
 
     .cert-page .cert-thumb {
-        min-height: 110px;
-    }
-
-    .cert-page .cert-thumb img {
-        max-height: 96px;
+        height: 88px;
     }
 }
 
@@ -452,22 +448,16 @@
         margin: 18px 0 12px;
     }
 
-    .cert-page .cert-card,
-    .cert-page .cert-card.cert-card-link {
+    .cert-page .cert-card {
         grid-template-columns: 118px minmax(0, 1fr);
         align-items: start;
-        text-align: left;
         padding: 10px;
     }
 
     .cert-page .cert-thumb {
-        min-height: 88px;
+        height: 88px;
         margin: 0;
         align-self: start;
-    }
-
-    .cert-page .cert-thumb img {
-        max-height: 78px;
     }
 
     .cert-page .cert-body {
@@ -482,7 +472,7 @@
     }
 
     .cert-page .cert-title {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .cert-page .cert-meta {
@@ -503,7 +493,7 @@
     }
 
     .cert-page .cert-actions .btn.small {
-        min-height: 32px;
+        min-height: 31px;
         padding: 5px 10px;
         font-size: 11px;
     }
@@ -511,17 +501,12 @@
 
 @media (max-width: 550px) {
     .cert-page .cert-thumb {
-        min-height: 82px;
-        padding: 6px;
-    }
-
-    .cert-page .cert-thumb img {
-        max-height: 72px;
+        height: 82px;
     }
 
     .cert-page .cert-card {
-        border-radius: var(--radius-lg);
         grid-template-columns: 102px minmax(0, 1fr);
+        border-radius: 11px;
     }
 
     .cert-page .cert-tags {
