@@ -336,10 +336,15 @@
         gap: 28px;
     }
 
-    .contact-row {
-        grid-template-columns: 20px 1fr;
-        gap: 12px;
-        padding: 11px 0;
+    .contact-channels {
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+    }
+
+    .contact-channel {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
     }
 
     .contact-profile-mini {

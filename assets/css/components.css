@@ -749,84 +749,95 @@
     object-fit: cover;
 }
 
-.contact-list {
-    display: grid;
-    gap: 2px;
-}
 
-.contact-row {
+.contact-channels {
     display: grid;
-    grid-template-columns: 20px 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
     gap: 12px;
-    align-items: center;
-    padding: 12px 4px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    text-decoration: none;
-    color: inherit;
-    transition: border-color var(--motion-standard), color var(--motion-standard), transform var(--motion-standard), background var(--motion-standard);
+    max-width: 320px;
 }
 
-.contact-row:hover {
-    border-color: rgba(36, 200, 165, 0.4);
-    transform: translateX(2px);
-    background: rgba(36, 200, 165, 0.03);
-}
-
-.contact-row-icon {
-    width: 20px;
-    height: 20px;
+.contact-channel {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    box-shadow: var(--shadow-card);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--clr-accent);
-    flex-shrink: 0;
+    color: var(--clr-text-strong);
+    text-decoration: none;
+    transition: transform var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard), background var(--motion-standard), color var(--motion-standard);
+    position: relative;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
 }
 
-.contact-row-icon i,
-.contact-row-icon svg {
-    width: 20px;
-    height: 20px;
-    color: var(--clr-accent);
+.contact-channel:focus-visible {
+    outline: 2px solid var(--alpha-accent-70);
+    outline-offset: 2px;
+}
+
+.contact-channel__icon i,
+.contact-channel__icon svg,
+.contact-channel i,
+.contact-channel svg {
+    width: 22px;
+    height: 22px;
     stroke: currentColor;
-    transition: stroke var(--motion-standard), opacity var(--motion-standard), transform var(--motion-standard);
+    transition: transform var(--motion-standard), color var(--motion-standard), filter var(--motion-standard);
 }
 
-.contact-row-body {
-    display: grid;
-    gap: 3px;
+.contact-channel__img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+    transition: transform var(--motion-standard), filter var(--motion-standard);
 }
 
-.contact-row-label {
-    margin: 0;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--clr-text-subtle);
+.contact-channel:hover {
+    transform: translateY(-3px);
+    border-color: rgba(36, 200, 165, 0.45);
+    box-shadow: var(--shadow-card-hover), 0 0 24px rgba(36, 200, 165, 0.18), 0 0 30px rgba(6, 182, 212, 0.12);
+    background: var(--clr-card-bg-strong);
 }
 
-.contact-row-value {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--clr-text);
-    line-height: 1.5;
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 2px;
-    transition: color var(--motion-standard), text-decoration-color var(--motion-standard);
+.contact-channel:hover i,
+.contact-channel:hover svg,
+.contact-channel:hover .contact-channel__img {
+    transform: scale(1.08);
 }
 
-.contact-row:hover .contact-row-value {
-    color: var(--clr-accent-text);
-    text-decoration-color: var(--alpha-accent-60);
+html[data-theme="dark"] .contact-channel__img {
+    filter: invert(1) saturate(0) brightness(1.1);
 }
 
-.contact-row:hover .contact-row-icon i,
-.contact-row:hover .contact-row-icon svg {
-    color: var(--clr-accent-alt);
-    stroke: currentColor;
-    opacity: 0.95;
-    transform: scale(1.05);
+@media (prefers-color-scheme: dark) {
+    html[data-theme="system"] .contact-channel__img {
+        filter: invert(1) saturate(0) brightness(1.1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-channel {
+        transition: none;
+    }
+
+    .contact-channel:hover {
+        transform: none;
+    }
+
+    .contact-channel:hover i,
+    .contact-channel:hover svg {
+        transform: none;
+    }
+
+    .contact-channel:hover .contact-channel__img {
+        transform: none;
+    }
 }
 
 .contact-form-intro {
