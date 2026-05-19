@@ -177,6 +177,7 @@ html[data-theme="light"] {
 html[data-theme="light"] .sidebar {
     background: rgba(255, 255, 255, 0.85);
     border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 6px 0 16px rgba(15, 23, 42, 0.08);
 }
 
 html[data-theme="light"] .nav-link {
@@ -186,7 +187,7 @@ html[data-theme="light"] .nav-link {
 html[data-theme="light"] .nav-link:hover,
 html[data-theme="light"] .nav-link.active {
     color: var(--clr-text-strong);
-    background: rgba(22, 163, 74, 0.08);
+    background: rgba(22, 163, 74, 0.1);
 }
 
 html[data-theme="light"] .nav-link.active::before {

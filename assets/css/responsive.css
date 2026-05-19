@@ -329,7 +329,7 @@
     .sidebar {
         position: fixed;
         top: 0;
-        left: -260px;
+        left: calc(-1 * var(--sidebar-width));
         width: var(--sidebar-width);
         height: 100vh;
         background: rgba(3, 7, 18, 0.92);
