@@ -123,16 +123,114 @@
 
             <section class="projects-filter reveal" aria-label="Project filters">
                 <button class="project-filter-tab active" type="button" data-filter="all" aria-pressed="true">All</button>
-                <button class="project-filter-tab" type="button" data-filter="php" aria-pressed="false">PHP</button>
-                <button class="project-filter-tab" type="button" data-filter="javascript" aria-pressed="false">JavaScript</button>
-                <button class="project-filter-tab" type="button" data-filter="htmlcss" aria-pressed="false">HTML/CSS</button>
+                <button class="project-filter-tab" type="button" data-filter="frontend" aria-pressed="false">Frontend</button>
+                <button class="project-filter-tab" type="button" data-filter="full-stack" aria-pressed="false">Full-stack</button>
+                <button class="project-filter-tab" type="button" data-filter="backend" aria-pressed="false">Backend</button>
+                <button class="project-filter-tab" type="button" data-filter="python" aria-pressed="false">Python</button>
+                <button class="project-filter-tab" type="button" data-filter="nextjs" aria-pressed="false">Next.js</button>
+                <button class="project-filter-tab" type="button" data-filter="dashboard" aria-pressed="false">Dashboard</button>
             </section>
 
             <!-- PROJECTS GRID -->
             <section class="projects-grid reveal" aria-label="Project list">
 
-    <!-- 1️⃣ Simple User Manager -->
-    <article class="project-card featured" data-category="php javascript">
+    <!-- 1️⃣ Smart Admin Dashboard -->
+    <article class="project-card featured" data-category="php full-stack backend dashboard">
+        <div class="project-thumb">
+            <span class="project-badge" data-i18n="projects.badgeNew">New</span>
+            <img src="../assets/img/projects/smart-admin-dashboard.png"
+                  alt="Smart Admin Dashboard admin panel preview with analytics and management modules"
+                  loading="lazy"
+                  decoding="async" />
+        </div>
+        <div class="project-body">
+            <h3 class="project-title" data-i18n="projects.card.smartAdmin.title">Smart Admin Dashboard</h3>
+            <p class="project-description" data-i18n="projects.card.smartAdmin.desc">
+                A secure PHP and MySQL dashboard with authentication, role-based access, and management tools
+                for users, students, products, and profiles.
+            </p>
+            <p class="project-stack-label">Tech Stack</p>
+            <div class="project-tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">PDO</span>
+                <span class="tag">Bootstrap 5</span>
+                <span class="tag">Security</span>
+            </div>
+            <div class="project-actions">
+                <a href="https://github.com/pichchanthorn/smart-admin-dashboard"
+                   target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
+                   <i data-lucide="code-2"></i><span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <!-- 2️⃣ PCTN Fertilizer Shop -->
+    <article class="project-card" data-category="frontend nextjs">
+        <div class="project-thumb">
+            <span class="project-badge" data-i18n="projects.badgeNew">New</span>
+            <img src="../assets/img/projects/pctn-fertilizer-shop.png"
+                  alt="PCTN Fertilizer Shop multi-page business website preview"
+                  loading="lazy"
+                  decoding="async" />
+        </div>
+        <div class="project-body">
+            <h3 class="project-title" data-i18n="projects.card.pctnShop.title">PCTN Fertilizer Shop</h3>
+            <p class="project-description" data-i18n="projects.card.pctnShop.desc">
+                A modern agriculture business website showcasing products, services, gallery, and contact
+                channels for a Cambodian brand.
+            </p>
+            <p class="project-stack-label">Tech Stack</p>
+            <div class="project-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">shadcn/ui</span>
+            </div>
+            <div class="project-actions">
+                <a href="https://github.com/pichchanthorn/pctn-fertilizer-shop"
+                   target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
+                   <i data-lucide="code-2"></i><span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <!-- 3️⃣ YouTube Downloader Telegram Bot -->
+    <article class="project-card" data-category="python backend automation">
+        <div class="project-thumb">
+            <span class="project-badge" data-i18n="projects.badgeNew">New</span>
+            <img src="../assets/img/projects/youtube-telegram-bot.png"
+                  alt="YouTube Downloader Telegram Bot automation workflow preview"
+                  loading="lazy"
+                  decoding="async" />
+        </div>
+        <div class="project-body">
+            <h3 class="project-title" data-i18n="projects.card.youtubeBot.title">YouTube Downloader Telegram Bot</h3>
+            <p class="project-description" data-i18n="projects.card.youtubeBot.desc">
+                A Python Telegram bot that downloads YouTube videos or audio from simple chat commands
+                using yt-dlp.
+            </p>
+            <p class="project-stack-label">Tech Stack</p>
+            <div class="project-tags">
+                <span class="tag">Python 3</span>
+                <span class="tag">python-telegram-bot</span>
+                <span class="tag">yt-dlp</span>
+                <span class="tag">Telegram API</span>
+            </div>
+            <div class="project-actions">
+                <a href="https://github.com/pichchanthorn/youtube-downloader-telegram-bot"
+                   target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
+                   <i data-lucide="code-2"></i><span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <!-- 4️⃣ Simple User Manager -->
+    <article class="project-card" data-category="php full-stack backend dashboard">
         <div class="project-thumb">
             <img src="../assets/img/projects/simple-user-manager.png"
                   alt="Simple User Manager dashboard preview"
@@ -142,8 +240,8 @@
         <div class="project-body">
             <h3 class="project-title">Simple User Manager (PHP & MySQL)</h3>
             <p class="project-description">
-                A lightweight and secure CRUD user management system built with PHP and MySQL, 
-                featuring authentication, CSRF protection, dark/light mode, and a modern responsive dashboard interface.
+                A lightweight CRUD user management system with authentication, CSRF protection, dark/light mode,
+                and a responsive dashboard.
             </p>
             <p class="project-stack-label">Tech Stack</p>
             <div class="project-tags">
@@ -154,19 +252,19 @@
             </div>
             <div class="project-actions">
                 <a href="https://github.com/pichchanthorn/simple-user-manager"
-                   target="_blank" class="btn small project-btn-code">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
                    <i data-lucide="code-2"></i><span>Code</span>
                 </a>
                 <a href="https://pichchanthorn.github.io/simple-user-manager/"
-                   target="_blank" class="btn small project-btn-demo">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-demo">
                    <i data-lucide="external-link"></i><span>Demo</span>
                 </a>
             </div>
         </div>
     </article>
 
-    <!-- 2️⃣ PHP Mini Contact Website -->
-    <article class="project-card" data-category="php">
+    <!-- 5️⃣ PHP Mini Contact Website -->
+    <article class="project-card" data-category="php full-stack backend">
         <div class="project-thumb">
             <img src="../assets/img/projects/php-mini-contact.png"
                   alt="PHP Mini Contact Website admin panel preview"
@@ -176,8 +274,8 @@
         <div class="project-body">
             <h3 class="project-title">PHP Mini Contact Website</h3>
             <p class="project-description">
-                A secure contact management system developed with PHP and MySQL, 
-                including admin authentication, password reset functionality, and message management dashboard.
+                A secure contact management system with admin authentication, password reset, and a message
+                management dashboard.
             </p>
             <p class="project-stack-label">Tech Stack</p>
             <div class="project-tags">
@@ -188,19 +286,19 @@
             </div>
             <div class="project-actions">
                 <a href="https://github.com/pichchanthorn/php-mini-contact-website"
-                   target="_blank" class="btn small project-btn-code">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
                    <i data-lucide="code-2"></i><span>Code</span>
                 </a>
                 <a href="https://minicontact.rf.gd"
-                   target="_blank" class="btn small project-btn-demo">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-demo">
                    <i data-lucide="external-link"></i><span>Demo</span>
                 </a>
             </div>
         </div>
     </article>
 
-    <!-- 3️⃣ Daily Income & Expense Tracker -->
-    <article class="project-card" data-category="javascript">
+    <!-- 6️⃣ Daily Income & Expense Tracker -->
+    <article class="project-card" data-category="javascript frontend">
         <div class="project-thumb">
             <img src="../assets/img/projects/daily-tracker.png"
                   alt="Daily Income and Expense Tracker interface preview"
@@ -210,8 +308,8 @@
         <div class="project-body">
             <h3 class="project-title">Daily Income & Expense Tracker</h3>
             <p class="project-description">
-                A clean and user-friendly web application for tracking daily income and expenses, 
-                featuring real-time balance calculation, localStorage data persistence, and responsive dashboard UI.
+                A clean web app for tracking daily income and expenses with real-time balance updates and
+                localStorage persistence.
             </p>
             <p class="project-stack-label">Tech Stack</p>
             <div class="project-tags">
@@ -221,19 +319,19 @@
             </div>
             <div class="project-actions">
                 <a href="https://github.com/pichchanthorn/daily-income-expense-tracker"
-                   target="_blank" class="btn small project-btn-code">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
                    <i data-lucide="code-2"></i><span>Code</span>
                 </a>
                 <a href="https://pichchanthorn.github.io/daily-income-expense-tracker/"
-                   target="_blank" class="btn small project-btn-demo">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-demo">
                    <i data-lucide="external-link"></i><span>Demo</span>
                 </a>
             </div>
         </div>
     </article>
 
-    <!-- 4️⃣ PCTN Fertilizer Website -->
-    <article class="project-card" data-category="htmlcss javascript">
+    <!-- 7️⃣ PCTN Fertilizer Website -->
+    <article class="project-card" data-category="htmlcss javascript frontend">
         <div class="project-thumb">
             <img src="../assets/img/projects/fertilizer-website.png"
                   alt="PCTN Fertilizer business website preview"
@@ -243,8 +341,8 @@
         <div class="project-body">
             <h3 class="project-title">PCTN Fertilizer Business Website</h3>
             <p class="project-description">
-                A professional multi-page business showcase website presenting products, 
-                company information, and customer contact integration with responsive design.
+                A multi-page business showcase website featuring products, company information, and contact
+                integration with responsive design.
             </p>
             <p class="project-stack-label">Tech Stack</p>
             <div class="project-tags">
@@ -254,19 +352,19 @@
             </div>
             <div class="project-actions">
                 <a href="https://github.com/pichchanthorn/pctn-fertilizer-website"
-                   target="_blank" class="btn small project-btn-code">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
                    <i data-lucide="code-2"></i><span>Code</span>
                 </a>
                 <a href="https://pichchanthorn.github.io/pctn-fertilizer-website/"
-                   target="_blank" class="btn small project-btn-demo">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-demo">
                    <i data-lucide="external-link"></i><span>Demo</span>
                 </a>
             </div>
         </div>
     </article>
 
-    <!-- 5️⃣ Testimonial Card UI -->
-    <article class="project-card" data-category="htmlcss javascript">
+    <!-- 8️⃣ Testimonial Card UI -->
+    <article class="project-card" data-category="htmlcss javascript frontend">
         <div class="project-thumb">
             <img src="../assets/img/projects/testimonial-card.png"
                   alt="Testimonial Card UI component preview"
@@ -276,8 +374,8 @@
         <div class="project-body">
             <h3 class="project-title">Testimonial Card UI Component</h3>
             <p class="project-description">
-                A modern testimonial card component with theme toggle, language switching support, 
-                and responsive layout optimized for portfolio and SaaS websites.
+                A modern testimonial card component with theme toggle, language switching support, and
+                a responsive layout for portfolio and SaaS pages.
             </p>
             <p class="project-stack-label">Tech Stack</p>
             <div class="project-tags">
@@ -288,19 +386,19 @@
             </div>
             <div class="project-actions">
                 <a href="https://github.com/pichchanthorn/testimonial-card-ui"
-                   target="_blank" class="btn small project-btn-code">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
                    <i data-lucide="code-2"></i><span>Code</span>
                 </a>
                 <a href="https://pichchanthorn.github.io/testimonial-card-ui/"
-                   target="_blank" class="btn small project-btn-demo">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-demo">
                    <i data-lucide="external-link"></i><span>Demo</span>
                 </a>
             </div>
         </div>
     </article>
 
-    <!-- 6️⃣ Khmer Music Pricing Cards -->
-     <article class="project-card" data-category="htmlcss">
+    <!-- 9️⃣ Khmer Music Pricing Cards -->
+     <article class="project-card" data-category="htmlcss frontend">
     <div class="project-thumb">
         <img src="../assets/img/projects/khmer-music-pricing.png"
                alt="Khmer Music Plus subscription pricing cards preview"
@@ -314,9 +412,8 @@
             </h3>
 
             <p class="project-description">
-                A responsive subscription pricing interface designed for an online music streaming service.
-                The layout presents three structured plans (Basic, Standard, Premium) with clear visual hierarchy,
-                highlighted primary plan styling, and mobile-friendly responsive design.
+                A responsive subscription pricing interface for an online music streaming service with three
+                structured plans and clear visual hierarchy.
             </p>
             <p class="project-stack-label">Tech Stack</p>
 
@@ -329,14 +426,14 @@
 
             <div class="project-actions">
                 <a href="https://github.com/pichchanthorn/khmer-music-pricing-cards"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 class="btn small project-btn-code">
                 <i data-lucide="code-2"></i>
                 <span>Code</span>
                 </a>
 
                 <a href="https://pichchanthorn.github.io/khmer-music-pricing-cards/"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 class="btn small project-btn-demo">
                 <i data-lucide="external-link"></i>
                 <span>Demo</span>
@@ -345,8 +442,8 @@
         </div>
     </article>
 
-    <!-- 7️⃣ Christmas Heart Animation -->
-    <article class="project-card" data-category="javascript">
+    <!-- 10️⃣ Christmas Heart Animation -->
+    <article class="project-card" data-category="javascript frontend">
         <div class="project-thumb">
             <img src="../assets/img/projects/christmas-heart.png"
                   alt="Christmas heart animation project preview"
@@ -356,8 +453,8 @@
         <div class="project-body">
             <h3 class="project-title">Christmas Love Heart Animation</h3>
             <p class="project-description">
-                A creative heart-shaped text animation built with HTML, CSS, and JavaScript, 
-                featuring smooth motion effects, canvas rendering, and festive snow animation.
+                A creative heart-shaped text animation with smooth motion effects, canvas rendering, and festive
+                snow animation.
             </p>
             <p class="project-stack-label">Tech Stack</p>
             <div class="project-tags">
@@ -367,19 +464,19 @@
             </div>
             <div class="project-actions">
                 <a href="https://github.com/pichchanthorn/christmas-heart-animation"
-                   target="_blank" class="btn small project-btn-code">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
                    <i data-lucide="code-2"></i><span>Code</span>
                 </a>
                 <a href="https://pichchanthorn.github.io/christmas-heart-animation/"
-                   target="_blank" class="btn small project-btn-demo">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-demo">
                    <i data-lucide="external-link"></i><span>Demo</span>
                 </a>
             </div>
         </div>
     </article>
 
-    <!-- 8️⃣ Khmer Tech Job Application -->
-    <article class="project-card" data-category="htmlcss javascript">
+    <!-- 11️⃣ Khmer Tech Job Application -->
+    <article class="project-card" data-category="htmlcss javascript frontend">
         <div class="project-thumb">
             <img src="../assets/img/projects/khmer-job-application.png"
                   alt="Khmer Tech Job Application website preview"
@@ -389,8 +486,8 @@
         <div class="project-body">
             <h3 class="project-title">Khmer Tech Job Application Website</h3>
             <p class="project-description">
-                A responsive multi-page job application website built for academic purposes, 
-                featuring structured form layout, navigation pages, and clean UI styling.
+                A responsive multi-page job application website with structured forms, navigation pages, and
+                clean UI styling.
             </p>
             <p class="project-stack-label">Tech Stack</p>
             <div class="project-tags">
@@ -400,19 +497,19 @@
             </div>
             <div class="project-actions">
                 <a href="https://github.com/pichchanthorn/khmer-tech-job-application"
-                   target="_blank" class="btn small project-btn-code">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
                    <i data-lucide="code-2"></i><span>Code</span>
                 </a>
                 <a href="https://pichchanthorn.github.io/khmer-tech-job-application/"
-                   target="_blank" class="btn small project-btn-demo">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-demo">
                    <i data-lucide="external-link"></i><span>Demo</span>
                 </a>
             </div>
         </div>
     </article>
 
-    <!-- 9️⃣ BBU Gen25 Team 208 -->
-    <article class="project-card" data-category="htmlcss javascript">
+    <!-- 12️⃣ BBU Gen25 Team 208 -->
+    <article class="project-card" data-category="htmlcss javascript frontend">
         <div class="project-thumb">
             <img src="../assets/img/projects/bbu-team208.png"
                   alt="BBU Gen25 Team 208 academic project preview"
@@ -422,8 +519,8 @@
         <div class="project-body">
             <h3 class="project-title">BBU Gen25 – Team 208 Web Programming Website</h3>
             <p class="project-description">
-                A multi-page academic group project developed for the Web Programming course, 
-                showcasing team collaboration, individual responsibilities, and modern front-end development practices.
+                A multi-page academic group project showcasing team collaboration, individual responsibilities,
+                and modern front-end practices.
             </p>
             <p class="project-stack-label">Tech Stack</p>
             <div class="project-tags">
@@ -434,11 +531,11 @@
             </div>
             <div class="project-actions">
                 <a href="https://github.com/pichchanthorn/bbu-gen25-team208-website"
-                   target="_blank" class="btn small project-btn-code">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-code">
                    <i data-lucide="code-2"></i><span>Code</span>
                 </a>
                 <a href="https://team208.pichchanthorn.me/"
-                   target="_blank" class="btn small project-btn-demo">
+                         target="_blank" rel="noopener noreferrer" class="btn small project-btn-demo">
                    <i data-lucide="external-link"></i><span>Demo</span>
                 </a>
             </div>
