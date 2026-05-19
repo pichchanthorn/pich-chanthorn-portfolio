@@ -221,6 +221,36 @@
     });
   }
 
+  function initializeCertificateFilters() {
+    const filterButtons = document.querySelectorAll(".cert-filter-btn[data-filter]");
+    const certCards = document.querySelectorAll(".cert-timeline-item[data-category]");
+    if (!filterButtons.length || !certCards.length) return;
+
+    const applyFilter = filter => {
+      certCards.forEach(card => {
+        const category = (card.dataset.category || "").toLowerCase();
+        const shouldShow = filter === "all" || category.includes(filter);
+        card.classList.toggle("is-hidden", !shouldShow);
+      });
+    };
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(item => {
+          item.classList.remove("active");
+          item.setAttribute("aria-pressed", "false");
+        });
+
+        button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
+        applyFilter((button.dataset.filter || "all").toLowerCase());
+      });
+    });
+
+    const defaultButton = document.querySelector(".cert-filter-btn.active") || filterButtons[0];
+    applyFilter((defaultButton?.dataset.filter || "all").toLowerCase());
+  }
+
   function initializeYears() {
     const year = String(new Date().getFullYear());
     ["currentYear", "currentYearFooter", "sidebarYear"].forEach(id => {
@@ -251,6 +281,7 @@
     initializeHomeStatsCounter();
     initializeSmoothScroll();
     initializeProjectFilters();
+    initializeCertificateFilters();
 
     // Music widget (music-widget.js)
     window.__musicWidget?.initializeMusicPlayer();
