@@ -384,26 +384,80 @@
     opacity: 0.7;
 }
 
-.skill-fill.html      { --level: 80%; background: linear-gradient(90deg, #ea580c, #f97316); }
+.skill-fill.html      { --level: 85%; background: linear-gradient(90deg, #ea580c, #f97316); }
 .skill-fill.html::after { background: #f97316; }
-.skill-fill.css       { --level: 75%; background: linear-gradient(90deg, #2563eb, #60a5fa); }
+.skill-fill.css       { --level: 80%; background: linear-gradient(90deg, #2563eb, #60a5fa); }
 .skill-fill.css::after { background: #3b82f6; }
-.skill-fill.js        { --level: 65%; background: linear-gradient(90deg, #ca8a04, #facc15); }
+.skill-fill.js        { --level: 70%; background: linear-gradient(90deg, #ca8a04, #facc15); }
 .skill-fill.js::after { background: #eab308; }
-.skill-fill.bootstrap { --level: 70%; background: linear-gradient(90deg, #7c3aed, #c084fc); }
+.skill-fill.bootstrap { --level: 75%; background: linear-gradient(90deg, #7c3aed, #c084fc); }
 .skill-fill.bootstrap::after { background: #a855f7; }
 .skill-fill.tailwind  { --level: 70%; background: linear-gradient(90deg, #0891b2, #67e8f9); }
 .skill-fill.tailwind::after { background: #22d3ee; }
-.skill-fill.mysql     { --level: 60%; background: linear-gradient(90deg, #4f46e5, #a5b4fc); }
+.skill-fill.mysql     { --level: 65%; background: linear-gradient(90deg, #4f46e5, #a5b4fc); }
 .skill-fill.mysql::after { background: #6366f1; }
-.skill-fill.git       { --level: 70%; background: linear-gradient(90deg, #ea580c, #fdba74); }
+.skill-fill.git       { --level: 75%; background: linear-gradient(90deg, #ea580c, #fdba74); }
 .skill-fill.git::after { background: #fb923c; }
-.skill-fill.figma     { --level: 65%; background: linear-gradient(90deg, #db2777, #f9a8d4); }
+.skill-fill.figma     { --level: 60%; background: linear-gradient(90deg, #db2777, #f9a8d4); }
 .skill-fill.figma::after { background: #ec4899; }
-.skill-fill.ai        { --level: 75%; background: linear-gradient(90deg, #16a34a, #86efac); }
+.skill-fill.ai        { --level: 65%; background: linear-gradient(90deg, #16a34a, #86efac); }
 .skill-fill.ai::after { background: #22c55e; }
-.skill-fill.canva     { --level: 70%; background: linear-gradient(90deg, #0d9488, #5eead4); }
+.skill-fill.canva     { --level: 60%; background: linear-gradient(90deg, #0d9488, #5eead4); }
 .skill-fill.canva::after { background: #14b8a6; }
+.skill-fill.responsive { --level: 80%; background: linear-gradient(90deg, #0f766e, #5eead4); }
+.skill-fill.responsive::after { background: #2dd4bf; }
+.skill-fill.react     { --level: 65%; background: linear-gradient(90deg, #0f766e, #6ee7b7); }
+.skill-fill.react::after { background: #34d399; }
+.skill-fill.next      { --level: 60%; background: linear-gradient(90deg, #1f2937, #6b7280); }
+.skill-fill.next::after { background: #9ca3af; }
+.skill-fill.typescript { --level: 55%; background: linear-gradient(90deg, #1d4ed8, #60a5fa); }
+.skill-fill.typescript::after { background: #3b82f6; }
+.skill-fill.shadcn    { --level: 55%; background: linear-gradient(90deg, #0f172a, #64748b); }
+.skill-fill.shadcn::after { background: #94a3b8; }
+.skill-fill.php       { --level: 70%; background: linear-gradient(90deg, #4c1d95, #a78bfa); }
+.skill-fill.php::after { background: #8b5cf6; }
+.skill-fill.pdo       { --level: 60%; background: linear-gradient(90deg, #475569, #94a3b8); }
+.skill-fill.pdo::after { background: #94a3b8; }
+.skill-fill.auth      { --level: 65%; background: linear-gradient(90deg, #16a34a, #86efac); }
+.skill-fill.auth::after { background: #4ade80; }
+.skill-fill.crud      { --level: 75%; background: linear-gradient(90deg, #15803d, #6ee7b7); }
+.skill-fill.crud::after { background: #34d399; }
+.skill-fill.rbac      { --level: 60%; background: linear-gradient(90deg, #0f766e, #5eead4); }
+.skill-fill.rbac::after { background: #2dd4bf; }
+.skill-fill.reset     { --level: 55%; background: linear-gradient(90deg, #f59e0b, #fcd34d); }
+.skill-fill.reset::after { background: #fbbf24; }
+.skill-fill.security  { --level: 60%; background: linear-gradient(90deg, #0f766e, #86efac); }
+.skill-fill.security::after { background: #34d399; }
+.skill-fill.python    { --level: 55%; background: linear-gradient(90deg, #2563eb, #93c5fd); }
+.skill-fill.python::after { background: #60a5fa; }
+.skill-fill.telegram  { --level: 55%; background: linear-gradient(90deg, #0f766e, #6ee7b7); }
+.skill-fill.telegram::after { background: #34d399; }
+.skill-fill.ytdlp     { --level: 50%; background: linear-gradient(90deg, #dc2626, #fca5a5); }
+.skill-fill.ytdlp::after { background: #f87171; }
+.skill-fill.botapi    { --level: 50%; background: linear-gradient(90deg, #2563eb, #bfdbfe); }
+.skill-fill.botapi::after { background: #93c5fd; }
+.skill-fill.botlogic  { --level: 55%; background: linear-gradient(90deg, #16a34a, #86efac); }
+.skill-fill.botlogic::after { background: #4ade80; }
+.skill-fill.vscode    { --level: 80%; background: linear-gradient(90deg, #0ea5e9, #7dd3fc); }
+.skill-fill.vscode::after { background: #38bdf8; }
+.skill-fill.ghpages   { --level: 70%; background: linear-gradient(90deg, #475569, #94a3b8); }
+.skill-fill.ghpages::after { background: #94a3b8; }
+.skill-fill.docs      { --level: 70%; background: linear-gradient(90deg, #0f766e, #6ee7b7); }
+.skill-fill.docs::after { background: #34d399; }
+.skill-fill.debug     { --level: 65%; background: linear-gradient(90deg, #f97316, #fdba74); }
+.skill-fill.debug::after { background: #fb923c; }
+.skill-fill.devtools  { --level: 65%; background: linear-gradient(90deg, #0f766e, #5eead4); }
+.skill-fill.devtools::after { background: #2dd4bf; }
+.skill-fill.ui        { --level: 65%; background: linear-gradient(90deg, #16a34a, #86efac); }
+.skill-fill.ui::after { background: #4ade80; }
+.skill-fill.clean     { --level: 70%; background: linear-gradient(90deg, #0f766e, #6ee7b7); }
+.skill-fill.clean::after { background: #34d399; }
+.skill-fill.solve     { --level: 70%; background: linear-gradient(90deg, #15803d, #86efac); }
+.skill-fill.solve::after { background: #4ade80; }
+.skill-fill.plan      { --level: 65%; background: linear-gradient(90deg, #0f766e, #6ee7b7); }
+.skill-fill.plan::after { background: #34d399; }
+.skill-fill.write     { --level: 65%; background: linear-gradient(90deg, #0f766e, #6ee7b7); }
+.skill-fill.write::after { background: #34d399; }
 
 .reveal.active .skill-fill {
     width: var(--level);

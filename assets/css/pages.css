@@ -695,6 +695,82 @@
     gap: 24px;
 }
 
+.skills-section {
+    margin-top: 28px;
+}
+
+.skills-section:first-of-type {
+    margin-top: 0;
+}
+
+.skills-page .skill-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.skills-page .skill-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--clr-text-strong);
+}
+
+.skills-page .skill-name i {
+    display: none;
+}
+
+.skills-page .skill-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    height: 26px;
+    padding: 0 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid rgba(36, 200, 165, 0.35);
+    background: rgba(36, 200, 165, 0.12);
+    color: var(--clr-accent-text-strong);
+    flex-shrink: 0;
+}
+
+.skills-page .skill-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skills-page .skill-percent {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--clr-accent);
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: rgba(36, 200, 165, 0.08);
+    border: 1px solid rgba(36, 200, 165, 0.25);
+    flex-shrink: 0;
+}
+
+.skills-page .skill-bar {
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(148, 163, 184, 0.2);
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    overflow: hidden;
+}
+
+.skills-page .skill-fill::after {
+    opacity: 0.35;
+    filter: blur(5px);
+}
+
 .soft-skills {
     margin-top: 45px;
 }

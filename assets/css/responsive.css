@@ -125,6 +125,29 @@
     }
 }
 
+@media (max-width: 640px) {
+    .skills-page .skill-header {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 8px 12px;
+    }
+
+    .skills-page .skill-name {
+        font-size: 15px;
+    }
+
+    .skills-page .skill-badge {
+        min-width: 42px;
+        height: 24px;
+        font-size: 10px;
+    }
+
+    .skills-page .skill-percent {
+        font-size: 12px;
+        padding: 3px 7px;
+    }
+}
+
 @media (max-width: 768px) {
     .music-widget {
         right: 12px;
