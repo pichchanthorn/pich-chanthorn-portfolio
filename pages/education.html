@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Education | Pich Chanthorn Portfolio</title>
-    <meta name="description" content="Academic background of Pich Chanthorn, IT Student at Build Bright University, including coursework highlights and learning milestones." />
+    <meta name="description" content="Education & academic journey of Pich Chanthorn — Information Technology student at Build Bright University. Key coursework, skills, timeline and goals toward full-stack web development." />
     <meta name="keywords" content="Pich Chanthorn education, IT Student Build Bright University, academic portfolio, web development learning" />
     <meta name="author" content="Pich Chanthorn" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -25,6 +25,37 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- Page tweaks: spacing, shadows, hover, reveal timing (non-invasive) -->
+    <style>
+    /* Small, targeted improvements that preserve existing design identity */
+    .edu-page .title { letter-spacing: -0.2px; }
+    .edu-hero-subtitle, .lead { max-width: 62ch; line-height:1.6; }
+    .edu-summary-grid { gap: 1.25rem; }
+    .edu-summary-card { transition: transform .18s ease, box-shadow .18s ease; }
+    .edu-summary-card:hover, .semester-card:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(16,24,40,0.08); }
+    .timeline-item { transition: transform .22s ease, box-shadow .22s ease; }
+    .timeline-item:hover { transform: translateX(-6px); }
+    .chip, .badge { display:inline-block; padding:.25rem .5rem; border-radius:999px; background:rgba(0,0,0,0.04); margin:.15rem .25rem; font-size:.85rem }
+    .expected-grad { background: linear-gradient(90deg,#f5f7ff,#eef2ff); border:1px solid rgba(99,102,241,0.08); }
+    .current-year-badge { background: linear-gradient(90deg,#ecfdf5,#dcfce7); border:1px solid rgba(16,185,129,0.08); }
+    .reveal { will-change: transform, opacity; }
+    @media (max-width:800px){ .edu-summary-grid { grid-template-columns: 1fr; } .edu-hero-metrics{display:none} }
+        /* Timeline: card-like layout on small screens (keeps desktop layout unchanged) */
+        @media (max-width:800px){
+            .timeline-list{ list-style:none; padding:0; margin:0; }
+            .timeline-list .timeline-item{ display:block; background:var(--card-bg, #fff); border-radius:12px; padding:1rem; margin:.8rem 0; box-shadow:0 8px 20px rgba(16,24,40,0.06); border:1px solid rgba(15,23,42,0.04); word-break:break-word; hyphens:auto; }
+            .timeline-marker{ display:none; }
+            .timeline-content{ padding:0; }
+            .timeline-card-header{ display:flex; justify-content:space-between; align-items:center; gap:.5rem; }
+            .timeline-title{ font-size:clamp(1rem,2.8vw,1.05rem); margin:0; font-weight:600; }
+            .timeline-card-period{ font-size:clamp(.85rem,2.2vw,.95rem); color:var(--muted,#6b7280); white-space:nowrap; }
+            .timeline-meta{ margin:.25rem 0; font-size:clamp(.9rem,2.4vw,.98rem); color:var(--muted,#6b7280); }
+            .timeline-card-desc{ margin-top:.45rem; font-size:clamp(.95rem,2.6vw,1rem); line-height:1.45; color:var(--text,#111827); }
+            .achievement-badges li{ margin-right:.4rem; margin-top:.45rem; display:inline-block; }
+            .timeline-card-footer{ margin-top:.6rem; display:flex; gap:.5rem; justify-content:flex-start; }
+        }
+    </style>
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -115,33 +146,45 @@
         <div class="page-container edu-page">
 
             <!-- EducationHeroSection -->
-            <section class="page-header reveal education-hero-section edu-reveal">
-                <h1 class="title">My <span class="highlight">Education</span></h1>
+            <section class="page-header reveal education-hero-section edu-reveal" aria-labelledby="edu-hero">
+                <h1 id="edu-hero" class="title">My <span class="highlight">Education</span></h1>
                 <p class="subtitle edu-hero-subtitle">
                     Academic overview, coursework progression, and semester performance across my Information Technology journey.
                 </p>
-                <div class="edu-hero-metrics">
+                <div class="edu-hero-metrics" aria-hidden="false">
                     <span class="edu-hero-chip"><i data-lucide="book-open"></i> 4-Year Program</span>
                     <span class="edu-hero-chip"><i data-lucide="graduation-cap"></i> IT Major</span>
                     <span class="edu-hero-chip"><i data-lucide="calendar-range"></i> 2024 – 2028</span>
+                    <span class="edu-hero-chip current-year-badge" title="Current academic year">Current Year</span>
+                    <span class="edu-hero-chip expected-grad" title="Expected graduation">Expected: Oct 2028</span>
                 </div>
             </section>
 
-            <div class="edu-section-divider reveal"></div>
+            <div class="edu-section-divider reveal" aria-hidden="true"></div>
 
             <!-- DegreeCardComponent + GPAStatsCard -->
-            <section class="edu-summary-grid reveal edu-reveal">
-                <article class="edu-summary-card degree-card-component">
+            <section class="edu-summary-grid reveal edu-reveal" aria-label="Program summary and academic stats">
+                <article class="edu-summary-card degree-card-component" aria-labelledby="degree-title">
                     <div class="edu-summary-header">
                         <span class="edu-pill">Current Program</span>
                         <span class="edu-year">2024 – 2028</span>
                     </div>
-                    <h2 class="edu-main-title">Associate’s Degree in Information Technology</h2>
+                    <h2 id="degree-title" class="edu-main-title">Bachelor of Science in Information Technology</h2>
                     <p class="edu-school">Build Bright University (BBU) – Phnom Penh Campus</p>
                     <p class="edu-text">
                         A practice-oriented curriculum focused on web application development, database systems, computer networking,
                         algorithms, and UI/UX fundamentals with continuous project-based learning.
                     </p>
+
+                    <!-- Coursework badges (non-intrusive) -->
+                    <div class="coursework-badges" aria-hidden="false">
+                        <span class="chip">Web Programming</span>
+                        <span class="chip">Databases</span>
+                        <span class="chip">Networking</span>
+                        <span class="chip">AI &amp; ML</span>
+                        <span class="chip">Cybersecurity</span>
+                    </div>
+
                     <div class="edu-actions">
                         <a href="https://web.bbu.edu.kh/bburesults" target="_blank" rel="noopener" class="btn outline small">
                             <i data-lucide="external-link"></i>
@@ -150,22 +193,22 @@
                     </div>
                 </article>
 
-                <article class="edu-summary-card gpa-stats-card">
-                    <h3 class="section-title-sm">Academic <span class="highlight">Stats</span></h3>
+                <article class="edu-summary-card gpa-stats-card" aria-labelledby="stats-title">
+                    <h3 id="stats-title" class="section-title-sm">Academic <span class="highlight">Stats</span></h3>
                     <div class="edu-stats-row">
-                        <div class="edu-stat">
+                        <div class="edu-stat" role="group" aria-label="Overall GPA">
                             <p class="edu-stat-label">Overall GPA</p>
                             <p class="edu-stat-value">3.57</p>
                         </div>
-                        <div class="edu-stat">
+                        <div class="edu-stat" role="group" aria-label="Current year">
                             <p class="edu-stat-label">Current Year</p>
                             <p class="edu-stat-value">Year 2</p>
                         </div>
-                        <div class="edu-stat">
+                        <div class="edu-stat" role="group" aria-label="Credits completed">
                             <p class="edu-stat-label">Credits Completed</p>
                             <p class="edu-stat-value">45+</p>
                         </div>
-                        <div class="edu-stat">
+                        <div class="edu-stat" role="group" aria-label="Semesters done">
                             <p class="edu-stat-label">Semesters Done</p>
                             <p class="edu-stat-value">3 / 8</p>
                         </div>
@@ -183,47 +226,66 @@
 
                 <ul class="timeline-list">
                     <li class="timeline-item">
-                        <div class="timeline-marker">
-                            <i data-lucide="graduation-cap"></i>
-                        </div>
+                        <div class="timeline-marker"><i data-lucide="graduation-cap"></i></div>
                         <div class="timeline-content">
-                            <p class="timeline-title">Build Bright University</p>
-                            <p class="timeline-meta">Associate’s Degree • Information Technology</p>
+                            <div class="timeline-card">
+                                <div class="timeline-card-header">
+                                    <h3 class="timeline-title">Build Bright University</h3>
+                                    <span class="timeline-card-period" aria-hidden="true">2024 – 2028</span>
+                                </div>
+                                <p class="timeline-meta">Bachelor of Science • Information Technology</p>
+                                <p class="timeline-card-desc">Practical curriculum emphasizing web development, databases, networking, AI, cybersecurity and a collaborative capstone project.</p>
+                                <ul class="achievement-badges" aria-label="Academic highlights">
+                                    <li class="badge">Project-based learning</li>
+                                    <li class="badge">Capstone Project (planned)</li>
+                                </ul>
+                                <div class="timeline-card-footer">
+                                    <span class="chip expected-grad">Expected</span>
+                                </div>
+                            </div>
                         </div>
-                        <span class="timeline-badge">2024 – 2028</span>
                     </li>
 
                     <li class="timeline-item">
-                        <div class="timeline-marker">
-                            <i data-lucide="languages"></i>
-                        </div>
+                        <div class="timeline-marker"><i data-lucide="languages"></i></div>
                         <div class="timeline-content">
-                            <p class="timeline-title">Cambodia–ASEAN International Institute</p>
-                            <p class="timeline-meta">Foundation English Program</p>
+                            <div class="timeline-card">
+                                <div class="timeline-card-header">
+                                    <h3 class="timeline-title">Cambodia–ASEAN International Institute</h3>
+                                    <span class="timeline-card-period">2024</span>
+                                </div>
+                                <p class="timeline-meta">Foundation English Program</p>
+                                <p class="timeline-card-desc">Intensive foundation in English language skills supporting academic success.</p>
+                            </div>
                         </div>
-                        <span class="timeline-badge">2024</span>
                     </li>
 
                     <li class="timeline-item">
-                        <div class="timeline-marker">
-                            <i data-lucide="school"></i>
-                        </div>
+                        <div class="timeline-marker"><i data-lucide="school"></i></div>
                         <div class="timeline-content">
-                            <p class="timeline-title">Svay Rieng High School</p>
-                            <p class="timeline-meta">General Education</p>
+                            <div class="timeline-card">
+                                <div class="timeline-card-header">
+                                    <h3 class="timeline-title">Svay Rieng High School</h3>
+                                    <span class="timeline-card-period">Completed 2024</span>
+                                </div>
+                                <p class="timeline-meta">General Education</p>
+                                <p class="timeline-card-desc">Balanced academic program preparing for tertiary IT studies.</p>
+                            </div>
                         </div>
-                        <span class="timeline-badge">Completed 2024</span>
                     </li>
 
                     <li class="timeline-item">
-                        <div class="timeline-marker">
-                            <i data-lucide="book-marked"></i>
-                        </div>
+                        <div class="timeline-marker"><i data-lucide="book-marked"></i></div>
                         <div class="timeline-content">
-                            <p class="timeline-title">Johnson International School</p>
-                            <p class="timeline-meta">High School Diploma • Chinese & General Education</p>
+                            <div class="timeline-card">
+                                <div class="timeline-card-header">
+                                    <h3 class="timeline-title">Johnson International School</h3>
+                                    <span class="timeline-card-period">Earlier Stage</span>
+                                </div>
+                                <p class="timeline-meta">High School Diploma • Chinese &amp; General Education</p>
+                                <p class="timeline-card-desc">Early bilingual education and foundational coursework.</p>
+                            </div>
                         </div>
-                        <span class="timeline-badge">Earlier Stage</span>
                     </li>
                 </ul>
             </section>
@@ -238,14 +300,14 @@
                 </header>
 
                 <article class="semester-card accordion-item" data-open="true">
-                    <button class="semester-header accordion-trigger" type="button" aria-expanded="true">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="true" aria-controls="sem1-panel">
                         <span class="semester-title-wrap">
                             <span class="semester-title">Semester 1 (Year 1)</span>
                             <span class="semester-summary">GPA: 3.40 • Credits: 15</span>
                         </span>
                         <i data-lucide="chevron-down"></i>
                     </button>
-                    <div class="accordion-panel">
+                    <div id="sem1-panel" class="accordion-panel">
                         <div class="table-wrapper subject-table-component">
                             <table class="edu-table" aria-label="Semester 1 subjects">
                                 <thead>
@@ -266,14 +328,14 @@
                 </article>
 
                 <article class="semester-card accordion-item">
-                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false" aria-controls="sem2-panel">
                         <span class="semester-title-wrap">
                             <span class="semester-title">Semester 2 (Year 1)</span>
                             <span class="semester-summary">GPA: 3.52 • Credits: 15</span>
                         </span>
                         <i data-lucide="chevron-down"></i>
                     </button>
-                    <div class="accordion-panel">
+                    <div id="sem2-panel" class="accordion-panel">
                         <div class="table-wrapper subject-table-component">
                             <table class="edu-table" aria-label="Semester 2 subjects">
                                 <thead>
@@ -301,14 +363,14 @@
                 </header>
 
                 <article class="semester-card accordion-item">
-                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false" aria-controls="sem3-panel">
                         <span class="semester-title-wrap">
                             <span class="semester-title">Semester 3 (Year 2)</span>
                             <span class="semester-summary">GPA: 3.80 • Credits: 15</span>
                         </span>
                         <i data-lucide="chevron-down"></i>
                     </button>
-                    <div class="accordion-panel">
+                    <div id="sem3-panel" class="accordion-panel">
                         <div class="table-wrapper subject-table-component">
                             <table class="edu-table" aria-label="Semester 3 subjects">
                                 <thead>
@@ -319,7 +381,7 @@
                                 <tbody>
                                     <tr><td>1</td><td>Computer Network</td><td>55</td><td>37</td><td>3</td><td>92</td><td>A</td></tr>
                                     <tr><td>2</td><td>Data Modeling and Relational Database</td><td>46</td><td>34</td><td>3</td><td>80</td><td>B+</td></tr>
-                                    <tr><td>3</td><td>Data Structures & Algorithms Using Python</td><td>52</td><td>39</td><td>3</td><td>91</td><td>A</td></tr>
+                                    <tr><td>3</td><td>Data Structures &amp; Algorithms Using Python</td><td>52</td><td>39</td><td>3</td><td>91</td><td>A</td></tr>
                                     <tr><td>4</td><td>Internet Programming I</td><td>60</td><td>40</td><td>3</td><td>100</td><td>A</td></tr>
                                     <tr><td>5</td><td>UX / UI Design</td><td>51</td><td>38</td><td>3</td><td>89</td><td>A</td></tr>
                                 </tbody>
@@ -329,14 +391,14 @@
                 </article>
 
                 <article class="semester-card accordion-item">
-                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false" aria-controls="sem4-panel">
                         <span class="semester-title-wrap">
                             <span class="semester-title">Semester 4 (Year 2)</span>
                             <span class="semester-summary">GPA: Pending • Credits: 0</span>
                         </span>
                         <i data-lucide="chevron-down"></i>
                     </button>
-                    <div class="accordion-panel">
+                    <div id="sem4-panel" class="accordion-panel">
                         <p class="pending-msg">Courses in progress / upcoming.</p>
                     </div>
                 </article>
@@ -348,27 +410,27 @@
                 </header>
 
                 <article class="semester-card accordion-item">
-                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false" aria-controls="sem5-panel">
                         <span class="semester-title-wrap">
                             <span class="semester-title">Semester 5 (Year 3)</span>
                             <span class="semester-summary">GPA: Pending • Credits: Pending</span>
                         </span>
                         <i data-lucide="chevron-down"></i>
                     </button>
-                    <div class="accordion-panel">
+                    <div id="sem5-panel" class="accordion-panel">
                         <p class="pending-msg">Upcoming courses.</p>
                     </div>
                 </article>
 
                 <article class="semester-card accordion-item">
-                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false" aria-controls="sem6-panel">
                         <span class="semester-title-wrap">
                             <span class="semester-title">Semester 6 (Year 3)</span>
                             <span class="semester-summary">GPA: Pending • Credits: Pending</span>
                         </span>
                         <i data-lucide="chevron-down"></i>
                     </button>
-                    <div class="accordion-panel">
+                    <div id="sem6-panel" class="accordion-panel">
                         <p class="pending-msg">Upcoming courses.</p>
                     </div>
                 </article>
@@ -380,27 +442,27 @@
                 </header>
 
                 <article class="semester-card accordion-item">
-                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false" aria-controls="sem7-panel">
                         <span class="semester-title-wrap">
                             <span class="semester-title">Semester 7 (Year 4)</span>
                             <span class="semester-summary">GPA: Pending • Credits: Pending</span>
                         </span>
                         <i data-lucide="chevron-down"></i>
                     </button>
-                    <div class="accordion-panel">
+                    <div id="sem7-panel" class="accordion-panel">
                         <p class="pending-msg">Internship / research / capstone period.</p>
                     </div>
                 </article>
 
                 <article class="semester-card accordion-item">
-                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false">
+                    <button class="semester-header accordion-trigger" type="button" aria-expanded="false" aria-controls="sem8-panel">
                         <span class="semester-title-wrap">
                             <span class="semester-title">Semester 8 (Year 4)</span>
                             <span class="semester-summary">GPA: Pending • Credits: Pending</span>
                         </span>
                         <i data-lucide="chevron-down"></i>
                     </button>
-                    <div class="accordion-panel">
+                    <div id="sem8-panel" class="accordion-panel">
                         <p class="pending-msg">Graduation semester.</p>
                     </div>
                 </article>
