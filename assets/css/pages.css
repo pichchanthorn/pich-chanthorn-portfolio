@@ -2209,8 +2209,8 @@ html[data-theme="system"] .cert-page .cert-actions .btn.small {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: var(--space-13);
-    padding-left: 36px;
+    gap: 36px; /* increased spacing between cards for improved readability */
+    padding-left: 40px;
 }
 
 .experience-timeline__track::before {
@@ -2241,20 +2241,21 @@ html[data-theme="system"] .cert-page .cert-actions .btn.small {
 .experience-card::before {
     content: "";
     position: absolute;
-    left: -32px;
-    top: 32px;
-    width: 10px;
-    height: 10px;
+    left: -36px;
+    top: 28px;
+    width: 12px;
+    height: 12px;
     border-radius: var(--radius-pill);
     background: var(--clr-bg);
     border: 2px solid var(--clr-accent);
-    box-shadow: 0 0 0 4px var(--alpha-accent-18);
+    box-shadow: 0 0 0 6px var(--alpha-accent-12);
 }
 
 .experience-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(34, 197, 94, 0.25);
-    box-shadow: var(--shadow-card-hover), var(--shadow-glow);
+    transform: translateY(-6px) rotate(-0.2deg);
+    border-color: rgba(34, 197, 94, 0.28);
+    box-shadow: 0 18px 50px rgba(2, 6, 23, 0.48), 0 0 40px rgba(34,197,94,0.06);
+    background: var(--clr-card-bg-strong);
 }
 
 .experience-card__header {
@@ -2394,6 +2395,39 @@ html[data-theme="system"] .cert-page .cert-actions .btn.small {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+/* Modernized technology badges used in experience cards */
+.experience-card__tags .experience-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--clr-text-strong);
+    background: linear-gradient(180deg, rgba(34,197,94,0.06), rgba(2,6,23,0.02));
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.experience-card__tags .experience-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(2,6,23,0.12);
+}
+
+/* Dark theme contrast tweaks */
+[data-theme="dark"] .experience-card {
+    border-color: rgba(255,255,255,0.03);
+    background: linear-gradient(180deg, rgba(6,8,23,0.6), rgba(3,7,18,0.65));
+}
+
+[data-theme="dark"] .experience-card__summary,
+[data-theme="dark"] .experience-card__bullets,
+[data-theme="dark"] .experience-panel__text {
+    color: #cfd8e3; /* slightly higher contrast for dark mode */
 }
 
 .experience-side {

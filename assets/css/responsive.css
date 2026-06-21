@@ -668,7 +668,7 @@
     }
 
     .experience-card {
-        padding: 20px;
+        padding: 18px;
     }
 
     .experience-card::before {
@@ -696,6 +696,12 @@
 
     .experience-panel {
         padding: 18px;
+    }
+
+    /* Tighter tags on mobile for better wrapping */
+    .experience-card__tags .experience-tag {
+        padding: 5px 8px;
+        font-size: 12px;
     }
 }
 
