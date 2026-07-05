@@ -39,6 +39,44 @@
     .chip, .badge { display:inline-block; padding:.25rem .5rem; border-radius:999px; background:rgba(0,0,0,0.04); margin:.15rem .25rem; font-size:.85rem }
     .expected-grad { background: linear-gradient(90deg,#f5f7ff,#eef2ff); border:1px solid rgba(99,102,241,0.08); }
     .current-year-badge { background: linear-gradient(90deg,#ecfdf5,#dcfce7); border:1px solid rgba(16,185,129,0.08); }
+    .academic-note-card {
+        display: flex;
+        gap: 0.85rem;
+        align-items: flex-start;
+        margin-top: 1rem;
+        padding: 0.95rem 1rem;
+        border-radius: 16px;
+        background: linear-gradient(180deg, rgba(59,130,246,0.08), rgba(59,130,246,0.05));
+        border: 1px solid rgba(59,130,246,0.16);
+        box-shadow: 0 8px 20px rgba(15,23,42,0.04);
+    }
+    .academic-note-icon {
+        flex: 0 0 auto;
+        width: 2rem;
+        height: 2rem;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: rgba(59,130,246,0.12);
+        color: #2563eb;
+        font-size: 1rem;
+        line-height: 1;
+    }
+    .academic-note-content {
+        min-width: 0;
+    }
+    .academic-note-title {
+        margin: 0 0 0.25rem;
+        font-size: 0.98rem;
+        font-weight: 600;
+        color: var(--text,#111827);
+    }
+    .academic-note-text {
+        margin: 0;
+        color: var(--muted,#6b7280);
+        font-size: 0.94rem;
+        line-height: 1.55;
+    }
     .reveal { will-change: transform, opacity; }
     @media (max-width:800px){ .edu-summary-grid { grid-template-columns: 1fr; } .edu-hero-metrics{display:none} }
         /* Timeline: card-like layout on small screens (keeps desktop layout unchanged) */
@@ -394,12 +432,35 @@
                     <button class="semester-header accordion-trigger" type="button" aria-expanded="false" aria-controls="sem4-panel">
                         <span class="semester-title-wrap">
                             <span class="semester-title">Semester 4 (Year 2)</span>
-                            <span class="semester-summary">GPA: Pending • Credits: 0</span>
+                            <span class="semester-summary">GPA: Pending • Credits: 15</span>
                         </span>
                         <i data-lucide="chevron-down"></i>
                     </button>
                     <div id="sem4-panel" class="accordion-panel">
-                        <p class="pending-msg">Courses in progress / upcoming.</p>
+                        <div class="table-wrapper subject-table-component">
+                            <table class="edu-table" aria-label="Semester 4 subjects">
+                                <thead>
+                                    <tr>
+                                        <th>No</th><th>Subject</th><th>Midterm</th><th>Final</th><th>Credit</th><th>Total</th><th>Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Computer Networks II</td><td>27</td><td>33</td><td>3</td><td>60</td><td>C</td></tr>
+                                    <tr><td>2</td><td>Internet Programming II</td><td>37</td><td>30</td><td>3</td><td>67</td><td>C+</td></tr>
+                                    <tr><td>3</td><td>Oracle Database</td><td>—</td><td>—</td><td>3</td><td>—</td><td><span class="badge">Pending Verification</span></td></tr>
+                                    <tr><td>4</td><td>Personal Application Development</td><td>—</td><td>—</td><td>3</td><td>—</td><td><span class="badge">Pending Verification</span></td></tr>
+                                    <tr><td>5</td><td>Python Project</td><td>46</td><td>38</td><td>3</td><td>84</td><td>B+</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="academic-note-card" role="note" aria-label="Academic note">
+                            <div class="academic-note-icon" aria-hidden="true">ℹ️</div>
+                            <div class="academic-note-content">
+                                <h3 class="academic-note-title">Academic Note</h3>
+                                <p class="academic-note-text">Two course results are currently pending official verification by Build Bright University. Results marked as "Pending Verification" are temporary placeholders and will be updated once the university officially releases the final grades.</p>
+                                <p>Update: 7/07/2026</p>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </section>
