@@ -51,7 +51,6 @@ pich-chanthorn-portfolio/
 ├── index.html
 ├── README.md
 ├── LICENSE
-├── CNAME
 ├── robots.txt
 └── sitemap.xml
 ````
