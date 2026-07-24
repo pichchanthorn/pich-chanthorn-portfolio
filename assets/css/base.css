@@ -263,7 +263,18 @@ html[lang="km"] .hero-title,
 html[lang="km"] .title,
 html[lang="km"] .section-heading,
 html[lang="km"] .project-detail-title {
+    font-family: "Kantumruy Pro", "Noto Sans Khmer", "Khmer OS System", sans-serif;
     line-height: 1.3;
+    letter-spacing: 0;
+}
+
+html[lang="km"] .hero-subtitle,
+html[lang="km"] .home-contact__eyebrow,
+html[lang="km"] .about-hero-eyebrow,
+html[lang="km"] .edu-hero-subtitle,
+html[lang="km"] .edu-stat-label,
+html[lang="km"] .experience-hero__eyebrow {
+    font-family: "Kantumruy Pro", "Noto Sans Khmer", "Khmer OS System", sans-serif;
     letter-spacing: 0;
 }
 

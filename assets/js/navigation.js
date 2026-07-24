@@ -43,6 +43,7 @@
       "home.welcome": "Welcome to my portfolio",
       "home.cta.projects": "View Projects",
       "home.cta.cv": "Download CV",
+      "home.cta.contactMe": "Contact Me",
       "footer.built": "Built with HTML, CSS & JavaScript",
       "footer.rights": "Pich Chanthorn. All rights reserved.",
       "lang.label": "Language",
@@ -202,7 +203,66 @@
       "skills.plan.label": "Project Planning",
       "skills.plan.desc": "Planning pages, features, data structure, and development flow.",
       "skills.write.label": "Technical Writing",
-      "skills.write.desc": "Explaining project purpose, features, setup steps, and learning outcomes clearly."
+      "skills.write.desc": "Explaining project purpose, features, setup steps, and learning outcomes clearly.",
+      "about.hero.lead": "I am an Information Technology student with a strong interest in frontend-focused full-stack web development. I build responsive, user-friendly, and practical web applications while continuously improving my skills through academic projects, personal work, and hands-on experience.",
+      "experience.openTo.role1": "Junior Full-Stack Developer Roles",
+      "experience.openTo.role2": "Frontend Developer Internships",
+      "experience.openTo.role3": "Web Application Development Projects",
+      "experience.openTo.role4": "Remote & Hybrid Opportunities",
+      "experience.openTo.role5": "Open Source Collaboration",
+      "home.startConversation": "Start a Conversation",
+      "home.emailMe": "Email Me",
+      "home.stat.projects1": "Projects",
+      "home.stat.projects2": "Completed",
+      "home.stat.months1": "Months",
+      "home.stat.months2": "Learning & Practice",
+      "home.stat.years1": "Years",
+      "home.stat.years2": "Hands-on Experience",
+      "about.title1": "About",
+      "about.title2": "Me",
+      "about.who.title1": "Who I",
+      "about.who.title2": "Am",
+      "about.what.title1": "What I",
+      "about.what.title2": "Do",
+      "about.highlights.title1": "My",
+      "about.highlights.title2": "Highlights",
+      "about.tools.title1": "My Tools &",
+      "about.tools.title2": "Technologies",
+      "about.values.title1": "My Work",
+      "about.values.title2": "Values",
+      "about.quick.role": "Role: Information Technology Student & Aspiring Full-Stack Web Developer",
+      "about.quick.location": "Location: Phnom Penh, Cambodia",
+      "about.quick.study": "Study: Information Technology Student",
+      "about.quick.focus": "Focus: Modern Web Development & UI Quality",
+      "about.values.item1": "Clean code and structured organization",
+      "about.values.item2": "User-friendly design and accessibility mindset",
+      "about.values.item3": "Clear collaboration and communication",
+      "about.values.item4": "Responsibility in delivery and quality",
+      "about.values.item5": "Growth mindset through continuous learning",
+      "about.cta.viewProjects": "View My Projects",
+      "about.cta.contactMe": "Contact Me",
+      "projects.title1": "My",
+      "projects.title2": "Projects",
+      "blog.title1": "My",
+      "blog.title2": "Dev Blog",
+      "edu.title1": "My",
+      "edu.title2": "Education",
+      "edu.stats.title1": "Academic",
+      "edu.stats.title2": "Stats",
+      "edu.timeline.title1": "Education",
+      "edu.timeline.title2": "Timeline",
+      "exp.title1": "My",
+      "exp.title2": "Experience",
+      "exp.careerFocus.title": "Career Focus",
+      "exp.careerFocus.text": "Currently building professional experience in data operations while actively developing expertise in full-stack web development, modern web technologies, and software engineering best practices.",
+      "exp.coreStrengths.title": "Core Strengths",
+      "exp.chip.responsive": "Responsive UI Development",
+      "exp.chip.cleanCode": "Clean Code Structure",
+      "exp.chip.component": "Component Thinking",
+      "exp.chip.git": "Git Workflow",
+      "exp.openTo.title": "Open To",
+      "contact.title1": "Get in",
+      "contact.title2": "Touch"
     },
     km: {
       "menu.toggle": "បើក/បិទ ម៉ឺនុយ",
@@ -220,6 +280,7 @@
       "home.welcome": "សូមស្វាគមន៍មកកាន់ផតហ្វូលីយ៉ូរបស់ខ្ញុំ",
       "home.cta.projects": "មើលគម្រោង",
       "home.cta.cv": "ទាញយក CV",
+      "home.cta.contactMe": "ទាក់ទងខ្ញុំ",
       "footer.built": "បង្កើតដោយ HTML, CSS និង JavaScript",
       "footer.rights": "Pich Chanthorn។ រក្សាសិទ្ធិគ្រប់យ៉ាង។",
       "lang.label": "ភាសា",
@@ -377,9 +438,68 @@
       "skills.solve.label": "ដោះស្រាយបញ្ហា",
       "skills.solve.desc": "បំបែកបញ្ហាពិតទៅជាដំណោះស្រាយបច្ចេកទេសជាក់ស្តែង។",
       "skills.plan.label": "ការធ្វើផែនការគម្រោង",
-      "skills.plan.desc": "រៀបចំព 페이지, features, រចនាសម្ព័ន្ធទិន្នន័យ និងលំហូរអភិវឌ្ឍ។",
+      "skills.plan.desc": "រៀបចំទំព័រ មុខងារ រចនាសម្ព័ន្ធទិន្នន័យ និងលំហូរអភិវឌ្ឍន៍។",
       "skills.write.label": "ការសរសេរបច្ចេកទេស",
-      "skills.write.desc": "ពន្យល់គោលបំណងគម្រោង features ជំហាន setup និងលទ្ធផលសិក្សា។"
+      "skills.write.desc": "ពន្យល់គោលបំណងគម្រោង features ជំហាន setup និងលទ្ធផលសិក្សា។",
+      "about.hero.lead": "ខ្ញុំមានសមត្ថភាពក្នុងការរចនា និងអភិវឌ្ឍន៍គេហទំព័រដែលស្អាត ដំណើរការរលូនលើគ្រប់ឧបករណ៍ (Responsive) និងអាចយកទៅប្រើប្រាស់ក្នុងជាក់ស្តែង ចាប់តាំងពីផ្នែកខាងមុខ (Frontend) រហូតដល់ប្រព័ន្ធវេបសាយពេញលេញ (Full-Stack) ជាមួយរចនាសម្ព័ន្ធដែលអាចទុកចិត្តបាន និងកូដងាយស្រួលថែទាំ។ បច្ចុប្បន្ន ខ្ញុំកំពុងស្វែងរកឱកាសចុះកម្មសិក្សា (Internship) ដែលខ្ញុំអាចចូលរួមចំណែក ជួយអភិវឌ្ឍក្រុមការងារ បន្តរៀនសូត្រឱ្យបានរហ័ស និងបង្កើតដំណោះស្រាយជាក់ស្តែងសម្រាប់អ្នកប្រើប្រាស់។",
+      "experience.openTo.role1": "មុខតំណែងជំនួយការអ្នកអភិវឌ្ឍន៍ Full-Stack (Junior Full-Stack Developer)",
+      "experience.openTo.role2": "ការចុះកម្មសិក្សាផ្នែក Frontend (Frontend Developer Internship)",
+      "experience.openTo.role3": "គម្រោងអភិវឌ្ឍន៍កម្មវិធីវេបសាយ (Web Application Development Projects)",
+      "experience.openTo.role4": "ឱកាសធ្វើការពីចម្ងាយ ឬកូនកាត់ (Remote & Hybrid Opportunities)",
+      "experience.openTo.role5": "ការចូលរួមចំណែកក្នុងគម្រោងកូដបើកចំហ (Open Source Collaboration)",
+      "home.startConversation": "តោះចាប់ផ្តើមការសន្ទនា",
+      "home.emailMe": "ផ្ញើអ៊ីមែលមកខ្ញុំ",
+      "home.stat.projects1": "គម្រោង",
+      "home.stat.projects2": "បានបញ្ចប់",
+      "home.stat.months1": "ខែ",
+      "home.stat.months2": "រៀនសូត្រ និងអនុវត្ត",
+      "home.stat.years1": "ឆ្នាំ",
+      "home.stat.years2": "បទពិសោធន៍អនុវត្តជាក់ស្តែង",
+      "about.title1": "អំពី",
+      "about.title2": "ខ្ញុំ",
+      "about.who.title1": "តើខ្ញុំជា",
+      "about.who.title2": "នរណា",
+      "about.what.title1": "អ្វីដែល",
+      "about.what.title2": "ខ្ញុំធ្វើ",
+      "about.highlights.title1": "ចំណុច",
+      "about.highlights.title2": "ពិសេសរបស់ខ្ញុំ",
+      "about.tools.title1": "ឧបករណ៍ និង",
+      "about.tools.title2": "បច្ចេកវិទ្យារបស់ខ្ញុំ",
+      "about.values.title1": "គុណតម្លៃការងារ",
+      "about.values.title2": "របស់ខ្ញុំ",
+      "about.quick.role": "តួនាទី៖ និស្សិតបច្ចេកវិទ្យាព័ត៌មាន និងអ្នកអភិវឌ្ឍន៍វេបសាយ Full-Stack ដែលមានមហិច្ឆតា",
+      "about.quick.location": "ទីតាំង៖ ភ្នំពេញ កម្ពុជា",
+      "about.quick.study": "ការសិក្សា៖ និស្សិតបច្ចេកវិទ្យាព័ត៌មាន",
+      "about.quick.focus": "គោលដៅ៖ ការអភិវឌ្ឍន៍វេបសាយទាន់សម័យ និងគុណភាព UI",
+      "about.values.item1": "កូដស្អាត និងការរៀបចំមានលក្ខណៈជាប្រព័ន្ធ",
+      "about.values.item2": "ការរចនាងាយស្រួលប្រើ និងគិតគូរពីភាពងាយស្រួលចូលប្រើ",
+      "about.values.item3": "កិច្ចសហការ និងការទំនាក់ទំនងច្បាស់លាស់",
+      "about.values.item4": "ការទទួលខុសត្រូវលើការបញ្ជូនការងារ និងគុណភាព",
+      "about.values.item5": "គំនិតរីកចម្រើនតាមរយៈការសិក្សាឥតឈប់ឈរ",
+      "about.cta.viewProjects": "មើលគម្រោងរបស់ខ្ញុំ",
+      "about.cta.contactMe": "ទាក់ទងខ្ញុំ",
+      "projects.title1": "គម្រោង",
+      "projects.title2": "របស់ខ្ញុំ",
+      "blog.title1": "ប្លុករបស់ខ្ញុំ",
+      "blog.title2": "សម្រាប់អ្នកអភិវឌ្ឍន៍",
+      "edu.title1": "ការសិក្សា",
+      "edu.title2": "របស់ខ្ញុំ",
+      "edu.stats.title1": "ស្ថិតិ",
+      "edu.stats.title2": "សិក្សា",
+      "edu.timeline.title1": "កាលវិភាគ",
+      "edu.timeline.title2": "ការសិក្សា",
+      "exp.title1": "បទពិសោធន៍",
+      "exp.title2": "របស់ខ្ញុំ",
+      "exp.careerFocus.title": "ទិសដៅអាជីព",
+      "exp.careerFocus.text": "បច្ចុប្បន្ន ខ្ញុំកំពុងកសាងបទពិសោធន៍វិជ្ជាជីវៈក្នុងផ្នែកប្រតិបត្តិការទិន្នន័យ ព្រមទាំងអភិវឌ្ឍជំនាញផ្នែកអភិវឌ្ឍន៍វេបសាយ Full-Stack បច្ចេកវិទ្យាវេបសាយទាន់សម័យ និងការអនុវត្តល្អបំផុតក្នុងវិស្វកម្មសូហ្វវែរ។",
+      "exp.coreStrengths.title": "ចំណុចខ្លាំង",
+      "exp.chip.responsive": "ការអភិវឌ្ឍន៍ UI ឆ្លើយតបល្អ",
+      "exp.chip.cleanCode": "រចនាសម្ព័ន្ធកូដស្អាត",
+      "exp.chip.component": "គិតបែបសមាសធាតុ (Component)",
+      "exp.chip.git": "លំហូរការងារ Git",
+      "exp.openTo.title": "បើកចំហសម្រាប់",
+      "contact.title1": "ទាក់ទង",
+      "contact.title2": "មកខ្ញុំ"
     }
   };
 
@@ -394,45 +514,70 @@
     "View Source Code": "មើលកូដដើម",
     "Live Demo": "មើល Demo",
     "Built with HTML, CSS & JavaScript": "បង្កើតដោយ HTML, CSS និង JavaScript",
-    "Pich Chanthorn. All rights reserved.": "Pich Chanthorn។ រក្សាសិទ្ធិគ្រប់យ៉ាង។"
-  };
+    "Pich Chanthorn. All rights reserved.": "Pich Chanthorn។ រក្សាសិទ្ធិគ្រប់យ៉ាង។",
 
-  const AUTO_WORD_KM = {
-    home: "ទំព័រដើម",
-    about: "អំពី",
-    skills: "ជំនាញ",
-    projects: "គម្រោង",
-    certificates: "វិញ្ញាបនបត្រ",
-    education: "ការអប់រំ",
-    experience: "បទពិសោធន៍",
-    contact: "ទំនាក់ទំនង",
-    project: "គម្រោង",
-    app: "កម្មវិធី",
-    platform: "វេទិកា",
-    system: "ប្រព័ន្ធ",
-    management: "ការគ្រប់គ្រង",
-    portfolio: "ផតហ្វូលីយ៉ូ",
-    website: "គេហទំព័រ",
-    responsive: "ឆ្លើយតបល្អ",
-    design: "ការរចនា",
-    features: "មុខងារ",
-    achievements: "សមិទ្ធផល",
-    developer: "អ្នកអភិវឌ្ឍន៍",
-    frontend: "ខាងមុខ",
-    backend: "ខាងក្រោយ",
-    full: "ពេញលេញ",
-    stack: "ស្តេក",
-    view: "មើល",
-    download: "ទាញយក",
-    choose: "ជ្រើសរើស",
-    library: "បណ្ណាល័យ",
-    send: "ផ្ញើ",
-    message: "សារ",
-    email: "អ៊ីមែល",
-    phone: "ទូរស័ព្ទ",
-    location: "ទីតាំង",
-    language: "ភាសា",
-    year: "ឆ្នាំ"
+    "Information Technology Student | Aspiring Full-Stack Web Developer": "និស្សិត IT | អ្នកអភិវឌ្ឍន៍វេបសាយ Full-Stack ដែលមានមហិច្ឆតា",
+    "Information Technology Student & Aspiring Full-Stack Web Developer": "និស្សិតបច្ចេកវិទ្យាព័ត៌មាន និងអ្នកអភិវឌ្ឍន៍វេបសាយ Full-Stack ដែលមានមហិច្ឆតា",
+    "Building secure, modern, and user-focused web applications": "កសាងកម្មវិធីវេបសាយដែលមានសុវត្ថិភាព ទាន់សម័យ និងផ្តោតលើអ្នកប្រើប្រាស់",
+    "I design and build clean, responsive products for real-world use, from frontend interfaces to full-stack web systems with reliable architecture and maintainable code.": "ខ្ញុំរចនា និងបង្កើតផលិតផលដែលស្អាត ដំណើរការល្អលើគ្រប់ឧបករណ៍ សម្រាប់ការប្រើប្រាស់ជាក់ស្តែង ចាប់ពីផ្នែកខាងមុខ (Frontend) រហូតដល់ប្រព័ន្ធវេបសាយពេញលេញ (Full-Stack) ជាមួយរចនាសម្ព័ន្ធដែលអាចទុកចិត្តបាន និងកូដដែលងាយស្រួលថែទាំ។",
+    "I am currently seeking internship opportunities where I can contribute, keep learning fast, and deliver practical solutions for teams and users.": "បច្ចុប្បន្ន ខ្ញុំកំពុងស្វែងរកឱកាសចុះកម្មសិក្សា (Internship) ដែលខ្ញុំអាចចូលរួមចំណែក បន្តរៀនសូត្រឱ្យបានរហ័ស និងផ្តល់ដំណោះស្រាយជាក់ស្តែងសម្រាប់ក្រុមការងារ និងអ្នកប្រើប្រាស់។",
+    "Internship-ready portfolio": "ផតហ្វូលីយ៉ូដែលត្រៀមខ្លួនសម្រាប់ចុះកម្មសិក្សា",
+    "Let's Connect": "តោះទាក់ទងគ្នា",
+    "Open to internship and junior developer opportunities": "បើកចំហសម្រាប់ឱកាសចុះកម្មសិក្សា និងការងារអ្នកអភិវឌ្ឍន៍កម្រិតដំបូង",
+    "If you are hiring or looking for a reliable teammate for web development projects, I would be glad to connect.": "ប្រសិនបើអ្នកកំពុងជ្រើសរើសបុគ្គលិក ឬកំពុងស្វែងរកសមាជិកក្រុមការងារដែលអាចទុកចិត្តបានសម្រាប់គម្រោងអភិវឌ្ឍន៍វេបសាយ ខ្ញុំមានក្តីរីករាយក្នុងការទាក់ទង។",
+    "Email": "អ៊ីមែល",
+    "Location": "ទីតាំង",
+    "Portfolio": "ផតហ្វូលីយ៉ូ",
+
+    "Professional Profile": "ប្រវត្តិរូបវិជ្ជាជីវៈ",
+    "My journey in web development started with curiosity and quickly became a long-term goal. I enjoy turning ideas into clear, functional, and visually balanced websites that solve real user problems.": "ដំណើររបស់ខ្ញុំក្នុងការអភិវឌ្ឍន៍វេបសាយបានចាប់ផ្តើមចេញពីភាពចង់ដឹងចង់ឃើញ ហើយបានក្លាយជាគោលដៅរយៈពេលវែងយ៉ាងឆាប់រហ័ស។ ខ្ញុំចូលចិត្តបំប្លែងគំនិតឱ្យទៅជាគេហទំព័រច្បាស់លាស់ ដំណើរការបានល្អ និងមានតុល្យភាព ដែលដោះស្រាយបញ្ហាជាក់ស្តែងរបស់អ្នកប្រើប្រាស់។",
+    "As I continue my IT studies, I focus on strengthening both frontend quality and backend fundamentals. My goal is to grow into a professional developer who delivers reliable products for clients, teams, and organizations.": "ខណៈពេលបន្តការសិក្សា IT ខ្ញុំផ្តោតលើការពង្រឹងគុណភាពផ្នែកខាងមុខ (Frontend) និងមូលដ្ឋានគ្រឹះផ្នែកខាងក្រោយ (Backend)។ គោលដៅរបស់ខ្ញុំគឺរីកចម្រើនទៅជាអ្នកអភិវឌ្ឍន៍វិជ្ជាជីវៈ ដែលផ្តល់ផលិតផលអាចទុកចិត្តបានសម្រាប់អតិថិជន ក្រុមការងារ និងអង្គភាព។",
+    "Building practical digital solutions with thoughtful design and continuous improvement.": "កសាងដំណោះស្រាយឌីជីថលជាក់ស្តែង ជាមួយការរចនាដ៏ប្រុងប្រយ័ត្ន និងការកែលម្អជាបន្តបន្ទាប់។",
+    "Frontend Development": "ការអភិវឌ្ឍន៍ផ្នែកខាងមុខ (Frontend)",
+    "Creating clean and interactive interfaces with HTML, CSS, JavaScript, and modern component structure.": "បង្កើតចំណុចប្រទាក់ស្អាត និងអន្តរកម្មល្អដោយប្រើ HTML, CSS, JavaScript និងរចនាសម្ព័ន្ធសមាសធាតុទាន់សម័យ។",
+    "UI/UX Design": "ការរចនា UI/UX",
+    "Designing user-friendly layouts and visual flows in Figma before implementation.": "រចនាប្លង់ងាយស្រួលប្រើ និងលំហូរដែលមើលឃើញក្នុង Figma មុននឹងអនុវត្តជាក់ស្តែង។",
+    "Responsive Websites": "គេហទំព័រឆ្លើយតបល្អ",
+    "Building pages that look professional and perform well across desktop, tablet, and mobile devices.": "បង្កើតទំព័រដែលមើលទៅមានលក្ខណៈវិជ្ជាជីវៈ និងដំណើរការល្អលើកុំព្យូទ័រ ថេប្លេត និងទូរស័ព្ទ។",
+    "Backend & Database Basics": "មូលដ្ឋានគ្រឹះ Backend និងមូលដ្ឋានទិន្នន័យ",
+    "Developing PHP and MySQL features such as forms, CRUD logic, and secure data handling foundations.": "អភិវឌ្ឍមុខងារ PHP និង MySQL ដូចជាទម្រង់បំពេញ តក្កវិជ្ជា CRUD និងមូលដ្ឋានគ្រឹះនៃការគ្រប់គ្រងទិន្នន័យប្រកបដោយសុវត្ថិភាព។",
+    "IT Student": "និស្សិត IT",
+    "Aspiring Full-Stack Web Developer": "អ្នកអភិវឌ្ឍន៍វេបសាយ Full-Stack ដែលមានមហិច្ឆតា",
+    "Teamwork": "ការងារជាក្រុម",
+    "Problem Solving": "ការដោះស្រាយបញ្ហា",
+    "Continuous Learning": "ការសិក្សាឥតឈប់ឈរ",
+    "Project Building": "ការបង្កើតគម្រោង",
+    "Frontend": "ផ្នែកខាងមុខ",
+    "Backend & Database": "Backend និងមូលដ្ឋានទិន្នន័យ",
+    "Workflow & Design": "លំហូរការងារ និងការរចនា",
+    "Let's Work Together": "តោះធ្វើការជាមួយគ្នា",
+    "Interested in collaboration, freelance work, or project opportunities? Let’s connect.": "ចាប់អារម្មណ៍ចង់សហការ ធ្វើការងារឯករាជ្យ ឬឱកាសគម្រោង? តោះទាក់ទងគ្នា។",
+
+    "Here are the technologies, tools, and AI skills I use to build modern web applications.": "នេះជាបច្ចេកវិទ្យា ឧបករណ៍ និងជំនាញ AI ដែលខ្ញុំប្រើដើម្បីបង្កើតកម្មវិធីវេបសាយទាន់សម័យ។",
+
+    "A curated selection of practical web projects with production-focused implementation, responsive UX, and clean code practices for real-world use.": "នេះជាការជ្រើសរើសគម្រោងវេបសាយជាក់ស្តែង ដែលផ្តោតលើការអនុវត្តន៍ថ្នាក់ផលិតកម្ម បទពិសោធន៍អ្នកប្រើប្រាស់ល្អ (UX) និងការសរសេរកូដស្អាតសម្រាប់ការប្រើប្រាស់ជាក់ស្តែង។",
+
+    "View Certificate": "មើលវិញ្ញាបនបត្រ",
+
+    "Send a Message": "ផ្ញើសារមកខ្ញុំ",
+    "Ready to collaborate? Share your project, role, or internship details.": "ត្រៀមខ្លួនសហការហើយឬនៅ? ចែករំលែកព័ត៌មានអំពីគម្រោង តួនាទី ឬការចុះកម្មសិក្សារបស់អ្នក។",
+    "Your Name": "ឈ្មោះរបស់អ្នក",
+    "Email Address": "អាសយដ្ឋានអ៊ីមែល",
+    "Your Message": "សាររបស់អ្នក",
+    "Enter your full name": "បញ្ចូលឈ្មោះពេញរបស់អ្នក",
+    "Write your message...": "សរសេរសាររបស់អ្នក...",
+    "Send Message": "ផ្ញើសារ",
+    "PREFERRED CHANNELS": "ឆានែលដែលពេញចិត្ត",
+    "Open to internship and collaboration opportunities.": "បើកចំហសម្រាប់ការចុះកម្មសិក្សា និងឱកាសសហការ។",
+
+    "Overall GPA": "GPA សរុប",
+    "Current Year": "ឆ្នាំបច្ចុប្បន្ន",
+    "Credits Completed": "ក្រេឌីតបានបញ្ចប់",
+    "Semesters Done": "ឆមាសបានបញ្ចប់",
+    "A practice-oriented curriculum focused on web application development, database systems, computer networking, algorithms, and UI/UX fundamentals with continuous project-based learning.": "កម្មវិធីសិក្សាផ្តោតលើការអនុវត្តជាក់ស្តែង ក្នុងការអភិវឌ្ឍន៍កម្មវិធីវេបសាយ ប្រព័ន្ធមូលដ្ឋានទិន្នន័យ បណ្តាញកុំព្យូទ័រ អាល់ហ្គូរីត និងមូលដ្ឋានគ្រឹះ UI/UX ជាមួយការសិក្សាផ្អែកលើគម្រោងជាបន្តបន្ទាប់។",
+    "View Official Academic Results": "មើលលទ្ធផលសិក្សាផ្លូវការ",
+    "Academic Note": "កំណត់សម្គាល់សិក្សា",
+    "Two course results are currently pending official verification by Build Bright University. Results marked as \"Pending Verification\" are temporary placeholders and will be updated once the university officially releases the final grades.": "លទ្ធផលមុខវិជ្ជាចំនួនពីរបច្ចុប្បន្នកំពុងរង់ចាំការផ្ទៀងផ្ទាត់ជាផ្លូវការពីសាកលវិទ្យាល័យ Build Bright University។ លទ្ធផលដែលសម្គាល់ថា \"កំពុងរង់ចាំផ្ទៀងផ្ទាត់\" គឺជាតម្លៃបណ្តោះអាសន្ន ហើយនឹងត្រូវបានធ្វើបច្ចុប្បន្នភាពនៅពេលសាកលវិទ្យាល័យប្រកាសពិន្ទុចុងក្រោយជាផ្លូវការ។"
   };
 
   // Expose translations globally for other modules
@@ -484,12 +629,11 @@
   function inferKhmerTranslation(text) {
     const normalized = normalizeWhitespace(text);
     if (!normalized) return "";
-    if (AUTO_PHRASE_KM[normalized]) return AUTO_PHRASE_KM[normalized];
-
-    return normalized.replace(/\b([A-Za-z][A-Za-z/&-]*)\b/g, word => {
-      const translated = AUTO_WORD_KM[word.toLowerCase()];
-      return translated || word;
-    });
+    // Only ever return a full, hand-written Khmer phrase. Never do a
+    // word-by-word swap here — that produces mixed-language sentences.
+    // Anything without a real translation below stays in clean English
+    // until a proper Khmer phrase is added to AUTO_PHRASE_KM.
+    return AUTO_PHRASE_KM[normalized] || normalized;
   }
 
   function ensureTranslationEntry(key, englishValue) {
@@ -583,8 +727,9 @@
     }
 
     setI18nAttribute(document.querySelector(".hero-subtitle"), "home.welcome");
-    setI18nAttribute(document.querySelector(".hero-buttons .btn.primary"), "home.cta.projects");
-    setI18nAttribute(document.querySelector(".hero-buttons .btn.outline"), "home.cta.cv");
+    setI18nAttribute(document.querySelector(".hero-buttons .btn.primary span"), "home.cta.projects");
+    setI18nAttribute(document.querySelector(".hero-buttons .btn.outline span"), "home.cta.cv");
+    setI18nAttribute(document.querySelector(".hero-buttons .btn.ghost span"), "home.cta.contactMe");
 
     setI18nAttribute(document.querySelector(".contact-page .subtitle"), "contact.subtitle");
     const contactLabels = [...document.querySelectorAll(".contact-card .contact-label")];
