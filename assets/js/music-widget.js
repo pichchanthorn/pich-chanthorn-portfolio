@@ -30,18 +30,14 @@
     {
       title: "Coding Chillstep",
       artist: "Romansenyk",
-      src: BASE_PATH + "assets/audio/coding-chillstep.mp3",
-      cover: BASE_PATH + "assets/img/music-cover-1.jpg"
+      src: BASE_PATH + "assets/audio/coding-chillstep.mp3"
     },
     {
       title: "Shuangmian",
       artist: "Trangiahung159",
-      src: BASE_PATH + "assets/audio/shuangmian.mp3",
-      cover: BASE_PATH + "assets/img/music-cover-2.jpg"
+      src: BASE_PATH + "assets/audio/shuangmian.mp3"
     }
   ];
-
-  const MUSIC_FALLBACK_COVER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230f172a'/%3E%3Cstop offset='100%25' stop-color='%2306472d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='120' height='120' rx='22' fill='url(%23g)'/%3E%3Ccircle cx='60' cy='60' r='27' fill='none' stroke='%2386efac' stroke-width='4' opacity='0.85'/%3E%3Ccircle cx='60' cy='60' r='6' fill='%2386efac'/%3E%3C/svg%3E";
 
   function initializeMusicPlayer() {
     if (!MUSIC_PLAYLIST.length) return;
@@ -123,7 +119,9 @@
       widget.id = "musicWidget";
       widget.setAttribute("aria-label", "Music player");
       widget.innerHTML = `
-        <img id="musicWidgetCover" class="music-widget__cover" src="${MUSIC_FALLBACK_COVER}" alt="Current track cover" loading="lazy" />
+        <div id="musicWidgetCover" class="music-widget__cover" aria-hidden="true">
+          <i data-lucide="music-2"></i>
+        </div>
         <div class="music-widget__meta">
           <p id="musicWidgetTitle" class="music-widget__title">${MUSIC_PLAYLIST[0].title}</p>
           <p id="musicWidgetArtist" class="music-widget__artist">${MUSIC_PLAYLIST[0].artist}</p>
@@ -169,13 +167,12 @@
       lucide.createIcons();
     }
 
-    const coverElement = document.getElementById("musicWidgetCover");
     const titleElement = document.getElementById("musicWidgetTitle");
     const artistElement = document.getElementById("musicWidgetArtist");
     const playPauseButton = document.getElementById("musicWidgetPlayPause");
     const nextButton = document.getElementById("musicWidgetNext");
     const volumeInput = document.getElementById("musicWidgetVolume");
-    if (!coverElement || !titleElement || !artistElement || !playPauseButton || !nextButton || !volumeInput) return;
+    if (!titleElement || !artistElement || !playPauseButton || !nextButton || !volumeInput) return;
 
     let currentState = readStoredMusicState();
     let uiState = readUiState();
@@ -205,8 +202,6 @@
       const activeTrack = getTrack(currentState.trackIndex);
       titleElement.textContent = activeTrack.title;
       artistElement.textContent = activeTrack.artist;
-      coverElement.src = activeTrack.cover || MUSIC_FALLBACK_COVER;
-      coverElement.alt = `${activeTrack.title} cover`;
       volumeInput.value = String(currentState.volume);
       widget.classList.toggle("is-playing", currentState.isPlaying);
 
@@ -214,10 +209,6 @@
       playPauseButton.setAttribute("aria-label", label);
       playPauseButton.setAttribute("title", currentState.isPlaying ? "Pause" : "Play");
     };
-
-    coverElement.addEventListener("error", () => {
-      coverElement.src = MUSIC_FALLBACK_COVER;
-    });
 
     const postToHost = message => {
       if (!hostFrame?.contentWindow) return;
@@ -308,19 +299,34 @@
       sendCommand({ type: "SET_VOLUME", volume: nextState.volume });
     });
 
-    // Never autoplay on load; user must explicitly press play.
-    currentState = {
-      ...currentState,
-      isPlaying: false,
-      updatedAt: Date.now()
-    };
+    // Only force silence for a visitor who has never pressed play before —
+    // never autoplay audio unprompted. Once the user has opted in at least
+    // once, keep the music playing continuously across page navigation and
+    // only stop it when they explicitly click pause.
+    let hasInteractedBefore = false;
+    try {
+      hasInteractedBefore = localStorage.getItem(MUSIC_USER_INTERACTED_KEY) === "1";
+    } catch {
+      hasInteractedBefore = false;
+    }
+
+    if (!hasInteractedBefore) {
+      currentState = {
+        ...currentState,
+        isPlaying: false,
+        updatedAt: Date.now()
+      };
+    }
 
     setExpanded(uiState.expanded, false);
     renderState(currentState);
     requestHostState();
 
-    // Ensure host is paused by default on page load.
-    sendCommand({ type: "SYNC_STATE", state: currentState, resumeIfPlaying: false });
+    sendCommand({
+      type: "SYNC_STATE",
+      state: currentState,
+      resumeIfPlaying: hasInteractedBefore && currentState.isPlaying
+    });
   }
 
   // Expose initialization function
