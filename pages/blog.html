@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Blog | Pich Chanthorn</title>
+    <meta name="description" content="Technical write-ups by Pich Chanthorn covering Linux system administration, secure PHP web development, and Oracle database optimization from real coursework and hands-on practice." />
+    <meta name="keywords" content="Pich Chanthorn blog, Linux backup automation, SQL injection prevention PHP, Oracle query optimization, IT student technical blog" />
+    <meta name="author" content="Pich Chanthorn" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://pichchanthorn.me/pages/blog.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pich Chanthorn Portfolio" />
+    <meta property="og:title" content="Dev Blog | Pich Chanthorn" />
+    <meta property="og:description" content="Technical write-ups on Linux administration, secure PHP development, and Oracle database optimization." />
+    <meta property="og:url" content="https://pichchanthorn.me/pages/blog.html" />
+    <meta property="og:image" content="https://pichchanthorn.me/assets/img/profile/profile.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dev Blog | Pich Chanthorn" />
+    <meta name="twitter:description" content="Technical write-ups on Linux administration, secure PHP development, and Oracle database optimization." />
+    <meta name="twitter:image" content="https://pichchanthorn.me/assets/img/profile/profile.png" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Pich Chanthorn",
+            "url": "https://pichchanthorn.me/",
+            "image": "https://pichchanthorn.me/assets/img/profile/profile.png",
+            "jobTitle": "Information Technology Student & Aspiring Full-Stack Web Developer",
+            "sameAs": [
+                "https://github.com/pichchanthorn",
+                "https://www.linkedin.com/in/pichchanthorn/"
+            ],
+            "hasOccupation": [
+                { "@type": "Occupation", "name": "IT Student" },
+                { "@type": "Occupation", "name": "Founder" }
+            ]
+        }
+    </script>
+
+    <script>!function(){var t=localStorage.getItem("portfolio_theme")||"system";document.documentElement.setAttribute("data-theme",t)}();</script>
+</head>
+<body>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo-section">
+            <img
+                src="../assets/img/profile/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
+            <div class="logo-text">
+                <p class="logo-name">Pich Chanthorn</p>
+                <p class="role">Information Technology Student & Aspiring Full-Stack Web Developer</p>
+            </div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+            <a href="../index.html" class="nav-link">
+                <i data-lucide="house"></i><span>Home</span>
+            </a>
+            <a href="about.html" class="nav-link">
+                <i data-lucide="user"></i><span>About</span>
+            </a>
+            <a href="skills.html" class="nav-link">
+                <i data-lucide="code"></i><span>Skills</span>
+            </a>
+            <a href="projects.html" class="nav-link">
+                <i data-lucide="folder"></i><span>Projects</span>
+            </a>
+            <a href="blog.html" class="nav-link active">
+                <i data-lucide="newspaper"></i><span>Blog</span>
+            </a>
+            <a href="certificates.html" class="nav-link">
+                <i data-lucide="award"></i><span>Certificates</span>
+            </a>
+            <a href="education.html" class="nav-link">
+                <i data-lucide="graduation-cap"></i><span>Education</span>
+            </a>
+            <a href="experience.html" class="nav-link">
+                <i data-lucide="briefcase"></i><span>Experience</span>
+            </a>
+            <a href="contact.html" class="nav-link">
+                <i data-lucide="mail"></i><span>Contact</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            © <span id="currentYear"></span> Pich Chanthorn
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main" id="mainContent">
+        <div class="page-container blog-page">
+
+            <!-- HEADER -->
+            <section class="page-header reveal">
+                <h1 class="title">My <span class="highlight">Dev Blog</span></h1>
+                <p class="subtitle">
+                    Technical write-ups from coursework, hands-on labs, and independent practice —
+                    covering systems administration, secure web development, and database engineering.
+                </p>
+            </section>
+
+            <!-- BLOG GRID -->
+            <section class="blog-grid reveal" aria-label="Blog articles">
+
+                <!-- 1. Featured: Linux Backup Automation -->
+                <article class="blog-card featured" data-category="linux sysadmin">
+                    <div class="blog-card__body">
+                        <div class="blog-card__meta">
+                            <span class="blog-card__icon"><i data-lucide="server"></i></span>
+                            <span class="blog-card__tag">Linux / SysAdmin</span>
+                            <span class="blog-card__date"><i data-lucide="calendar"></i> Jul 18, 2026</span>
+                        </div>
+                        <h3 class="blog-card__title">Automating Backup and Recovery in Linux Environment</h3>
+                        <p class="blog-card__desc">
+                            A hands-on walkthrough of building automated backup and disaster-recovery pipelines on Linux
+                            using cron, rsync, and shell scripting — covering retention policies, integrity verification,
+                            and recovery drills for production-style reliability.
+                        </p>
+                        <span class="blog-card__readtime"><i data-lucide="clock"></i> 6 min read</span>
+                    </div>
+                </article>
+
+                <!-- 2. Securing Web Apps Against SQL Injection -->
+                <article class="blog-card" data-category="web-development">
+                    <div class="blog-card__body">
+                        <div class="blog-card__meta">
+                            <span class="blog-card__icon"><i data-lucide="shield-check"></i></span>
+                            <span class="blog-card__tag">Web Development</span>
+                            <span class="blog-card__date"><i data-lucide="calendar"></i> Jun 02, 2026</span>
+                        </div>
+                        <h3 class="blog-card__title">Securing Web Applications Against SQL Injection Using Advanced PHP</h3>
+                        <p class="blog-card__desc">
+                            Breaking down real SQL injection attack vectors and the advanced PHP defenses that stop them —
+                            parameterized queries, PDO prepared statements, input validation, and least-privilege database design.
+                        </p>
+                        <span class="blog-card__readtime"><i data-lucide="clock"></i> 8 min read</span>
+                    </div>
+                </article>
+
+                <!-- 3. Optimizing Oracle Queries and Schema -->
+                <article class="blog-card" data-category="database">
+                    <div class="blog-card__body">
+                        <div class="blog-card__meta">
+                            <span class="blog-card__icon"><i data-lucide="database"></i></span>
+                            <span class="blog-card__tag">Database</span>
+                            <span class="blog-card__date"><i data-lucide="calendar"></i> Apr 21, 2026</span>
+                        </div>
+                        <h3 class="blog-card__title">Optimizing Complex Queries and Database Schema in Oracle</h3>
+                        <p class="blog-card__desc">
+                            Practical techniques for tuning slow Oracle queries and refining schema design — indexing
+                            strategy, execution plan analysis, normalization trade-offs, and query rewriting for
+                            real-world performance gains.
+                        </p>
+                        <span class="blog-card__readtime"><i data-lucide="clock"></i> 7 min read</span>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                © <span id="currentYearFooter"></span> Pich Chanthorn. All rights reserved.
+                <p>Built with HTML, CSS &amp; JavaScript</p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/music-widget.js"></script>
+    <script src="../assets/js/contact-form.js"></script>
+    <script src="../assets/js/education.js"></script>
+    <script src="../assets/js/theme-switcher.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
    BASE.CSS — Reset, Root Variables, Typography, Global Styles
    ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap");
 
 /* =========================================================
    Design Tokens
@@ -20,8 +20,8 @@
     --clr-text-subtle: #94a3b8;
 
     /* Semantic text — accent-tinted (used on dark surfaces) */
-    --clr-accent-text: #bbf7d0;
-    --clr-accent-text-strong: #dcfce7;
+    --clr-accent-text: #ddd6fe;
+    --clr-accent-text-strong: #ede9fe;
     --clr-info-text: #dbeafe;
     --clr-info-text-alt: #93c5fd;
     --clr-secondary-text: #a5b4fc;
@@ -40,13 +40,13 @@
     --clr-input-bg-focus: rgba(15, 23, 42, 0.7);
     --clr-label-bg: linear-gradient(180deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.86));
 
-    /* Brand / accent — emerald */
-    --clr-accent: #24c8a5;
-    --clr-accent-strong: #149a7e;
-    --clr-accent-alt: #56dfbe;
-    --clr-accent-alt-hover: #47d8b4;
-    --clr-accent-deep: #022c22;
-    --clr-accent-line: #064e3b;
+    /* Brand / accent — indigo-violet */
+    --clr-accent: #7c5cff;
+    --clr-accent-strong: #5b3ff0;
+    --clr-accent-alt: #a78bfa;
+    --clr-accent-alt-hover: #9370f5;
+    --clr-accent-deep: #1b1330;
+    --clr-accent-line: #4c3a9e;
 
     /* Secondary accent — cyan */
     --clr-cyan: #06b6d4;
@@ -63,20 +63,20 @@
     --alpha-white-05: rgba(255, 255, 255, 0.05);
     --alpha-white-08: rgba(255, 255, 255, 0.08);
     --alpha-white-10: rgba(255, 255, 255, 0.1);
-    --alpha-accent-12: rgba(34, 197, 94, 0.12);
-    --alpha-accent-16: rgba(34, 197, 94, 0.16);
-    --alpha-accent-18: rgba(34, 197, 94, 0.18);
-    --alpha-accent-22: rgba(34, 197, 94, 0.22);
-    --alpha-accent-25: rgba(34, 197, 94, 0.25);
-    --alpha-accent-28: rgba(34, 197, 94, 0.28);
-    --alpha-accent-35: rgba(34, 197, 94, 0.35);
-    --alpha-accent-40: rgba(34, 197, 94, 0.4);
-    --alpha-accent-45: rgba(34, 197, 94, 0.45);
-    --alpha-accent-50: rgba(34, 197, 94, 0.5);
-    --alpha-accent-55: rgba(34, 197, 94, 0.55);
-    --alpha-accent-60: rgba(34, 197, 94, 0.6);
-    --alpha-accent-70: rgba(34, 197, 94, 0.7);
-    --alpha-accent-80: rgba(34, 197, 94, 0.8);
+    --alpha-accent-12: rgba(124, 92, 255, 0.12);
+    --alpha-accent-16: rgba(124, 92, 255, 0.16);
+    --alpha-accent-18: rgba(124, 92, 255, 0.18);
+    --alpha-accent-22: rgba(124, 92, 255, 0.22);
+    --alpha-accent-25: rgba(124, 92, 255, 0.25);
+    --alpha-accent-28: rgba(124, 92, 255, 0.28);
+    --alpha-accent-35: rgba(124, 92, 255, 0.35);
+    --alpha-accent-40: rgba(124, 92, 255, 0.4);
+    --alpha-accent-45: rgba(124, 92, 255, 0.45);
+    --alpha-accent-50: rgba(124, 92, 255, 0.5);
+    --alpha-accent-55: rgba(124, 92, 255, 0.55);
+    --alpha-accent-60: rgba(124, 92, 255, 0.6);
+    --alpha-accent-70: rgba(124, 92, 255, 0.7);
+    --alpha-accent-80: rgba(124, 92, 255, 0.8);
 
     /* Glass */
     --glass-bg: rgba(15, 23, 42, 0.5);
@@ -100,14 +100,14 @@
     --space-14: 40px;
 
     /* Radius */
-    --radius-xs: 6px;
-    --radius-sm: 10px;
-    --radius-md: 12px;
-    --radius-lg: 14px;
-    --radius-xl: 18px;
-    --radius-2xl: 20px;
-    --radius-3xl: 22px;
-    --radius-4xl: 24px;
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 8px;
+    --radius-2xl: 10px;
+    --radius-3xl: 10px;
+    --radius-4xl: 12px;
     --radius-pill: 999px;
 
     /* Layout */
@@ -115,24 +115,29 @@
     --max-content: 1100px;
     --max-wide: 1120px;
 
+    /* Typography */
+    --font-body: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
+    --font-display: "Sora", "Manrope", "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
     /* Motion / elevation */
     --motion-standard: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --motion-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     --motion-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.35);
-    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.04);
-    --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(34, 197, 94, 0.15);
-    --shadow-glow: 0 0 20px rgba(34, 197, 94, 0.15), 0 0 60px rgba(34, 197, 94, 0.05);
-    --shadow-glow-strong: 0 0 30px rgba(34, 197, 94, 0.25), 0 0 80px rgba(34, 197, 94, 0.08);
+    --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.3);
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    --shadow-card-hover: 0 4px 10px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(124, 92, 255, 0.18);
+    --shadow-glow: 0 0 0 1px rgba(124, 92, 255, 0.16);
+    --shadow-glow-strong: 0 0 0 1px rgba(124, 92, 255, 0.28);
 
     --menu-btn-bg: rgba(6, 12, 26, 0.92);
     --menu-btn-border: rgba(255, 255, 255, 0.28);
     --menu-btn-icon: #f8fafc;
-    --menu-btn-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    --menu-btn-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     --menu-btn-hover-bg: rgba(10, 17, 32, 0.98);
-    --menu-btn-hover-border: rgba(34, 197, 94, 0.5);
-    --menu-btn-hover-shadow: 0 10px 30px rgba(34, 197, 94, 0.25);
+    --menu-btn-hover-border: rgba(124, 92, 255, 0.5);
+    --menu-btn-hover-shadow: 0 2px 10px rgba(124, 92, 255, 0.2);
     --menu-btn-active-bg: rgba(15, 23, 42, 0.95);
 }
 
@@ -150,7 +155,7 @@
 body {
     background: var(--clr-bg);
     color: var(--clr-text);
-    font-family: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
+    font-family: var(--font-body);
     display: flex;
     line-height: 1.65;
     text-rendering: optimizeLegibility;
@@ -159,7 +164,7 @@ body {
 }
 
 ::selection {
-    background: rgba(34, 197, 94, 0.3);
+    background: rgba(124, 92, 255, 0.3);
     color: var(--clr-text-strong);
 }
 
@@ -213,7 +218,8 @@ a:focus-visible {
    Section titles
    ========================================================= */
 .title {
-    font-size: clamp(32px, 4vw, 44px);
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4vw, 48px);
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.15;
@@ -243,7 +249,7 @@ a:focus-visible {
    Typography — Language-specific
    ========================================================= */
 html[lang="en"] body {
-    font-family: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
+    font-family: var(--font-body);
 }
 
 html[lang="km"] body {
@@ -325,8 +331,22 @@ body,
 }
 
 .section-heading {
+    font-family: var(--font-display);
     font-size: 22px;
     font-weight: 700;
     margin: 25px 0 18px;
     letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   Eyebrow / label micro-text — monospace accent
+   ========================================================= */
+.hero-subtitle,
+.home-contact__eyebrow,
+.about-hero-eyebrow,
+.edu-hero-subtitle,
+.edu-stat-label,
+.experience-hero__eyebrow {
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
 }

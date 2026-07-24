@@ -25,6 +25,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://pichchanthorn.me/pages/blog.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pichchanthorn.me/pages/certificates.html</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
