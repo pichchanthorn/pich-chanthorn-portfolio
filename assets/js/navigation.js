@@ -45,6 +45,7 @@
       "home.cta.cv": "Download CV",
       "home.cta.contactMe": "Contact Me",
       "footer.built": "Built with HTML, CSS & JavaScript",
+      "footer.privacy": "Privacy Policy",
       "footer.rights": "Pich Chanthorn. All rights reserved.",
       "lang.label": "Language",
       "lang.en": "English",
@@ -262,7 +263,72 @@
       "exp.chip.git": "Git Workflow",
       "exp.openTo.title": "Open To",
       "contact.title1": "Get in",
-      "contact.title2": "Touch"
+      "contact.title2": "Touch",
+      "privacy.title1": "Privacy",
+      "privacy.title2": "Policy",
+      "privacy.subtitle": "This policy explains what information this portfolio website collects, how it is used, and the choices you have — written in plain language, with no hidden data practices.",
+      "privacy.updated": "Last updated: July 25, 2026",
+      "privacy.toc.title": "On this page",
+      "privacy.toc.aria": "Table of contents",
+      "privacy.toc.overview": "Overview",
+      "privacy.toc.collect": "Information We Collect",
+      "privacy.toc.cookies": "Cookies & Local Storage",
+      "privacy.toc.use": "How We Use Information",
+      "privacy.toc.thirdParty": "Third-Party Services",
+      "privacy.toc.sharing": "Data Sharing",
+      "privacy.toc.retention": "Data Retention",
+      "privacy.toc.rights": "Your Rights & Choices",
+      "privacy.toc.children": "Children's Privacy",
+      "privacy.toc.links": "External Links",
+      "privacy.toc.changes": "Changes to This Policy",
+      "privacy.toc.contact": "Contact",
+      "privacy.s1.title": "1. Overview",
+      "privacy.s1.body": "This Privacy Policy applies to <strong>pichchanthorn.me</strong> (the \"Site\"), a personal portfolio built and maintained by Pich Chanthorn to showcase projects, skills, and professional background. The Site is a static website with a contact form — it does not require account registration, does not process payments, and does not sell personal data. This policy describes the limited data the Site collects and why.",
+      "privacy.s2.title": "2. Information We Collect",
+      "privacy.s2.h3a": "Information you provide directly",
+      "privacy.s2.p1": "When you submit the <a href='contact.html'>Contact form</a>, the following fields are sent via EmailJS to the site owner's inbox:",
+      "privacy.s2.li1": "<strong>Name</strong> — so a reply can be addressed to you.",
+      "privacy.s2.li2": "<strong>Email address</strong> — so a reply can be sent back to you.",
+      "privacy.s2.li3": "<strong>Message content</strong> — whatever you choose to write.",
+      "privacy.s2.h3b": "Information collected automatically",
+      "privacy.s2.p2": "The Site uses <strong>Google Analytics</strong> to understand how visitors use the Site (e.g. which pages are viewed and how long a visit lasts). This may include:",
+      "privacy.s2.li4": "Pages visited and time spent on the Site",
+      "privacy.s2.li5": "Approximate location (derived from IP address, not precise GPS)",
+      "privacy.s2.li6": "Browser type, device type, and operating system",
+      "privacy.s2.li7": "Referring website or search terms that led you here",
+      "privacy.s2.p3": "This data is aggregated and anonymized by Google Analytics; it is not used to personally identify individual visitors.",
+      "privacy.s3.title": "3. Cookies & Local Storage",
+      "privacy.s3.p1": "Google Analytics sets first-party cookies (such as <code>_ga</code>) to distinguish unique visitors. You can block or delete these at any time through your browser settings.",
+      "privacy.s3.p2": "Separately, the Site uses your browser's <strong>local storage</strong> — not cookies — to remember two preferences on your device only: your selected color theme (<code>portfolio_theme</code>) and language (<code>portfolio_language</code>). This information never leaves your browser and is not sent to any server.",
+      "privacy.s4.title": "4. How We Use Information",
+      "privacy.s4.li1": "To respond to messages sent through the Contact form.",
+      "privacy.s4.li2": "To understand which content visitors find useful, and improve the Site accordingly.",
+      "privacy.s4.li3": "To remember your display preferences (theme and language) between visits.",
+      "privacy.s4.li4": "To maintain the security and proper functioning of the Site.",
+      "privacy.s4.p1": "Information is never used for advertising, profiling, or resold to third parties.",
+      "privacy.s5.title": "5. Third-Party Services",
+      "privacy.s5.p1": "The Site relies on the following third-party services, each governed by its own privacy policy:",
+      "privacy.s5.li1": "<strong>Google Analytics</strong> — visitor traffic and usage analytics.",
+      "privacy.s5.li2": "<strong>EmailJS</strong> — delivers Contact form submissions by email without a custom backend server.",
+      "privacy.s5.li3": "<strong>GitHub Pages</strong> — hosts and serves this static website.",
+      "privacy.s5.li4": "<strong>unpkg &amp; jsDelivr (CDNs)</strong> — deliver the Lucide icon library and EmailJS script files.",
+      "privacy.s5.p2": "These providers may log standard technical data (such as IP address) as part of delivering their service, independently of this Site.",
+      "privacy.s6.title": "6. Data Sharing & Disclosure",
+      "privacy.s6.p1": "No personal data is sold or rented. Information is shared only with the service providers listed above, solely to operate the Site, or where disclosure is required by law.",
+      "privacy.s7.title": "7. Data Retention",
+      "privacy.s7.p1": "Contact form messages are kept in the site owner's email inbox only for as long as needed to respond and maintain a record of correspondence. Analytics data is retained according to Google Analytics' default retention settings. Local storage preferences persist only until you clear your browser data.",
+      "privacy.s8.title": "8. Your Rights & Choices",
+      "privacy.s8.li1": "<strong>Opt out of analytics</strong> — use a browser extension such as the Google Analytics Opt-out Add-on, or enable Do Not Track / block third-party cookies in your browser.",
+      "privacy.s8.li2": "<strong>Clear local preferences</strong> — clear your browser's local storage/site data for pichchanthorn.me at any time.",
+      "privacy.s8.li3": "<strong>Access or delete your message</strong> — email the address below to request that a previous Contact form submission be deleted.",
+      "privacy.s9.title": "9. Children's Privacy",
+      "privacy.s9.p1": "The Site is a professional portfolio and is not directed at, or knowingly used to collect information from, children under 13.",
+      "privacy.s10.title": "10. External Links",
+      "privacy.s10.p1": "The Site links out to external platforms such as GitHub, LinkedIn, and Coursera. This Privacy Policy does not cover those third-party sites — please review their own privacy policies before sharing information with them.",
+      "privacy.s11.title": "11. Changes to This Policy",
+      "privacy.s11.p1": "This policy may be updated occasionally to reflect changes to the Site or applicable regulations. The \"Last updated\" date at the top of this page reflects the most recent revision.",
+      "privacy.s12.title": "12. Contact",
+      "privacy.s12.p1": "Questions about this Privacy Policy, or requests to access or delete your data, can be sent to <a href='mailto:pich_chanthorn@pp.bbu.edu.kh'>pich_chanthorn@pp.bbu.edu.kh</a>."
     },
     km: {
       "menu.toggle": "បើក/បិទ ម៉ឺនុយ",
@@ -282,6 +348,7 @@
       "home.cta.cv": "ទាញយក CV",
       "home.cta.contactMe": "ទាក់ទងខ្ញុំ",
       "footer.built": "បង្កើតដោយ HTML, CSS និង JavaScript",
+      "footer.privacy": "គោលការណ៍ឯកជនភាព",
       "footer.rights": "Pich Chanthorn។ រក្សាសិទ្ធិគ្រប់យ៉ាង។",
       "lang.label": "ភាសា",
       "lang.en": "អង់គ្លេស",
@@ -499,7 +566,72 @@
       "exp.chip.git": "លំហូរការងារ Git",
       "exp.openTo.title": "បើកចំហសម្រាប់",
       "contact.title1": "ទាក់ទង",
-      "contact.title2": "មកខ្ញុំ"
+      "contact.title2": "មកខ្ញុំ",
+      "privacy.title1": "គោលការណ៍",
+      "privacy.title2": "ឯកជនភាព",
+      "privacy.subtitle": "គោលការណ៍នេះពន្យល់ពីព័ត៌មានដែលវេបសាយ portfolio នេះប្រមូល របៀបប្រើប្រាស់វា និងជម្រើសដែលអ្នកមាន — សរសេរជាភាសាសាមញ្ញ ដោយគ្មានការប្រមូលទិន្នន័យលាក់កំបាំងឡើយ។",
+      "privacy.updated": "ធ្វើបច្ចុប្បន្នភាពចុងក្រោយ៖ 25 កក្កដា 2026",
+      "privacy.toc.title": "នៅក្នុងទំព័រនេះ",
+      "privacy.toc.aria": "តារាងមាតិកា",
+      "privacy.toc.overview": "ទិដ្ឋភាពទូទៅ",
+      "privacy.toc.collect": "ព័ត៌មានដែលយើងប្រមូល",
+      "privacy.toc.cookies": "Cookies និងការផ្ទុកក្នុងកម្មវិធីរុករក",
+      "privacy.toc.use": "របៀបយើងប្រើប្រាស់ព័ត៌មាន",
+      "privacy.toc.thirdParty": "សេវាកម្មភាគីទីបី",
+      "privacy.toc.sharing": "ការចែករំលែកទិន្នន័យ",
+      "privacy.toc.retention": "រយៈពេលរក្សាទុកទិន្នន័យ",
+      "privacy.toc.rights": "សិទ្ធិ និងជម្រើសរបស់អ្នក",
+      "privacy.toc.children": "ឯកជនភាពរបស់កុមារ",
+      "privacy.toc.links": "តំណភ្ជាប់ខាងក្រៅ",
+      "privacy.toc.changes": "ការកែប្រែគោលការណ៍នេះ",
+      "privacy.toc.contact": "ទំនាក់ទំនង",
+      "privacy.s1.title": "1. ទិដ្ឋភាពទូទៅ",
+      "privacy.s1.body": "គោលការណ៍ឯកជនភាពនេះអនុវត្តលើ <strong>pichchanthorn.me</strong> („វេបសាយ“) ដែលជា portfolio ផ្ទាល់ខ្លួន បង្កើត និងថែទាំដោយ Pich Chanthorn ដើម្បីបង្ហាញគម្រោង ជំនាញ និងប្រវត្តិវិជ្ជាជីវៈ។ វេបសាយនេះជាវេបសាយ static ដែលមានទម្រង់ទំនាក់ទំនង — វាមិនតម្រូវឲ្យបង្កើតគណនី មិនដំណើរការការទូទាត់ប្រាក់ និងមិនលក់ទិន្នន័យផ្ទាល់ខ្លួនឡើយ។ គោលការណ៍នេះពណ៌នាពីទិន្នន័យមានកម្រិតដែលវេបសាយប្រមូល និងមូលហេតុ។",
+      "privacy.s2.title": "2. ព័ត៌មានដែលយើងប្រមូល",
+      "privacy.s2.h3a": "ព័ត៌មានដែលអ្នកផ្តល់ដោយផ្ទាល់",
+      "privacy.s2.p1": "នៅពេលអ្នកផ្ញើ<a href='contact.html'>ទម្រង់ទំនាក់ទំនង</a> ព័ត៌មានខាងក្រោមនឹងត្រូវផ្ញើតាម EmailJS ទៅកាន់អ៊ីមែលរបស់ម្ចាស់វេបសាយ៖",
+      "privacy.s2.li1": "<strong>ឈ្មោះ</strong> — ដើម្បីអាចឆ្លើយតបទៅអ្នកបានត្រឹមត្រូវ។",
+      "privacy.s2.li2": "<strong>អាសយដ្ឋានអ៊ីមែល</strong> — ដើម្បីអាចផ្ញើការឆ្លើយតបត្រឡប់ទៅអ្នក។",
+      "privacy.s2.li3": "<strong>ខ្លឹមសារសារ</strong> — អ្វីដែលអ្នកជ្រើសរើសសរសេរ។",
+      "privacy.s2.h3b": "ព័ត៌មានដែលប្រមូលដោយស្វ័យប្រវត្តិ",
+      "privacy.s2.p2": "វេបសាយប្រើ <strong>Google Analytics</strong> ដើម្បីយល់ពីរបៀបដែលអ្នកចូលមើលប្រើប្រាស់វេបសាយ (ឧ. ទំព័រណាត្រូវបានមើល និងរយៈពេលនៃការចូលមើល)។ ព័ត៌មាននេះអាចរួមមាន៖",
+      "privacy.s2.li4": "ទំព័រដែលបានចូលមើល និងរយៈពេលនៅលើវេបសាយ",
+      "privacy.s2.li5": "ទីតាំងប្រហាក់ប្រហែល (ទទួលបានពីអាសយដ្ឋាន IP មិនមែន GPS ជាក់លាក់ទេ)",
+      "privacy.s2.li6": "ប្រភេទកម្មវិធីរុករក ប្រភេទឧបករណ៍ និងប្រព័ន្ធប្រតិបត្តិការ",
+      "privacy.s2.li7": "វេបសាយបញ្ជូនត ឬពាក្យស្វែងរកដែលនាំអ្នកមកទីនេះ",
+      "privacy.s2.p3": "ទិន្នន័យនេះត្រូវបានបូកសរុប និងលាក់អត្តសញ្ញាណដោយ Google Analytics។ វាមិនត្រូវបានប្រើដើម្បីកំណត់អត្តសញ្ញាណអ្នកចូលមើលម្នាក់ៗឡើយ។",
+      "privacy.s3.title": "3. Cookies និងការផ្ទុកក្នុងកម្មវិធីរុករក",
+      "privacy.s3.p1": "Google Analytics បញ្ចូល cookies ភាគីទីមួយ (ដូចជា <code>_ga</code>) ដើម្បីបែងចែកអ្នកចូលមើលផ្សេងៗគ្នា។ អ្នកអាចទប់ស្កាត់ ឬលុបវាបានគ្រប់ពេលតាមការកំណត់កម្មវិធីរុករករបស់អ្នក។",
+      "privacy.s3.p2": "ដោយឡែក វេបសាយប្រើ <strong>local storage</strong> របស់កម្មវិធីរុករក — មិនមែន cookies ទេ — ដើម្បីចងចាំការកំណត់ពីរនៅលើឧបករណ៍របស់អ្នកតែប៉ុណ្ណោះ៖ ពណ៌ផ្ទាំងដែលអ្នកជ្រើសរើស (<code>portfolio_theme</code>) និងភាសា (<code>portfolio_language</code>)។ ព័ត៌មាននេះមិនដែលចេញពីកម្មវិធីរុករករបស់អ្នក និងមិនត្រូវបានផ្ញើទៅ server ណាមួយឡើយ។",
+      "privacy.s4.title": "4. របៀបយើងប្រើប្រាស់ព័ត៌មាន",
+      "privacy.s4.li1": "ដើម្បីឆ្លើយតបសារដែលផ្ញើមកតាមទម្រង់ទំនាក់ទំនង។",
+      "privacy.s4.li2": "ដើម្បីយល់ថាខ្លឹមសារណាដែលអ្នកចូលមើលឃើញថាមានប្រយោជន៍ ហើយកែលម្អវេបសាយតាមនោះ។",
+      "privacy.s4.li3": "ដើម្បីចងចាំការកំណត់ការបង្ហាញរបស់អ្នក (ផ្ទាំង និងភាសា) រវាងការចូលមើលម្តងៗ។",
+      "privacy.s4.li4": "ដើម្បីរក្សាសុវត្ថិភាព និងដំណើរការត្រឹមត្រូវនៃវេបសាយ។",
+      "privacy.s4.p1": "ព័ត៌មានមិនដែលត្រូវបានប្រើសម្រាប់ការផ្សាយពាណិជ្ជកម្ម ការវិភាគប្រវត្តិរូប ឬលក់បន្តទៅភាគីទីបីឡើយ។",
+      "privacy.s5.title": "5. សេវាកម្មភាគីទីបី",
+      "privacy.s5.p1": "វេបសាយពឹងផ្អែកលើសេវាកម្មភាគីទីបីខាងក្រោម ដែលនីមួយៗគ្រប់គ្រងដោយគោលការណ៍ឯកជនភាពរបស់ខ្លួន៖",
+      "privacy.s5.li1": "<strong>Google Analytics</strong> — វិភាគចរាចរណ៍ និងការប្រើប្រាស់របស់អ្នកចូលមើល។",
+      "privacy.s5.li2": "<strong>EmailJS</strong> — បញ្ជូនទម្រង់ទំនាក់ទំនងតាមអ៊ីមែល ដោយមិនត្រូវការ server backend ដោយឡែក។",
+      "privacy.s5.li3": "<strong>GitHub Pages</strong> — ផ្ទុក និងបម្រើវេបសាយ static នេះ។",
+      "privacy.s5.li4": "<strong>unpkg និង jsDelivr (CDNs)</strong> — បញ្ជូនបណ្ណាល័យរូបតំណាង Lucide និងឯកសារ script EmailJS។",
+      "privacy.s5.p2": "អ្នកផ្តល់សេវាទាំងនេះអាចកត់ត្រាទិន្នន័យបច្ចេកទេសស្តង់ដារ (ដូចជាអាសយដ្ឋាន IP) ជាផ្នែកនៃការផ្តល់សេវារបស់ពួកគេ ដោយឯករាជ្យពីវេបសាយនេះ។",
+      "privacy.s6.title": "6. ការចែករំលែក និងការបញ្ចេញទិន្នន័យ",
+      "privacy.s6.p1": "គ្មានទិន្នន័យផ្ទាល់ខ្លួនត្រូវបានលក់ ឬជួលឡើយ។ ព័ត៌មានត្រូវបានចែករំលែកតែជាមួយអ្នកផ្តល់សេវាដែលបានរាយខាងលើ ក្នុងគោលបំណងដំណើរការវេបសាយតែប៉ុណ្ណោះ ឬក្នុងករណីដែលច្បាប់តម្រូវឲ្យបញ្ចេញ។",
+      "privacy.s7.title": "7. រយៈពេលរក្សាទុកទិន្នន័យ",
+      "privacy.s7.p1": "សារពីទម្រង់ទំនាក់ទំនងត្រូវរក្សាទុកក្នុងអ៊ីមែលរបស់ម្ចាស់វេបសាយ តែក្នុងរយៈពេលដែលចាំបាច់សម្រាប់ការឆ្លើយតប និងរក្សាកំណត់ត្រាការទំនាក់ទំនង។ ទិន្នន័យវិភាគត្រូវរក្សាទុកតាមការកំណត់លំនាំដើមរបស់ Google Analytics។ ការកំណត់ក្នុង local storage នៅរហូតដល់អ្នកលុបទិន្នន័យកម្មវិធីរុករករបស់អ្នក។",
+      "privacy.s8.title": "8. សិទ្ធិ និងជម្រើសរបស់អ្នក",
+      "privacy.s8.li1": "<strong>ដកខ្លួនចេញពីការវិភាគ</strong> — ប្រើ extension កម្មវិធីរុករកដូចជា Google Analytics Opt-out Add-on ឬបើក Do Not Track / ទប់ស្កាត់ cookies ភាគីទីបីក្នុងកម្មវិធីរុករករបស់អ្នក។",
+      "privacy.s8.li2": "<strong>លុបការកំណត់ក្នុងឧបករណ៍</strong> — លុប local storage ឬទិន្នន័យវេបសាយសម្រាប់ pichchanthorn.me បានគ្រប់ពេល។",
+      "privacy.s8.li3": "<strong>ចូលមើល ឬលុបសាររបស់អ្នក</strong> — ផ្ញើអ៊ីមែលទៅអាសយដ្ឋានខាងក្រោម ដើម្បីស្នើសុំលុបសារដែលបានផ្ញើមុននេះ។",
+      "privacy.s9.title": "9. ឯកជនភាពរបស់កុមារ",
+      "privacy.s9.p1": "វេបសាយនេះជា portfolio វិជ្ជាជីវៈ ហើយមិនផ្តោតលើ ឬប្រើប្រាស់ដោយដឹងខ្លួនដើម្បីប្រមូលព័ត៌មានពីកុមារអាយុក្រោម 13 ឆ្នាំឡើយ។",
+      "privacy.s10.title": "10. តំណភ្ជាប់ខាងក្រៅ",
+      "privacy.s10.p1": "វេបសាយមានតំណភ្ជាប់ទៅវេទិកាខាងក្រៅដូចជា GitHub, LinkedIn និង Coursera។ គោលការណ៍ឯកជនភាពនេះមិនរាប់បញ្ចូលវេបសាយភាគីទីបីទាំងនោះទេ — សូមពិនិត្យគោលការណ៍ឯកជនភាពរបស់ពួកគេមុនពេលចែករំលែកព័ត៌មានជាមួយពួកគេ។",
+      "privacy.s11.title": "11. ការកែប្រែគោលការណ៍នេះ",
+      "privacy.s11.p1": "គោលការណ៍នេះអាចត្រូវធ្វើបច្ចុប្បន្នភាពពីពេលមួយទៅពេលមួយ ដើម្បីឆ្លុះបញ្ចាំងការផ្លាស់ប្តូរវេបសាយ ឬបទប្បញ្ញត្តិដែលពាក់ព័ន្ធ។ កាលបរិច្ឆេទ „ធ្វើបច្ចុប្បន្នភាពចុងក្រោយ“ នៅខាងលើទំព័រនេះបង្ហាញការកែប្រែថ្មីបំផុត។",
+      "privacy.s12.title": "12. ទំនាក់ទំនង",
+      "privacy.s12.p1": "សំណួរអំពីគោលការណ៍ឯកជនភាពនេះ ឬការស្នើសុំចូលមើល ឬលុបទិន្នន័យរបស់អ្នក អាចផ្ញើមកកាន់ <a href='mailto:pich_chanthorn@pp.bbu.edu.kh'>pich_chanthorn@pp.bbu.edu.kh</a>។"
     }
   };
 
@@ -655,7 +787,10 @@
 
   function bindAutoTextNodes() {
     document.querySelectorAll(AUTO_TEXT_SELECTOR).forEach(element => {
-      if (element.hasAttribute("data-i18n")) return;
+      if (element.hasAttribute("data-i18n") || element.hasAttribute("data-i18n-html")) return;
+      // Mirrors the guard in translatePage: anything wrapping inline markup is
+      // handled by an explicit key, so auto-binding it would only add dead keys.
+      if (element.children.length > 0) return;
 
       const text = normalizeWhitespace(element.textContent);
       if (!text) return;
@@ -786,8 +921,36 @@
       if (text.includes("Back to Home")) setI18nAttribute(link, "cv.backHome");
     });
 
+    // The footer line ends in a link on every page, so the label text and the
+    // link are tagged separately — tagging the whole <p> would mean translating
+    // it wipes out the link.
     document.querySelectorAll(".site-footer p").forEach(element => {
-      setI18nAttribute(element, "footer.built");
+      const link = element.querySelector("a");
+      if (!link) {
+        setI18nAttribute(element, "footer.built");
+        return;
+      }
+
+      setI18nAttribute(link, "footer.privacy");
+
+      const leading = element.firstChild;
+      if (!leading || leading.nodeType !== Node.TEXT_NODE) return;
+
+      const separatorIndex = leading.textContent.indexOf("·");
+      const rawLabel = separatorIndex >= 0
+        ? leading.textContent.slice(0, separatorIndex)
+        : leading.textContent;
+      const label = normalizeWhitespace(rawLabel);
+      if (!label) return;
+
+      const labelSpan = document.createElement("span");
+      labelSpan.textContent = label;
+      setI18nAttribute(labelSpan, "footer.built");
+
+      leading.textContent = separatorIndex >= 0
+        ? " " + leading.textContent.slice(separatorIndex)
+        : "";
+      element.insertBefore(labelSpan, leading);
     });
   }
 
@@ -816,9 +979,23 @@
     document.querySelectorAll("[data-i18n]").forEach(element => {
       const key = element.getAttribute("data-i18n");
       if (!key) return;
+      // Elements with child elements (links, icons, etc.) are skipped —
+      // overwriting textContent would silently delete that nested markup.
+      if (element.children.length > 0) return;
       const translated = dictionary[key];
       if (!translated) return;
       if (element.textContent !== translated) element.textContent = translated;
+    });
+
+    // Opt-in variant for copy that must keep inline markup (links, <strong>,
+    // <code>). Values come only from the hardcoded TRANSLATIONS above — never
+    // from user input — so assigning innerHTML here carries no injection risk.
+    document.querySelectorAll("[data-i18n-html]").forEach(element => {
+      const key = element.getAttribute("data-i18n-html");
+      if (!key) return;
+      const translated = dictionary[key];
+      if (!translated) return;
+      if (element.innerHTML !== translated) element.innerHTML = translated;
     });
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
