@@ -305,18 +305,39 @@
   }
 
   function initializeWelcomeScreen() {
-    const welcomeScreen = document.getElementById("welcomeScreen");
-    if (!welcomeScreen) return;
-    // The inline head script (index.html) is the single source of truth for
-    // "should this run" — it already checked sessionStorage before first
-    // paint. If that attribute isn't set, there is nothing to wire up.
+    // The inline head script (present on every page) is the single source of
+    // truth for "should this load show the intro" — it already inspected
+    // performance.getEntriesByType("navigation") and document.referrer before
+    // first paint. If that attribute isn't set, there is nothing to do: no
+    // element is created, so a page with JS disabled never sees any trace of
+    // this feature.
     if (document.documentElement.getAttribute("data-welcome") !== "pending") return;
 
-    const skipButton = document.getElementById("welcomeSkip");
-    // The CSS reveal rule already overrides the `hidden` attribute visually,
-    // but clearing it too keeps the DOM property and accessibility state
-    // consistent with what's on screen.
-    welcomeScreen.hidden = false;
+    // Built here instead of living as a markup block in every HTML file, so
+    // the one welcome component is defined in a single place.
+    const welcomeScreen = document.createElement("div");
+    welcomeScreen.className = "welcome-screen";
+    welcomeScreen.id = "welcomeScreen";
+    welcomeScreen.setAttribute("role", "dialog");
+    welcomeScreen.setAttribute("aria-modal", "true");
+    welcomeScreen.setAttribute(
+      "aria-label",
+      "Welcome — Pich Chanthorn, Information Technology Student and Aspiring Full-Stack Web Developer"
+    );
+    welcomeScreen.innerHTML =
+      '<div class="welcome-screen__content" aria-hidden="true">' +
+        '<p class="welcome-screen__line welcome-screen__name">Pich <span class="highlight">Chanthorn</span></p>' +
+        '<p class="welcome-screen__line welcome-screen__greeting">Welcome to my portfolio</p>' +
+        '<p class="welcome-screen__line welcome-screen__role">Information Technology Student &amp; Aspiring Full-Stack Web Developer</p>' +
+      "</div>" +
+      '<button type="button" class="btn ghost welcome-screen__skip" id="welcomeSkip">Skip</button>';
+
+    // position:fixed + the CSS layer's z-index means DOM position doesn't
+    // affect stacking, so appending is enough — no need to reorder existing
+    // body children.
+    document.body.appendChild(welcomeScreen);
+
+    const skipButton = welcomeScreen.querySelector("#welcomeSkip");
     document.body.classList.add("welcome-open");
 
     let finished = false;
@@ -325,7 +346,7 @@
       finished = true;
       document.body.classList.remove("welcome-open");
       document.documentElement.removeAttribute("data-welcome");
-      welcomeScreen.hidden = true;
+      welcomeScreen.remove();
     }
 
     // Normal path: the CSS animation (full or reduced-motion variant) ends.
@@ -337,7 +358,7 @@
     // overlay still self-clears instead of blocking the page indefinitely.
     setTimeout(finish, 2200);
 
-    skipButton?.addEventListener("click", finish);
+    skipButton.addEventListener("click", finish);
 
     document.addEventListener("keydown", function onKeydown(event) {
       if (event.key !== "Escape") return;
@@ -345,7 +366,7 @@
       document.removeEventListener("keydown", onKeydown);
     });
 
-    skipButton?.focus({ preventScroll: true });
+    skipButton.focus({ preventScroll: true });
   }
 
   function initializeYears() {

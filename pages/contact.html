@@ -51,6 +51,14 @@
     </script>
 
     <script>!function(){var t=localStorage.getItem("portfolio_theme")||"system";document.documentElement.setAttribute("data-theme",t)}();</script>
+    <!-- Decide, before first paint, whether the welcome intro should run on
+         THIS load. A direct/first entry (no same-site referrer) or a manual
+         reload (F5 / Ctrl+R / refresh button) shows it; clicking an internal
+         link does not, since the Navigation Timing API reports that as
+         type "navigate" with a same-origin document.referrer. Fails silently
+         if the API is unavailable. The welcome markup itself is injected by
+         assets/js/main.js so it doesn't need to be duplicated in every page. -->
+    <script>!function(){try{var n=performance.getEntriesByType?performance.getEntriesByType("navigation"):[];var t=n.length?n[0].type:"navigate";var r=document.referrer&&new URL(document.referrer).origin===location.origin;if(t==="reload"||(t==="navigate"&&!r)){document.documentElement.setAttribute("data-welcome","pending")}}catch(e){}}();</script>
 </head>
 <body>
 
