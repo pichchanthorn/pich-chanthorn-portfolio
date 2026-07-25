@@ -304,6 +304,50 @@
     });
   }
 
+  function initializeWelcomeScreen() {
+    const welcomeScreen = document.getElementById("welcomeScreen");
+    if (!welcomeScreen) return;
+    // The inline head script (index.html) is the single source of truth for
+    // "should this run" — it already checked sessionStorage before first
+    // paint. If that attribute isn't set, there is nothing to wire up.
+    if (document.documentElement.getAttribute("data-welcome") !== "pending") return;
+
+    const skipButton = document.getElementById("welcomeSkip");
+    // The CSS reveal rule already overrides the `hidden` attribute visually,
+    // but clearing it too keeps the DOM property and accessibility state
+    // consistent with what's on screen.
+    welcomeScreen.hidden = false;
+    document.body.classList.add("welcome-open");
+
+    let finished = false;
+    function finish() {
+      if (finished) return;
+      finished = true;
+      document.body.classList.remove("welcome-open");
+      document.documentElement.removeAttribute("data-welcome");
+      welcomeScreen.hidden = true;
+    }
+
+    // Normal path: the CSS animation (full or reduced-motion variant) ends.
+    welcomeScreen.addEventListener("animationend", event => {
+      if (event.target === welcomeScreen) finish();
+    });
+
+    // Safety net: if the animation is ever blocked or never fires, the
+    // overlay still self-clears instead of blocking the page indefinitely.
+    setTimeout(finish, 2200);
+
+    skipButton?.addEventListener("click", finish);
+
+    document.addEventListener("keydown", function onKeydown(event) {
+      if (event.key !== "Escape") return;
+      finish();
+      document.removeEventListener("keydown", onKeydown);
+    });
+
+    skipButton?.focus({ preventScroll: true });
+  }
+
   function initializeYears() {
     const year = String(new Date().getFullYear());
     ["currentYear", "currentYearFooter", "sidebarYear"].forEach(id => {
@@ -327,6 +371,9 @@
     // Navigation & i18n (navigation.js)
     window.__navigation?.initializeMobileMenu(dom);
     window.__navigation?.initializeLanguage(dom);
+
+    // Welcome intro (home page only)
+    initializeWelcomeScreen();
 
     // Shared animations & counters
     initializeScrollReveal();

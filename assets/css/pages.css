@@ -400,6 +400,125 @@
 }
 
 /* =========================================================
+   Welcome Intro (home page only, see assets/js/main.js)
+   ========================================================= */
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-9);
+    padding: var(--space-9);
+    text-align: center;
+    background: radial-gradient(circle at 50% 32%, var(--clr-bg-soft), var(--clr-bg) 72%);
+}
+
+html[data-welcome="pending"] .welcome-screen {
+    display: flex;
+    animation: welcomeOverlay 1.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.welcome-screen__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+    max-width: 640px;
+}
+
+.welcome-screen__line {
+    margin: 0;
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+html[data-welcome="pending"] .welcome-screen__name {
+    animation: welcomeLineIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+html[data-welcome="pending"] .welcome-screen__greeting {
+    animation: welcomeLineIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+html[data-welcome="pending"] .welcome-screen__role {
+    animation: welcomeLineIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+.welcome-screen__name {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--clr-text-strong);
+}
+
+.welcome-screen__greeting {
+    font-size: clamp(15px, 2.4vw, 19px);
+    font-weight: 500;
+    color: var(--clr-accent-text);
+}
+
+.welcome-screen__role {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clr-text-subtle);
+}
+
+.welcome-screen__skip {
+    position: absolute;
+    top: var(--space-9);
+    right: var(--space-9);
+}
+
+@keyframes welcomeOverlay {
+    0% { opacity: 0; }
+    6% { opacity: 1; }
+    78% { opacity: 1; pointer-events: auto; }
+    100% { opacity: 0; pointer-events: none; visibility: hidden; }
+}
+
+@keyframes welcomeLineIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Shorter, motion-free variant — content appears and holds, no sliding text
+   and no easing curve, and the pointer-events/visibility cleanup at 100%
+   still applies so the overlay always self-clears even if JS never runs. */
+@media (prefers-reduced-motion: reduce) {
+    html[data-welcome="pending"] .welcome-screen {
+        animation: welcomeOverlayReduced 1s linear forwards;
+    }
+
+    html[data-welcome="pending"] .welcome-screen__name,
+    html[data-welcome="pending"] .welcome-screen__greeting,
+    html[data-welcome="pending"] .welcome-screen__role {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    @keyframes welcomeOverlayReduced {
+        0% { opacity: 0; }
+        15% { opacity: 1; }
+        80% { opacity: 1; pointer-events: auto; }
+        100% { opacity: 0; pointer-events: none; visibility: hidden; }
+    }
+}
+
+body.welcome-open {
+    overflow: hidden;
+}
+
+/* =========================================================
    About Page
    ========================================================= */
 .about-page {

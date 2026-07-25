@@ -86,8 +86,23 @@
     </script>
 
     <script>!function(){var t=localStorage.getItem("portfolio_theme")||"system";document.documentElement.setAttribute("data-theme",t)}();</script>
+    <!-- Decide, before first paint, whether the welcome intro should run this
+         session. Marking the flag immediately (not after the animation ends)
+         guarantees it fires at most once per session even if the page is
+         left mid-animation. Fails silently if storage is unavailable. -->
+    <script>!function(){try{if(!sessionStorage.getItem("portfolio_welcome_seen")){sessionStorage.setItem("portfolio_welcome_seen","1");document.documentElement.setAttribute("data-welcome","pending")}}catch(e){}}();</script>
 </head>
 <body>
+
+<!-- WELCOME INTRO (home page only, shown once per browser session) -->
+<div class="welcome-screen" id="welcomeScreen" hidden role="dialog" aria-modal="true" aria-label="Welcome — Pich Chanthorn, Information Technology Student and Aspiring Full-Stack Web Developer">
+    <div class="welcome-screen__content" aria-hidden="true">
+        <p class="welcome-screen__line welcome-screen__name">Pich <span class="highlight">Chanthorn</span></p>
+        <p class="welcome-screen__line welcome-screen__greeting">Welcome to my portfolio</p>
+        <p class="welcome-screen__line welcome-screen__role">Information Technology Student &amp; Aspiring Full-Stack Web Developer</p>
+    </div>
+    <button type="button" class="btn ghost welcome-screen__skip" id="welcomeSkip">Skip</button>
+</div>
 
 <!-- MOBILE MENU BUTTON -->
 <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
