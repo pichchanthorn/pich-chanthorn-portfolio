@@ -251,6 +251,59 @@
     applyFilter((defaultButton?.dataset.filter || "all").toLowerCase());
   }
 
+  function initializeCertificateLightbox() {
+    const thumbs = document.querySelectorAll(".cert-page .cert-thumb");
+    const lightbox = document.getElementById("certLightbox");
+    if (!thumbs.length || !lightbox) return;
+
+    const lightboxImg = document.getElementById("certLightboxImg");
+    const lightboxCaption = document.getElementById("certLightboxCaption");
+    const closeBtn = document.getElementById("certLightboxClose");
+    let lastFocused = null;
+
+    const openLightbox = thumb => {
+      const img = thumb.querySelector("img");
+      if (!img) return;
+      lastFocused = document.activeElement;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = img.alt;
+      lightbox.hidden = false;
+      document.body.classList.add("cert-lightbox-open");
+      closeBtn.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.hidden = true;
+      lightboxImg.src = "";
+      document.body.classList.remove("cert-lightbox-open");
+      lastFocused?.focus();
+    };
+
+    thumbs.forEach(thumb => {
+      thumb.setAttribute("role", "button");
+      thumb.setAttribute("tabindex", "0");
+      const title = thumb.closest(".cert-card")?.querySelector(".cert-title")?.textContent?.trim();
+      thumb.setAttribute("aria-label", title ? `View larger image of ${title}` : "View larger certificate image");
+
+      thumb.addEventListener("click", () => openLightbox(thumb));
+      thumb.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(thumb);
+        }
+      });
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
+    });
+  }
+
   function initializeYears() {
     const year = String(new Date().getFullYear());
     ["currentYear", "currentYearFooter", "sidebarYear"].forEach(id => {
@@ -282,6 +335,7 @@
     initializeSmoothScroll();
     initializeProjectFilters();
     initializeCertificateFilters();
+    initializeCertificateLightbox();
 
     // Music widget (music-widget.js)
     window.__musicWidget?.initializeMusicPlayer();

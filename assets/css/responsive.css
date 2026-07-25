@@ -501,14 +501,14 @@
     }
 
     .cert-page .cert-card {
-        grid-template-columns: 104px minmax(0, 1fr);
+        grid-template-columns: 140px minmax(0, 1fr);
         padding: 11px 12px;
         gap: 10px;
     }
 
     .cert-page .cert-thumb {
-        width: 104px;
-        height: 74px;
+        width: 140px;
+        height: 98px;
     }
 
     .cert-timeline-list {
@@ -535,13 +535,13 @@
     }
 
     .cert-page .cert-card {
-        grid-template-columns: 100px minmax(0, 1fr);
+        grid-template-columns: 116px minmax(0, 1fr);
         padding: 10px 12px;
     }
 
     .cert-page .cert-thumb {
-        width: 100px;
-        height: 70px;
+        width: 116px;
+        height: 82px;
     }
 
     .cert-page .cert-body {
