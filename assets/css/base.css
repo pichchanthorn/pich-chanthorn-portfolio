@@ -245,6 +245,18 @@ a:focus-visible {
     line-height: 1.7;
 }
 
+.site-footer .footer-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--motion-standard);
+}
+
+.site-footer .footer-link:hover,
+.site-footer .footer-link:focus-visible {
+    color: var(--clr-accent-text-strong);
+}
+
 /* =========================================================
    Typography — Language-specific
    ========================================================= */
