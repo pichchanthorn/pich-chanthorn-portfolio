@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Admin Dashboard | Pich Chanthorn</title>
+    <meta name="description" content="Project case study by Pich Chanthorn: Smart Admin Dashboard, a PHP and MySQL admin panel with role-based access control, CRUD modules, and secure authentication." />
+    <meta name="keywords" content="PHP admin dashboard, MySQL CRUD, role-based access control, PDO prepared statements, Pich Chanthorn portfolio" />
+    <meta name="author" content="Pich Chanthorn" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://pichchanthorn.me/pages/projects/smart-admin-dashboard.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Pich Chanthorn Portfolio" />
+    <meta property="og:title" content="Smart Admin Dashboard | Pich Chanthorn" />
+    <meta property="og:description" content="Project case study by Pich Chanthorn: Smart Admin Dashboard, a PHP and MySQL admin panel with role-based access control, CRUD modules, and secure authentication." />
+    <meta property="og:url" content="https://pichchanthorn.me/pages/projects/smart-admin-dashboard.html" />
+    <meta property="og:image" content="https://pichchanthorn.me/assets/img/projects/smart-admin-dashboard.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Smart Admin Dashboard | Pich Chanthorn" />
+    <meta name="twitter:description" content="Project case study by Pich Chanthorn: Smart Admin Dashboard, a PHP and MySQL admin panel with role-based access control, CRUD modules, and secure authentication." />
+    <meta name="twitter:image" content="https://pichchanthorn.me/assets/img/projects/smart-admin-dashboard.png" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Smart Admin Dashboard",
+            "url": "https://pichchanthorn.me/pages/projects/smart-admin-dashboard.html",
+            "image": "https://pichchanthorn.me/assets/img/projects/smart-admin-dashboard.png",
+            "description": "Project case study by Pich Chanthorn: Smart Admin Dashboard, a PHP and MySQL admin panel with role-based access control, CRUD modules, and secure authentication.",
+            "author": {
+                "@type": "Person",
+                "name": "Pich Chanthorn",
+                "url": "https://pichchanthorn.me/"
+            },
+            "isPartOf": {
+                "@type": "CollectionPage",
+                "name": "My Projects",
+                "url": "https://pichchanthorn.me/pages/projects.html"
+            }
+        }
+    </script>
+
+    <script>!function(){var t=localStorage.getItem("portfolio_theme")||"system";document.documentElement.setAttribute("data-theme",t)}();</script>
+    <!-- Decide, before first paint, whether the welcome intro should run on
+         THIS load. A direct/first entry (no same-site referrer) or a manual
+         reload (F5 / Ctrl+R / refresh button) shows it; clicking an internal
+         link does not, since the Navigation Timing API reports that as
+         type "navigate" with a same-origin document.referrer. Fails silently
+         if the API is unavailable. The welcome markup itself is injected by
+         assets/js/main.js so it doesn't need to be duplicated in every page. -->
+    <script>!function(){try{var n=performance.getEntriesByType?performance.getEntriesByType("navigation"):[];var t=n.length?n[0].type:"navigate";var r=document.referrer&&new URL(document.referrer).origin===location.origin;if(t==="reload"||(t==="navigate"&&!r)){document.documentElement.setAttribute("data-welcome","pending")}}catch(e){}}();</script>
+</head>
+<body>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo -->
+        <div class="logo-section">
+            <img
+                src="../../assets/img/profile/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
+            <div class="logo-text">
+                <p class="logo-name">Pich Chanthorn</p>
+                <p class="role">Information Technology Student & Aspiring Full-Stack Web Developer</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
+            <a href="../../index.html" class="nav-link">
+                <i data-lucide="house"></i><span>Home</span>
+            </a>
+            <a href="../about.html" class="nav-link">
+                <i data-lucide="user"></i><span>About</span>
+            </a>
+            <a href="../skills.html" class="nav-link">
+                <i data-lucide="code"></i><span>Skills</span>
+            </a>
+            <a href="../projects.html" class="nav-link active">
+                <i data-lucide="folder"></i><span>Projects</span>
+            </a>
+            <a href="../blog.html" class="nav-link">
+                <i data-lucide="newspaper"></i><span>Blog</span>
+            </a>
+            <a href="../certificates.html" class="nav-link">
+                <i data-lucide="award"></i><span>Certificates</span>
+            </a>
+            <a href="../education.html" class="nav-link">
+                <i data-lucide="graduation-cap"></i><span>Education</span>
+            </a>
+            <a href="../experience.html" class="nav-link">
+                <i data-lucide="briefcase"></i><span>Experience</span>
+            </a>
+            <a href="../contact.html" class="nav-link">
+                <i data-lucide="mail"></i><span>Contact</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            © 2025 Pich Chanthorn
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main" id="mainContent">
+        <div class="page-container project-detail-page">
+
+            <!-- BACK LINK -->
+            <a href="../projects.html" class="breadcrumb-link">
+                <i data-lucide="arrow-left"></i>
+                <span>Back to Projects</span>
+            </a>
+
+            <!-- PROJECT HEADER -->
+            <header class="project-detail-header">
+                <h1 class="project-detail-title">
+                    Smart Admin <span class="highlight">Dashboard</span>
+                </h1>
+                <p class="project-detail-subtitle">
+                    A PHP and MySQL admin panel with role-based access, CRUD modules, and secure authentication, built for a school assignment and presentation.
+                </p>
+
+                <div class="project-detail-meta">
+                    <div class="meta-item">
+                        <i data-lucide="layers"></i>
+                        <span>Full-stack · Dashboard</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="user-check"></i>
+                        <span>Full-Stack Developer</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- HERO IMAGE -->
+            <section class="project-hero">
+                <div class="project-hero-image">
+                    <img
+                        src="../../assets/img/projects/smart-admin-dashboard.png"
+                        alt="Smart Admin Dashboard admin panel preview with analytics and management modules"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+            </section>
+
+            <!-- PROJECT LAYOUT -->
+            <section class="project-detail-layout" id="about-project">
+
+                <!-- LEFT: MAIN CONTENT -->
+                <div class="project-detail-main">
+
+                    <!-- ABOUT -->
+                    <section class="project-section">
+                        <h2 class="section-title">
+                            About this <span class="highlight">Project</span>
+                        </h2>
+
+                        <p class="project-text">
+                            Smart Admin Dashboard is a native PHP and MySQL admin panel built for a school assignment and presentation. It demonstrates a clean role-based dashboard where administrators and regular users see different modules and permissions.
+                        </p>
+                        <p class="project-text">
+                            The admin role has full management access including the Users module and password resets, while the user role gets read-only access to Students and Products plus their own profile. Security is handled with hashed passwords, CSRF-protected forms, PDO prepared statements, and a session timeout that logs inactive users out.
+                        </p>
+                    </section>
+
+                    <!-- FEATURES -->
+                    <section class="project-section">
+                        <h3 class="section-title">
+                            <i data-lucide="layers" class="section-title-icon"></i>
+                            Key <span class="highlight">Features</span>
+                        </h3>
+
+                        <div class="feature-grid">
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Login and logout with session handling</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Separate admin and user dashboards</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Users CRUD, restricted to admin</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Students CRUD with search and pagination</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Products CRUD with search and pagination</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Profile management with avatar upload</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Password reset with hashed, expiring tokens</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Responsive UI built on Bootstrap 5</span></div>
+                        </div>
+                    </section>
+
+                    <!-- ACHIEVEMENTS -->
+                    <section class="project-section">
+                        <h3 class="section-title-sm">
+                            <i data-lucide="award"></i>
+                            Key <span class="highlight">Achievements</span>
+                        </h3>
+
+                        <div class="achievements-list">
+                            <div class="achievement-item">
+                                <span class="achievement-badge">1</span>
+                                <p>Implemented role-based access control so admin and user accounts see different modules and permissions.</p>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-badge">2</span>
+                                <p>Applied layered security: password_hash() / password_verify(), CSRF tokens, PDO prepared statements, and session timeout.</p>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-badge">3</span>
+                                <p>Built reusable CRUD modules with search and pagination across the Students and Products tables.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- RIGHT: SIDEBAR -->
+                <aside class="project-detail-sidebar">
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Tech Stack</h3>
+                        <div class="sidebar-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">PDO</span>
+                            <span class="tag">Bootstrap 5</span>
+                            <span class="tag">Bootstrap Icons</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Project Links</h3>
+                        <a href="https://github.com/pichchanthorn/smart-admin-dashboard" target="_blank" rel="noopener noreferrer" class="btn ghost full">
+                            <i data-lucide="github"></i>
+                            <span>View Source Code</span>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Other Projects</h3>
+                        <ul class="other-projects">
+                            <li>
+                                <span class="dot"></span>
+                                <a href="pctn-fertilizer-shop.html">PCTN Fertilizer Shop</a>
+                            </li>
+                            <li>
+                                <span class="dot"></span>
+                                <a href="youtube-telegram-bot.html">YouTube Downloader Telegram Bot</a>
+                            </li>
+                            <li>
+                                <span class="dot"></span>
+                                <a href="simple-user-manager.html">Simple User Manager (PHP & MySQL)</a>
+                            </li>
+                            <li>
+                                <span class="dot"></span>
+                                <a href="php-mini-contact.html">PHP Mini Contact Website</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </aside>
+            </section>
+
+            <!-- FOOTER -->
+             <footer class="site-footer">
+                © <span id="currentYear"></span> Pich Chanthorn. All rights reserved.
+                <p>Built with HTML, CSS &amp; JavaScript &middot; <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+    <script src="../../assets/js/navigation.js"></script>
+<script src="../../assets/js/music-widget.js"></script>
+<script src="../../assets/js/contact-form.js"></script>
+<script src="../../assets/js/education.js"></script>
+<script src="../../assets/js/theme-switcher.js"></script>
+<script src="../../assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

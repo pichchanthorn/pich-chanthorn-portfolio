@@ -1201,6 +1201,20 @@ body.welcome-open {
     color: #ffffff;
 }
 
+/* Internal link to the project's case-study page. Sits between the neutral
+   "Code" button and the solid "Demo" button in visual weight. */
+.project-btn-details {
+    background: var(--alpha-accent-12);
+    border: 1px solid var(--alpha-accent-50);
+    color: var(--clr-accent-text-strong);
+}
+
+.project-btn-details:hover {
+    background: rgba(124, 92, 255, 0.2);
+    border-color: rgba(124, 92, 255, 0.6);
+    color: var(--clr-text-strong);
+}
+
 .projects-page .project-card.is-hidden {
     display: none;
 }
@@ -1495,6 +1509,17 @@ html[data-theme="system"] .project-btn-demo {
     height: 6px;
     border-radius: var(--radius-pill);
     background: var(--clr-accent);
+    flex-shrink: 0;
+}
+
+.other-projects a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.other-projects a:hover {
+    color: var(--clr-accent-text-strong);
 }
 
 /* =========================================================

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple User Manager (PHP & MySQL) | Pich Chanthorn</title>
+    <meta name="description" content="Project case study by Pich Chanthorn: Simple User Manager, a lightweight PHP and MySQL CRUD system with CSRF protection, dark/light theme, and full Khmer UTF-8 support." />
+    <meta name="keywords" content="PHP CRUD, MySQL user management, CSRF protection, prepared statements, Pich Chanthorn portfolio" />
+    <meta name="author" content="Pich Chanthorn" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://pichchanthorn.me/pages/projects/simple-user-manager.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Pich Chanthorn Portfolio" />
+    <meta property="og:title" content="Simple User Manager (PHP & MySQL) | Pich Chanthorn" />
+    <meta property="og:description" content="Project case study by Pich Chanthorn: Simple User Manager, a lightweight PHP and MySQL CRUD system with CSRF protection, dark/light theme, and full Khmer UTF-8 support." />
+    <meta property="og:url" content="https://pichchanthorn.me/pages/projects/simple-user-manager.html" />
+    <meta property="og:image" content="https://pichchanthorn.me/assets/img/projects/simple-user-manager.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Simple User Manager (PHP & MySQL) | Pich Chanthorn" />
+    <meta name="twitter:description" content="Project case study by Pich Chanthorn: Simple User Manager, a lightweight PHP and MySQL CRUD system with CSRF protection, dark/light theme, and full Khmer UTF-8 support." />
+    <meta name="twitter:image" content="https://pichchanthorn.me/assets/img/projects/simple-user-manager.png" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Simple User Manager (PHP & MySQL)",
+            "url": "https://pichchanthorn.me/pages/projects/simple-user-manager.html",
+            "image": "https://pichchanthorn.me/assets/img/projects/simple-user-manager.png",
+            "description": "Project case study by Pich Chanthorn: Simple User Manager, a lightweight PHP and MySQL CRUD system with CSRF protection, dark/light theme, and full Khmer UTF-8 support.",
+            "author": {
+                "@type": "Person",
+                "name": "Pich Chanthorn",
+                "url": "https://pichchanthorn.me/"
+            },
+            "isPartOf": {
+                "@type": "CollectionPage",
+                "name": "My Projects",
+                "url": "https://pichchanthorn.me/pages/projects.html"
+            }
+        }
+    </script>
+
+    <script>!function(){var t=localStorage.getItem("portfolio_theme")||"system";document.documentElement.setAttribute("data-theme",t)}();</script>
+    <!-- Decide, before first paint, whether the welcome intro should run on
+         THIS load. A direct/first entry (no same-site referrer) or a manual
+         reload (F5 / Ctrl+R / refresh button) shows it; clicking an internal
+         link does not, since the Navigation Timing API reports that as
+         type "navigate" with a same-origin document.referrer. Fails silently
+         if the API is unavailable. The welcome markup itself is injected by
+         assets/js/main.js so it doesn't need to be duplicated in every page. -->
+    <script>!function(){try{var n=performance.getEntriesByType?performance.getEntriesByType("navigation"):[];var t=n.length?n[0].type:"navigate";var r=document.referrer&&new URL(document.referrer).origin===location.origin;if(t==="reload"||(t==="navigate"&&!r)){document.documentElement.setAttribute("data-welcome","pending")}}catch(e){}}();</script>
+</head>
+<body>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo -->
+        <div class="logo-section">
+            <img
+                src="../../assets/img/profile/profile.png"
+                class="logo-img"
+                alt="Profile picture of Pich Chanthorn"
+            />
+            <div class="logo-text">
+                <p class="logo-name">Pich Chanthorn</p>
+                <p class="role">Information Technology Student & Aspiring Full-Stack Web Developer</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
+            <a href="../../index.html" class="nav-link">
+                <i data-lucide="house"></i><span>Home</span>
+            </a>
+            <a href="../about.html" class="nav-link">
+                <i data-lucide="user"></i><span>About</span>
+            </a>
+            <a href="../skills.html" class="nav-link">
+                <i data-lucide="code"></i><span>Skills</span>
+            </a>
+            <a href="../projects.html" class="nav-link active">
+                <i data-lucide="folder"></i><span>Projects</span>
+            </a>
+            <a href="../blog.html" class="nav-link">
+                <i data-lucide="newspaper"></i><span>Blog</span>
+            </a>
+            <a href="../certificates.html" class="nav-link">
+                <i data-lucide="award"></i><span>Certificates</span>
+            </a>
+            <a href="../education.html" class="nav-link">
+                <i data-lucide="graduation-cap"></i><span>Education</span>
+            </a>
+            <a href="../experience.html" class="nav-link">
+                <i data-lucide="briefcase"></i><span>Experience</span>
+            </a>
+            <a href="../contact.html" class="nav-link">
+                <i data-lucide="mail"></i><span>Contact</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            © 2025 Pich Chanthorn
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main" id="mainContent">
+        <div class="page-container project-detail-page">
+
+            <!-- BACK LINK -->
+            <a href="../projects.html" class="breadcrumb-link">
+                <i data-lucide="arrow-left"></i>
+                <span>Back to Projects</span>
+            </a>
+
+            <!-- PROJECT HEADER -->
+            <header class="project-detail-header">
+                <h1 class="project-detail-title">
+                    Simple User <span class="highlight">Manager</span>
+                </h1>
+                <p class="project-detail-subtitle">
+                    A lightweight and secure CRUD user management system built with PHP and MySQL, featuring CSRF protection and dark/light theming.
+                </p>
+
+                <div class="project-detail-meta">
+                    <div class="meta-item">
+                        <i data-lucide="layers"></i>
+                        <span>Full-stack · Dashboard</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="user-check"></i>
+                        <span>Full-Stack Developer</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- HERO IMAGE -->
+            <section class="project-hero">
+                <div class="project-hero-image">
+                    <img
+                        src="../../assets/img/projects/simple-user-manager.png"
+                        alt="Simple User Manager dashboard preview"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+            </section>
+
+            <!-- PROJECT LAYOUT -->
+            <section class="project-detail-layout" id="about-project">
+
+                <!-- LEFT: MAIN CONTENT -->
+                <div class="project-detail-main">
+
+                    <!-- ABOUT -->
+                    <section class="project-section">
+                        <h2 class="section-title">
+                            About this <span class="highlight">Project</span>
+                        </h2>
+
+                        <p class="project-text">
+                            Simple User Manager is a lightweight CRUD system for managing user records, built with PHP and MySQL. It suits learning purposes, small internal tools, and portfolio demonstration.
+                        </p>
+                        <p class="project-text">
+                            The interface is clean and responsive with a dark/light theme toggle, while the backend relies on prepared statements and CSRF tokens for safe form handling. Full UTF-8 support means Khmer characters are stored and rendered correctly throughout.
+                        </p>
+                    </section>
+
+                    <!-- FEATURES -->
+                    <section class="project-section">
+                        <h3 class="section-title">
+                            <i data-lucide="layers" class="section-title-icon"></i>
+                            Key <span class="highlight">Features</span>
+                        </h3>
+
+                        <div class="feature-grid">
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Create, read, update, and delete user records</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>CSRF protection on form submissions</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Dark and light theme toggle</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Responsive, clean user interface</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>Prepared statements against SQL injection</span></div>
+                            <div class="feature-item"><i data-lucide="check-circle-2"></i><span>UTF-8 support including Khmer characters</span></div>
+                        </div>
+                    </section>
+
+                    <!-- ACHIEVEMENTS -->
+                    <section class="project-section">
+                        <h3 class="section-title-sm">
+                            <i data-lucide="award"></i>
+                            Key <span class="highlight">Achievements</span>
+                        </h3>
+
+                        <div class="achievements-list">
+                            <div class="achievement-item">
+                                <span class="achievement-badge">1</span>
+                                <p>Implemented a complete CRUD flow across the add, edit, update, and delete endpoints.</p>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-badge">2</span>
+                                <p>Secured form submissions with CSRF tokens and sanitised rendered output with htmlspecialchars.</p>
+                            </div>
+                            <div class="achievement-item">
+                                <span class="achievement-badge">3</span>
+                                <p>Delivered full Khmer character support through consistent UTF-8 handling end to end.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- RIGHT: SIDEBAR -->
+                <aside class="project-detail-sidebar">
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Tech Stack</h3>
+                        <div class="sidebar-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">MySQLi</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Project Links</h3>
+                        <a href="https://github.com/pichchanthorn/simple-user-manager" target="_blank" rel="noopener noreferrer" class="btn ghost full">
+                            <i data-lucide="github"></i>
+                            <span>View Source Code</span>
+                        </a>
+                        <a href="https://pichchanthorn.github.io/simple-user-manager/" target="_blank" rel="noopener noreferrer" class="btn primary full">
+                            <i data-lucide="monitor-play"></i>
+                            <span>Live Demo</span>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Other Projects</h3>
+                        <ul class="other-projects">
+                            <li>
+                                <span class="dot"></span>
+                                <a href="php-mini-contact.html">PHP Mini Contact Website</a>
+                            </li>
+                            <li>
+                                <span class="dot"></span>
+                                <a href="daily-tracker.html">Daily Income & Expense Tracker</a>
+                            </li>
+                            <li>
+                                <span class="dot"></span>
+                                <a href="pctn-fertilizer-website.html">PCTN Fertilizer Business Website</a>
+                            </li>
+                            <li>
+                                <span class="dot"></span>
+                                <a href="testimonial-card-ui.html">Testimonial Card UI Component</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </aside>
+            </section>
+
+            <!-- FOOTER -->
+             <footer class="site-footer">
+                © <span id="currentYear"></span> Pich Chanthorn. All rights reserved.
+                <p>Built with HTML, CSS &amp; JavaScript &middot; <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+    <script src="../../assets/js/navigation.js"></script>
+<script src="../../assets/js/music-widget.js"></script>
+<script src="../../assets/js/contact-form.js"></script>
+<script src="../../assets/js/education.js"></script>
+<script src="../../assets/js/theme-switcher.js"></script>
+<script src="../../assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
