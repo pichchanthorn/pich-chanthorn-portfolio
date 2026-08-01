@@ -177,7 +177,7 @@ html[data-theme="light"] {
 html[data-theme="light"] .sidebar {
     background: rgba(255, 255, 255, 0.85);
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 6px 0 16px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
 }
 
 html[data-theme="light"] .nav-link {
@@ -228,16 +228,16 @@ html[data-theme="light"] .lang-switcher-label {
 }
 
 html[data-theme="light"] .lang-btn {
-    background: rgba(241, 245, 249, 0.8);
-    border-color: rgba(0, 0, 0, 0.08);
-    color: var(--clr-text);
+    background: transparent;
+    border-color: transparent;
+    color: var(--clr-text-muted);
 }
 
 html[data-theme="light"] .lang-btn:hover {
-    background: rgba(241, 245, 249, 1);
-    border-color: rgba(109, 40, 217, 0.3);
+    background: rgba(109, 40, 217, 0.06);
+    border-color: transparent;
     color: var(--clr-text-strong);
-    box-shadow: 0 2px 8px rgba(109, 40, 217, 0.08);
+    box-shadow: none;
 }
 
 html[data-theme="light"] .lang-btn.active {
@@ -523,16 +523,16 @@ html[data-theme="light"] .experience-timeline__track::before {
     }
 
     html[data-theme="system"] .lang-btn {
-        background: rgba(241, 245, 249, 0.8);
-        border-color: rgba(0, 0, 0, 0.08);
-        color: var(--clr-text);
+        background: transparent;
+        border-color: transparent;
+        color: var(--clr-text-muted);
     }
 
     html[data-theme="system"] .lang-btn:hover {
-        background: rgba(241, 245, 249, 1);
-        border-color: rgba(109, 40, 217, 0.3);
+        background: rgba(109, 40, 217, 0.06);
+        border-color: transparent;
         color: var(--clr-text-strong);
-        box-shadow: 0 2px 8px rgba(109, 40, 217, 0.08);
+        box-shadow: none;
     }
 
     html[data-theme="system"] .lang-btn.active {
@@ -694,8 +694,8 @@ html.theme-transitioning *::after {
    ========================================================= */
 .theme-switcher {
     position: fixed;
-    top: 16px;
-    right: 16px;
+    top: 17px;
+    right: 210px;
     z-index: 6100;
 }
 
@@ -873,5 +873,91 @@ html.theme-transitioning *::after {
 
     .theme-switcher__dropdown {
         min-width: 156px;
+    }
+}
+
+/* Mobile drawer is a left-edge panel again (top bar is
+   desktop-only), so its shadow should fall to the right. */
+@media (max-width: 768px) {
+    html[data-theme="light"] .sidebar {
+        box-shadow: 6px 0 16px rgba(15, 23, 42, 0.08);
+    }
+
+    html[data-theme="light"] .lang-btn,
+    html[data-theme="system"] .lang-btn {
+        background: rgba(241, 245, 249, 0.8);
+        border-color: rgba(0, 0, 0, 0.08);
+        color: var(--clr-text);
+    }
+}
+
+/* =========================================================
+   Card Elevation System
+   Applied last in the cascade so it wins over each card's
+   page-specific box-shadow/border without editing every
+   definition individually — one recipe, every card site-wide.
+   ========================================================= */
+:is(
+    .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
+    .contact-form-card, .about-split-card, .about-service-card,
+    .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+    .cert-summary-card, .edu-summary-card, .degree-card-component,
+    .gpa-stats-card, .semester-card, .experience-card, .contact-info
+) {
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.24),
+        0 14px 32px -18px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px var(--clr-border-card);
+}
+
+:is(
+    .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
+    .contact-form-card, .about-split-card, .about-service-card,
+    .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+    .cert-summary-card, .edu-summary-card, .degree-card-component,
+    .gpa-stats-card, .semester-card, .experience-card, .contact-info
+):hover {
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.3),
+        0 24px 48px -18px rgba(124, 92, 255, 0.3),
+        inset 0 0 0 1px var(--alpha-accent-35);
+    transform: translateY(-4px);
+}
+
+html[data-theme="light"] :is(
+    .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
+    .contact-form-card, .about-split-card, .about-service-card,
+    .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+    .cert-summary-card, .edu-summary-card, .degree-card-component,
+    .gpa-stats-card, .semester-card, .experience-card, .contact-info
+) {
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.06),
+        0 14px 28px -18px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 1px rgba(15, 23, 42, 0.07);
+}
+
+html[data-theme="light"] :is(
+    .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
+    .contact-form-card, .about-split-card, .about-service-card,
+    .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+    .cert-summary-card, .edu-summary-card, .degree-card-component,
+    .gpa-stats-card, .semester-card, .experience-card, .contact-info
+):hover {
+    box-shadow:
+        0 4px 10px rgba(15, 23, 42, 0.08),
+        0 24px 44px -18px rgba(109, 40, 217, 0.18),
+        inset 0 0 0 1px rgba(109, 40, 217, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :is(
+        .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
+        .contact-form-card, .about-split-card, .about-service-card,
+        .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+        .cert-summary-card, .edu-summary-card, .degree-card-component,
+        .gpa-stats-card, .semester-card, .experience-card, .contact-info
+    ):hover {
+        transform: none;
     }
 }

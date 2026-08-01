@@ -829,96 +829,88 @@
 .contact-channels {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 20px;
 }
 
+/* Icon-forward: a circular icon button with a small caption
+   underneath, instead of a wide label pill. */
 .contact-channel {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
+    width: 72px;
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    gap: 12px;
-    padding: 12px 18px 12px 12px;
-    border-radius: var(--radius-pill);
-    border: 1px solid var(--glass-border);
-    background: var(--glass-bg);
-    box-shadow: var(--shadow-card);
+    gap: 9px;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
     color: var(--clr-text-strong);
     text-decoration: none;
-    transition: transform var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard), background var(--motion-standard), color var(--motion-standard);
+    transition: transform var(--motion-standard);
     position: relative;
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
 }
 
 .contact-channel:focus-visible {
     outline: 2px solid var(--alpha-accent-70);
-    outline-offset: 2px;
+    outline-offset: 4px;
+    border-radius: 50%;
 }
 
 .contact-channel__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-sm);
-    background: rgba(124, 92, 255, 0.1);
-    border: 1px solid rgba(124, 92, 255, 0.18);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     color: var(--clr-accent);
     flex-shrink: 0;
-    transition: background var(--motion-standard), color var(--motion-standard), border-color var(--motion-standard);
+    transition: background var(--motion-standard), color var(--motion-standard), border-color var(--motion-standard), box-shadow var(--motion-standard), transform var(--motion-standard);
 }
 
 .contact-channel__icon i,
 .contact-channel__icon svg,
 .contact-channel i,
 .contact-channel svg {
-    width: 19px;
-    height: 19px;
+    width: 20px;
+    height: 20px;
     stroke: currentColor;
     transition: transform var(--motion-standard), color var(--motion-standard), filter var(--motion-standard);
 }
 
-.contact-channel__img {
-    width: 19px;
-    height: 19px;
-    object-fit: contain;
-    display: block;
-    transition: transform var(--motion-standard), filter var(--motion-standard);
-}
-
 .contact-channel__label {
-    font-size: 14px;
+    font-size: 11.5px;
     font-weight: 600;
+    color: var(--clr-text-subtle);
     white-space: nowrap;
+    transition: color var(--motion-standard);
 }
 
 .contact-channel:hover {
-    transform: translateY(-2px);
-    border-color: rgba(124, 92, 255, 0.45);
-    box-shadow: var(--shadow-card-hover);
-    background: var(--clr-card-bg-strong);
+    transform: translateY(-3px);
 }
 
 .contact-channel:hover .contact-channel__icon {
     background: var(--clr-accent);
+    border-color: var(--clr-accent);
     color: #ffffff;
+    box-shadow: var(--shadow-card-hover), 0 8px 20px rgba(124, 92, 255, 0.35);
+}
+
+.contact-channel:hover .contact-channel__label {
+    color: var(--clr-text-strong);
 }
 
 .contact-channel:hover i,
-.contact-channel:hover svg,
-.contact-channel:hover .contact-channel__img {
+.contact-channel:hover svg {
     transform: scale(1.08);
-}
-
-html[data-theme="dark"] .contact-channel__img {
-    filter: invert(1) saturate(0) brightness(1.1);
-}
-
-@media (prefers-color-scheme: dark) {
-    html[data-theme="system"] .contact-channel__img {
-        filter: invert(1) saturate(0) brightness(1.1);
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -932,10 +924,6 @@ html[data-theme="dark"] .contact-channel__img {
 
     .contact-channel:hover i,
     .contact-channel:hover svg {
-        transform: none;
-    }
-
-    .contact-channel:hover .contact-channel__img {
         transform: none;
     }
 }

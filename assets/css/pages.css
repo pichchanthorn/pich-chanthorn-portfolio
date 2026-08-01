@@ -7,12 +7,12 @@
    ========================================================= */
 .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
     grid-template-areas:
         "left right"
-        "stats right";
+        "metrics right";
     column-gap: clamp(28px, 5vw, 72px);
-    row-gap: 24px;
+    row-gap: 40px;
     padding-top: clamp(74px, 10vh, 112px);
     padding-bottom: clamp(46px, 8vh, 68px);
     align-items: center;
@@ -58,7 +58,7 @@
 }
 
 .hero-title {
-    font-size: clamp(40px, 5vw, 64px);
+    font-size: clamp(42px, 5.6vw, 76px);
     line-height: 0.98;
     font-weight: 800;
     font-family: "Sora", "Manrope", sans-serif;
@@ -230,6 +230,96 @@
 .stats .stat-card:nth-child(3) {
     grid-column: 3 / 5;
     grid-row: 2;
+}
+
+/* =========================================================
+   Hero Metrics — a quiet credibility strip, not dashboard tiles
+   ========================================================= */
+.hero-metrics {
+    grid-area: metrics;
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 3vw, 36px);
+    max-width: 620px;
+}
+
+.hero-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hero-metric__value {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--clr-text-strong);
+    line-height: 1;
+}
+
+.hero-metric__value .stat-plus {
+    color: var(--clr-accent);
+    font-size: 18px;
+    margin-left: 1px;
+}
+
+.hero-metric__label {
+    font-size: 12px;
+    color: var(--clr-text-subtle);
+    letter-spacing: 0.01em;
+}
+
+.hero-metric__divider {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(180deg, transparent, var(--clr-border-soft), transparent);
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   Hero Availability Badge — floats over the visual, breaking
+   the grid line for an asymmetric, editorial composition
+   ========================================================= */
+.hero-badge {
+    position: absolute;
+    left: 6%;
+    bottom: 6%;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 16px;
+    border-radius: var(--radius-pill);
+    background: var(--clr-card-bg-heavy);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    border: 1px solid var(--clr-border-soft);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--clr-text-muted);
+    white-space: nowrap;
+}
+
+.hero-badge__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--clr-success-text);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.18);
+    flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-badge__dot {
+        animation: heroBadgePulse 2.4s ease-in-out infinite;
+    }
+}
+
+@keyframes heroBadgePulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.18); }
+    50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.1); }
 }
 
 .page-header .subtitle {
