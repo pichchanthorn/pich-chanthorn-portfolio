@@ -1641,6 +1641,41 @@ html[data-theme="system"] .project-btn-demo {
     background: var(--clr-card-bg-heavy);
 }
 
+.blog-card__cover {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--clr-border);
+    background: var(--clr-card-bg-soft);
+    flex-shrink: 0;
+}
+
+.blog-card__cover-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(20px) brightness(0.65);
+    transform: scale(1.15);
+}
+
+.blog-card__cover-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-card:hover .blog-card__cover-img {
+    transform: scale(1.03);
+}
+
 .blog-card__icon {
     display: inline-flex;
     align-items: center;
@@ -1714,22 +1749,61 @@ html[data-theme="system"] .project-btn-demo {
     margin-bottom: 16px;
 }
 
-.blog-card__readtime {
+.blog-card__footer {
     margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--clr-border-soft);
+}
+
+.blog-card__readtime {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-size: 12px;
     font-weight: 600;
     color: var(--clr-text-subtle);
-    padding-top: 14px;
-    border-top: 1px solid var(--clr-border-soft);
 }
 
 .blog-card__readtime i {
     width: 14px;
     height: 14px;
     color: var(--clr-accent);
+}
+
+.blog-card__share {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.blog-card__share-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--clr-border-soft);
+    color: var(--clr-text-subtle);
+    transition: color var(--motion-standard), border-color var(--motion-standard), background var(--motion-standard), transform var(--motion-standard);
+}
+
+.blog-card__share-link:hover,
+.blog-card__share-link:focus-visible {
+    color: var(--clr-accent-text-strong);
+    border-color: rgba(124, 92, 255, 0.45);
+    background: rgba(124, 92, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+.blog-card__share-link i,
+.blog-card__share-link svg {
+    width: 14px;
+    height: 14px;
 }
 
 /* Featured article — wide spotlight tile spanning the full grid width */
