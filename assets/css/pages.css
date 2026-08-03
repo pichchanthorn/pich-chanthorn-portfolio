@@ -2031,6 +2031,24 @@ html[data-theme="system"] .project-btn-demo {
     border-radius: 8px;
 }
 
+.cert-page .cert-card.has-gallery:not(.is-hidden) {
+    max-height: none;
+}
+
+.cert-page .cert-gallery {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.cert-page .cert-gallery .cert-thumb {
+    width: 72px;
+    height: 72px;
+    padding: 3px;
+}
+
 .cert-page .cert-body {
     gap: 8px;
     min-width: 0;
