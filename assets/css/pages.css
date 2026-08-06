@@ -112,17 +112,20 @@
     letter-spacing: 0.01em;
 }
 
+/* Flat accent fill with no coloured glow. A violet halo under the button
+   reads as decoration; a solid fill that simply lightens on hover reads as
+   a control someone thought about. */
 .hero-buttons .btn.primary {
-    background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-strong));
+    background: var(--clr-accent);
     color: #fff;
     border-color: transparent;
-    box-shadow: 0 8px 24px rgba(124, 92, 255, 0.24);
+    box-shadow: var(--shadow-card);
 }
 
 .hero-buttons .btn.primary:hover {
-    background: linear-gradient(135deg, var(--clr-accent-alt), var(--clr-accent));
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(124, 92, 255, 0.4);
+    background: var(--clr-accent-alt);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .hero-buttons .btn.outline {
@@ -258,7 +261,8 @@
     line-height: 1;
 }
 
-.hero-metric__value .stat-plus {
+.hero-metric__value .stat-plus,
+.hero-metric__value .stat-suffix {
     color: var(--clr-accent);
     font-size: 18px;
     margin-left: 1px;
@@ -1403,7 +1407,7 @@ html[data-theme="system"] .project-btn-demo {
     border: 1px solid rgba(255, 255, 255, 0.07);
     overflow: hidden;
     background: var(--clr-bg);
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    box-shadow: var(--shadow-card);
 }
 
 .project-hero-image img {

@@ -248,9 +248,7 @@ html[data-theme="light"] .lang-btn.active {
 }
 
 html[data-theme="light"] .highlight {
-    background: linear-gradient(135deg, #6d28d9, #0891b2);
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: #6d28d9;
 }
 
 html[data-theme="light"] ::selection {
@@ -543,9 +541,7 @@ html[data-theme="light"] .experience-timeline__track::before {
     }
 
     html[data-theme="system"] .highlight {
-        background: linear-gradient(135deg, #6d28d9, #0891b2);
-        -webkit-background-clip: text;
-        background-clip: text;
+        color: #6d28d9;
     }
 
     html[data-theme="system"] ::selection {
