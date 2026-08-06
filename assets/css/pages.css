@@ -1413,6 +1413,58 @@ html[data-theme="system"] .project-btn-demo {
     display: block;
 }
 
+/* Blog post hero — show the photo uncropped, with a blurred fill behind it
+   so portrait/landscape shots both sit in the same frame without letterbox
+   gaps (the card covers on blog.html use the same two-layer trick). */
+.post-hero-image {
+    position: relative;
+    background: var(--clr-card-bg-soft);
+}
+
+.post-hero-image .post-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(24px) brightness(0.6);
+    transform: scale(1.15);
+}
+
+.post-hero-image img.post-hero-img {
+    position: relative;
+    object-fit: contain;
+}
+
+.post-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: var(--space-8);
+}
+
+.post-gallery figure {
+    margin: 0;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--clr-border-card);
+    overflow: hidden;
+    background: var(--clr-card-bg-soft);
+}
+
+.post-gallery img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.post-gallery figcaption {
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--clr-text-subtle);
+}
+
 .project-detail-layout {
     display: flex;
     gap: 28px;
@@ -1643,6 +1695,7 @@ html[data-theme="system"] .project-btn-demo {
 
 .blog-card__cover {
     position: relative;
+    display: block;
     width: 100%;
     height: 180px;
     overflow: hidden;
@@ -1740,6 +1793,17 @@ html[data-theme="system"] .project-btn-demo {
     line-height: 1.35;
     color: var(--clr-text-strong);
     margin-bottom: 10px;
+}
+
+.blog-card__title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--motion-standard);
+}
+
+.blog-card__title-link:hover,
+.blog-card__title-link:focus-visible {
+    color: var(--clr-accent-text-strong);
 }
 
 .blog-card__desc {
