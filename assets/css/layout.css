@@ -71,7 +71,7 @@
     width: 100%;
     height: var(--navbar-height);
     padding: 0 var(--space-14);
-    background: rgba(3, 7, 18, 0.85);
+    background: rgba(13, 17, 23, 0.85);
     backdrop-filter: blur(20px) saturate(1.2);
     -webkit-backdrop-filter: blur(20px) saturate(1.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);

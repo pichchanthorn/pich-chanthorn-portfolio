@@ -343,7 +343,7 @@
     padding: clamp(16px, 2.2vw, 24px);
     border-radius: 18px;
     border: 1px solid rgba(124, 92, 255, 0.2);
-    background: linear-gradient(130deg, rgba(8, 17, 34, 0.96), rgba(14, 48, 66, 0.76));
+    background: linear-gradient(130deg, rgba(13, 17, 23, 0.96), rgba(14, 48, 66, 0.76));
     box-shadow: 0 14px 34px rgba(2, 8, 23, 0.28);
     align-items: center;
     position: relative;
@@ -2594,7 +2594,7 @@ body.cert-lightbox-open {
     height: 22px;
     border-radius: var(--radius-pill);
     border: 1px solid rgba(124, 92, 255, 0.6);
-    background: rgba(2, 6, 23, 0.98);
+    background: rgba(13, 17, 23, 0.98);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2748,14 +2748,14 @@ body.cert-lightbox-open {
     border-collapse: separate;
     border-spacing: 0;
     font-size: 13px;
-    background: rgba(3, 7, 18, 0.6);
+    background: rgba(13, 17, 23, 0.6);
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .edu-table thead {
-    background: rgba(30, 41, 59, 0.5);
+    background: rgba(22, 27, 34, 0.5);
 }
 
 .edu-table th,
