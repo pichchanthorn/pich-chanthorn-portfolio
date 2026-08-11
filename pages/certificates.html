@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HB2S5XPEBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HB2S5XPEBZ');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Certificates | Pich Chanthorn Portfolio</title>
@@ -24,6 +33,8 @@
     <meta name="twitter:image" content="https://pichchanthorn.me/assets/img/profile/profile.png" />
 
     <!-- Custom CSS -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/profile/profile.png">
+
     <link rel="stylesheet" href="../assets/css/main.css" />
 
     <!-- Lucide Icons -->
@@ -113,7 +124,7 @@
         </nav>
 
         <div class="sidebar-footer">
-            © 2025 Pich Chanthorn
+            © <span id="sidebarYear"></span> Pich Chanthorn
         </div>
     </aside>
 

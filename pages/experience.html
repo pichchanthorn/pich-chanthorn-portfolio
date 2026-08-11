@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HB2S5XPEBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HB2S5XPEBZ');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Experience | Pich Chanthorn Portfolio</title>
@@ -24,6 +33,8 @@
     <meta name="twitter:image" content="https://pichchanthorn.me/assets/img/profile/profile.png" />
 
     <!-- Custom CSS -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/profile/profile.png">
+
     <link rel="stylesheet" href="../assets/css/main.css" />
 
     <!-- Lucide Icons -->
@@ -113,7 +124,7 @@
         </nav>
 
         <div class="sidebar-footer">
-            © 2025 Pich Chanthorn
+            © <span id="sidebarYear"></span> Pich Chanthorn
         </div>
     </aside>
 
@@ -146,7 +157,7 @@
                                     <p class="experience-card__icon-label"><i data-lucide="briefcase-business"></i> Professional Experience</p>
                                     <h3 class="experience-card__role">Data Entry Specialist</h3>
                                     <p class="experience-card__company">
-                                        <a href="https://haystack-solutions.com/" target="_blank" rel="noopener noreferrer" class="company-link">Haystack Labs</a>
+                                        <a href="https://haystack-solutions.com/" target="_blank" rel="noopener noreferrer" class="company-link">Haystack Solutions</a>
                                     </p>
                                 </div>
                                 <span class="experience-card__date">May 2026 — Present</span>
@@ -188,7 +199,7 @@
                                     <p class="experience-card__icon-label"><i data-lucide="briefcase-business"></i> Professional Experience</p>
                                     <h3 class="experience-card__role">Data Entry Specialist (Internship)</h3>
                                     <p class="experience-card__company">
-                                        <a href="https://haystack-solutions.com/" target="_blank" rel="noopener noreferrer" class="company-link">Haystack Labs</a>
+                                        <a href="https://haystack-solutions.com/" target="_blank" rel="noopener noreferrer" class="company-link">Haystack Solutions</a>
                                     </p>
                                 </div>
                                 <span class="experience-card__date">Jan 2026 — Apr 2026</span>
@@ -218,6 +229,45 @@
                                     <span class="experience-tag">Data Entry</span>
                                     <span class="experience-tag">Image Annotation</span>
                                     <span class="experience-tag">Data Validation</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="experience-card reveal" role="listitem">
+                            <header class="experience-card__header">
+                                <div>
+                                    <p class="experience-card__icon-label"><i data-lucide="rocket"></i> Leadership & Founding</p>
+                                    <h3 class="experience-card__role">Founder &amp; CEO</h3>
+                                    <p class="experience-card__company">PCTN • Remote (Cambodia)</p>
+                                </div>
+                                <span class="experience-card__date">Jan 2020 — Present</span>
+                            </header>
+
+                            <p class="experience-card__meta">
+                                <span><i data-lucide="laptop"></i> Remote</span>
+                                <span><i data-lucide="clock-3"></i> Ongoing</span>
+                            </p>
+
+                            <p class="experience-card__summary">
+                                Founded PCTN as a creative and tech-focused initiative, leading brand development, content direction, and community projects.
+                            </p>
+
+                            <details class="experience-card__details">
+                                <summary>Impact Highlights</summary>
+                                <ul class="experience-card__bullets">
+                                    <li>Founded and lead PCTN as a creative and tech-focused initiative.</li>
+                                    <li>Direct brand development and content direction across community projects.</li>
+                                    <li>Coordinate digital collaboration and expand PCTN toward a recognized digital innovation group.</li>
+                                </ul>
+                            </details>
+
+                            <div class="experience-card__tech">
+                                <p class="experience-card__tech-title">Key Technologies</p>
+                                <div class="experience-card__tags">
+                                    <span class="experience-tag">Leadership</span>
+                                    <span class="experience-tag">Brand Development</span>
+                                    <span class="experience-tag">Community Building</span>
+                                    <span class="experience-tag">Content Direction</span>
                                 </div>
                             </div>
                         </article>
