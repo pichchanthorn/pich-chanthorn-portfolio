@@ -109,6 +109,54 @@
     skillCards.forEach(card => observer.observe(card));
   }
 
+  function initializeAvatarPixelHover() {
+    const container = document.getElementById("avatarInner");
+    if (!container) return;
+
+    if (prefersReducedMotion()) {
+      container.classList.add("motion-reduced");
+      return;
+    }
+
+    const grid = document.getElementById("avatarPixelGrid");
+    if (!grid) return;
+
+    const cols = 12;
+    const rows = 12;
+    const cells = [];
+
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const cell = document.createElement("div");
+        cell.className = "avatar-pixel-cell";
+        cell.style.backgroundImage = 'url("assets/img/profile/professional-portrait.jpg")';
+        cell.style.backgroundSize = "1200% 1200%";
+        cell.style.backgroundPosition = `${(col / (cols - 1)) * 100}% ${(row / (rows - 1)) * 100}%`;
+        grid.appendChild(cell);
+        cells.push(cell);
+      }
+    }
+
+    let pendingTimeouts = [];
+    const clearPending = () => {
+      pendingTimeouts.forEach(id => clearTimeout(id));
+      pendingTimeouts = [];
+    };
+
+    const play = reveal => {
+      clearPending();
+      cells.forEach(cell => {
+        const delay = Math.random() * 450;
+        pendingTimeouts.push(
+          setTimeout(() => cell.classList.toggle("is-visible", reveal), delay)
+        );
+      });
+    };
+
+    container.addEventListener("mouseenter", () => play(true));
+    container.addEventListener("mouseleave", () => play(false));
+  }
+
   function initializeHomeStatsCounter() {
     const statNumbers = document.querySelectorAll(".stat-number[data-target]");
     if (!statNumbers.length) return;
@@ -399,6 +447,7 @@
     // Shared animations & counters
     initializeScrollReveal();
     initializeSkillCounter();
+    initializeAvatarPixelHover();
     initializeHomeStatsCounter();
     initializeSmoothScroll();
     initializeProjectFilters();
