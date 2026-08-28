@@ -791,6 +791,22 @@ body.welcome-open {
     line-height: 1.8;
 }
 
+.github-activity-card {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-8);
+    border-radius: var(--radius-3xl);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--clr-card-bg-soft);
+    box-shadow: var(--shadow-card);
+}
+
+.github-activity-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 .about-services-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
