@@ -110,8 +110,8 @@
   }
 
   function initializeTechStackReveal() {
-    const grid = document.querySelector(".tech-grid");
-    const pills = document.querySelectorAll(".tech-grid .tech-pill");
+    const grid = document.querySelector(".tech-categories");
+    const pills = document.querySelectorAll(".tech-categories .tech-pill");
     if (!grid || !pills.length) return;
 
     if (prefersReducedMotion()) {

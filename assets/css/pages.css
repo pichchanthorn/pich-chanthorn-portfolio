@@ -849,6 +849,18 @@ body.welcome-open {
     line-height: 1.5;
 }
 
+.tech-categories {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.tech-category-title {
+    font-size: 14px;
+    margin-bottom: var(--space-4);
+    color: var(--clr-text-strong);
+}
+
 .tech-grid {
     display: flex;
     flex-wrap: wrap;
@@ -860,9 +872,10 @@ body.welcome-open {
     align-items: center;
     gap: var(--space-3);
     padding: 10px 18px;
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-md);
     background: var(--clr-card-bg-soft);
-    border: 1px solid var(--clr-border-card);
+    border: 1px dashed var(--clr-border-card);
+    box-shadow: var(--shadow-card);
     color: var(--clr-text);
     font-size: var(--text-sm);
     font-weight: 600;
