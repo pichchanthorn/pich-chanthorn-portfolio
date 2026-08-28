@@ -109,33 +109,6 @@
     skillCards.forEach(card => observer.observe(card));
   }
 
-  function initializeTechStackReveal() {
-    const grid = document.querySelector(".tech-categories");
-    const pills = document.querySelectorAll(".tech-categories .tech-pill");
-    if (!grid || !pills.length) return;
-
-    if (prefersReducedMotion()) {
-      pills.forEach(pill => pill.classList.add("is-visible"));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries, activeObserver) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          activeObserver.unobserve(entry.target);
-
-          pills.forEach((pill, index) => {
-            setTimeout(() => pill.classList.add("is-visible"), index * 70);
-          });
-        });
-      },
-      { threshold: 0.2, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    observer.observe(grid);
-  }
-
   function initializeHomeStatsCounter() {
     const statNumbers = document.querySelectorAll(".stat-number[data-target]");
     if (!statNumbers.length) return;
@@ -426,7 +399,6 @@
     // Shared animations & counters
     initializeScrollReveal();
     initializeSkillCounter();
-    initializeTechStackReveal();
     initializeHomeStatsCounter();
     initializeSmoothScroll();
     initializeProjectFilters();
