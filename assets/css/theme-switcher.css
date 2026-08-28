@@ -894,7 +894,7 @@ html.theme-transitioning *::after {
 :is(
     .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
     .contact-form-card, .about-split-card, .about-service-card,
-    .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+    .highlight-card, .sidebar-card, .blog-card,
     .cert-summary-card, .edu-summary-card, .degree-card-component,
     .gpa-stats-card, .semester-card, .experience-card, .contact-info
 ) {
@@ -907,7 +907,7 @@ html.theme-transitioning *::after {
 :is(
     .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
     .contact-form-card, .about-split-card, .about-service-card,
-    .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+    .highlight-card, .sidebar-card, .blog-card,
     .cert-summary-card, .edu-summary-card, .degree-card-component,
     .gpa-stats-card, .semester-card, .experience-card, .contact-info
 ):hover {
@@ -921,7 +921,7 @@ html.theme-transitioning *::after {
 html[data-theme="light"] :is(
     .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
     .contact-form-card, .about-split-card, .about-service-card,
-    .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+    .highlight-card, .sidebar-card, .blog-card,
     .cert-summary-card, .edu-summary-card, .degree-card-component,
     .gpa-stats-card, .semester-card, .experience-card, .contact-info
 ) {
@@ -934,7 +934,7 @@ html[data-theme="light"] :is(
 html[data-theme="light"] :is(
     .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
     .contact-form-card, .about-split-card, .about-service-card,
-    .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+    .highlight-card, .sidebar-card, .blog-card,
     .cert-summary-card, .edu-summary-card, .degree-card-component,
     .gpa-stats-card, .semester-card, .experience-card, .contact-info
 ):hover {
@@ -948,7 +948,7 @@ html[data-theme="light"] :is(
     :is(
         .stat-card, .specialty-card, .soft-card, .project-card, .cert-card,
         .contact-form-card, .about-split-card, .about-service-card,
-        .highlight-card, .tool-group-card, .sidebar-card, .blog-card,
+        .highlight-card, .sidebar-card, .blog-card,
         .cert-summary-card, .edu-summary-card, .degree-card-component,
         .gpa-stats-card, .semester-card, .experience-card, .contact-info
     ):hover {
