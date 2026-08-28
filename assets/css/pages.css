@@ -889,9 +889,29 @@ body.welcome-open {
 }
 
 .tech-pill-icon {
-    font-size: 18px;
-    line-height: 1;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+}
+
+.tech-pill-icon img {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+
+.tech-pill-icon svg {
+    width: 14px;
+    height: 14px;
+    color: var(--clr-accent-strong);
+    stroke: var(--clr-accent-strong);
 }
 
 .values-list {
