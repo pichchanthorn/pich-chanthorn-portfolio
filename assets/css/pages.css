@@ -861,10 +861,42 @@ body.welcome-open {
     color: var(--clr-text-strong);
 }
 
-.tech-grid {
+.tech-marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 3rem, black calc(100% - 3rem), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 3rem, black calc(100% - 3rem), transparent);
+}
+
+.tech-track {
     display: flex;
-    flex-wrap: wrap;
+    width: max-content;
     gap: var(--space-5);
+    animation-name: tech-marquee-scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.tech-track--reverse {
+    animation-direction: reverse;
+}
+
+.tech-marquee:hover .tech-track {
+    animation-play-state: paused;
+}
+
+@keyframes tech-marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tech-track {
+        animation: none;
+    }
 }
 
 .tech-pill {
@@ -879,19 +911,13 @@ body.welcome-open {
     color: var(--clr-text);
     font-size: var(--text-sm);
     font-weight: 600;
-    opacity: 0;
-    transform: translateY(10px);
+    white-space: nowrap;
+    flex-shrink: 0;
     transition:
-        opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
         transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
         border-color var(--motion-standard),
         box-shadow var(--motion-standard),
         background var(--motion-standard);
-}
-
-.tech-pill.is-visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .tech-pill:hover {
