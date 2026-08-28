@@ -849,30 +849,69 @@ body.welcome-open {
     line-height: 1.5;
 }
 
-.tool-groups {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-6);
-}
-
-.tool-group-card {
-    border-radius: var(--radius-2xl);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: var(--clr-card-bg-soft);
-    padding: var(--space-6);
-    box-shadow: var(--shadow-card);
-}
-
-.tool-group-card h3 {
-    font-size: 14px;
-    margin-bottom: var(--space-4);
-    color: var(--clr-text-strong);
-}
-
-.tool-badges {
+.tech-grid {
     display: flex;
     flex-wrap: wrap;
+    gap: var(--space-5);
+}
+
+.tech-pill {
+    display: inline-flex;
+    align-items: center;
     gap: var(--space-3);
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    background: var(--clr-card-bg-soft);
+    border: 1px solid var(--clr-border-card);
+    color: var(--clr-text);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+        opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color var(--motion-standard),
+        box-shadow var(--motion-standard),
+        background var(--motion-standard);
+}
+
+.tech-pill.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tech-pill:hover {
+    background: var(--clr-card-bg-strong);
+    border-color: var(--alpha-accent-45);
+    box-shadow: var(--shadow-card-hover);
+    transform: scale(1.04);
+}
+
+.tech-pill-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+}
+
+.tech-pill-icon img {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+
+.tech-pill-icon svg {
+    width: 14px;
+    height: 14px;
+    color: var(--clr-accent-strong);
+    stroke: var(--clr-accent-strong);
 }
 
 .values-list {

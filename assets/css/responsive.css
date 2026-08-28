@@ -11,10 +11,6 @@
         grid-template-columns: 1fr;
     }
 
-    .tool-groups {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .about-cta {
         flex-direction: column;
         align-items: flex-start;
@@ -106,7 +102,6 @@
     .about-quick-info,
     .about-services-grid,
     .about-highlights-grid,
-    .tool-groups,
     .values-list {
         grid-template-columns: 1fr;
     }
