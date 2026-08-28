@@ -690,7 +690,7 @@ html.theme-transitioning *::after {
    ========================================================= */
 .theme-switcher {
     position: fixed;
-    top: 17px;
+    top: 20px;
     right: 210px;
     z-index: 6100;
 }
@@ -699,16 +699,14 @@ html.theme-transitioning *::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-sm);
     border: 1px solid var(--glass-border);
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: transparent;
     cursor: pointer;
     color: var(--clr-text-muted);
-    box-shadow: var(--shadow-card);
+    box-shadow: none;
     transition:
         background var(--motion-standard),
         border-color var(--motion-standard),
@@ -729,8 +727,8 @@ html.theme-transitioning *::after {
 }
 
 .theme-switcher__btn svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     pointer-events: none;
 }
 
