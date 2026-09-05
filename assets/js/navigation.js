@@ -28,6 +28,7 @@
 
   const TRANSLATIONS = {
     en: {
+      "skip.toContent": "Skip to main content",
       "menu.toggle": "Toggle menu",
       "nav.main": "Main navigation",
       "nav.home": "Home",
@@ -331,6 +332,7 @@
       "privacy.s12.p1": "Questions about this Privacy Policy, or requests to access or delete your data, can be sent to <a href='mailto:pich_chanthorn@pp.bbu.edu.kh'>pich_chanthorn@pp.bbu.edu.kh</a>."
     },
     km: {
+      "skip.toContent": "រំលងទៅមាតិកាចម្បង",
       "menu.toggle": "បើក/បិទ ម៉ឺនុយ",
       "nav.main": "ម៉ឺនុយមេ",
       "nav.home": "ទំព័រដើម",

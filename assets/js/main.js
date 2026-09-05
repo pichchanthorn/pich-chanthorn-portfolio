@@ -250,6 +250,15 @@
           top: target.offsetTop - 20,
           behavior: prefersReducedMotion() ? "auto" : "smooth"
         });
+
+        // Skip-to-content link: move keyboard focus to the target so Tab
+        // resumes inside main content, not back on the (now scrolled-away)
+        // link. tabindex="-1" on the target makes this possible without
+        // adding it to the normal Tab order; preventScroll avoids fighting
+        // the scrollTo above.
+        if (link.classList.contains("skip-link")) {
+          target.focus({ preventScroll: true });
+        }
       });
     });
   }
