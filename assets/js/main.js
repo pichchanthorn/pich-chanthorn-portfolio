@@ -6,6 +6,18 @@
 (() => {
   "use strict";
 
+  // Compute base path relative to current page depth
+  const BASE_PATH = (() => {
+    const scriptTag = document.currentScript;
+    if (scriptTag?.src) {
+      const scriptUrl = new URL(scriptTag.src);
+      const scriptDir = scriptUrl.pathname.substring(0, scriptUrl.pathname.lastIndexOf("/"));
+      // Script is in /assets/js/, base is one level up
+      return scriptDir.replace(/\/assets\/js\/?$/, "") + "/";
+    }
+    return "";
+  })();
+
   function prefersReducedMotion() {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
@@ -129,7 +141,7 @@
       for (let col = 0; col < cols; col++) {
         const cell = document.createElement("div");
         cell.className = "avatar-pixel-cell";
-        cell.style.backgroundImage = 'url("assets/img/profile/professional-portrait.jpg")';
+        cell.style.backgroundImage = `url("${BASE_PATH}assets/img/profile/professional-portrait.jpg")`;
         cell.style.backgroundSize = "1200% 1200%";
         cell.style.backgroundPosition = `${(col / (cols - 1)) * 100}% ${(row / (rows - 1)) * 100}%`;
         grid.appendChild(cell);
