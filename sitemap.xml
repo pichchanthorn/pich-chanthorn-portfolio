@@ -37,12 +37,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://pichchanthorn.me/pages/blog/outstanding-student-bbu.html</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://pichchanthorn.me/pages/certificates.html</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -71,6 +65,12 @@
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pichchanthorn.me/pages/privacy-policy.html</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://pichchanthorn.me/pages/projects/smart-admin-dashboard.html</loc>
