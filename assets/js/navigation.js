@@ -39,11 +39,12 @@
       "nav.education": "Education",
       "nav.experience": "Experience",
       "nav.contact": "Contact",
+      "nav.cv": "CV",
       "role.student": "IT Student & Aspiring Full-Stack Developer",
       "role.fullstack": "Full-Stack Developer",
       "home.welcome": "Welcome to my portfolio",
       "home.cta.projects": "View Projects",
-      "home.cta.cv": "Download CV",
+      "home.cta.cv": "View CV",
       "home.cta.contactMe": "Contact Me",
       "footer.built": "Built with HTML, CSS & JavaScript",
       "footer.privacy": "Privacy Policy",
@@ -343,11 +344,12 @@
       "nav.education": "ការអប់រំ",
       "nav.experience": "បទពិសោធន៍",
       "nav.contact": "ទំនាក់ទំនង",
+      "nav.cv": "CV",
       "role.student": "និស្សិត IT និងអ្នកអភិវឌ្ឍន៍ Full-Stack កំពុងអភិវឌ្ឍ",
       "role.fullstack": "អ្នកអភិវឌ្ឍន៍ Full-Stack",
       "home.welcome": "សូមស្វាគមន៍មកកាន់ផតហ្វូលីយ៉ូរបស់ខ្ញុំ",
       "home.cta.projects": "មើលគម្រោង",
-      "home.cta.cv": "ទាញយក CV",
+      "home.cta.cv": "មើល CV",
       "home.cta.contactMe": "ទាក់ទងខ្ញុំ",
       "footer.built": "បង្កើតដោយ HTML, CSS និង JavaScript",
       "footer.privacy": "គោលការណ៍ឯកជនភាព",
@@ -844,7 +846,8 @@
       "nav.certificates": "Certificates",
       "nav.education": "Education",
       "nav.experience": "Experience",
-      "nav.contact": "Contact"
+      "nav.contact": "Contact",
+      "nav.cv": "CV"
     };
 
     document.querySelectorAll(".nav a span").forEach(span => {
