@@ -1,3 +1,9 @@
+/* Dedicated stylesheet for pages/cv.html only — intentionally separate from
+   assets/css/main.css and the main site's design tokens. This isolation
+   exists to preserve the CV's print/PDF behavior: the @media print block
+   below is the only one in this codebase. Do not fold this file into the
+   shared CSS system without deliberately carrying that print behavior over. */
+
 :root {
   --cv-bg: #f3f6fa;
   --cv-surface: #ffffff;
