@@ -721,7 +721,10 @@
     "Coordinate community activities and collaborative learning around technology and design.": "សម្របសម្រួលសកម្មភាពសហគមន៍ និងការសិក្សារួមគ្នាទាក់ទងនឹងបច្ចេកវិទ្យា និងការរចនា។",
     "Founded PCTN in 2020 as a technology and creative community initiative.": "បង្កើត PCTN នៅឆ្នាំ 2020 ជាគំនិតផ្តួចផ្តើមសហគមន៍បច្ចេកវិទ្យា និងច្នៃប្រឌិត។",
     "Focused on learning, sharing knowledge, and exploring web development, UI/UX, and digital creativity.": "ផ្តោតលើការសិក្សា ការចែករំលែកចំណេះដឹង និងការស្វែងយល់អំពីការអភិវឌ្ឍន៍វេបសាយ UI/UX និងភាពច្នៃប្រឌិតឌីជីថល។",
-    "Lead and coordinate community activities and collaborative learning around technology and design.": "ដឹកនាំ និងសម្របសម្រួលសកម្មភាពសហគមន៍ និងការសិក្សារួមគ្នាទាក់ទងនឹងបច្ចេកវិទ្យា និងការរចនា។"
+    "Lead and coordinate community activities and collaborative learning around technology and design.": "ដឹកនាំ និងសម្របសម្រួលសកម្មភាពសហគមន៍ និងការសិក្សារួមគ្នាទាក់ទងនឹងបច្ចេកវិទ្យា និងការរចនា។",
+
+    "Full-stack growth through internships, product-driven projects, and continuous delivery practice. I focus on building reliable web applications with clear UX, clean architecture, and consistent delivery.": "កំណើន Full-Stack តាមរយៈកម្មសិក្សា គម្រោងផ្តោតលើផលិតផល និងការអនុវត្តការចែកចាយជាបន្តបន្ទាប់។ ខ្ញុំផ្តោតលើការកសាងកម្មវិធីវេបសាយដែលអាចទុកចិត្តបាន ជាមួយបទពិសោធន៍អ្នកប្រើប្រាស់ (UX) ច្បាស់លាស់ ស្ថាបត្យកម្មស្អាត និងការចែកចាយដែលមានលក្ខណៈស្ថិតស្ថេរ។",
+    "Delivering portfolio-grade web applications end-to-end — from UI/UX and responsive layouts to backend integration and deployment. Emphasize maintainable code, accessibility, and consistent quality across projects.": "ចែកចាយកម្មវិធីវេបសាយកម្រិតផតហ្វូលីយ៉ូពីដើមដល់ចប់ — ចាប់ពី UI/UX និងប្លង់ឆ្លើយតប រហូតដល់ការភ្ជាប់ខាងក្រោយ (Backend) និងការដាក់ឱ្យប្រើប្រាស់។ ផ្តោតលើកូដដែលងាយស្រួលថែទាំ ភាពងាយប្រើ និងគុណភាពស្ថិតស្ថេរនៅគ្រប់គម្រោង។"
   };
 
   // Expose translations globally for other modules
