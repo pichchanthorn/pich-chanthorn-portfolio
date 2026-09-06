@@ -672,7 +672,7 @@
     "Frontend Development": "ការអភិវឌ្ឍន៍ផ្នែកខាងមុខ (Frontend)",
     "Creating clean and interactive interfaces with HTML, CSS, JavaScript, and modern component structure.": "បង្កើតចំណុចប្រទាក់ស្អាត និងអន្តរកម្មល្អដោយប្រើ HTML, CSS, JavaScript និងរចនាសម្ព័ន្ធសមាសធាតុទាន់សម័យ។",
     "UI/UX Design": "ការរចនា UI/UX",
-    "Designing user-friendly layouts and visual flows in Figma before implementation.": "រចនាប្លង់ងាយស្រួលប្រើ និងលំហូរដែលមើលឃើញក្នុង Figma មុននឹងអនុវត្តជាក់ស្តែង។",
+    "Designing clean, user-friendly interfaces and reusable UI components, using Figma for early-stage layout ideas.": "រចនាចំណុចប្រទាក់ស្អាត ងាយស្រួលប្រើ និងសមាសធាតុ UI ដែលអាចប្រើឡើងវិញបាន ដោយប្រើ Figma សម្រាប់គំនិតប្លង់ដំបូង។",
     "Responsive Websites": "គេហទំព័រឆ្លើយតបល្អ",
     "Building pages that look professional and perform well across desktop, tablet, and mobile devices.": "បង្កើតទំព័រដែលមើលទៅមានលក្ខណៈវិជ្ជាជីវៈ និងដំណើរការល្អលើកុំព្យូទ័រ ថេប្លេត និងទូរស័ព្ទ។",
     "Backend & Database Basics": "មូលដ្ឋានគ្រឹះ Backend និងមូលដ្ឋានទិន្នន័យ",
