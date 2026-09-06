@@ -713,7 +713,15 @@
     "A practice-oriented curriculum focused on web application development, database systems, computer networking, algorithms, and UI/UX fundamentals with continuous project-based learning.": "កម្មវិធីសិក្សាផ្តោតលើការអនុវត្តជាក់ស្តែង ក្នុងការអភិវឌ្ឍន៍កម្មវិធីវេបសាយ ប្រព័ន្ធមូលដ្ឋានទិន្នន័យ បណ្តាញកុំព្យូទ័រ អាល់ហ្គូរីត និងមូលដ្ឋានគ្រឹះ UI/UX ជាមួយការសិក្សាផ្អែកលើគម្រោងជាបន្តបន្ទាប់។",
     "View Official Academic Results": "មើលលទ្ធផលសិក្សាផ្លូវការ",
     "Academic Note": "កំណត់សម្គាល់សិក្សា",
-    "Two course results are currently pending official verification by Build Bright University. Results marked as \"Pending Verification\" are temporary placeholders and will be updated once the university officially releases the final grades.": "លទ្ធផលមុខវិជ្ជាចំនួនពីរបច្ចុប្បន្នកំពុងរង់ចាំការផ្ទៀងផ្ទាត់ជាផ្លូវការពីសាកលវិទ្យាល័យ Build Bright University។ លទ្ធផលដែលសម្គាល់ថា \"កំពុងរង់ចាំផ្ទៀងផ្ទាត់\" គឺជាតម្លៃបណ្តោះអាសន្ន ហើយនឹងត្រូវបានធ្វើបច្ចុប្បន្នភាពនៅពេលសាកលវិទ្យាល័យប្រកាសពិន្ទុចុងក្រោយជាផ្លូវការ។"
+    "Two course results are currently pending official verification by Build Bright University. Results marked as \"Pending Verification\" are temporary placeholders and will be updated once the university officially releases the final grades.": "លទ្ធផលមុខវិជ្ជាចំនួនពីរបច្ចុប្បន្នកំពុងរង់ចាំការផ្ទៀងផ្ទាត់ជាផ្លូវការពីសាកលវិទ្យាល័យ Build Bright University។ លទ្ធផលដែលសម្គាល់ថា \"កំពុងរង់ចាំផ្ទៀងផ្ទាត់\" គឺជាតម្លៃបណ្តោះអាសន្ន ហើយនឹងត្រូវបានធ្វើបច្ចុប្បន្នភាពនៅពេលសាកលវិទ្យាល័យប្រកាសពិន្ទុចុងក្រោយជាផ្លូវការ។",
+
+    "Founded PCTN in 2020 as a technology and creative community initiative focused on learning, sharing knowledge, and exploring web development, UI/UX, and digital creativity with others.": "បង្កើត PCTN នៅឆ្នាំ 2020 ជាគំនិតផ្តួចផ្តើមសហគមន៍បច្ចេកវិទ្យា និងច្នៃប្រឌិត ដោយផ្តោតលើការសិក្សា ការចែករំលែកចំណេះដឹង និងការស្វែងយល់អំពីការអភិវឌ្ឍន៍វេបសាយ UI/UX និងភាពច្នៃប្រឌិតឌីជីថលជាមួយអ្នកដទៃ។",
+    "Founded and lead PCTN, a community initiative centered on technology, web development, and digital creativity.": "បង្កើត និងដឹកនាំ PCTN ដែលជាគំនិតផ្តួចផ្តើមសហគមន៍ផ្តោតលើបច្ចេកវិទ្យា ការអភិវឌ្ឍន៍វេបសាយ និងភាពច្នៃប្រឌិតឌីជីថល។",
+    "Share knowledge and learning experiences in web development and UI/UX with others through the initiative.": "ចែករំលែកចំណេះដឹង និងបទពិសោធន៍ការសិក្សាផ្នែកអភិវឌ្ឍន៍វេបសាយ និង UI/UX ជាមួយអ្នកដទៃតាមរយៈគំនិតផ្តួចផ្តើមនេះ។",
+    "Coordinate community activities and collaborative learning around technology and design.": "សម្របសម្រួលសកម្មភាពសហគមន៍ និងការសិក្សារួមគ្នាទាក់ទងនឹងបច្ចេកវិទ្យា និងការរចនា។",
+    "Founded PCTN in 2020 as a technology and creative community initiative.": "បង្កើត PCTN នៅឆ្នាំ 2020 ជាគំនិតផ្តួចផ្តើមសហគមន៍បច្ចេកវិទ្យា និងច្នៃប្រឌិត។",
+    "Focused on learning, sharing knowledge, and exploring web development, UI/UX, and digital creativity.": "ផ្តោតលើការសិក្សា ការចែករំលែកចំណេះដឹង និងការស្វែងយល់អំពីការអភិវឌ្ឍន៍វេបសាយ UI/UX និងភាពច្នៃប្រឌិតឌីជីថល។",
+    "Lead and coordinate community activities and collaborative learning around technology and design.": "ដឹកនាំ និងសម្របសម្រួលសកម្មភាពសហគមន៍ និងការសិក្សារួមគ្នាទាក់ទងនឹងបច្ចេកវិទ្យា និងការរចនា។"
   };
 
   // Expose translations globally for other modules
