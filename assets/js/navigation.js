@@ -689,7 +689,7 @@
     "Let's Work Together": "តោះធ្វើការជាមួយគ្នា",
     "Interested in collaboration, freelance work, or project opportunities? Let’s connect.": "ចាប់អារម្មណ៍ចង់សហការ ធ្វើការងារឯករាជ្យ ឬឱកាសគម្រោង? តោះទាក់ទងគ្នា។",
 
-    "Here are the technologies, tools, and AI skills I use to build modern web applications.": "នេះជាបច្ចេកវិទ្យា ឧបករណ៍ និងជំនាញ AI ដែលខ្ញុំប្រើដើម្បីបង្កើតកម្មវិធីវេបសាយទាន់សម័យ។",
+    "Here are the technologies, tools, and AI skills I use to build modern web applications. The levels below reflect my own self-assessed comfort with each, not a formal or third-party measurement.": "នេះជាបច្ចេកវិទ្យា ឧបករណ៍ និងជំនាញ AI ដែលខ្ញុំប្រើដើម្បីបង្កើតកម្មវិធីវេបសាយទាន់សម័យ។ កម្រិតខាងក្រោមឆ្លុះបញ្ចាំងពីការវាយតម្លៃខ្លួនឯងរបស់ខ្ញុំចំពោះនីមួយៗ មិនមែនជារង្វាស់ផ្លូវការ ឬពីភាគីទីបីនោះទេ។",
 
     "A curated selection of practical web projects with production-focused implementation, responsive UX, and clean code practices for real-world use.": "នេះជាការជ្រើសរើសគម្រោងវេបសាយជាក់ស្តែង ដែលផ្តោតលើការអនុវត្តន៍ថ្នាក់ផលិតកម្ម បទពិសោធន៍អ្នកប្រើប្រាស់ល្អ (UX) និងការសរសេរកូដស្អាតសម្រាប់ការប្រើប្រាស់ជាក់ស្តែង។",
 
