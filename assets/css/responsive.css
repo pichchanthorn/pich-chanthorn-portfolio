@@ -45,6 +45,85 @@
     }
 }
 
+/* Education: hero metrics hide, timeline collapses into a card-like mobile
+   layout (desktop layout, handled above at 960px, is left unchanged). */
+@media (max-width: 800px) {
+    .edu-hero-metrics {
+        display: none;
+    }
+
+    .timeline-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .timeline-list .timeline-item {
+        display: block;
+        background: var(--clr-card-bg);
+        border-radius: var(--radius-xl);
+        padding: 1rem;
+        margin: 0.8rem 0;
+        box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
+        border: 1px solid rgba(15, 23, 42, 0.04);
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    .timeline-marker {
+        display: none;
+    }
+
+    .timeline-content {
+        padding: 0;
+    }
+
+    .timeline-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .timeline-title {
+        font-size: clamp(1rem, 2.8vw, 1.05rem);
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .timeline-card-period {
+        font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+        color: var(--clr-text-muted);
+        white-space: nowrap;
+    }
+
+    .timeline-meta {
+        margin: 0.25rem 0;
+        font-size: clamp(0.9rem, 2.4vw, 0.98rem);
+        color: var(--clr-text-muted);
+    }
+
+    .timeline-card-desc {
+        margin-top: 0.45rem;
+        font-size: clamp(0.95rem, 2.6vw, 1rem);
+        line-height: 1.45;
+        color: var(--clr-text-strong);
+    }
+
+    .achievement-badges li {
+        margin-right: 0.4rem;
+        margin-top: 0.45rem;
+        display: inline-block;
+    }
+
+    .timeline-card-footer {
+        margin-top: 0.6rem;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
+}
+
 @media (max-width: 950px) {
     .cert-grid {
         grid-template-columns: 1fr;

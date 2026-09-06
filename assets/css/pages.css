@@ -2803,11 +2803,6 @@ body.cert-lightbox-open {
     transform: translateY(0);
 }
 
-.semester-card:hover {
-    border-color: rgba(59, 130, 246, 0.25);
-    box-shadow: var(--shadow-card-hover);
-}
-
 .accordion-trigger {
     width: 100%;
     border: 0;
@@ -2964,6 +2959,110 @@ body.cert-lightbox-open {
 .sem-link.active {
     color: var(--clr-success-text) !important;
     font-weight: 700;
+}
+
+.edu-page .title {
+    letter-spacing: -0.2px;
+}
+
+.edu-hero-subtitle,
+.lead {
+    max-width: 62ch;
+    line-height: 1.6;
+}
+
+.edu-summary-grid {
+    gap: 1.25rem;
+}
+
+.edu-summary-card {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.edu-summary-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.semester-card:hover {
+    border-color: rgba(59, 130, 246, 0.25);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.timeline-item {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(-6px);
+}
+
+.chip,
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-pill);
+    background: rgba(0, 0, 0, 0.04);
+    margin: 0.15rem 0.25rem;
+    font-size: 0.85rem;
+}
+
+.expected-grad {
+    background: linear-gradient(90deg, #f5f7ff, #eef2ff);
+    border: 1px solid rgba(99, 102, 241, 0.08);
+}
+
+.current-year-badge {
+    background: linear-gradient(90deg, #ecfdf5, #dcfce7);
+    border: 1px solid rgba(16, 185, 129, 0.08);
+}
+
+.academic-note-card {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    margin-top: 1rem;
+    padding: 0.95rem 1rem;
+    border-radius: var(--radius-3xl);
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.08), rgba(59, 130, 246, 0.05));
+    border: 1px solid rgba(59, 130, 246, 0.16);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
+.academic-note-icon {
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-pill);
+    background: rgba(59, 130, 246, 0.12);
+    color: #2563eb;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.academic-note-content {
+    min-width: 0;
+}
+
+.academic-note-title {
+    margin: 0 0 0.25rem;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--clr-text-strong);
+}
+
+.academic-note-text {
+    margin: 0;
+    color: var(--clr-text-muted);
+    font-size: 0.94rem;
+    line-height: 1.55;
+}
+
+.reveal {
+    will-change: transform, opacity;
 }
 
 /* =========================================================
