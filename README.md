@@ -14,11 +14,13 @@ Personal portfolio website of **Pich Chanthorn**, an Information Technology stud
 - Responsive layout with dedicated breakpoints for tablet and mobile
 - Contact form powered by **EmailJS** (no backend server required)
 - Certificates page with category filters and a click-to-zoom lightbox for credential images
-- Background music widget with play/pause controls
+- Background music widget with play/pause controls (implemented, currently disabled on the live site — see note below)
 - Downloadable CV (PDF) and a dedicated CV page
 - SEO metadata (Open Graph, Twitter Card, JSON-LD `Person` schema, canonical URLs, `sitemap.xml`, `robots.txt`)
 - Google Analytics (GA4) integration
 - Scroll-reveal animations and animated stat counters
+
+> **Note:** The background music widget is currently disabled on the live site — its script reference was removed from the pages, while the implementation, styles, and audio assets are retained in the repository for possible future restoration.
 
 ---
 
@@ -49,7 +51,7 @@ pich-chanthorn-portfolio/
 │   ├── css/         # Modular stylesheets (base, layout, components, pages, responsive, theme)
 │   ├── files/       # Downloadable CV (PDF)
 │   ├── img/         # Profile, project, certificate, and icon images
-│   └── js/          # Navigation/i18n, theme switcher, contact form, music widget, page-specific scripts
+│   └── js/          # Navigation/i18n, theme switcher, contact form, music widget (currently disabled), page-specific scripts
 ├── pages/
 │   ├── projects/    # Individual project detail pages
 │   └── *.html       # About, Skills, Projects, Blog, Certificates, Education, Experience, Contact, CV, Privacy Policy
