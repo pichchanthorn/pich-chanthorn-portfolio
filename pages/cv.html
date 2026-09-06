@@ -37,6 +37,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Intentionally isolated from assets/css/main.css / the main site's design
+       system. This page has a real print/PDF requirement (see the "Print CV"
+       button below), and cv-tailwind.css is the only stylesheet in this repo
+       with @media print rules. Do not merge this page into the shared CSS
+       system without deliberately preserving that print behavior. -->
   <link rel="stylesheet" href="../assets/css/cv-tailwind.css">
 
   <script src="https://unpkg.com/lucide@1.41.0" integrity="sha384-5hfcTHqJTrDq2YPubIhzTtbnAx6tDcmRrxlfwLEierMHQtmz030891dt1/8VAupY" crossorigin="anonymous"></script>
