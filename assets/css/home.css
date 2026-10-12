@@ -1,0 +1,1344 @@
+/* =========================================================
+   HOME.CSS — Homepage-only styles
+   Loaded only by index.html, after main.css. Every rule is scoped to
+   body.page-home so no other page can be affected.
+
+   Palette (approved): purple #AB4EFF, blue #3280FF, background #000000,
+   elevated surface #141414, white text, muted gray secondary text.
+   Contrast notes (WCAG 2.2 AA, measured from these exact values):
+     - black on #AB4EFF ............ 5.27:1  (primary button label)
+     - white on #000 ............... 21:1
+     - #A1A1AA on #000 / #141414 ... 8.19:1 / 7.19:1  (muted text)
+     - #C07DFF on #000 / #141414 ... 7.62:1 / 6.68:1  (small accent text)
+     - #71717A on #000 / #141414 ... 4.35:1 / 3.81:1  (control outlines, >= 3:1)
+   Brand purple #AB4EFF is used for fills, gradients and large text;
+   a lighter tint is used for small accent text so it stays >= 4.5:1.
+
+   Theme handling mirrors theme-switcher.css: dark is the default, with
+   explicit light and system(prefers light) variants of the tokens below.
+   The welcome splash (.welcome-screen) is intentionally not styled here.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. Tokens (dark default)
+   --------------------------------------------------------- */
+body.page-home {
+    --navbar-height: 72px;
+
+    --hp-purple: #ab4eff;
+    --hp-blue: #3280ff;
+    --hp-bg: #000000;
+    --hp-surface: #141414;
+    --hp-surface-2: #1c1c1e;
+    --hp-text: #ffffff;
+    --hp-muted: #a1a1aa;
+    --hp-accent-text: #c07dff;
+    --hp-border: rgba(255, 255, 255, 0.1);
+    --hp-border-strong: #71717a;
+    --hp-header-bg: rgba(0, 0, 0, 0.82);
+    --hp-focus: #ffffff;
+    --hp-btn-bg: #ab4eff;
+    --hp-btn-bg-hover: #bf73ff;
+    --hp-btn-text: #000000;
+    --hp-active-bg: rgba(171, 78, 255, 0.18);
+    --hp-glow: rgba(171, 78, 255, 0.4);
+    --hp-glow-soft: rgba(171, 78, 255, 0.14);
+    --hp-glow-blue: rgba(50, 128, 255, 0.1);
+    --hp-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 18px 40px -24px rgba(0, 0, 0, 0.8);
+    --hp-shadow-hover: 0 1px 2px rgba(0, 0, 0, 0.5), 0 24px 48px -20px rgba(171, 78, 255, 0.45);
+
+    --hp-radius-sm: 12px;
+    --hp-radius-md: 16px;
+    --hp-radius-lg: 24px;
+    --hp-gutter: clamp(16px, 4vw, 48px);
+    --hp-section-gap: clamp(64px, 9vw, 112px);
+    --hp-font: "Roboto", "Kantumruy Pro", "Noto Sans Khmer", "Khmer OS System", "Segoe UI", sans-serif;
+
+    background: var(--hp-bg);
+    color: var(--hp-text);
+}
+
+html[data-theme="light"] body.page-home {
+    --hp-bg: #f8fafc;
+    --hp-surface: #ffffff;
+    --hp-surface-2: #f1f5f9;
+    --hp-text: #0f172a;
+    --hp-muted: #475569;
+    --hp-accent-text: #6d28d9;
+    --hp-border: rgba(15, 23, 42, 0.12);
+    --hp-border-strong: #64748b;
+    --hp-header-bg: rgba(255, 255, 255, 0.88);
+    --hp-focus: #6d28d9;
+    --hp-btn-bg-hover: #bf73ff;
+    --hp-active-bg: rgba(109, 40, 217, 0.1);
+    --hp-glow: rgba(109, 40, 217, 0.28);
+    --hp-glow-soft: rgba(171, 78, 255, 0.1);
+    --hp-glow-blue: rgba(50, 128, 255, 0.07);
+    --hp-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 18px 36px -24px rgba(15, 23, 42, 0.2);
+    --hp-shadow-hover: 0 1px 2px rgba(15, 23, 42, 0.06), 0 24px 44px -20px rgba(109, 40, 217, 0.35);
+}
+
+@media (prefers-color-scheme: light) {
+    html[data-theme="system"] body.page-home {
+        --hp-bg: #f8fafc;
+        --hp-surface: #ffffff;
+        --hp-surface-2: #f1f5f9;
+        --hp-text: #0f172a;
+        --hp-muted: #475569;
+        --hp-accent-text: #6d28d9;
+        --hp-border: rgba(15, 23, 42, 0.12);
+        --hp-border-strong: #64748b;
+        --hp-header-bg: rgba(255, 255, 255, 0.88);
+        --hp-focus: #6d28d9;
+        --hp-btn-bg-hover: #bf73ff;
+        --hp-active-bg: rgba(109, 40, 217, 0.1);
+        --hp-glow: rgba(109, 40, 217, 0.28);
+        --hp-glow-soft: rgba(171, 78, 255, 0.1);
+        --hp-glow-blue: rgba(50, 128, 255, 0.07);
+        --hp-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 18px 36px -24px rgba(15, 23, 42, 0.2);
+        --hp-shadow-hover: 0 1px 2px rgba(15, 23, 42, 0.06), 0 24px 44px -20px rgba(109, 40, 217, 0.35);
+    }
+}
+
+/* ---------------------------------------------------------
+   2. Page canvas & typography
+   Roboto leads for Latin glyphs. Roboto has no Khmer glyphs, so Khmer
+   text falls through to Kantumruy Pro exactly as on the rest of the site.
+   Scoped to the page regions only; the welcome splash keeps its fonts.
+   --------------------------------------------------------- */
+body.page-home :is(.sidebar, .main, .menu-btn, .theme-switcher) {
+    font-family: var(--hp-font);
+}
+
+body.page-home .lang-btn,
+body.page-home .theme-option {
+    font-family: inherit;
+}
+
+body.page-home .main {
+    margin-top: var(--navbar-height);
+    padding: 0 var(--hp-gutter);
+    background-image:
+        radial-gradient(ellipse 60% 38% at 88% 0%, var(--hp-glow-soft), transparent 70%),
+        radial-gradient(ellipse 50% 32% at 0% 30%, var(--hp-glow-blue), transparent 70%);
+    background-color: var(--hp-bg);
+    background-size: 100% 100%;
+}
+
+body.page-home .main::before {
+    content: none;
+}
+
+body.page-home .page-container {
+    max-width: 1200px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+body.page-home .hp-eyebrow {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    color: var(--hp-accent-text);
+}
+
+body.page-home .hp-h2 {
+    font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--hp-text);
+    text-wrap: balance;
+}
+
+/* ---------------------------------------------------------
+   3. Focus (visible, >= 3:1 against both bg and surface)
+   Scoped to the page regions so the welcome splash is untouched.
+   --------------------------------------------------------- */
+body.page-home :is(.sidebar, .main, .theme-switcher) :is(a, button, [tabindex]):focus-visible,
+body.page-home .menu-btn:focus-visible {
+    outline: 3px solid var(--hp-focus);
+    outline-offset: 3px;
+}
+
+/* The shared skip link is parked off-screen but its box-shadow still bleeds
+   into the top-left corner (visible on light backgrounds). Keep the shadow
+   only while the link is actually focused. */
+body.page-home .skip-link:not(:focus):not(:focus-visible) {
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   4. Header — desktop top bar (>= 1280px)
+   The fixed theme button gets its own right-hand gutter inside the bar,
+   so it can never sit on top of the navigation again.
+   --------------------------------------------------------- */
+body.page-home .sidebar {
+    height: var(--navbar-height);
+    padding: 0 calc(var(--hp-gutter) + 56px) 0 var(--hp-gutter);
+    gap: 16px;
+    background: var(--hp-header-bg);
+    border-bottom: 1px solid var(--hp-border);
+    box-shadow: none;
+}
+
+body.page-home .logo-section {
+    gap: 12px;
+}
+
+body.page-home .logo-img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--hp-border-strong);
+    border-radius: var(--hp-radius-sm);
+}
+
+body.page-home .logo-section:hover .logo-img {
+    border-color: var(--hp-purple);
+}
+
+body.page-home .logo-name {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--hp-text);
+    white-space: nowrap;
+}
+
+body.page-home .role {
+    color: var(--hp-muted);
+    font-size: 0.8125rem;
+}
+
+body.page-home .sidebar .nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+    gap: 2px;
+    padding: 4px;
+    overflow: visible;
+}
+
+body.page-home .sidebar .nav-link {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 12px;
+    gap: 8px;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--hp-muted);
+    background: transparent;
+    box-shadow: none;
+    flex-shrink: 0;
+    transform: none;
+}
+
+body.page-home .sidebar .nav-link::before {
+    content: none;
+}
+
+/* Lucide replaces <i data-lucide> with an <svg>; hide the icon in the bar */
+body.page-home .sidebar .nav-link :is(i, svg) {
+    display: none;
+}
+
+body.page-home .sidebar .nav-link:hover {
+    background: var(--hp-surface-2);
+    color: var(--hp-text);
+    transform: none;
+}
+
+body.page-home .sidebar .nav-link.active,
+body.page-home .sidebar .nav-link[aria-current="page"] {
+    background: var(--hp-active-bg);
+    color: var(--hp-text);
+    font-weight: 700;
+    box-shadow: none;
+}
+
+body.page-home .sidebar-footer {
+    gap: 12px;
+    color: var(--hp-muted);
+}
+
+body.page-home .sidebar .lang-switcher {
+    padding: 3px;
+    gap: 2px;
+    border: 1px solid var(--hp-border-strong);
+    border-radius: 999px;
+    background: var(--hp-surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+body.page-home .sidebar .lang-btn {
+    height: 40px;
+    min-width: 44px;
+    padding: 0 14px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--hp-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: none;
+    transform: none;
+}
+
+body.page-home .sidebar .lang-btn:hover {
+    color: var(--hp-text);
+    border-color: var(--hp-border-strong);
+    box-shadow: none;
+    transform: none;
+}
+
+body.page-home .sidebar .lang-btn.active {
+    background: var(--hp-active-bg);
+    border-color: var(--hp-purple);
+    color: var(--hp-text);
+}
+
+/* Theme switcher — pinned inside the header's reserved gutter */
+body.page-home .theme-switcher {
+    top: calc((var(--navbar-height) - 44px) / 2);
+    right: var(--hp-gutter);
+}
+
+body.page-home .theme-switcher__btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--hp-border-strong);
+    border-radius: var(--hp-radius-sm);
+    background: var(--hp-surface);
+    color: var(--hp-text);
+    box-shadow: none;
+    transform: none;
+}
+
+body.page-home .theme-switcher__btn:hover {
+    border-color: var(--hp-purple);
+    color: var(--hp-accent-text);
+    box-shadow: none;
+    transform: none;
+}
+
+body.page-home .theme-switcher__dropdown {
+    background: var(--hp-surface);
+    border: 1px solid var(--hp-border-strong);
+    border-radius: var(--hp-radius-sm);
+    box-shadow: var(--hp-shadow);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+body.page-home .theme-switcher__label {
+    font-size: 0.75rem;
+    color: var(--hp-muted);
+}
+
+body.page-home .theme-option {
+    min-height: 44px;
+    font-size: 0.9375rem;
+    color: var(--hp-text);
+}
+
+body.page-home .theme-option:hover {
+    background: var(--hp-surface-2);
+    color: var(--hp-text);
+}
+
+body.page-home .theme-option.active {
+    background: var(--hp-active-bg);
+    color: var(--hp-text);
+}
+
+body.page-home .theme-option__check {
+    color: var(--hp-accent-text);
+}
+
+/* ---------------------------------------------------------
+   5. Header — drawer mode (<= 1279px)
+   Same behaviour as the shared mobile drawer (.sidebar.active toggled by
+   navigation.js), extended up to 1279px on the homepage: the ten links,
+   language switcher and theme button only fit side by side from 1280px
+   (verified in English and Khmer), so below that they never have to squeeze.
+   --------------------------------------------------------- */
+@media (max-width: 1279px) {
+    body.page-home {
+        --navbar-height: 64px;
+    }
+
+    /* Slim top bar behind the floating menu / theme buttons */
+    body.page-home::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: var(--navbar-height);
+        background: var(--hp-header-bg);
+        border-bottom: 1px solid var(--hp-border);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        z-index: 4000;
+        pointer-events: none;
+    }
+
+    body.page-home::after {
+        content: "Pich Chanthorn";
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: var(--navbar-height);
+        display: flex;
+        align-items: center;
+        font-family: var(--hp-font);
+        font-size: 1.0625rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--hp-text);
+        z-index: 4001;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    body.page-home .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: calc((var(--navbar-height) - 44px) / 2);
+        left: max(var(--hp-gutter), env(safe-area-inset-left));
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        z-index: 6100;
+        background: var(--hp-surface);
+        border: 1px solid var(--hp-border-strong);
+        border-radius: var(--hp-radius-sm);
+        color: var(--hp-text);
+        box-shadow: none;
+        cursor: pointer;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    body.page-home .menu-btn:hover {
+        border-color: var(--hp-purple);
+        background: var(--hp-surface);
+        box-shadow: none;
+    }
+
+    body.page-home .menu-btn:active {
+        transform: none;
+        background: var(--hp-surface-2);
+    }
+
+    body.page-home .theme-switcher {
+        top: calc((var(--navbar-height) - 44px) / 2);
+        right: max(var(--hp-gutter), env(safe-area-inset-right));
+    }
+
+    body.page-home .theme-switcher__btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    body.page-home .sidebar {
+        position: fixed;
+        top: 0;
+        left: calc(-1 * min(280px, 84vw));
+        width: min(280px, 84vw);
+        height: 100dvh;
+        padding: calc(var(--navbar-height) + 16px) 16px calc(24px + env(safe-area-inset-bottom));
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background: var(--hp-surface);
+        border-right: 1px solid var(--hp-border);
+        border-bottom: none;
+        box-shadow: 12px 0 32px rgba(0, 0, 0, 0.35);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 5000;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0s linear 0.3s;
+    }
+
+    body.page-home .sidebar.active {
+        left: 0;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0s linear 0s;
+    }
+
+    body.page-home .logo-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    body.page-home .logo-img {
+        width: 56px;
+        height: 56px;
+    }
+
+    body.page-home .role {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    body.page-home .sidebar .nav {
+        flex: 0 0 auto;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 4px;
+        margin-top: 24px;
+        padding: 0;
+    }
+
+    body.page-home .sidebar .nav-link {
+        justify-content: flex-start;
+        min-height: 48px;
+        padding: 0 14px;
+        font-size: 1rem;
+    }
+
+    body.page-home .sidebar .nav-link :is(i, svg) {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+    }
+
+    body.page-home .sidebar-footer {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 1px solid var(--hp-border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    body.page-home .sidebar .lang-switcher {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 8px;
+        border-radius: var(--hp-radius-sm);
+    }
+
+    body.page-home .lang-switcher-label {
+        display: block;
+        font-size: 0.8125rem;
+        color: var(--hp-muted);
+    }
+
+    body.page-home .lang-switcher-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    body.page-home .sidebar .lang-btn {
+        height: 44px;
+        padding: 0 12px;
+        border-radius: 10px;
+        background: var(--hp-surface-2);
+        border-color: var(--hp-border);
+    }
+
+    body.page-home .sidebar .lang-btn.active {
+        background: var(--hp-active-bg);
+        border-color: var(--hp-purple);
+    }
+
+    body.page-home .sidebar-copy {
+        display: block;
+        font-size: 0.8125rem;
+        color: var(--hp-muted);
+    }
+}
+
+/* ---------------------------------------------------------
+   6. Shared homepage controls
+   --------------------------------------------------------- */
+body.page-home .hp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 24px;
+    border: 1px solid transparent;
+    border-radius: var(--hp-radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--motion-standard), border-color var(--motion-standard),
+        color var(--motion-standard), box-shadow var(--motion-standard), transform var(--motion-standard);
+}
+
+body.page-home .hp-btn i,
+body.page-home .hp-link i {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+body.page-home .hp-btn--primary,
+body.page-home .hp-btn--primary:link,
+body.page-home .hp-btn--primary:visited {
+    background: var(--hp-btn-bg);
+    border-color: var(--hp-btn-bg);
+    color: var(--hp-btn-text);
+}
+
+body.page-home .hp-btn--primary:hover,
+body.page-home .hp-btn--primary:active {
+    background: var(--hp-btn-bg-hover);
+    border-color: var(--hp-btn-bg-hover);
+    color: var(--hp-btn-text);
+    box-shadow: 0 10px 28px -10px var(--hp-glow);
+}
+
+body.page-home .hp-btn--secondary,
+body.page-home .hp-btn--secondary:link,
+body.page-home .hp-btn--secondary:visited {
+    background: transparent;
+    border-color: var(--hp-border-strong);
+    color: var(--hp-text);
+}
+
+body.page-home .hp-btn--secondary:hover,
+body.page-home .hp-btn--secondary:active {
+    background: var(--hp-surface-2);
+    border-color: var(--hp-purple);
+    color: var(--hp-text);
+}
+
+body.page-home .hp-btn--sm {
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: 0.9375rem;
+}
+
+body.page-home .hp-link,
+body.page-home .hp-link:link,
+body.page-home .hp-link:visited {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--hp-text);
+    text-decoration: underline;
+    text-decoration-color: var(--hp-border-strong);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
+}
+
+body.page-home .hp-link:hover,
+body.page-home .hp-link:active {
+    color: var(--hp-accent-text);
+    text-decoration-color: currentColor;
+}
+
+/* ---------------------------------------------------------
+   7. Hero
+   --------------------------------------------------------- */
+body.page-home .hp-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-areas:
+        "content visual"
+        "metrics visual";
+    column-gap: clamp(32px, 6vw, 96px);
+    row-gap: 40px;
+    align-items: center;
+    padding: clamp(40px, 6vw, 88px) 0 var(--hp-section-gap);
+}
+
+body.page-home .hp-hero__content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+body.page-home .hp-hero__visual {
+    grid-area: visual;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+}
+
+body.page-home .hp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    border: 1px solid var(--hp-border-strong);
+    border-radius: 999px;
+    background: var(--hp-surface);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--hp-text);
+}
+
+body.page-home .hp-badge__dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    body.page-home .hp-badge__dot {
+        animation: hpBadgePulse 2.4s ease-in-out infinite;
+    }
+}
+
+@keyframes hpBadgePulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2); }
+    50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.08); }
+}
+
+body.page-home .hp-eyebrow + .hp-title {
+    margin-top: 12px;
+}
+
+body.page-home .hp-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--hp-text);
+    text-wrap: balance;
+}
+
+body.page-home .hp-title__accent {
+    color: var(--hp-purple);
+}
+
+html[data-theme="light"] body.page-home .hp-title__accent {
+    color: var(--hp-accent-text);
+}
+
+@media (prefers-color-scheme: light) {
+    html[data-theme="system"] body.page-home .hp-title__accent {
+        color: var(--hp-accent-text);
+    }
+}
+
+body.page-home .hp-lead {
+    margin-top: 20px;
+    max-width: 30ch;
+    font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--hp-text);
+    text-wrap: balance;
+}
+
+body.page-home .hp-text {
+    margin-top: 16px;
+    max-width: 58ch;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--hp-muted);
+}
+
+body.page-home .hp-text--secondary {
+    margin-top: 12px;
+}
+
+body.page-home .hp-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+    margin-top: 32px;
+}
+
+/* Avatar: reuses the existing .avatar-* hooks used by main.js (pixel hover).
+   The inner box stays square so the 12x12 pixel reveal maps exactly as before. */
+body.page-home .avatar-ring {
+    width: clamp(220px, 30vw, 380px);
+    height: auto;
+    margin: 0;
+    aspect-ratio: 1 / 1;
+    padding: 4px;
+    border: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--hp-purple), var(--hp-blue));
+    box-shadow: 0 0 80px -16px var(--hp-glow);
+}
+
+body.page-home .avatar-inner {
+    width: 100%;
+    height: 100%;
+    border: 4px solid var(--hp-bg);
+    border-radius: 50%;
+    background: var(--hp-surface);
+}
+
+/* Metrics */
+body.page-home .hp-metrics {
+    grid-area: metrics;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+body.page-home .hp-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    padding: 16px 18px;
+    border: 1px solid var(--hp-border);
+    border-radius: var(--hp-radius-md);
+    background: var(--hp-surface);
+    box-shadow: var(--hp-shadow);
+}
+
+body.page-home .hp-metric__value {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--hp-text);
+}
+
+body.page-home .hp-metric__value .stat-plus,
+body.page-home .hp-metric__suffix {
+    margin-left: 1px;
+    font-size: 0.6em;
+    font-weight: 700;
+    color: var(--hp-accent-text);
+}
+
+body.page-home .hp-metric__label {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--hp-muted);
+}
+
+/* ---------------------------------------------------------
+   8. Sections: shared head, featured projects, explore
+   --------------------------------------------------------- */
+body.page-home .hp-section {
+    padding-bottom: var(--hp-section-gap);
+}
+
+body.page-home .hp-section__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px 24px;
+    margin-bottom: 32px;
+}
+
+body.page-home .hp-section__head .hp-eyebrow {
+    margin-bottom: 8px;
+}
+
+body.page-home .hp-project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+body.page-home .hp-project {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--hp-border);
+    border-radius: var(--hp-radius-lg);
+    background: var(--hp-surface);
+    box-shadow: var(--hp-shadow);
+    transition: border-color var(--motion-standard), box-shadow var(--motion-standard), transform var(--motion-standard);
+}
+
+body.page-home .hp-project__media {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-bottom: 1px solid var(--hp-border);
+    background: var(--hp-surface-2);
+}
+
+body.page-home .hp-project__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.page-home .hp-project__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+}
+
+body.page-home .hp-project__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--hp-text);
+}
+
+body.page-home .hp-project__desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--hp-muted);
+}
+
+body.page-home .hp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    list-style: none;
+}
+
+body.page-home .hp-tags li {
+    padding: 4px 12px;
+    border: 1px solid var(--hp-border);
+    border-radius: 999px;
+    background: var(--hp-surface-2);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--hp-text);
+}
+
+body.page-home .hp-project__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+/* Explore tiles */
+body.page-home .hp-explore__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+body.page-home .hp-tile,
+body.page-home .hp-tile:link,
+body.page-home .hp-tile:visited {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid var(--hp-border);
+    border-radius: var(--hp-radius-md);
+    background: var(--hp-surface);
+    color: var(--hp-text);
+    text-decoration: none;
+    transition: border-color var(--motion-standard), background-color var(--motion-standard), transform var(--motion-standard);
+}
+
+body.page-home .hp-tile:hover {
+    border-color: var(--hp-purple);
+    background: var(--hp-surface-2);
+}
+
+body.page-home .hp-tile__icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--hp-radius-sm);
+    background: var(--hp-active-bg);
+    color: var(--hp-accent-text);
+}
+
+body.page-home .hp-tile__body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+body.page-home .hp-tile__title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+body.page-home .hp-tile__desc {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--hp-muted);
+}
+
+body.page-home .hp-tile__arrow {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 18px;
+    height: 18px;
+    color: var(--hp-muted);
+    transition: color var(--motion-standard);
+}
+
+body.page-home .hp-tile:hover .hp-tile__arrow {
+    color: var(--hp-accent-text);
+}
+
+/* ---------------------------------------------------------
+   9. Contact CTA
+   --------------------------------------------------------- */
+body.page-home .hp-contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(24px, 4vw, 56px);
+    align-items: center;
+    padding: clamp(24px, 4vw, 48px);
+    border: 1px solid transparent;
+    border-radius: var(--hp-radius-lg);
+    background:
+        linear-gradient(var(--hp-surface), var(--hp-surface)) padding-box,
+        linear-gradient(135deg, var(--hp-purple), var(--hp-blue)) border-box;
+    box-shadow: var(--hp-shadow);
+}
+
+body.page-home .hp-contact__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+}
+
+body.page-home .hp-contact__text {
+    max-width: 52ch;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--hp-muted);
+}
+
+body.page-home .hp-contact__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+body.page-home .hp-contact__list {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+body.page-home .hp-contact__item,
+body.page-home .hp-contact__item:link,
+body.page-home .hp-contact__item:visited {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    min-height: 64px;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--hp-border);
+    border-radius: var(--hp-radius-sm);
+    color: var(--hp-text);
+    text-decoration: none;
+    transition: background-color var(--motion-standard);
+}
+
+body.page-home .hp-contact__item:last-child {
+    border-bottom-color: transparent;
+}
+
+body.page-home .hp-contact__item:hover {
+    background: var(--hp-surface-2);
+}
+
+body.page-home .hp-contact__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--hp-radius-sm);
+    background: var(--hp-active-bg);
+    color: var(--hp-accent-text);
+}
+
+body.page-home .hp-contact__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+body.page-home .hp-contact__label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--hp-muted);
+}
+
+body.page-home .hp-contact__value {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--hp-text);
+    overflow-wrap: anywhere;
+}
+
+body.page-home .hp-contact__item:hover .hp-contact__value {
+    color: var(--hp-accent-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---------------------------------------------------------
+   10. Footer (markup and current-year behaviour unchanged)
+   --------------------------------------------------------- */
+body.page-home .site-footer {
+    margin-top: var(--hp-section-gap);
+    padding: 32px 0 40px;
+    border-top: 1px solid var(--hp-border);
+    font-size: 0.875rem;
+    color: var(--hp-muted);
+}
+
+body.page-home .site-footer .footer-link:hover,
+body.page-home .site-footer .footer-link:focus-visible {
+    color: var(--hp-text);
+}
+
+/* ---------------------------------------------------------
+   11. Scroll reveal — content stays visible without JavaScript.
+   The inline <head> script adds .js to <html>; only then are
+   unrevealed blocks hidden, and main.js reveals them via .active.
+   --------------------------------------------------------- */
+body.page-home .reveal {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+html.js body.page-home .reveal:not(.active) {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   12. Hover motion — only when the visitor has not asked for less
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+    body.page-home .hp-btn--primary:hover,
+    body.page-home .hp-btn--secondary:hover {
+        transform: translateY(-1px);
+    }
+
+    body.page-home .hp-project:hover {
+        transform: translateY(-4px);
+        border-color: var(--hp-purple);
+        box-shadow: var(--hp-shadow-hover);
+    }
+
+    body.page-home .hp-tile:hover {
+        transform: translateY(-2px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.page-home .hp-project:hover {
+        border-color: var(--hp-purple);
+    }
+
+    body.page-home .sidebar,
+    body.page-home .sidebar.active,
+    body.page-home .reveal {
+        transition: none;
+    }
+}
+
+/* ---------------------------------------------------------
+   13. Responsive
+   --------------------------------------------------------- */
+@media (max-width: 1099px) {
+    body.page-home .hp-hero {
+        padding-top: 32px;
+    }
+
+    body.page-home .hp-project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Third card spans the row, image beside text, so the 2-column grid has no hole */
+    body.page-home .hp-project:nth-child(3):last-child {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+    }
+
+    /* Keep the 16:9 thumbnail uncropped beside the text */
+    body.page-home .hp-project:nth-child(3):last-child .hp-project__media {
+        align-self: center;
+        border-bottom: 0;
+        border-right: 1px solid var(--hp-border);
+    }
+
+    body.page-home .hp-explore__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 899px) {
+    body.page-home .hp-hero {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "visual"
+            "content"
+            "metrics";
+        row-gap: 32px;
+    }
+
+    body.page-home .hp-hero__visual {
+        justify-content: flex-start;
+    }
+
+    body.page-home .avatar-ring {
+        width: clamp(132px, 30vw, 188px);
+    }
+
+    body.page-home .hp-contact {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 699px) {
+    body.page-home .hp-project-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.page-home .hp-project:nth-child(3):last-child {
+        display: flex;
+    }
+
+    body.page-home .hp-project:nth-child(3):last-child .hp-project__media {
+        border-right: 0;
+        border-bottom: 1px solid var(--hp-border);
+    }
+
+    body.page-home .hp-explore__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 559px) {
+    body.page-home .hp-metrics {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.page-home .hp-metric {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 16px;
+    }
+
+    body.page-home .hp-metric__value {
+        flex: 0 0 4.5rem;
+    }
+
+    body.page-home .hp-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    body.page-home .hp-actions .hp-btn {
+        width: 100%;
+    }
+
+    body.page-home .hp-actions .hp-link {
+        justify-content: center;
+    }
+
+    body.page-home .hp-contact__actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    body.page-home .hp-project__actions .hp-btn {
+        flex: 1 1 140px;
+    }
+}
+
+/* ---------------------------------------------------------
+   14. Khmer — taller line boxes, no tracking, no forced uppercase.
+   Nothing here has a fixed height, so longer Khmer strings simply grow.
+   --------------------------------------------------------- */
+html[lang="km"] body.page-home .hp-title {
+    line-height: 1.25;
+    letter-spacing: 0;
+}
+
+html[lang="km"] body.page-home .hp-lead,
+html[lang="km"] body.page-home .hp-h2,
+html[lang="km"] body.page-home .hp-project__title,
+html[lang="km"] body.page-home .hp-tile__title {
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+html[lang="km"] body.page-home .hp-text,
+html[lang="km"] body.page-home .hp-project__desc,
+html[lang="km"] body.page-home .hp-tile__desc,
+html[lang="km"] body.page-home .hp-contact__text,
+html[lang="km"] body.page-home .hp-metric__label {
+    line-height: 1.85;
+}
+
+html[lang="km"] body.page-home .hp-eyebrow,
+html[lang="km"] body.page-home .hp-badge,
+html[lang="km"] body.page-home .hp-btn,
+html[lang="km"] body.page-home .hp-link,
+html[lang="km"] body.page-home .nav-link {
+    letter-spacing: 0;
+    line-height: 1.6;
+}
