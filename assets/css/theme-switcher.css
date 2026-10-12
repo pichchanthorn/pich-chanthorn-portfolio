@@ -690,8 +690,10 @@ html.theme-transitioning *::after {
    ========================================================= */
 .theme-switcher {
     position: fixed;
-    top: 20px;
-    right: 210px;
+    /* Vertically centred in the bar; sits in the right-hand gutter that
+       .sidebar reserves (layout.css), clear of the nav and language switcher. */
+    top: calc((var(--navbar-height) - 36px) / 2);
+    right: var(--space-14);
     z-index: 6100;
 }
 
@@ -867,6 +869,58 @@ html.theme-transitioning *::after {
 
     .theme-switcher__dropdown {
         min-width: 156px;
+    }
+}
+
+/* Drawer layout in the 769-1279px range (all pages except the homepage,
+   which positions its own controls in home.css). Mirrors the <=768px
+   rules above and below; see the matching block in responsive.css. */
+@media (min-width: 769px) and (max-width: 1279px) {
+    :where(body:not(.page-home)) .theme-switcher {
+        top: calc((var(--navbar-height) - 38px) / 2);
+        right: var(--space-9);
+    }
+
+    :where(body:not(.page-home)) .theme-switcher__btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    :where(body:not(.page-home)) .theme-switcher__btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    :where(body:not(.page-home)) .theme-switcher__dropdown {
+        min-width: 156px;
+    }
+
+    /* The drawer is a left-edge panel, so its shadow falls to the right. */
+    html[data-theme="light"] :where(body:not(.page-home)) .sidebar {
+        box-shadow: 6px 0 16px rgba(15, 23, 42, 0.08);
+    }
+
+    html[data-theme="light"] :where(body:not(.page-home)) .lang-btn {
+        background: rgba(241, 245, 249, 0.8);
+        border-color: rgba(0, 0, 0, 0.08);
+        color: var(--clr-text);
+    }
+}
+
+/* System theme: only a light OS gets the light chip styling (a dark OS
+   keeps the dark drawer styling from responsive.css). */
+@media (min-width: 769px) and (max-width: 1279px) and (prefers-color-scheme: light) {
+    html[data-theme="system"] :where(body:not(.page-home)) .lang-btn {
+        background: rgba(241, 245, 249, 0.8);
+        border-color: rgba(0, 0, 0, 0.08);
+        color: var(--clr-text);
+    }
+}
+
+/* Laptop widths (1280-1599px): compact bar uses a narrower gutter. */
+@media (min-width: 1280px) and (max-width: 1599px) {
+    :where(body:not(.page-home)) .theme-switcher {
+        right: var(--space-11);
     }
 }
 

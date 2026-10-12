@@ -64,13 +64,15 @@
 
 /* =========================================================
    Top Navbar (was a fixed left sidebar — flattened into a
-   horizontal bar; the original vertical layout is restored
-   for the mobile/tablet drawer <=768px in responsive.css)
+   horizontal bar from 1280px up; the original vertical layout
+   is restored for the drawer below 1280px in responsive.css)
    ========================================================= */
 .sidebar {
     width: 100%;
     height: var(--navbar-height);
-    padding: 0 var(--space-14);
+    /* Right padding reserves a gutter for the fixed theme switcher
+       (36px button + 12px gap) so it can never sit on top of the nav. */
+    padding: 0 calc(var(--space-14) + 36px + var(--space-5)) 0 var(--space-14);
     background: rgba(13, 17, 23, 0.85);
     backdrop-filter: blur(20px) saturate(1.2);
     -webkit-backdrop-filter: blur(20px) saturate(1.2);
@@ -292,4 +294,18 @@
 .menu-btn {
     display: none;
     z-index: 9999;
+}
+
+/* =========================================================
+   Modal lightbox vs. fixed header controls
+   The theme switcher and menu button (z-index 6100) and the header bar
+   pseudo-elements (4000/4001) all sit in the root stacking context, above
+   the certificate lightbox (z-index 999 in pages.css), so they covered its
+   close button. While it is open the dialog goes above all header chrome
+   and any open drawer, but stays below the skip link / welcome screen
+   (10000) and the contact toast (9500). Scoped to the open state, so the
+   header is untouched when the lightbox is closed.
+   ========================================================= */
+body.cert-lightbox-open .cert-lightbox {
+    z-index: 7000;
 }
