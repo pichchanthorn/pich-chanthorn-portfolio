@@ -36,8 +36,15 @@
 
     <link rel="icon" type="image/png" href="assets/img/profile/profile.png">
 
+    <!-- Roboto — homepage typeface for Latin text (Khmer keeps Kantumruy Pro from base.css) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Homepage-only styles, scoped to body.page-home -->
+    <link rel="stylesheet" href="assets/css/home.css" />
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@1.41.0" integrity="sha384-5hfcTHqJTrDq2YPubIhzTtbnAx6tDcmRrxlfwLEierMHQtmz030891dt1/8VAupY" crossorigin="anonymous"></script>
@@ -86,6 +93,10 @@
     </script>
 
     <script>!function(){var t=localStorage.getItem("portfolio_theme")||"system";document.documentElement.setAttribute("data-theme",t)}();</script>
+    <!-- Marks that JavaScript is available so home.css only hides scroll-reveal
+         content when main.js will actually reveal it (content stays visible
+         when scripting is off). -->
+    <script>document.documentElement.classList.add("js");</script>
     <!-- Decide, before first paint, whether the welcome intro should run on
          THIS load. A direct/first entry (no same-site referrer) or a manual
          reload (F5 / Ctrl+R / refresh button) shows it; clicking an internal
@@ -95,7 +106,7 @@
          assets/js/main.js so it doesn't need to be duplicated in every page. -->
     <script>!function(){try{var n=performance.getEntriesByType?performance.getEntriesByType("navigation"):[];var t=n.length?n[0].type:"navigate";var r=document.referrer&&new URL(document.referrer).origin===location.origin;if(t==="reload"||(t==="navigate"&&!r)){document.documentElement.setAttribute("data-welcome","pending")}}catch(e){}}();</script>
 </head>
-<body>
+<body class="page-home">
 
 <a class="skip-link" href="#mainContent" data-i18n="skip.toContent">Skip to main content</a>
 
@@ -110,13 +121,13 @@
         <img src="assets/img/profile/profile.png" class="logo-img" alt="Pich Chanthorn" />
         <div class="logo-text">
             <p class="logo-name">Pich Chanthorn</p>
-            <p class="role">Information Technology Student & Aspiring Full-Stack Web Developer</p>
+            <p class="role">IT Student & Aspiring Full-Stack Developer</p>
         </div>
     </div>
 
     <!-- NAVIGATION -->
     <nav class="nav" aria-label="Main navigation">
-        <a href="index.html" class="nav-link active"><i data-lucide="house"></i><span>Home</span></a>
+        <a href="index.html" class="nav-link active" aria-current="page"><i data-lucide="house"></i><span>Home</span></a>
         <a href="pages/about.html" class="nav-link"><i data-lucide="user"></i><span>About</span></a>
         <a href="pages/skills.html" class="nav-link"><i data-lucide="code"></i><span>Skills</span></a>
         <a href="pages/projects.html" class="nav-link"><i data-lucide="folder"></i><span>Projects</span></a>
@@ -138,36 +149,36 @@
 <div class="page-container">
 
 <!-- HERO SECTION -->
-<section class="hero">
+<section class="hp-hero" aria-labelledby="heroTitle">
 
-    <div class="hero-left reveal">
-        <p class="hero-subtitle">Information Technology Student | Aspiring Full-Stack Web Developer</p>
+    <div class="hp-hero__content reveal">
+        <p class="hp-badge">
+            <span class="hp-badge__dot" aria-hidden="true"></span>
+            <span data-i18n="home.badge.open">Open to internship opportunities</span>
+        </p>
 
-        <h1 class="hero-title">
-            Pich <span class="highlight">Chanthorn</span>
-        </h1>
+        <p class="hp-eyebrow">Information Technology Student | Aspiring Full-Stack Web Developer</p>
 
-        <h2 class="hero-role">
-            Building secure, modern, and user-focused web applications
-        </h2>
+        <h1 class="hp-title" id="heroTitle">Pich <span class="hp-title__accent">Chanthorn</span></h1>
 
-        <p class="hero-text">
+        <p class="hp-lead">Building secure, modern, and user-focused web applications</p>
+
+        <p class="hp-text">
             I design and build clean, responsive products for real-world use, from frontend interfaces to full-stack web systems with reliable architecture and maintainable code.
         </p>
 
-        <p class="hero-text hero-text-secondary">
+        <p class="hp-text hp-text--secondary">
             I am currently seeking internship opportunities where I can contribute, keep learning fast, and deliver practical solutions for teams and users.
         </p>
 
-        <div class="hero-buttons">
-            <a href="pages/projects.html" class="btn primary" aria-label="View projects"><i data-lucide="arrow-right"></i><span>View Projects</span></a>
-            <a href="pages/cv.html" class="btn outline" aria-label="View CV"><i data-lucide="download"></i><span>View CV</span></a>
-            <a href="pages/contact.html" class="btn ghost" aria-label="Contact me"><i data-lucide="mail"></i><span>Contact Me</span></a>
+        <div class="hp-actions">
+            <a href="pages/projects.html" class="hp-btn hp-btn--primary"><span data-i18n="home.cta.projects">View Projects</span><i data-lucide="arrow-right"></i></a>
+            <a href="pages/contact.html" class="hp-btn hp-btn--secondary"><i data-lucide="mail"></i><span data-i18n="home.cta.contactMe">Contact Me</span></a>
+            <a href="pages/cv.html" class="hp-link"><i data-lucide="file-text"></i><span data-i18n="home.cta.cv">View CV</span></a>
         </div>
     </div>
 
-    <div class="hero-right reveal">
-        <div class="hero-visual-panel" aria-hidden="true"></div>
+    <div class="hp-hero__visual reveal">
         <div class="avatar-ring">
             <div class="avatar-inner" id="avatarInner">
                 <img src="assets/img/profile/profile.png" alt="Portrait of Pich Chanthorn" class="avatar-img avatar-img--default" width="640" height="640" decoding="async" fetchpriority="high" />
@@ -175,81 +186,203 @@
                 <div class="avatar-pixel-grid" id="avatarPixelGrid" aria-hidden="true"></div>
             </div>
         </div>
-        <div class="hero-badge">
-            <span class="hero-badge__dot" aria-hidden="true"></span>
-            <span>Open to internship opportunities</span>
-        </div>
     </div>
 
     <!-- METRICS -->
-    <div class="hero-metrics reveal" aria-label="Quick stats">
-        <div class="hero-metric">
-            <span class="hero-metric__value"><span class="stat-number" data-target="12" data-fallback="12">12</span><span class="stat-plus">+</span></span>
-            <span class="hero-metric__label"><span data-i18n="home.stat.projects1">Projects</span> <span data-i18n="home.stat.projects2">Completed</span></span>
+    <div class="hp-metrics reveal" role="group" aria-label="Quick stats" data-i18n-aria-label="home.metrics.label">
+        <div class="hp-metric">
+            <span class="hp-metric__value"><span class="stat-number" data-target="12" data-fallback="12">12</span><span class="stat-plus">+</span></span>
+            <span class="hp-metric__label"><span data-i18n="home.stat.projects1">Projects</span> <span data-i18n="home.stat.projects2">Completed</span></span>
         </div>
-        <span class="hero-metric__divider" aria-hidden="true"></span>
-        <div class="hero-metric">
-            <span class="hero-metric__value"><span class="stat-number" data-target="10" data-fallback="10">10</span><span class="stat-plus">+</span></span>
-            <span class="hero-metric__label"><span data-i18n="home.stat.certs1">Certifications</span> <span data-i18n="home.stat.certs2">Earned</span></span>
+        <div class="hp-metric">
+            <span class="hp-metric__value"><span class="stat-number" data-target="10" data-fallback="10">10</span><span class="stat-plus">+</span></span>
+            <span class="hp-metric__label"><span data-i18n="home.stat.certs1">Certifications</span> <span data-i18n="home.stat.certs2">Earned</span></span>
         </div>
-        <span class="hero-metric__divider" aria-hidden="true"></span>
-        <div class="hero-metric">
-            <span class="hero-metric__value"><span class="stat-number" data-target="2" data-fallback="2">2</span><span class="stat-suffix">nd</span></span>
-            <span class="hero-metric__label"><span data-i18n="home.stat.rank1">Outstanding Student</span> <span data-i18n="home.stat.rank2">in IT, BBU</span></span>
+        <div class="hp-metric">
+            <span class="hp-metric__value">2<span class="hp-metric__suffix">nd</span></span>
+            <span class="hp-metric__label"><span data-i18n="home.stat.rank1">Outstanding Student</span> <span data-i18n="home.stat.rank2">in IT, BBU</span></span>
         </div>
     </div>
 
 </section>
 
-<section class="home-contact reveal" aria-labelledby="homeContactTitle">
-    <div class="home-contact__intro">
-        <p class="home-contact__eyebrow">Let's Connect</p>
-        <h2 id="homeContactTitle" class="home-contact__title">Open to internship and junior developer opportunities</h2>
-        <p class="home-contact__text">If you are hiring or looking for a reliable teammate for web development projects, I would be glad to connect.</p>
-        <div class="home-contact__actions">
-            <a href="pages/contact.html" class="btn primary" data-i18n="home.startConversation">Start a Conversation</a>
-            <a href="mailto:pich_chanthorn@pp.bbu.edu.kh" class="btn outline" data-i18n="home.emailMe">Email Me</a>
+<!-- FEATURED PROJECTS -->
+<section class="hp-section hp-projects reveal" aria-labelledby="featuredTitle">
+    <header class="hp-section__head">
+        <div>
+            <p class="hp-eyebrow" data-i18n="home.projects.eyebrow">Selected work</p>
+            <h2 class="hp-h2" id="featuredTitle" data-i18n="home.projects.title">Featured Projects</h2>
+        </div>
+        <a href="pages/projects.html" class="hp-link"><span data-i18n="home.projects.viewAll">View all projects</span><i data-lucide="arrow-right"></i></a>
+    </header>
+
+    <div class="hp-project-grid">
+
+        <article class="hp-project">
+            <a class="hp-project__media" href="pages/projects/smart-admin-dashboard.html" tabindex="-1">
+                <img src="assets/img/projects/smart-admin-dashboard.png"
+                     alt="Smart Admin Dashboard admin panel preview with analytics and management modules"
+                     width="1280" height="720" loading="lazy" decoding="async" />
+            </a>
+            <div class="hp-project__body">
+                <h3 class="hp-project__title" id="hpProjectSmartAdmin" data-i18n="projects.card.smartAdmin.title">Smart Admin Dashboard</h3>
+                <p class="hp-project__desc" data-i18n="projects.card.smartAdmin.desc">A secure PHP and MySQL dashboard with authentication, role-based access, and management tools for users, students, products, and profiles.</p>
+                <ul class="hp-tags" role="list" aria-label="Tech Stack" data-i18n-aria-label="projects.techStack">
+                    <li>PHP</li>
+                    <li>MySQL</li>
+                    <li>PDO</li>
+                    <li>Bootstrap 5</li>
+                    <li>Security</li>
+                </ul>
+                <div class="hp-project__actions">
+                    <a href="pages/projects/smart-admin-dashboard.html" class="hp-btn hp-btn--primary hp-btn--sm" aria-describedby="hpProjectSmartAdmin"><span data-i18n="home.projects.details">Details</span><i data-lucide="arrow-right"></i></a>
+                    <a href="https://github.com/pichchanthorn/smart-admin-dashboard" class="hp-btn hp-btn--secondary hp-btn--sm" target="_blank" rel="noopener noreferrer" aria-describedby="hpProjectSmartAdmin"><i data-lucide="git-branch"></i><span>GitHub</span></a>
+                </div>
+            </div>
+        </article>
+
+        <article class="hp-project">
+            <a class="hp-project__media" href="pages/projects/pctn-fertilizer-shop.html" tabindex="-1">
+                <img src="assets/img/projects/pctn-fertilizer-shop.png"
+                     alt="PCTN Fertilizer Shop multi-page business website preview"
+                     width="1280" height="720" loading="lazy" decoding="async" />
+            </a>
+            <div class="hp-project__body">
+                <h3 class="hp-project__title" id="hpProjectPctnShop" data-i18n="projects.card.pctnShop.title">PCTN Fertilizer Shop</h3>
+                <p class="hp-project__desc" data-i18n="projects.card.pctnShop.desc">A modern agriculture business website showcasing products, services, gallery, and contact channels for a Cambodian brand.</p>
+                <ul class="hp-tags" role="list" aria-label="Tech Stack" data-i18n-aria-label="projects.techStack">
+                    <li>Next.js</li>
+                    <li>React</li>
+                    <li>TypeScript</li>
+                    <li>Tailwind CSS</li>
+                    <li>shadcn/ui</li>
+                </ul>
+                <div class="hp-project__actions">
+                    <a href="pages/projects/pctn-fertilizer-shop.html" class="hp-btn hp-btn--primary hp-btn--sm" aria-describedby="hpProjectPctnShop"><span data-i18n="home.projects.details">Details</span><i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </article>
+
+        <article class="hp-project">
+            <a class="hp-project__media" href="pages/projects/youtube-telegram-bot.html" tabindex="-1">
+                <img src="assets/img/projects/youtube-telegram-bot.png"
+                     alt="YouTube Downloader Telegram Bot automation workflow preview"
+                     width="1280" height="720" loading="lazy" decoding="async" />
+            </a>
+            <div class="hp-project__body">
+                <h3 class="hp-project__title" id="hpProjectYoutubeBot" data-i18n="projects.card.youtubeBot.title">YouTube Downloader Telegram Bot</h3>
+                <p class="hp-project__desc" data-i18n="projects.card.youtubeBot.desc">A Python Telegram bot that downloads YouTube videos or audio from simple chat commands using yt-dlp.</p>
+                <ul class="hp-tags" role="list" aria-label="Tech Stack" data-i18n-aria-label="projects.techStack">
+                    <li>Python 3</li>
+                    <li>python-telegram-bot</li>
+                    <li>yt-dlp</li>
+                    <li>Telegram API</li>
+                </ul>
+                <div class="hp-project__actions">
+                    <a href="pages/projects/youtube-telegram-bot.html" class="hp-btn hp-btn--primary hp-btn--sm" aria-describedby="hpProjectYoutubeBot"><span data-i18n="home.projects.details">Details</span><i data-lucide="arrow-right"></i></a>
+                    <a href="https://github.com/pichchanthorn/youtube-downloader-telegram-bot" class="hp-btn hp-btn--secondary hp-btn--sm" target="_blank" rel="noopener noreferrer" aria-describedby="hpProjectYoutubeBot"><i data-lucide="git-branch"></i><span>GitHub</span></a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="hp-section hp-explore reveal" aria-labelledby="exploreTitle">
+    <header class="hp-section__head">
+        <h2 class="hp-h2" id="exploreTitle" data-i18n="home.explore.title">Explore more</h2>
+    </header>
+
+    <div class="hp-explore__grid">
+        <a class="hp-tile" href="pages/about.html">
+            <span class="hp-tile__icon" aria-hidden="true"><i data-lucide="user"></i></span>
+            <span class="hp-tile__body">
+                <span class="hp-tile__title" data-i18n="nav.about">About</span>
+                <span class="hp-tile__desc" data-i18n="home.explore.about.desc">I am an Information Technology student with a strong interest in frontend-focused full-stack web development.</span>
+            </span>
+            <i data-lucide="arrow-up-right" class="hp-tile__arrow" aria-hidden="true"></i>
+        </a>
+
+        <a class="hp-tile" href="pages/skills.html">
+            <span class="hp-tile__icon" aria-hidden="true"><i data-lucide="code"></i></span>
+            <span class="hp-tile__body">
+                <span class="hp-tile__title" data-i18n="nav.skills">Skills</span>
+                <span class="hp-tile__desc" data-i18n="home.explore.skills.desc">Here are the technologies, tools, and AI skills I use to build modern web applications.</span>
+            </span>
+            <i data-lucide="arrow-up-right" class="hp-tile__arrow" aria-hidden="true"></i>
+        </a>
+
+        <a class="hp-tile" href="pages/education.html">
+            <span class="hp-tile__icon" aria-hidden="true"><i data-lucide="graduation-cap"></i></span>
+            <span class="hp-tile__body">
+                <span class="hp-tile__title" data-i18n="nav.education">Education</span>
+                <span class="hp-tile__desc" data-i18n="home.explore.education.desc">Academic overview, coursework progression, and semester performance across my Information Technology journey.</span>
+            </span>
+            <i data-lucide="arrow-up-right" class="hp-tile__arrow" aria-hidden="true"></i>
+        </a>
+
+        <a class="hp-tile" href="pages/certificates.html">
+            <span class="hp-tile__icon" aria-hidden="true"><i data-lucide="award"></i></span>
+            <span class="hp-tile__body">
+                <span class="hp-tile__title" data-i18n="nav.certificates">Certificates</span>
+                <span class="hp-tile__desc" data-i18n="cert.subtitle">Verified credentials, cybersecurity training, academic achievements, and technical learning records.</span>
+            </span>
+            <i data-lucide="arrow-up-right" class="hp-tile__arrow" aria-hidden="true"></i>
+        </a>
+    </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="hp-contact reveal" aria-labelledby="homeContactTitle">
+    <div class="hp-contact__intro">
+        <p class="hp-eyebrow">Let's Connect</p>
+        <h2 id="homeContactTitle" class="hp-h2">Open to internship and junior developer opportunities</h2>
+        <p class="hp-contact__text">If you are hiring or looking for a reliable teammate for web development projects, I would be glad to connect.</p>
+        <div class="hp-contact__actions">
+            <a href="pages/contact.html" class="hp-btn hp-btn--primary" data-i18n="home.startConversation">Start a Conversation</a>
+            <a href="mailto:pich_chanthorn@pp.bbu.edu.kh" class="hp-btn hp-btn--secondary" data-i18n="home.emailMe">Email Me</a>
         </div>
     </div>
 
-    <div class="home-contact__list" aria-label="Primary contact links">
-        <a class="home-contact__item" href="mailto:pich_chanthorn@pp.bbu.edu.kh" aria-label="Email pich_chanthorn@pp.bbu.edu.kh">
-            <span class="home-contact__icon" aria-hidden="true"><i data-lucide="mail"></i></span>
-            <span class="home-contact__meta">
-                <span class="home-contact__label">Email</span>
-                <span class="home-contact__value">pich_chanthorn@pp.bbu.edu.kh</span>
+    <div class="hp-contact__list" role="group" aria-label="Primary contact links" data-i18n-aria-label="home.contact.listLabel">
+        <a class="hp-contact__item" href="mailto:pich_chanthorn@pp.bbu.edu.kh" aria-label="Email pich_chanthorn@pp.bbu.edu.kh" data-i18n-aria-label="home.contact.aria.email">
+            <span class="hp-contact__icon" aria-hidden="true"><i data-lucide="mail"></i></span>
+            <span class="hp-contact__meta">
+                <span class="hp-contact__label" data-i18n="contact.email">Email</span>
+                <span class="hp-contact__value">pich_chanthorn@pp.bbu.edu.kh</span>
             </span>
         </a>
 
-        <a class="home-contact__item" href="https://github.com/pichchanthorn" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-            <span class="home-contact__icon" aria-hidden="true"><i data-lucide="github"></i></span>
-            <span class="home-contact__meta">
-                <span class="home-contact__label">GitHub</span>
-                <span class="home-contact__value">github.com/pichchanthorn</span>
+        <a class="hp-contact__item" href="https://github.com/pichchanthorn" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" data-i18n-aria-label="home.contact.aria.github">
+            <span class="hp-contact__icon" aria-hidden="true"><i data-lucide="git-branch"></i></span>
+            <span class="hp-contact__meta">
+                <span class="hp-contact__label">GitHub</span>
+                <span class="hp-contact__value">github.com/pichchanthorn</span>
             </span>
         </a>
 
-        <a class="home-contact__item" href="https://www.linkedin.com/in/pichchanthorn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-            <span class="home-contact__icon" aria-hidden="true"><i data-lucide="linkedin"></i></span>
-            <span class="home-contact__meta">
-                <span class="home-contact__label">LinkedIn</span>
-                <span class="home-contact__value">linkedin.com/in/pichchanthorn</span>
+        <a class="hp-contact__item" href="https://www.linkedin.com/in/pichchanthorn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" data-i18n-aria-label="home.contact.aria.linkedin">
+            <span class="hp-contact__icon" aria-hidden="true"><i data-lucide="briefcase"></i></span>
+            <span class="hp-contact__meta">
+                <span class="hp-contact__label">LinkedIn</span>
+                <span class="hp-contact__value">linkedin.com/in/pichchanthorn</span>
             </span>
         </a>
 
-        <a class="home-contact__item" href="https://www.facebook.com/chanthornpich.kh1" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
-            <span class="home-contact__icon" aria-hidden="true"><i data-lucide="facebook"></i></span>
-            <span class="home-contact__meta">
-                <span class="home-contact__label">Facebook</span>
-                <span class="home-contact__value">facebook.com/chanthornpich.kh1</span>
+        <a class="hp-contact__item" href="https://www.facebook.com/chanthornpich.kh1" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile" data-i18n-aria-label="home.contact.aria.facebook">
+            <span class="hp-contact__icon" aria-hidden="true"><i data-lucide="users"></i></span>
+            <span class="hp-contact__meta">
+                <span class="hp-contact__label">Facebook</span>
+                <span class="hp-contact__value">facebook.com/chanthornpich.kh1</span>
             </span>
         </a>
 
-        <a class="home-contact__item" href="https://maps.google.com/?q=Phnom+Penh,+Cambodia" target="_blank" rel="noopener noreferrer" aria-label="Location Phnom Penh, Cambodia">
-            <span class="home-contact__icon" aria-hidden="true"><i data-lucide="map-pin"></i></span>
-            <span class="home-contact__meta">
-                <span class="home-contact__label">Location</span>
-                <span class="home-contact__value">Phnom Penh, Cambodia</span>
+        <a class="hp-contact__item" href="https://maps.google.com/?q=Phnom+Penh,+Cambodia" target="_blank" rel="noopener noreferrer" aria-label="Location Phnom Penh, Cambodia" data-i18n-aria-label="home.contact.aria.location">
+            <span class="hp-contact__icon" aria-hidden="true"><i data-lucide="map-pin"></i></span>
+            <span class="hp-contact__meta">
+                <span class="hp-contact__label" data-i18n="contact.location">Location</span>
+                <span class="hp-contact__value" data-i18n="home.contact.location.value">Phnom Penh, Cambodia</span>
             </span>
         </a>
     </div>

@@ -222,6 +222,23 @@
       "home.stat.certs2": "Earned",
       "home.stat.rank1": "Outstanding Student",
       "home.stat.rank2": "in IT, BBU",
+      "home.badge.open": "Open to internship opportunities",
+      "home.metrics.label": "Quick stats",
+      "home.projects.eyebrow": "Selected work",
+      "home.projects.title": "Featured Projects",
+      "home.projects.viewAll": "View all projects",
+      "home.projects.details": "Details",
+      "home.explore.title": "Explore more",
+      "home.explore.about.desc": "I am an Information Technology student with a strong interest in frontend-focused full-stack web development.",
+      "home.explore.skills.desc": "Here are the technologies, tools, and AI skills I use to build modern web applications.",
+      "home.explore.education.desc": "Academic overview, coursework progression, and semester performance across my Information Technology journey.",
+      "home.contact.listLabel": "Primary contact links",
+      "home.contact.aria.email": "Email pich_chanthorn@pp.bbu.edu.kh",
+      "home.contact.aria.github": "GitHub profile",
+      "home.contact.aria.linkedin": "LinkedIn profile",
+      "home.contact.aria.facebook": "Facebook profile",
+      "home.contact.aria.location": "Location Phnom Penh, Cambodia",
+      "home.contact.location.value": "Phnom Penh, Cambodia",
       "about.title1": "About",
       "about.title2": "Me",
       "about.who.title1": "Who I",
@@ -528,6 +545,23 @@
       "home.stat.certs2": "ទទួលបាន",
       "home.stat.rank1": "និស្សិតឆ្នើម",
       "home.stat.rank2": "ជំនាញ IT, BBU",
+      "home.badge.open": "បើកចំហសម្រាប់ឱកាសចុះកម្មសិក្សា",
+      "home.metrics.label": "ស្ថិតិសង្ខេប",
+      "home.projects.eyebrow": "ស្នាដៃដែលបានជ្រើសរើស",
+      "home.projects.title": "គម្រោងសំខាន់ៗ",
+      "home.projects.viewAll": "មើលគម្រោងទាំងអស់",
+      "home.projects.details": "ព័ត៌មានលម្អិត",
+      "home.explore.title": "ស្វែងយល់បន្ថែម",
+      "home.explore.about.desc": "ខ្ញុំជានិស្សិតបច្ចេកវិទ្យាព័ត៌មាន ដែលមានចំណាប់អារម្មណ៍ខ្លាំងចំពោះការអភិវឌ្ឍវេបសាយ Full-Stack ដោយផ្តោតលើ Frontend។",
+      "home.explore.skills.desc": "នេះជាបច្ចេកវិទ្យា ឧបករណ៍ និងជំនាញ AI ដែលខ្ញុំប្រើដើម្បីបង្កើតកម្មវិធីវេបសាយទាន់សម័យ។",
+      "home.explore.education.desc": "ទិដ្ឋភាពទូទៅនៃការសិក្សា វឌ្ឍនភាពមុខវិជ្ជា និងលទ្ធផលតាមឆមាស ក្នុងដំណើរសិក្សាផ្នែកបច្ចេកវិទ្យាព័ត៌មានរបស់ខ្ញុំ។",
+      "home.contact.listLabel": "តំណទំនាក់ទំនងសំខាន់ៗ",
+      "home.contact.aria.email": "អ៊ីមែល pich_chanthorn@pp.bbu.edu.kh",
+      "home.contact.aria.github": "ប្រវត្តិរូប GitHub",
+      "home.contact.aria.linkedin": "ប្រវត្តិរូប LinkedIn",
+      "home.contact.aria.facebook": "ប្រវត្តិរូប Facebook",
+      "home.contact.aria.location": "ទីតាំង ភ្នំពេញ កម្ពុជា",
+      "home.contact.location.value": "ភ្នំពេញ កម្ពុជា",
       "about.title1": "អំពី",
       "about.title2": "ខ្ញុំ",
       "about.who.title1": "តើខ្ញុំជា",
@@ -657,7 +691,7 @@
     "Information Technology Student | Aspiring Full-Stack Web Developer": "និស្សិត IT | អ្នកអភិវឌ្ឍន៍វេបសាយ Full-Stack ដែលមានមហិច្ឆតា",
     "Information Technology Student & Aspiring Full-Stack Web Developer": "និស្សិតបច្ចេកវិទ្យាព័ត៌មាន និងអ្នកអភិវឌ្ឍន៍វេបសាយ Full-Stack ដែលមានមហិច្ឆតា",
     "Building secure, modern, and user-focused web applications": "កសាងកម្មវិធីវេបសាយដែលមានសុវត្ថិភាព ទាន់សម័យ និងផ្តោតលើអ្នកប្រើប្រាស់",
-    "I design and build clean, responsive products for real-world use, from frontend interfaces to full-stack web systems with reliable architecture and maintainable code.": "ខ្ញុំរចនា និងបង្កើតផលិតផលដែលស្អាត ដំណើរការល្អលើគ្រប់ឧបករណ៍ សម្រាប់ការប្រើប្រាស់ជាក់ស្តែង ចាប់ពីផ្នែកខាងមុខ (Frontend) រហូតដល់ប្រព័ន្ធវេបសាយពេញលេញ (Full-Stack) ជាមួយរចនាសម្ព័ន្ធដែលអាចទុកចិត្តបាន និងកូដដែលងាយស្រួលថែទាំ។",
+    "I design and build clean, responsive products for real-world use, from frontend interfaces to full-stack web systems with reliable architecture and maintainable code.": "ខ្ញុំរចនា និងបង្កើតផលិតផលដែលស្អាត ដំណើរការល្អលើគ្រប់ឧបករណ៍ សម្រាប់ការប្រើប្រាស់ជាក់ស្តែង ចាប់ពីផ្នែក Frontend រហូតដល់ Full-Stack ជាមួយរចនាសម្ព័ន្ធដែលអាចទុកចិត្តបាន និងកូដដែលងាយស្រួលថែទាំ។",
     "I am currently seeking internship opportunities where I can contribute, keep learning fast, and deliver practical solutions for teams and users.": "បច្ចុប្បន្ន ខ្ញុំកំពុងស្វែងរកឱកាសចុះកម្មសិក្សា (Internship) ដែលខ្ញុំអាចចូលរួមចំណែក បន្តរៀនសូត្រឱ្យបានរហ័ស និងផ្តល់ដំណោះស្រាយជាក់ស្តែងសម្រាប់ក្រុមការងារ និងអ្នកប្រើប្រាស់។",
     "Internship-ready portfolio": "ផតហ្វូលីយ៉ូដែលត្រៀមខ្លួនសម្រាប់ចុះកម្មសិក្សា",
     "Let's Connect": "តោះទាក់ទងគ្នា",
@@ -879,10 +913,10 @@
       setI18nAttribute(roleElement, roleText.includes("IT Student") ? "role.student" : "role.fullstack");
     }
 
-    setI18nAttribute(document.querySelector(".hero-subtitle"), "home.welcome");
-    setI18nAttribute(document.querySelector(".hero-buttons .btn.primary span"), "home.cta.projects");
-    setI18nAttribute(document.querySelector(".hero-buttons .btn.outline span"), "home.cta.cv");
-    setI18nAttribute(document.querySelector(".hero-buttons .btn.ghost span"), "home.cta.contactMe");
+    // Homepage hero copy and CTAs carry their own explicit data-i18n keys in
+    // index.html. The previous class-based bindings here overwrote the hero
+    // eyebrow with "Welcome to my portfolio" and tied CTA labels to button
+    // styling classes, so they were removed.
 
     setI18nAttribute(document.querySelector(".contact-page .subtitle"), "contact.subtitle");
     const contactLabels = [...document.querySelectorAll(".contact-card .contact-label")];
