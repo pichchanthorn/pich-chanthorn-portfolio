@@ -61,6 +61,17 @@ Use an HTTP server rather than opening `index.html` directly via `file://` — s
 
 Design tokens (colors, spacing, radii, shadows) are defined once in `base.css` and consumed throughout `components.css`/`pages.css`/`responsive.css`; `theme-switcher.css` overrides the same token names for the light theme rather than introducing a parallel set.
 
+### Opt-in design system (`ds.css`, `body.ds`)
+
+`assets/css/ds.css` carries the approved homepage look (black/slate canvas, `#141414` surfaces, purple `#AB4EFF` and blue `#3280FF` accents, Roboto for Latin text) to inner pages one page at a time. It is **opt-in**: a page adopts it by setting `<body class="ds">` and linking `ds.css` (plus the Roboto stylesheet) after `main.css`. Every rule is scoped under `body.ds`, so pages that do not opt in render exactly as before. It is deliberately not `@import`ed from `main.css`.
+
+- **Tokens:** `--ds-*` custom properties on `body.ds` (dark default, with `html[data-theme="light"]` and system-light variants). They mirror the `--hp-*` values in `home.css`; `home.css` is scoped to `body.page-home` and cannot be shared, so keep the two sets in step until they are merged.
+- **Scope:** page content only (canvas, typography, page header, footer, and the components of the opted-in pages). The header — sidebar, nav, menu button, language and theme switchers, and the bar drawn by `body::before/::after` — is **not** restyled and keeps the behaviour from `layout.css`, `responsive.css` and `theme-switcher.css`.
+- **Specificity:** `html body.ds …` is used where a rule must outrank the site-wide card elevation recipe or the light/system overrides in `theme-switcher.css`.
+- **Pilot pages:** `pages/privacy-policy.html`, `pages/blog.html`, `pages/blog/outstanding-student-bbu.html`. The homepage (`home.css`), `pages/cv.html` and `pages/audio-host.html` are separate systems and must not opt in.
+- **Shared classes:** the blog post reuses classes that the project detail pages also use (`.project-detail-*`, `.sidebar-card`, `.section-title-sm`, …). Never change those in `pages.css` for a pilot; add the rule to `ds.css` under `body.ds` instead.
+- **Opting a page in:** add `class="ds"` to `<body>`, add the stylesheet links, then check dark/light/system themes, English and Khmer, and 360–1920px widths before merging.
+
 ## 5. JavaScript Architecture
 
 **Global scripts** (loaded on all 23 shared-design-system pages, in this order): `navigation.js` → `theme-switcher.js` → `main.js`.
