@@ -1,0 +1,702 @@
+/* =========================================================
+   DS.CSS — Opt-in design system for inner pages
+   Loaded after main.css by pages that set <body class="ds">. Every rule
+   is scoped to body.ds, so a page that does not opt in is unaffected.
+
+   Phase 3A pilots: privacy-policy.html, blog.html,
+   blog/outstanding-student-bbu.html.
+
+   What this file does NOT touch: the header (sidebar, nav, menu button,
+   language and theme switchers, and the bar drawn by body::before/::after).
+   Header behaviour stays exactly as defined in layout.css, responsive.css
+   and theme-switcher.css. Everything below styles page content only.
+
+   Tokens mirror the approved homepage values in home.css (--hp-*) under a
+   --ds-* prefix, because home.css is scoped to body.page-home and cannot be
+   shared. Keep both token sets in step until a later phase merges them.
+
+   Palette: purple #AB4EFF, blue #3280FF, background #000000, elevated
+   surface #141414, white text, muted gray secondary text.
+   Contrast notes (WCAG 2.2 AA, measured from these exact values):
+     - #A1A1AA on #000 / #141414 ... 8.19:1 / 7.19:1  (muted text)
+     - #C07DFF on #000 / #141414 ... 7.62:1 / 6.68:1  (small accent text)
+     - #71717A on #000 ........... 4.35:1             (control outlines, >= 3:1)
+     - black on #AB4EFF .......... 5.27:1             (filled badge label)
+   Brand purple is used for fills and large text; a lighter tint is used
+   for small accent text so it stays >= 4.5:1.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. Tokens (dark default; light and system-light below)
+   --------------------------------------------------------- */
+body.ds {
+    --ds-purple: #ab4eff;
+    --ds-blue: #3280ff;
+    --ds-bg: #000000;
+    --ds-surface: #141414;
+    --ds-surface-2: #1c1c1e;
+    --ds-text: #ffffff;
+    --ds-muted: #a1a1aa;
+    --ds-accent-text: #c07dff;
+    --ds-border: rgba(255, 255, 255, 0.1);
+    --ds-border-strong: #71717a;
+    --ds-focus: #ffffff;
+    --ds-btn-bg: #ab4eff;
+    --ds-btn-text: #000000;
+    --ds-active-bg: rgba(171, 78, 255, 0.18);
+    --ds-active-border: rgba(171, 78, 255, 0.5);
+    --ds-glow-soft: rgba(171, 78, 255, 0.14);
+    --ds-glow-blue: rgba(50, 128, 255, 0.1);
+    --ds-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 18px 40px -24px rgba(0, 0, 0, 0.8);
+    --ds-shadow-hover: 0 1px 2px rgba(0, 0, 0, 0.5), 0 24px 48px -20px rgba(171, 78, 255, 0.45);
+
+    --ds-radius-sm: 12px;
+    --ds-radius-md: 16px;
+    --ds-radius-lg: 24px;
+    --ds-gutter: clamp(16px, 4vw, 48px);
+    --ds-font: "Roboto", "Kantumruy Pro", "Noto Sans Khmer", "Khmer OS System", "Segoe UI", sans-serif;
+    --ds-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+    background: var(--ds-bg);
+    color: var(--ds-text);
+}
+
+html[data-theme="light"] body.ds {
+    --ds-bg: #f8fafc;
+    --ds-surface: #ffffff;
+    --ds-surface-2: #f1f5f9;
+    --ds-text: #0f172a;
+    --ds-muted: #475569;
+    --ds-accent-text: #6d28d9;
+    --ds-border: rgba(15, 23, 42, 0.12);
+    --ds-border-strong: #64748b;
+    --ds-focus: #6d28d9;
+    --ds-active-bg: rgba(109, 40, 217, 0.1);
+    --ds-active-border: rgba(109, 40, 217, 0.4);
+    --ds-glow-soft: rgba(171, 78, 255, 0.1);
+    --ds-glow-blue: rgba(50, 128, 255, 0.07);
+    --ds-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 18px 36px -24px rgba(15, 23, 42, 0.2);
+    --ds-shadow-hover: 0 1px 2px rgba(15, 23, 42, 0.06), 0 24px 44px -20px rgba(109, 40, 217, 0.35);
+}
+
+@media (prefers-color-scheme: light) {
+    html[data-theme="system"] body.ds {
+        --ds-bg: #f8fafc;
+        --ds-surface: #ffffff;
+        --ds-surface-2: #f1f5f9;
+        --ds-text: #0f172a;
+        --ds-muted: #475569;
+        --ds-accent-text: #6d28d9;
+        --ds-border: rgba(15, 23, 42, 0.12);
+        --ds-border-strong: #64748b;
+        --ds-focus: #6d28d9;
+        --ds-active-bg: rgba(109, 40, 217, 0.1);
+        --ds-active-border: rgba(109, 40, 217, 0.4);
+        --ds-glow-soft: rgba(171, 78, 255, 0.1);
+        --ds-glow-blue: rgba(50, 128, 255, 0.07);
+        --ds-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 18px 36px -24px rgba(15, 23, 42, 0.2);
+        --ds-shadow-hover: 0 1px 2px rgba(15, 23, 42, 0.06), 0 24px 44px -20px rgba(109, 40, 217, 0.35);
+    }
+}
+
+/* ---------------------------------------------------------
+   2. Canvas & typography (page content only, not the header)
+   Roboto leads for Latin glyphs. Roboto has no Khmer glyphs, so Khmer
+   text falls through to Kantumruy Pro exactly as on the rest of the site.
+   The "html body.ds" prefix outranks the light/system overrides that
+   theme-switcher.css applies to .main, .highlight and the card shadows.
+   --------------------------------------------------------- */
+html body.ds .main {
+    padding-left: var(--ds-gutter);
+    padding-right: var(--ds-gutter);
+    background:
+        radial-gradient(ellipse 60% 38% at 88% 0%, var(--ds-glow-soft), transparent 70%),
+        radial-gradient(ellipse 50% 32% at 0% 30%, var(--ds-glow-blue), transparent 70%),
+        var(--ds-bg);
+    background-size: 100% 100%;
+    color: var(--ds-text);
+}
+
+/* Drop the legacy dot-grid overlay; the homepage canvas has none. */
+body.ds .main::before {
+    content: none;
+}
+
+body.ds .main,
+body.ds .main :is(h1, h2, h3, p, li, a, span, div, figure, figcaption, strong, time) {
+    font-family: var(--ds-font);
+}
+
+body.ds .main code {
+    font-family: var(--ds-mono);
+}
+
+body.ds .page-container {
+    max-width: 1200px;
+}
+
+body.ds :is(.legal-page, .project-detail-page) {
+    max-width: 1120px;
+}
+
+/* ---------------------------------------------------------
+   3. Focus (visible, >= 3:1 against both bg and surface)
+   Scoped to .main so header focus styling is untouched.
+   --------------------------------------------------------- */
+body.ds .main :is(a, button, [tabindex]):focus-visible {
+    outline: 3px solid var(--ds-focus);
+    outline-offset: 3px;
+}
+
+/* The cover link fills a clipped card, so draw its ring inside. */
+body.ds .main .blog-card__cover:focus-visible {
+    outline-offset: -3px;
+    border-radius: 0;
+}
+
+/* ---------------------------------------------------------
+   4. Page header (all three pages)
+   --------------------------------------------------------- */
+body.ds .page-header {
+    padding-top: clamp(32px, 5vw, 64px);
+    padding-bottom: 0;
+    margin-bottom: 24px;
+}
+
+body.ds .page-header .title,
+body.ds .project-detail-title {
+    font-size: clamp(2rem, 4.4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ds-text);
+    text-wrap: balance;
+}
+
+body.ds .main .highlight {
+    color: var(--ds-accent-text);
+}
+
+body.ds .page-header .title::after {
+    width: 56px;
+    height: 3px;
+    margin-top: 16px;
+    background: linear-gradient(90deg, var(--ds-purple), var(--ds-blue));
+}
+
+body.ds .page-header .subtitle,
+body.ds .project-detail-subtitle {
+    max-width: 70ch;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ds-muted);
+}
+
+body.ds .page-header .subtitle {
+    margin-top: 16px;
+}
+
+/* ---------------------------------------------------------
+   5. Footer
+   --------------------------------------------------------- */
+body.ds .site-footer {
+    margin-top: clamp(56px, 8vw, 96px);
+    padding: 32px 0 40px;
+    border-top: 1px solid var(--ds-border);
+    font-size: 0.875rem;
+    color: var(--ds-muted);
+}
+
+body.ds .site-footer .footer-link:hover,
+body.ds .site-footer .footer-link:focus-visible {
+    color: var(--ds-text);
+}
+
+/* ---------------------------------------------------------
+   6. Privacy policy (legal pages)
+   --------------------------------------------------------- */
+body.ds .legal-updated {
+    margin-top: 20px;
+    padding: 6px 14px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-color: var(--ds-active-border);
+    background: var(--ds-active-bg);
+    color: var(--ds-accent-text);
+}
+
+body.ds .legal-layout {
+    gap: 24px;
+    margin-top: 32px;
+}
+
+body.ds .legal-toc,
+body.ds .legal-content {
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-lg);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow);
+}
+
+body.ds .legal-toc {
+    /* Sit below the fixed header bar instead of sliding under it. */
+    top: calc(var(--navbar-height) + 24px);
+    max-height: calc(100vh - var(--navbar-height) - 48px);
+    overflow-y: auto;
+    padding: 20px;
+}
+
+body.ds .legal-toc-title {
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ds-muted);
+}
+
+body.ds .legal-toc-list a {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: var(--ds-radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ds-muted);
+}
+
+body.ds .legal-toc-list a:hover,
+body.ds .legal-toc-list a:focus-visible {
+    background: var(--ds-surface-2);
+    color: var(--ds-text);
+}
+
+body.ds .legal-content {
+    padding: clamp(24px, 3.4vw, 40px);
+    gap: 28px;
+}
+
+body.ds .legal-section h2 {
+    margin-bottom: 12px;
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ds-text);
+    scroll-margin-top: calc(var(--navbar-height) + 24px);
+}
+
+body.ds .legal-section h3 {
+    margin: 20px 0 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ds-text);
+}
+
+body.ds .legal-section h3:first-of-type {
+    margin-top: 4px;
+}
+
+body.ds .legal-section :is(p, li) {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ds-muted);
+}
+
+body.ds .legal-section :is(li strong, p strong) {
+    color: var(--ds-text);
+}
+
+body.ds .legal-section code {
+    background: var(--ds-surface-2);
+    border-color: var(--ds-border);
+    color: var(--ds-accent-text);
+}
+
+body.ds .legal-section a {
+    color: var(--ds-accent-text);
+    font-weight: 500;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+body.ds .legal-section a:hover {
+    color: var(--ds-text);
+}
+
+body.ds .legal-divider {
+    border-top-color: var(--ds-border);
+}
+
+/* ---------------------------------------------------------
+   7. Blog index
+   Card shadows use "html body.ds" so they outrank the site-wide card
+   elevation recipe (and its light/system variants) in theme-switcher.css.
+   --------------------------------------------------------- */
+body.ds .blog-grid {
+    gap: 24px;
+    margin-top: 32px;
+}
+
+html body.ds .blog-card {
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-lg);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow);
+}
+
+html body.ds .blog-card.featured {
+    border-left: 1px solid var(--ds-border);
+}
+
+html body.ds .blog-card:hover {
+    transform: none;
+    border-color: var(--ds-purple);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow-hover);
+}
+
+body.ds .blog-card__cover {
+    border-bottom: 1px solid var(--ds-border);
+    background: var(--ds-surface-2);
+}
+
+body.ds .blog-card.featured .blog-card__cover {
+    height: clamp(200px, 28vw, 320px);
+}
+
+body.ds .blog-card__body,
+body.ds .blog-card.featured .blog-card__body {
+    padding: clamp(20px, 3vw, 32px);
+}
+
+body.ds .blog-card__icon {
+    color: var(--ds-accent-text);
+}
+
+body.ds .blog-card__tag {
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border-color: var(--ds-active-border);
+    background: var(--ds-active-bg);
+    color: var(--ds-accent-text);
+}
+
+body.ds .blog-card__date {
+    font-family: var(--ds-font);
+    font-size: 0.8125rem;
+    letter-spacing: 0;
+    color: var(--ds-muted);
+}
+
+body.ds .blog-card__title,
+body.ds .blog-card.featured .blog-card__title {
+    font-family: var(--ds-font);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--ds-text);
+}
+
+body.ds .blog-card.featured .blog-card__title {
+    font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+}
+
+body.ds .blog-card__title-link:hover,
+body.ds .blog-card__title-link:focus-visible {
+    color: var(--ds-accent-text);
+}
+
+body.ds .blog-card__desc,
+body.ds .blog-card.featured .blog-card__desc {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ds-muted);
+}
+
+body.ds .blog-card__footer {
+    border-top: 1px solid var(--ds-border);
+}
+
+body.ds .blog-card__readtime {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--ds-muted);
+}
+
+body.ds .blog-card__readtime i {
+    color: var(--ds-accent-text);
+}
+
+body.ds .blog-card__share-link {
+    width: 36px;
+    height: 36px;
+    border-color: var(--ds-border-strong);
+    border-radius: var(--radius-pill);
+    color: var(--ds-muted);
+}
+
+body.ds .blog-card__share-link:hover,
+body.ds .blog-card__share-link:focus-visible {
+    border-color: var(--ds-purple);
+    background: var(--ds-active-bg);
+    color: var(--ds-text);
+}
+
+/* ---------------------------------------------------------
+   8. Blog post (shares classes with the project detail pages;
+   nothing here applies unless the page opts in with body.ds)
+   --------------------------------------------------------- */
+body.ds .breadcrumb-link {
+    min-height: 44px;
+    margin-top: clamp(24px, 4vw, 48px);
+    margin-bottom: 16px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--ds-muted);
+}
+
+body.ds .breadcrumb-link:hover {
+    color: var(--ds-text);
+}
+
+body.ds .project-detail-header {
+    margin-bottom: 24px;
+}
+
+body.ds .project-detail-title {
+    margin-bottom: 16px;
+}
+
+body.ds .project-detail-subtitle {
+    margin-bottom: 24px;
+}
+
+body.ds .project-detail-meta {
+    font-size: 0.875rem;
+    color: var(--ds-muted);
+}
+
+body.ds .project-hero-image {
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-lg);
+    background: var(--ds-surface-2);
+    box-shadow: var(--ds-shadow);
+}
+
+body.ds .post-hero-image {
+    background: var(--ds-surface-2);
+}
+
+body.ds .project-detail-layout {
+    gap: clamp(24px, 3vw, 40px);
+}
+
+body.ds .project-detail-sidebar {
+    gap: 24px;
+}
+
+body.ds .section-title,
+body.ds .section-title-sm {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ds-text);
+}
+
+body.ds .section-title {
+    font-size: 1.5rem;
+}
+
+body.ds .section-title-sm {
+    font-size: 1.25rem;
+}
+
+body.ds .section-title-sm i {
+    color: var(--ds-accent-text);
+}
+
+body.ds .project-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ds-muted);
+}
+
+body.ds .project-text strong {
+    color: var(--ds-text);
+}
+
+body.ds .achievement-item {
+    align-items: flex-start;
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-md);
+    background: var(--ds-surface);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--ds-text);
+}
+
+body.ds .achievement-badge {
+    margin-top: 1px;
+    background: var(--ds-btn-bg);
+    color: var(--ds-btn-text);
+    font-weight: 700;
+}
+
+body.ds .post-gallery {
+    gap: 16px;
+}
+
+body.ds .post-gallery figure {
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-md);
+    background: var(--ds-surface);
+}
+
+body.ds .post-gallery img {
+    height: 180px;
+}
+
+body.ds .post-gallery figcaption {
+    padding: 10px 12px;
+    font-size: 0.8125rem;
+    color: var(--ds-muted);
+}
+
+/* Sidebar cards are static containers, so they do not lift on hover. */
+html body.ds .sidebar-card,
+html body.ds .sidebar-card:hover {
+    padding: 20px 22px;
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-lg);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transform: none;
+}
+
+body.ds .sidebar-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ds-text);
+}
+
+body.ds .sidebar-card .tag {
+    padding: 4px 12px;
+    border: 1px solid var(--ds-active-border);
+    background: var(--ds-active-bg);
+    color: var(--ds-accent-text);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transform: none;
+}
+
+body.ds .main .btn.ghost {
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid var(--ds-border-strong);
+    border-radius: var(--ds-radius-sm);
+    background: transparent;
+    box-shadow: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--ds-text);
+}
+
+body.ds .main .btn.ghost:hover {
+    border-color: var(--ds-purple);
+    background: var(--ds-surface-2);
+    color: var(--ds-text);
+    transform: none;
+}
+
+body.ds .main .btn.ghost:hover i {
+    color: inherit;
+    transform: none;
+}
+
+body.ds .other-projects {
+    gap: 8px;
+    font-size: 0.9375rem;
+    color: var(--ds-muted);
+}
+
+body.ds .other-projects .dot {
+    background: var(--ds-purple);
+}
+
+body.ds .other-projects a {
+    display: inline-block;
+    padding: 4px 0;
+    line-height: 1.5;
+}
+
+body.ds .other-projects a:hover {
+    color: var(--ds-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---------------------------------------------------------
+   9. Motion — hover lift only when the visitor has not asked for less
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+    html body.ds .blog-card:hover {
+        transform: translateY(-4px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.ds .blog-card:hover .blog-card__cover-img {
+        transform: none;
+    }
+}
+
+/* ---------------------------------------------------------
+   10. Khmer — taller line boxes, no tracking, no forced uppercase.
+   Nothing here has a fixed height, so longer Khmer strings simply grow.
+   --------------------------------------------------------- */
+html[lang="km"] body.ds :is(.page-header .title, .project-detail-title, .blog-card__title, .legal-section h2, .section-title, .section-title-sm) {
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+html[lang="km"] body.ds :is(.page-header .subtitle, .project-detail-subtitle, .project-text, .blog-card__desc, .legal-section :is(p, li), .achievement-item, .post-gallery figcaption) {
+    line-height: 1.9;
+}
+
+html[lang="km"] body.ds :is(.legal-toc-title, .blog-card__tag, .legal-toc-list a, .legal-updated, .main .btn, .tag, .breadcrumb-link) {
+    letter-spacing: 0;
+    line-height: 1.6;
+    text-transform: none;
+}
+
+/* ---------------------------------------------------------
+   11. Responsive
+   --------------------------------------------------------- */
+@media (max-width: 900px) {
+    body.ds .legal-toc {
+        top: auto;
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    body.ds .legal-layout {
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 680px) {
+    body.ds .blog-grid {
+        gap: 20px;
+    }
+
+    body.ds .blog-card__footer {
+        flex-wrap: wrap;
+    }
+
+    body.ds .legal-content {
+        gap: 24px;
+    }
+}
