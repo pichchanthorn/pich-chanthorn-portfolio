@@ -5,6 +5,7 @@
 
    Phase 3A pilots: privacy-policy.html, blog.html,
    blog/outstanding-student-bbu.html.
+   Phase 3B.1: skills.html (section 12).
 
    What this file does NOT touch: the header (sidebar, nav, menu button,
    language and theme switchers, and the bar drawn by body::before/::after).
@@ -699,4 +700,122 @@ html[lang="km"] body.ds :is(.legal-toc-title, .blog-card__tag, .legal-toc-list a
     body.ds .legal-content {
         gap: 24px;
     }
+}
+
+/* ---------------------------------------------------------
+   12. Skills page (Phase 3B.1)
+   Visual restyle only. The reveal and bar animation are driven by
+   ".reveal.active .skill-card" / ".skill-fill" (components.css) and by
+   main.js writing inline widths, so nothing in this section sets opacity,
+   transform, transition, width or --level on .skill-card or .skill-fill.
+   The per-technology bar gradients are kept exactly as defined; the one
+   documented exception is the light-theme boundary ring on .skill-fill
+   below.
+   --------------------------------------------------------- */
+
+/* Desktop only. From 769px the legacy 70px/60px page padding would double
+   up with the ds header and footer spacing. Below 769px it is left alone, so
+   the container keeps its mobile padding (responsive.css) and the title
+   clears the fixed menu button as it does on the Phase 3A pilot pages. */
+@media (min-width: 769px) {
+    body.ds .skills-page {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+body.ds .skills-section {
+    margin-top: clamp(40px, 6vw, 64px);
+}
+
+body.ds .page-header + .skills-section {
+    margin-top: 24px;
+}
+
+body.ds .skills-section .section-heading {
+    margin: 0 0 24px;
+    font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--ds-text);
+    text-wrap: balance;
+}
+
+body.ds .skills-grid .skill-card {
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-md);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+body.ds .skills-grid .skill-card:first-child {
+    border-color: var(--ds-active-border);
+}
+
+body.ds .skills-grid .skill-card:hover {
+    border-color: var(--ds-purple);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow-hover);
+}
+
+body.ds .skills-page .skill-name {
+    color: var(--ds-text);
+}
+
+/* Accent text and muted text use the measured-AA tokens (see header). */
+body.ds .skills-page .skill-badge,
+body.ds .skills-page .skill-percent {
+    border-color: var(--ds-active-border);
+    background: var(--ds-active-bg);
+    color: var(--ds-accent-text);
+}
+
+body.ds .skills-grid .skill-desc {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--ds-muted);
+}
+
+body.ds .skills-grid .skill-card:first-child .skill-desc {
+    font-size: 0.9375rem;
+}
+
+/* Track only. The fill, its width and its gradient are not touched. */
+body.ds .skills-page .skill-bar {
+    background: var(--ds-surface-2);
+    border-color: var(--ds-border-strong);
+}
+
+/* Documented exception: in the light themes the lighter gradient ends
+   (35 of 37) fall to 1.28-2.56:1 against the track (#f1f5f9), below the 3:1
+   wanted for the fill's edge to stand out. The gradient colours are
+   unchanged; a 1px inset ring (#64748b, 4.34:1 on the track) marks the fill
+   boundary. Measured on rendered pixels the ring is about 3.5:1 or better
+   at the centre row of every bar. On the rounded end cap (rows near the top
+   and bottom of the bar) anti-aliasing and the ::after glow lower it to
+   about 2.6:1, so the ring clearly improves the boundary but does not reach
+   3:1 on every pixel of the cap. box-shadow does not affect layout, width,
+   opacity, transform or the animation. Dark already passes (every gradient
+   end >= 3:1 on the track). */
+html[data-theme="light"] body.ds .skills-page .skill-fill {
+    box-shadow: inset 0 0 0 1px var(--ds-border-strong);
+}
+
+@media (prefers-color-scheme: light) {
+    html[data-theme="system"] body.ds .skills-page .skill-fill {
+        box-shadow: inset 0 0 0 1px var(--ds-border-strong);
+    }
+}
+
+/* Khmer — taller line boxes, no tracking. */
+html[lang="km"] body.ds :is(.skills-section .section-heading, .skills-page .skill-name, .skills-page .skill-label) {
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+html[lang="km"] body.ds .skills-grid .skill-desc {
+    line-height: 1.9;
 }
