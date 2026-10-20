@@ -819,3 +819,285 @@ html[lang="km"] body.ds :is(.skills-section .section-heading, .skills-page .skil
 html[lang="km"] body.ds .skills-grid .skill-desc {
     line-height: 1.9;
 }
+
+/* ---------------------------------------------------------
+   13. About page (Phase 3B.2)
+   Visual restyle only. Not touched here, on purpose:
+   - the marquee: animation-*, the inline per-track duration, track gap,
+     pill padding, white-space, width, mask, reverse direction, hover pause
+     and the reduced-motion rule all stay as defined in pages.css. The loop
+     moves by -50% of the track width, so any change to gap or pill padding
+     would shift the seam. Pills only get new colours.
+   - .reveal opacity / transform / transition (activated by main.js).
+   - hover lift on cards: legacy translateY and the card-elevation recipe in
+     theme-switcher.css are kept; only colours and shadows are restyled.
+   - the fixed white circle behind the brand logos in .tech-pill-icon and the
+     inline brand colours on the SVGs (a dark logo needs a light backing).
+   Card shadows use "html body.ds" to outrank the elevation recipe and its
+   light/system variants.
+   --------------------------------------------------------- */
+body.ds {
+    --ds-btn-bg-hover: #bf73ff;
+}
+
+/* Frame. The ds container is 1200px; About keeps its 1120px width. */
+body.ds .about-page {
+    max-width: 1120px;
+}
+
+/* At <=768px the hero card starts at y=43px, above the bottom of the fixed
+   menu button (56px). Extra top padding gives it >= 16px of clearance, as the
+   pilots get from their page header. Desktop spacing is unchanged. */
+@media (max-width: 768px) {
+    body.ds .about-page {
+        padding-top: 3.25rem;
+    }
+}
+
+/* Hero */
+body.ds .about-hero {
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-lg);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow);
+}
+
+body.ds .about-hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ds-accent-text);
+}
+
+body.ds .about-hero .title {
+    font-size: clamp(2rem, 4.4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ds-text);
+    text-wrap: balance;
+}
+
+body.ds .about-hero-lead {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--ds-muted);
+}
+
+body.ds .about-quick-info li {
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-sm);
+    background: var(--ds-surface-2);
+    font-size: 0.8125rem;
+    color: var(--ds-text);
+}
+
+body.ds .about-quick-info i,
+body.ds .about-hero-note i {
+    color: var(--ds-accent-text);
+}
+
+body.ds .about-hero-visual {
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-md);
+    background: var(--ds-surface-2);
+    box-shadow: none;
+}
+
+body.ds .about-portrait-wrap {
+    border: 1px solid var(--ds-active-border);
+    border-radius: var(--ds-radius-md);
+    background: var(--ds-surface);
+}
+
+body.ds .about-hero-note {
+    border: 1px solid var(--ds-active-border);
+    border-radius: var(--ds-radius-sm);
+    background: var(--ds-active-bg);
+}
+
+body.ds .about-hero-note p {
+    font-size: 0.875rem;
+    color: var(--ds-muted);
+}
+
+/* Section headings (the legacy margin is dropped; the section's flex gap
+   already spaces the heading from its content) */
+body.ds .about-section .section-heading {
+    margin: 0;
+    font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--ds-text);
+    text-wrap: balance;
+}
+
+/* Cards that the elevation recipe also targets */
+html body.ds :is(.about-split-card, .github-activity-card, .about-service-card, .highlight-card) {
+    border: 1px solid var(--ds-border);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow);
+}
+
+html body.ds :is(.about-split-card, .github-activity-card) {
+    border-radius: var(--ds-radius-lg);
+}
+
+html body.ds :is(.about-service-card, .highlight-card) {
+    border-radius: var(--ds-radius-md);
+}
+
+html body.ds .about-service-card:first-child {
+    border-color: var(--ds-active-border);
+}
+
+html body.ds :is(.about-split-card, .github-activity-card, .about-service-card, .highlight-card):hover {
+    border-color: var(--ds-purple);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow-hover);
+}
+
+body.ds .about-split-card p {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--ds-muted);
+}
+
+body.ds .about-service-card h3,
+body.ds .highlight-card h3 {
+    color: var(--ds-text);
+}
+
+body.ds .about-service-card p {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--ds-muted);
+}
+
+body.ds .highlight-card h3 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+body.ds .about-service-card i,
+body.ds .highlight-card i {
+    color: var(--ds-accent-text);
+}
+
+/* Marquee: colours only (see the note at the top of this section) */
+body.ds .tech-category-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ds-text);
+}
+
+body.ds .tech-pill {
+    border-style: solid;
+    border-color: var(--ds-border-strong);
+    background: var(--ds-surface-2);
+    box-shadow: none;
+    color: var(--ds-text);
+}
+
+body.ds .tech-pill:hover {
+    border-color: var(--ds-purple);
+    background: var(--ds-surface-2);
+    box-shadow: none;
+}
+
+/* Values */
+body.ds .values-list li {
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-sm);
+    background: var(--ds-surface);
+    font-size: 0.9375rem;
+    color: var(--ds-text);
+}
+
+body.ds .values-list i {
+    color: var(--ds-accent-text);
+}
+
+/* Call to action */
+body.ds .about-cta {
+    border: 1px solid var(--ds-active-border);
+    border-radius: var(--ds-radius-lg);
+    background:
+        radial-gradient(ellipse 60% 140% at 100% 0%, var(--ds-glow-soft), transparent 70%),
+        var(--ds-surface);
+    box-shadow: var(--ds-shadow);
+}
+
+body.ds .about-cta h2 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ds-text);
+}
+
+body.ds .about-cta p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ds-muted);
+}
+
+/* Buttons. Scoped to .main so the welcome-splash button is untouched, and
+   written to be reused by other pages that opt in. Black on #AB4EFF is 5.27:1.
+   Hover lift (transform) stays as defined in components.css. */
+body.ds .main .btn.primary {
+    min-height: 44px;
+    padding: 10px 20px;
+    border: 1px solid var(--ds-btn-bg);
+    border-radius: var(--ds-radius-sm);
+    background: var(--ds-btn-bg);
+    box-shadow: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--ds-btn-text);
+}
+
+body.ds .main .btn.primary:hover {
+    border-color: var(--ds-btn-bg-hover);
+    background: var(--ds-btn-bg-hover);
+    box-shadow: 0 10px 28px -10px var(--ds-glow-soft);
+    color: var(--ds-btn-text);
+}
+
+body.ds .main .btn.outline {
+    min-height: 44px;
+    padding: 10px 20px;
+    border: 1px solid var(--ds-border-strong);
+    border-radius: var(--ds-radius-sm);
+    background: transparent;
+    box-shadow: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--ds-text);
+}
+
+body.ds .main .btn.outline:hover {
+    border-color: var(--ds-purple);
+    background: var(--ds-surface-2);
+    box-shadow: none;
+    color: var(--ds-text);
+}
+
+body.ds .main :is(.btn.primary, .btn.outline):hover i {
+    color: inherit;
+}
+
+/* Khmer: taller line boxes, no tracking, no forced uppercase. */
+html[lang="km"] body.ds :is(.about-hero .title, .about-section .section-heading, .about-cta h2, .about-service-card h3, .highlight-card h3) {
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+html[lang="km"] body.ds :is(.about-hero-lead, .about-split-card p, .about-service-card p, .about-hero-note p, .about-cta p) {
+    line-height: 1.9;
+}
+
+html[lang="km"] body.ds :is(.about-hero-eyebrow, .about-quick-info li, .values-list li, .tech-category-title) {
+    letter-spacing: 0;
+    line-height: 1.6;
+    text-transform: none;
+}
