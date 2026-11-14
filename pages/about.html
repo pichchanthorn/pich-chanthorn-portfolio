@@ -84,7 +84,7 @@
     <script>!function(){try{var n=performance.getEntriesByType?performance.getEntriesByType("navigation"):[];var t=n.length?n[0].type:"navigate";var r=document.referrer&&new URL(document.referrer).origin===location.origin;if(t==="reload"||(t==="navigate"&&!r)){document.documentElement.setAttribute("data-welcome","pending")}}catch(e){}}();</script>
 </head>
 
-<body class="ds">
+<body class="ds site-nav">
 
 <a class="skip-link" href="#mainContent" data-i18n="skip.toContent">Skip to main content</a>
 
@@ -97,13 +97,13 @@
         <img src="../assets/img/profile/profile.png" class="logo-img" alt="Pich Chanthorn profile picture" />
         <div class="logo-text">
             <p class="logo-name">Pich Chanthorn</p>
-            <p class="role">Information Technology Student & Aspiring Full-Stack Web Developer</p>
+            <p class="role">IT Student & Aspiring Full-Stack Developer</p>
         </div>
     </div>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="Main navigation">
         <a href="../index.html" class="nav-link"><i data-lucide="house"></i><span>Home</span></a>
-        <a href="about.html" class="nav-link active"><i data-lucide="user"></i><span>About</span></a>
+        <a href="about.html" class="nav-link active" aria-current="page"><i data-lucide="user"></i><span>About</span></a>
         <a href="skills.html" class="nav-link"><i data-lucide="code"></i><span>Skills</span></a>
         <a href="projects.html" class="nav-link"><i data-lucide="folder"></i><span>Projects</span></a>
         <a href="blog.html" class="nav-link"><i data-lucide="newspaper"></i><span>Blog</span></a>

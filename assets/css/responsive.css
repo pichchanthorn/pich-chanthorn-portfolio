@@ -1054,18 +1054,19 @@
 }
 
 /* =========================================================
-   Header — drawer layout, 769–1279px (all pages except the homepage)
+   Header — drawer layout, 769–1279px (pages without body.site-nav)
    The ten nav links, language switcher and theme button only fit
    side by side from 1280px. Below that the shared header collapses
    to the menu button + slide-in drawer, exactly as it already does
    at <=768px (the rules below are copies of the <=768px drawer
-   rules above). The homepage keeps its own header rules in
-   home.css, hence the :where(body:not(.page-home)) scope, which
-   adds no specificity.
+   rules above). Pages with body.site-nav (the homepage and every
+   page that has adopted the shared header) get their header from
+   header.css instead, hence the :where(body:not(.site-nav)) scope,
+   which adds no specificity.
    ========================================================= */
 @media (min-width: 769px) and (max-width: 1279px) {
     /* 44px button vertically centred in the slim bar (--navbar-height). */
-    :where(body:not(.page-home)) .menu-btn {
+    :where(body:not(.site-nav)) .menu-btn {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1087,25 +1088,25 @@
         color: var(--menu-btn-icon);
     }
 
-    :where(body:not(.page-home)) .menu-btn:hover {
+    :where(body:not(.site-nav)) .menu-btn:hover {
         border-color: var(--menu-btn-hover-border);
         background: var(--menu-btn-hover-bg);
         box-shadow: var(--menu-btn-hover-shadow);
     }
 
-    :where(body:not(.page-home)) .menu-btn:active {
+    :where(body:not(.site-nav)) .menu-btn:active {
         background: var(--menu-btn-active-bg);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
         transform: translateY(1px);
     }
 
-    :where(body:not(.page-home)) .menu-btn svg {
+    :where(body:not(.site-nav)) .menu-btn svg {
         color: currentColor;
     }
 
     /* Closed drawer is visibility:hidden (not just off-canvas) so its links
        leave the tab order; the visibility delay lets the slide-out finish. */
-    :where(body:not(.page-home)) .sidebar {
+    :where(body:not(.site-nav)) .sidebar {
         position: fixed;
         top: 0;
         left: calc(-1 * min(var(--sidebar-width), 82vw));
@@ -1132,7 +1133,7 @@
         overscroll-behavior: contain;
     }
 
-    :where(body:not(.page-home)) .sidebar.active {
+    :where(body:not(.site-nav)) .sidebar.active {
         left: 0;
         opacity: 1;
         visibility: visible;
@@ -1143,22 +1144,22 @@
     /* Restore the original vertical drawer look for the logo,
        nav, and footer — the top-bar defaults in layout.css are
        for the >768px horizontal navbar only. */
-    :where(body:not(.page-home)) .logo-section {
+    :where(body:not(.site-nav)) .logo-section {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--space-3);
     }
 
-    :where(body:not(.page-home)) .logo-img {
+    :where(body:not(.site-nav)) .logo-img {
         width: 60px;
         height: 60px;
     }
 
-    :where(body:not(.page-home)) .role {
+    :where(body:not(.site-nav)) .role {
         display: block;
     }
 
-    :where(body:not(.page-home)) .nav {
+    :where(body:not(.site-nav)) .nav {
         margin-top: var(--space-8);
         flex-direction: column;
         align-items: stretch;
@@ -1166,7 +1167,7 @@
         overflow-x: visible;
     }
 
-    :where(body:not(.page-home)) .nav-link::before {
+    :where(body:not(.site-nav)) .nav-link::before {
         left: 0;
         bottom: auto;
         top: 50%;
@@ -1176,16 +1177,16 @@
         border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
     }
 
-    :where(body:not(.page-home)) .nav-link:hover::before,
-    :where(body:not(.page-home)) .nav-link.active::before {
+    :where(body:not(.site-nav)) .nav-link:hover::before,
+    :where(body:not(.site-nav)) .nav-link.active::before {
         transform: translateY(-50%) scaleY(1);
     }
 
-    :where(body:not(.page-home)) .nav-link:hover {
+    :where(body:not(.site-nav)) .nav-link:hover {
         transform: translateX(2px);
     }
 
-    :where(body:not(.page-home)) .sidebar-footer {
+    :where(body:not(.site-nav)) .sidebar-footer {
         margin-top: auto;
         padding-top: 18px;
         border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -1194,7 +1195,7 @@
         gap: 0;
     }
 
-    :where(body:not(.page-home)) .lang-switcher {
+    :where(body:not(.site-nav)) .lang-switcher {
         flex-direction: column;
         gap: var(--space-2);
         margin-bottom: var(--space-3);
@@ -1202,7 +1203,7 @@
         border-radius: var(--radius-md);
     }
 
-    :where(body:not(.page-home)) .lang-switcher-label {
+    :where(body:not(.site-nav)) .lang-switcher-label {
         display: block;
         font-size: 11px;
         color: var(--clr-text-subtle);
@@ -1210,13 +1211,13 @@
         text-transform: uppercase;
     }
 
-    :where(body:not(.page-home)) .lang-switcher-buttons {
+    :where(body:not(.site-nav)) .lang-switcher-buttons {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--space-2);
     }
 
-    :where(body:not(.page-home)) .lang-btn {
+    :where(body:not(.site-nav)) .lang-btn {
         width: auto;
         height: 30px;
         padding: 0;
@@ -1226,14 +1227,14 @@
         color: var(--clr-text);
     }
 
-    :where(body:not(.page-home)) .sidebar-copy {
+    :where(body:not(.site-nav)) .sidebar-copy {
         display: block;
     }
 
     /* From 769px pages keep the desktop top offset (--navbar-height),
        so a slim bar sits behind the floating menu and theme buttons
        and page content never runs underneath them. */
-    body:not(.page-home)::before {
+    body:not(.site-nav)::before {
         content: "";
         position: fixed;
         top: 0;
@@ -1246,7 +1247,7 @@
         pointer-events: none;
     }
 
-    body:not(.page-home)::after {
+    body:not(.site-nav)::after {
         content: "Pich Chanthorn";
         position: fixed;
         top: 0;
@@ -1266,31 +1267,31 @@
 }
 
 /* =========================================================
-   Header — bar from 1280px (all pages except the homepage)
+   Header — bar from 1280px (pages without body.site-nav)
    Labels never shrink or clip. From 1280–1599px the same bar is
    compact: icons are dropped and spacing tightened so all ten
    labels plus the language and theme controls fit (English and
    Khmer). From 1600px the full bar with icons fits as before.
    ========================================================= */
 @media (min-width: 1280px) {
-    :where(body:not(.page-home)) .nav-link {
+    :where(body:not(.site-nav)) .nav-link {
         flex-shrink: 0;
     }
 }
 
 @media (min-width: 1280px) and (max-width: 1599px) {
-    :where(body:not(.page-home)) .sidebar {
+    :where(body:not(.site-nav)) .sidebar {
         padding-left: var(--space-11);
         padding-right: calc(var(--space-11) + 36px + var(--space-5));
         gap: var(--space-7);
     }
 
-    :where(body:not(.page-home)) .nav-link {
+    :where(body:not(.site-nav)) .nav-link {
         padding: 8px 10px;
     }
 
-    :where(body:not(.page-home)) .nav-link i,
-    :where(body:not(.page-home)) .nav-link svg {
+    :where(body:not(.site-nav)) .nav-link i,
+    :where(body:not(.site-nav)) .nav-link svg {
         display: none;
     }
 }

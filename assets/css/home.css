@@ -1,7 +1,8 @@
 /* =========================================================
    HOME.CSS — Homepage-only styles
    Loaded only by index.html, after main.css. Every rule is scoped to
-   body.page-home so no other page can be affected.
+   body.page-home so no other page can be affected. The header (bar,
+   nav, drawer, language and theme switchers) is styled in header.css.
 
    Palette (approved): purple #AB4EFF, blue #3280FF, background #000000,
    elevated surface #141414, white text, muted gray secondary text.
@@ -23,8 +24,6 @@
    1. Tokens (dark default)
    --------------------------------------------------------- */
 body.page-home {
-    --navbar-height: 72px;
-
     --hp-purple: #ab4eff;
     --hp-blue: #3280ff;
     --hp-bg: #000000;
@@ -35,7 +34,6 @@ body.page-home {
     --hp-accent-text: #c07dff;
     --hp-border: rgba(255, 255, 255, 0.1);
     --hp-border-strong: #71717a;
-    --hp-header-bg: rgba(0, 0, 0, 0.82);
     --hp-focus: #ffffff;
     --hp-btn-bg: #ab4eff;
     --hp-btn-bg-hover: #bf73ff;
@@ -67,7 +65,6 @@ html[data-theme="light"] body.page-home {
     --hp-accent-text: #6d28d9;
     --hp-border: rgba(15, 23, 42, 0.12);
     --hp-border-strong: #64748b;
-    --hp-header-bg: rgba(255, 255, 255, 0.88);
     --hp-focus: #6d28d9;
     --hp-btn-bg-hover: #bf73ff;
     --hp-active-bg: rgba(109, 40, 217, 0.1);
@@ -88,7 +85,6 @@ html[data-theme="light"] body.page-home {
         --hp-accent-text: #6d28d9;
         --hp-border: rgba(15, 23, 42, 0.12);
         --hp-border-strong: #64748b;
-        --hp-header-bg: rgba(255, 255, 255, 0.88);
         --hp-focus: #6d28d9;
         --hp-btn-bg-hover: #bf73ff;
         --hp-active-bg: rgba(109, 40, 217, 0.1);
@@ -104,19 +100,11 @@ html[data-theme="light"] body.page-home {
    2. Page canvas & typography
    Roboto leads for Latin glyphs. Roboto has no Khmer glyphs, so Khmer
    text falls through to Kantumruy Pro exactly as on the rest of the site.
-   Scoped to the page regions only; the welcome splash keeps its fonts.
+   Scoped to .main only; the header font is set in header.css and the
+   welcome splash keeps its own fonts.
    --------------------------------------------------------- */
-body.page-home :is(.sidebar, .main, .menu-btn, .theme-switcher) {
-    font-family: var(--hp-font);
-}
-
-body.page-home .lang-btn,
-body.page-home .theme-option {
-    font-family: inherit;
-}
-
 body.page-home .main {
-    margin-top: var(--navbar-height);
+    font-family: var(--hp-font);
     padding: 0 var(--hp-gutter);
     background-image:
         radial-gradient(ellipse 60% 38% at 88% 0%, var(--hp-glow-soft), transparent 70%),
@@ -154,421 +142,19 @@ body.page-home .hp-h2 {
 
 /* ---------------------------------------------------------
    3. Focus (visible, >= 3:1 against both bg and surface)
-   Scoped to the page regions so the welcome splash is untouched.
+   Scoped to .main so the welcome splash is untouched; header focus is
+   set in header.css.
    --------------------------------------------------------- */
-body.page-home :is(.sidebar, .main, .theme-switcher) :is(a, button, [tabindex]):focus-visible,
-body.page-home .menu-btn:focus-visible {
+body.page-home .main :is(a, button, [tabindex]):focus-visible {
     outline: 3px solid var(--hp-focus);
     outline-offset: 3px;
 }
 
-/* The shared skip link is parked off-screen but its box-shadow still bleeds
-   into the top-left corner (visible on light backgrounds). Keep the shadow
-   only while the link is actually focused. */
-body.page-home .skip-link:not(:focus):not(:focus-visible) {
-    box-shadow: none;
-}
-
 /* ---------------------------------------------------------
-   4. Header — desktop top bar (>= 1280px)
-   The fixed theme button gets its own right-hand gutter inside the bar,
-   so it can never sit on top of the navigation again.
+   4-5. Header (desktop top bar and drawer) — moved to header.css,
+   scoped to body.site-nav so inner pages can share it. index.html
+   sets both page-home and site-nav.
    --------------------------------------------------------- */
-body.page-home .sidebar {
-    height: var(--navbar-height);
-    padding: 0 calc(var(--hp-gutter) + 56px) 0 var(--hp-gutter);
-    gap: 16px;
-    background: var(--hp-header-bg);
-    border-bottom: 1px solid var(--hp-border);
-    box-shadow: none;
-}
-
-body.page-home .logo-section {
-    gap: 12px;
-}
-
-body.page-home .logo-img {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--hp-border-strong);
-    border-radius: var(--hp-radius-sm);
-}
-
-body.page-home .logo-section:hover .logo-img {
-    border-color: var(--hp-purple);
-}
-
-body.page-home .logo-name {
-    font-size: 1.0625rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--hp-text);
-    white-space: nowrap;
-}
-
-body.page-home .role {
-    color: var(--hp-muted);
-    font-size: 0.8125rem;
-}
-
-body.page-home .sidebar .nav {
-    flex: 1 1 auto;
-    min-width: 0;
-    justify-content: center;
-    gap: 2px;
-    padding: 4px;
-    overflow: visible;
-}
-
-body.page-home .sidebar .nav-link {
-    min-width: 44px;
-    min-height: 44px;
-    padding: 0 12px;
-    gap: 8px;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--hp-muted);
-    background: transparent;
-    box-shadow: none;
-    flex-shrink: 0;
-    transform: none;
-}
-
-body.page-home .sidebar .nav-link::before {
-    content: none;
-}
-
-/* Lucide replaces <i data-lucide> with an <svg>; hide the icon in the bar */
-body.page-home .sidebar .nav-link :is(i, svg) {
-    display: none;
-}
-
-body.page-home .sidebar .nav-link:hover {
-    background: var(--hp-surface-2);
-    color: var(--hp-text);
-    transform: none;
-}
-
-body.page-home .sidebar .nav-link.active,
-body.page-home .sidebar .nav-link[aria-current="page"] {
-    background: var(--hp-active-bg);
-    color: var(--hp-text);
-    font-weight: 700;
-    box-shadow: none;
-}
-
-body.page-home .sidebar-footer {
-    gap: 12px;
-    color: var(--hp-muted);
-}
-
-body.page-home .sidebar .lang-switcher {
-    padding: 3px;
-    gap: 2px;
-    border: 1px solid var(--hp-border-strong);
-    border-radius: 999px;
-    background: var(--hp-surface);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-}
-
-body.page-home .sidebar .lang-btn {
-    height: 40px;
-    min-width: 44px;
-    padding: 0 14px;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    background: transparent;
-    color: var(--hp-muted);
-    font-size: 0.875rem;
-    font-weight: 500;
-    box-shadow: none;
-    transform: none;
-}
-
-body.page-home .sidebar .lang-btn:hover {
-    color: var(--hp-text);
-    border-color: var(--hp-border-strong);
-    box-shadow: none;
-    transform: none;
-}
-
-body.page-home .sidebar .lang-btn.active {
-    background: var(--hp-active-bg);
-    border-color: var(--hp-purple);
-    color: var(--hp-text);
-}
-
-/* Theme switcher — pinned inside the header's reserved gutter */
-body.page-home .theme-switcher {
-    top: calc((var(--navbar-height) - 44px) / 2);
-    right: var(--hp-gutter);
-}
-
-body.page-home .theme-switcher__btn {
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--hp-border-strong);
-    border-radius: var(--hp-radius-sm);
-    background: var(--hp-surface);
-    color: var(--hp-text);
-    box-shadow: none;
-    transform: none;
-}
-
-body.page-home .theme-switcher__btn:hover {
-    border-color: var(--hp-purple);
-    color: var(--hp-accent-text);
-    box-shadow: none;
-    transform: none;
-}
-
-body.page-home .theme-switcher__dropdown {
-    background: var(--hp-surface);
-    border: 1px solid var(--hp-border-strong);
-    border-radius: var(--hp-radius-sm);
-    box-shadow: var(--hp-shadow);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-}
-
-body.page-home .theme-switcher__label {
-    font-size: 0.75rem;
-    color: var(--hp-muted);
-}
-
-body.page-home .theme-option {
-    min-height: 44px;
-    font-size: 0.9375rem;
-    color: var(--hp-text);
-}
-
-body.page-home .theme-option:hover {
-    background: var(--hp-surface-2);
-    color: var(--hp-text);
-}
-
-body.page-home .theme-option.active {
-    background: var(--hp-active-bg);
-    color: var(--hp-text);
-}
-
-body.page-home .theme-option__check {
-    color: var(--hp-accent-text);
-}
-
-/* ---------------------------------------------------------
-   5. Header — drawer mode (<= 1279px)
-   Same behaviour as the shared mobile drawer (.sidebar.active toggled by
-   navigation.js), extended up to 1279px on the homepage: the ten links,
-   language switcher and theme button only fit side by side from 1280px
-   (verified in English and Khmer), so below that they never have to squeeze.
-   --------------------------------------------------------- */
-@media (max-width: 1279px) {
-    body.page-home {
-        --navbar-height: 64px;
-    }
-
-    /* Slim top bar behind the floating menu / theme buttons */
-    body.page-home::before {
-        content: "";
-        position: fixed;
-        inset: 0 0 auto 0;
-        height: var(--navbar-height);
-        background: var(--hp-header-bg);
-        border-bottom: 1px solid var(--hp-border);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        z-index: 4000;
-        pointer-events: none;
-    }
-
-    body.page-home::after {
-        content: "Pich Chanthorn";
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        height: var(--navbar-height);
-        display: flex;
-        align-items: center;
-        font-family: var(--hp-font);
-        font-size: 1.0625rem;
-        font-weight: 700;
-        letter-spacing: -0.01em;
-        color: var(--hp-text);
-        z-index: 4001;
-        pointer-events: none;
-        white-space: nowrap;
-    }
-
-    body.page-home .menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: calc((var(--navbar-height) - 44px) / 2);
-        left: max(var(--hp-gutter), env(safe-area-inset-left));
-        width: 44px;
-        height: 44px;
-        padding: 0;
-        z-index: 6100;
-        background: var(--hp-surface);
-        border: 1px solid var(--hp-border-strong);
-        border-radius: var(--hp-radius-sm);
-        color: var(--hp-text);
-        box-shadow: none;
-        cursor: pointer;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-    }
-
-    body.page-home .menu-btn:hover {
-        border-color: var(--hp-purple);
-        background: var(--hp-surface);
-        box-shadow: none;
-    }
-
-    body.page-home .menu-btn:active {
-        transform: none;
-        background: var(--hp-surface-2);
-    }
-
-    body.page-home .theme-switcher {
-        top: calc((var(--navbar-height) - 44px) / 2);
-        right: max(var(--hp-gutter), env(safe-area-inset-right));
-    }
-
-    body.page-home .theme-switcher__btn {
-        width: 44px;
-        height: 44px;
-    }
-
-    body.page-home .sidebar {
-        position: fixed;
-        top: 0;
-        left: calc(-1 * min(280px, 84vw));
-        width: min(280px, 84vw);
-        height: 100dvh;
-        padding: calc(var(--navbar-height) + 16px) 16px calc(24px + env(safe-area-inset-bottom));
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 0;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-        background: var(--hp-surface);
-        border-right: 1px solid var(--hp-border);
-        border-bottom: none;
-        box-shadow: 12px 0 32px rgba(0, 0, 0, 0.35);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
-        z-index: 5000;
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0s linear 0.3s;
-    }
-
-    body.page-home .sidebar.active {
-        left: 0;
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0s linear 0s;
-    }
-
-    body.page-home .logo-section {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    body.page-home .logo-img {
-        width: 56px;
-        height: 56px;
-    }
-
-    body.page-home .role {
-        display: block;
-        font-size: 0.875rem;
-        line-height: 1.5;
-    }
-
-    body.page-home .sidebar .nav {
-        flex: 0 0 auto;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 4px;
-        margin-top: 24px;
-        padding: 0;
-    }
-
-    body.page-home .sidebar .nav-link {
-        justify-content: flex-start;
-        min-height: 48px;
-        padding: 0 14px;
-        font-size: 1rem;
-    }
-
-    body.page-home .sidebar .nav-link :is(i, svg) {
-        display: inline-block;
-        width: 18px;
-        height: 18px;
-        stroke: currentColor;
-    }
-
-    body.page-home .sidebar-footer {
-        margin-top: auto;
-        padding-top: 20px;
-        border-top: 1px solid var(--hp-border);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
-
-    body.page-home .sidebar .lang-switcher {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        padding: 8px;
-        border-radius: var(--hp-radius-sm);
-    }
-
-    body.page-home .lang-switcher-label {
-        display: block;
-        font-size: 0.8125rem;
-        color: var(--hp-muted);
-    }
-
-    body.page-home .lang-switcher-buttons {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-    }
-
-    body.page-home .sidebar .lang-btn {
-        height: 44px;
-        padding: 0 12px;
-        border-radius: 10px;
-        background: var(--hp-surface-2);
-        border-color: var(--hp-border);
-    }
-
-    body.page-home .sidebar .lang-btn.active {
-        background: var(--hp-active-bg);
-        border-color: var(--hp-purple);
-    }
-
-    body.page-home .sidebar-copy {
-        display: block;
-        font-size: 0.8125rem;
-        color: var(--hp-muted);
-    }
-}
 
 /* ---------------------------------------------------------
    6. Shared homepage controls
@@ -1189,8 +775,6 @@ html.js body.page-home .reveal:not(.active) {
         border-color: var(--hp-purple);
     }
 
-    body.page-home .sidebar,
-    body.page-home .sidebar.active,
     body.page-home .reveal {
         transition: none;
     }
@@ -1337,8 +921,7 @@ html[lang="km"] body.page-home .hp-metric__label {
 html[lang="km"] body.page-home .hp-eyebrow,
 html[lang="km"] body.page-home .hp-badge,
 html[lang="km"] body.page-home .hp-btn,
-html[lang="km"] body.page-home .hp-link,
-html[lang="km"] body.page-home .nav-link {
+html[lang="km"] body.page-home .hp-link {
     letter-spacing: 0;
     line-height: 1.6;
 }

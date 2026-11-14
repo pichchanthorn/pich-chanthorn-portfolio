@@ -1,0 +1,549 @@
+/* =========================================================
+   HEADER.CSS — Shared site header (opt-in)
+   Imported last by main.css. Every rule is scoped to body.site-nav, so a
+   page without that class keeps the legacy header from layout.css,
+   responsive.css and theme-switcher.css.
+
+   Covers the whole header: the bar (.sidebar), logo, nav links, menu
+   button, language and theme switchers, the drawer below 1280px and the
+   slim bar drawn by body::before/::after.
+
+   The homepage header is the source of truth. Its rules were moved here
+   from home.css unchanged apart from the scope (body.page-home ->
+   body.site-nav) and the token prefix (--hp-* -> --hdr-*, with
+   --hp-header-bg renamed --hdr-bar-bg).
+
+   Adopted by: index.html, pages/about.html, pages/projects.html. Other
+   pages keep the legacy header until they add the class, the Roboto
+   stylesheet link and aria-current="page" on their own nav link.
+
+   Tokens mirror the approved homepage values in home.css (--hp-*), which
+   also lists their contrast ratios, and ds.css (--ds-*). Keep the sets in
+   step until a later phase merges them.
+
+   Cascade: loaded after responsive.css and theme-switcher.css, so it wins
+   ties at equal specificity (e.g. body::before/::after). The legacy
+   769-1599px header rules there are scoped to :where(body:not(.site-nav)),
+   so every site-nav page gets exactly the homepage's cascade.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. Tokens (dark default; light and system-light below)
+   --------------------------------------------------------- */
+body.site-nav {
+    --navbar-height: 72px;
+
+    --hdr-purple: #ab4eff;
+    --hdr-surface: #141414;
+    --hdr-surface-2: #1c1c1e;
+    --hdr-text: #ffffff;
+    --hdr-muted: #a1a1aa;
+    --hdr-accent-text: #c07dff;
+    --hdr-border: rgba(255, 255, 255, 0.1);
+    --hdr-border-strong: #71717a;
+    --hdr-bar-bg: rgba(0, 0, 0, 0.82);
+    --hdr-focus: #ffffff;
+    --hdr-active-bg: rgba(171, 78, 255, 0.18);
+    --hdr-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 18px 40px -24px rgba(0, 0, 0, 0.8);
+
+    --hdr-radius-sm: 12px;
+    --hdr-gutter: clamp(16px, 4vw, 48px);
+    --hdr-font: "Roboto", "Kantumruy Pro", "Noto Sans Khmer", "Khmer OS System", "Segoe UI", sans-serif;
+}
+
+html[data-theme="light"] body.site-nav {
+    --hdr-surface: #ffffff;
+    --hdr-surface-2: #f1f5f9;
+    --hdr-text: #0f172a;
+    --hdr-muted: #475569;
+    --hdr-accent-text: #6d28d9;
+    --hdr-border: rgba(15, 23, 42, 0.12);
+    --hdr-border-strong: #64748b;
+    --hdr-bar-bg: rgba(255, 255, 255, 0.88);
+    --hdr-focus: #6d28d9;
+    --hdr-active-bg: rgba(109, 40, 217, 0.1);
+    --hdr-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 18px 36px -24px rgba(15, 23, 42, 0.2);
+}
+
+@media (prefers-color-scheme: light) {
+    html[data-theme="system"] body.site-nav {
+        --hdr-surface: #ffffff;
+        --hdr-surface-2: #f1f5f9;
+        --hdr-text: #0f172a;
+        --hdr-muted: #475569;
+        --hdr-accent-text: #6d28d9;
+        --hdr-border: rgba(15, 23, 42, 0.12);
+        --hdr-border-strong: #64748b;
+        --hdr-bar-bg: rgba(255, 255, 255, 0.88);
+        --hdr-focus: #6d28d9;
+        --hdr-active-bg: rgba(109, 40, 217, 0.1);
+        --hdr-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 18px 36px -24px rgba(15, 23, 42, 0.2);
+    }
+}
+
+/* ---------------------------------------------------------
+   2. Typography
+   Roboto leads for Latin glyphs. Roboto has no Khmer glyphs, so Khmer
+   text falls through to Kantumruy Pro exactly as on the rest of the site.
+   --------------------------------------------------------- */
+body.site-nav :is(.sidebar, .menu-btn, .theme-switcher) {
+    font-family: var(--hdr-font);
+}
+
+body.site-nav .lang-btn,
+body.site-nav .theme-option {
+    font-family: inherit;
+}
+
+/* Header text colour comes from the header's own token, not the page's body
+   colour. Legacy pages set a different body colour, and base.css's
+   a:link { color: inherit } would otherwise hand it to the skip link. */
+body.site-nav :is(.sidebar, .theme-switcher, .skip-link),
+body.site-nav::before,
+body.site-nav::after {
+    color: var(--hdr-text);
+}
+
+/* ---------------------------------------------------------
+   3. Focus (visible, >= 3:1 against both bar and surface)
+   --------------------------------------------------------- */
+body.site-nav :is(.sidebar, .theme-switcher) :is(a, button, [tabindex]):focus-visible,
+body.site-nav .menu-btn:focus-visible {
+    outline: 3px solid var(--hdr-focus);
+    outline-offset: 3px;
+}
+
+/* The shared skip link is parked off-screen but its box-shadow still bleeds
+   into the top-left corner (visible on light backgrounds). Keep the shadow
+   only while the link is actually focused. */
+body.site-nav .skip-link:not(:focus):not(:focus-visible) {
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   4. Header — desktop top bar (>= 1280px)
+   The fixed theme button gets its own right-hand gutter inside the bar,
+   so it can never sit on top of the navigation again.
+   --------------------------------------------------------- */
+body.site-nav .sidebar {
+    height: var(--navbar-height);
+    padding: 0 calc(var(--hdr-gutter) + 56px) 0 var(--hdr-gutter);
+    gap: 16px;
+    background: var(--hdr-bar-bg);
+    border-bottom: 1px solid var(--hdr-border);
+    box-shadow: none;
+}
+
+body.site-nav .logo-section {
+    gap: 12px;
+}
+
+body.site-nav .logo-img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--hdr-border-strong);
+    border-radius: var(--hdr-radius-sm);
+}
+
+body.site-nav .logo-section:hover .logo-img {
+    border-color: var(--hdr-purple);
+}
+
+body.site-nav .logo-name {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--hdr-text);
+    white-space: nowrap;
+}
+
+body.site-nav .role {
+    color: var(--hdr-muted);
+    font-size: 0.8125rem;
+}
+
+body.site-nav .sidebar .nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+    gap: 2px;
+    padding: 4px;
+    overflow: visible;
+}
+
+body.site-nav .sidebar .nav-link {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 12px;
+    gap: 8px;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--hdr-muted);
+    background: transparent;
+    box-shadow: none;
+    flex-shrink: 0;
+    transform: none;
+}
+
+body.site-nav .sidebar .nav-link::before {
+    content: none;
+}
+
+/* Lucide replaces <i data-lucide> with an <svg>; hide the icon in the bar */
+body.site-nav .sidebar .nav-link :is(i, svg) {
+    display: none;
+}
+
+body.site-nav .sidebar .nav-link:hover {
+    background: var(--hdr-surface-2);
+    color: var(--hdr-text);
+    transform: none;
+}
+
+body.site-nav .sidebar .nav-link.active,
+body.site-nav .sidebar .nav-link[aria-current="page"] {
+    background: var(--hdr-active-bg);
+    color: var(--hdr-text);
+    font-weight: 700;
+    box-shadow: none;
+}
+
+body.site-nav .sidebar-footer {
+    gap: 12px;
+    color: var(--hdr-muted);
+}
+
+body.site-nav .sidebar .lang-switcher {
+    padding: 3px;
+    gap: 2px;
+    border: 1px solid var(--hdr-border-strong);
+    border-radius: 999px;
+    background: var(--hdr-surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+body.site-nav .sidebar .lang-btn {
+    height: 40px;
+    min-width: 44px;
+    padding: 0 14px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--hdr-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: none;
+    transform: none;
+}
+
+body.site-nav .sidebar .lang-btn:hover {
+    color: var(--hdr-text);
+    border-color: var(--hdr-border-strong);
+    box-shadow: none;
+    transform: none;
+}
+
+body.site-nav .sidebar .lang-btn.active {
+    background: var(--hdr-active-bg);
+    border-color: var(--hdr-purple);
+    color: var(--hdr-text);
+}
+
+/* Theme switcher — pinned inside the header's reserved gutter */
+body.site-nav .theme-switcher {
+    top: calc((var(--navbar-height) - 44px) / 2);
+    right: var(--hdr-gutter);
+}
+
+body.site-nav .theme-switcher__btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--hdr-border-strong);
+    border-radius: var(--hdr-radius-sm);
+    background: var(--hdr-surface);
+    color: var(--hdr-text);
+    box-shadow: none;
+    transform: none;
+}
+
+body.site-nav .theme-switcher__btn:hover {
+    border-color: var(--hdr-purple);
+    color: var(--hdr-accent-text);
+    box-shadow: none;
+    transform: none;
+}
+
+body.site-nav .theme-switcher__dropdown {
+    background: var(--hdr-surface);
+    border: 1px solid var(--hdr-border-strong);
+    border-radius: var(--hdr-radius-sm);
+    box-shadow: var(--hdr-shadow);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+body.site-nav .theme-switcher__label {
+    font-size: 0.75rem;
+    color: var(--hdr-muted);
+}
+
+body.site-nav .theme-option {
+    min-height: 44px;
+    font-size: 0.9375rem;
+    color: var(--hdr-text);
+}
+
+body.site-nav .theme-option:hover {
+    background: var(--hdr-surface-2);
+    color: var(--hdr-text);
+}
+
+body.site-nav .theme-option.active {
+    background: var(--hdr-active-bg);
+    color: var(--hdr-text);
+}
+
+body.site-nav .theme-option__check {
+    color: var(--hdr-accent-text);
+}
+
+/* ---------------------------------------------------------
+   5. Header — drawer mode (<= 1279px)
+   Same behaviour as the legacy mobile drawer (.sidebar.active toggled by
+   navigation.js), extended up to 1279px: the ten links, language switcher
+   and theme button only fit side by side from 1280px (verified in English
+   and Khmer), so below that they never have to squeeze.
+   --------------------------------------------------------- */
+@media (max-width: 1279px) {
+    body.site-nav {
+        --navbar-height: 64px;
+    }
+
+    /* Slim top bar behind the floating menu / theme buttons */
+    body.site-nav::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: var(--navbar-height);
+        background: var(--hdr-bar-bg);
+        border-bottom: 1px solid var(--hdr-border);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        z-index: 4000;
+        pointer-events: none;
+    }
+
+    body.site-nav::after {
+        content: "Pich Chanthorn";
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: var(--navbar-height);
+        display: flex;
+        align-items: center;
+        font-family: var(--hdr-font);
+        font-size: 1.0625rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--hdr-text);
+        z-index: 4001;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    body.site-nav .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: calc((var(--navbar-height) - 44px) / 2);
+        left: max(var(--hdr-gutter), env(safe-area-inset-left));
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        z-index: 6100;
+        background: var(--hdr-surface);
+        border: 1px solid var(--hdr-border-strong);
+        border-radius: var(--hdr-radius-sm);
+        color: var(--hdr-text);
+        box-shadow: none;
+        cursor: pointer;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    body.site-nav .menu-btn:hover {
+        border-color: var(--hdr-purple);
+        background: var(--hdr-surface);
+        box-shadow: none;
+    }
+
+    body.site-nav .menu-btn:active {
+        transform: none;
+        background: var(--hdr-surface-2);
+    }
+
+    body.site-nav .theme-switcher {
+        top: calc((var(--navbar-height) - 44px) / 2);
+        right: max(var(--hdr-gutter), env(safe-area-inset-right));
+    }
+
+    body.site-nav .theme-switcher__btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    body.site-nav .sidebar {
+        position: fixed;
+        top: 0;
+        left: calc(-1 * min(280px, 84vw));
+        width: min(280px, 84vw);
+        height: 100dvh;
+        padding: calc(var(--navbar-height) + 16px) 16px calc(24px + env(safe-area-inset-bottom));
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background: var(--hdr-surface);
+        border-right: 1px solid var(--hdr-border);
+        border-bottom: none;
+        box-shadow: 12px 0 32px rgba(0, 0, 0, 0.35);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 5000;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0s linear 0.3s;
+    }
+
+    body.site-nav .sidebar.active {
+        left: 0;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0s linear 0s;
+    }
+
+    body.site-nav .logo-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    body.site-nav .logo-img {
+        width: 56px;
+        height: 56px;
+    }
+
+    body.site-nav .role {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    body.site-nav .sidebar .nav {
+        flex: 0 0 auto;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 4px;
+        margin-top: 24px;
+        padding: 0;
+    }
+
+    body.site-nav .sidebar .nav-link {
+        justify-content: flex-start;
+        min-height: 48px;
+        padding: 0 14px;
+        font-size: 1rem;
+    }
+
+    body.site-nav .sidebar .nav-link :is(i, svg) {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+    }
+
+    body.site-nav .sidebar-footer {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 1px solid var(--hdr-border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    body.site-nav .sidebar .lang-switcher {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 8px;
+        border-radius: var(--hdr-radius-sm);
+    }
+
+    body.site-nav .lang-switcher-label {
+        display: block;
+        font-size: 0.8125rem;
+        color: var(--hdr-muted);
+    }
+
+    body.site-nav .lang-switcher-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    body.site-nav .sidebar .lang-btn {
+        height: 44px;
+        padding: 0 12px;
+        border-radius: 10px;
+        background: var(--hdr-surface-2);
+        border-color: var(--hdr-border);
+    }
+
+    body.site-nav .sidebar .lang-btn.active {
+        background: var(--hdr-active-bg);
+        border-color: var(--hdr-purple);
+    }
+
+    body.site-nav .sidebar-copy {
+        display: block;
+        font-size: 0.8125rem;
+        color: var(--hdr-muted);
+    }
+}
+
+/* ---------------------------------------------------------
+   6. Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    body.site-nav .sidebar,
+    body.site-nav .sidebar.active {
+        transition: none;
+    }
+}
+
+/* ---------------------------------------------------------
+   7. Khmer — taller line boxes, no tracking.
+   --------------------------------------------------------- */
+html[lang="km"] body.site-nav .nav-link {
+    letter-spacing: 0;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   8. Page offset — the bar is fixed at every width, so content always
+   starts below it (the legacy <=768px layout sets .main margin-top: 0
+   because it has floating buttons instead of a bar).
+   --------------------------------------------------------- */
+body.site-nav .main {
+    margin-top: var(--navbar-height);
+}
